@@ -27,6 +27,11 @@ function toolshed_import_posts() {
         'snow-blowers' => 'Snow Blowers',
         'chainsaws' => 'Chainsaws',
         'lawn-mowers' => 'Lawn Mowers',
+        'drills' => 'Drills',
+        'saws' => 'Saws',
+        'multi-tools' => 'Multi-Tools',
+        'grinders' => 'Grinders',
+        'sanders' => 'Sanders',
     ];
 
     foreach ($categories as $slug => $name) {

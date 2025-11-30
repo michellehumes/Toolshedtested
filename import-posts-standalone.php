@@ -10,8 +10,9 @@
 // Load WordPress
 require_once(dirname(__FILE__) . '/wp-load.php');
 
-// Security check
-if (!isset($_GET['import_toolshed_posts']) || $_GET['import_toolshed_posts'] !== '1') {
+// Security check - only run if ?import_toolshed_posts=1 is present
+$should_run = isset($_GET['import_toolshed_posts']) && $_GET['import_toolshed_posts'] === '1';
+if (!$should_run) {
     die('Add ?import_toolshed_posts=1 to the URL to run the import.');
 }
 

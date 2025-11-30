@@ -32,6 +32,14 @@ function toolshed_import_posts() {
         'multi-tools' => 'Multi-Tools',
         'grinders' => 'Grinders',
         'sanders' => 'Sanders',
+        'hand-tools' => 'Hand Tools',
+        'welders' => 'Welders',
+        'air-tools' => 'Air Tools',
+        'storage' => 'Tool Storage',
+        'lighting' => 'Work Lights',
+        'woodworking' => 'Woodworking',
+        'shop-vacs' => 'Shop Vacs',
+        'specialty' => 'Specialty Tools',
     ];
 
     foreach ($categories as $slug => $name) {

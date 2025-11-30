@@ -4,19 +4,26 @@
  *
  * All content embedded - no external files needed.
  *
- * Usage with WP-CLI: wp eval-file import-posts-standalone.php
- * Or visit: yoursite.com/?import_toolshed_posts=1 (requires admin)
+ * Usage: Visit yoursite.com/import-posts-standalone.php?import_toolshed_posts=1
  */
 
-// Security check for web access
-if (isset($_GET['import_toolshed_posts']) && $_GET['import_toolshed_posts'] === '1') {
-    if (!current_user_can('manage_options')) {
-        wp_die('Unauthorized access');
-    }
-    toolshed_import_posts();
-    echo '<h1>Posts imported successfully!</h1>';
-    exit;
+// Load WordPress
+require_once(dirname(__FILE__) . '/wp-load.php');
+
+// Security check
+if (!isset($_GET['import_toolshed_posts']) || $_GET['import_toolshed_posts'] !== '1') {
+    die('Add ?import_toolshed_posts=1 to the URL to run the import.');
 }
+
+if (!current_user_can('manage_options')) {
+    wp_die('You must be logged in as admin to run this script.');
+}
+
+// Run the import
+toolshed_import_posts();
+echo '<h1>Posts imported successfully!</h1>';
+echo '<p><a href="' . admin_url('edit.php') . '">View all posts</a></p>';
+exit;
 
 function toolshed_import_posts() {
     $categories = [

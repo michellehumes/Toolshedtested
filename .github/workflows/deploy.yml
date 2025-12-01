@@ -1,0 +1,48 @@
+name: Deploy WordPress Theme
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wp-content/themes/toolshed-tested/**'
+  workflow_dispatch:
+
+env:
+  THEME_PATH: wp-content/themes/toolshed-tested
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Theme to WordPress
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local-dir: ./wp-content/themes/toolshed-tested/
+          server-dir: /public_html/wp-content/themes/toolshed-tested/
+          protocol: ftps
+          port: 21
+
+      - name: Clear WordPress Cache
+        if: success()
+        run: |
+          curl -X POST "${{ secrets.WP_SITE_URL }}/wp-json/toolshed/v1/clear-cache" \
+            -H "Authorization: Bearer ${{ secrets.WP_REST_API_KEY }}" \
+            -H "Content-Type: application/json" || true
+
+      - name: Notify on Success
+        if: success()
+        run: |
+          echo "✅ Theme deployed successfully to ${{ secrets.WP_SITE_URL }}"
+
+      - name: Notify on Failure
+        if: failure()
+        run: |
+          echo "❌ Deployment failed. Check the logs above for details."

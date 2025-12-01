@@ -1,0 +1,87 @@
+{
+  "queue": [
+    {
+      "keyword": "best battery powered lawn mowers 2025",
+      "category": "lawn-mowers",
+      "priority": "high"
+    },
+    {
+      "keyword": "best cordless hedge trimmers",
+      "category": "outdoor",
+      "priority": "high"
+    },
+    {
+      "keyword": "best electric string trimmers weed eaters",
+      "category": "outdoor",
+      "priority": "high"
+    },
+    {
+      "keyword": "best portable air compressors",
+      "category": "power-tools",
+      "priority": "medium"
+    },
+    {
+      "keyword": "best wood router for beginners",
+      "category": "power-tools",
+      "priority": "medium"
+    },
+    {
+      "keyword": "best shop vac wet dry vacuum",
+      "category": "power-tools",
+      "priority": "medium"
+    },
+    {
+      "keyword": "best pole saws for tree trimming",
+      "category": "outdoor",
+      "priority": "high"
+    },
+    {
+      "keyword": "best electric log splitters",
+      "category": "outdoor",
+      "priority": "medium"
+    },
+    {
+      "keyword": "best cordless brad nailers",
+      "category": "power-tools",
+      "priority": "medium"
+    },
+    {
+      "keyword": "best tile saws for DIY",
+      "category": "saws",
+      "priority": "medium"
+    },
+    {
+      "keyword": "best scroll saws for woodworking",
+      "category": "saws",
+      "priority": "low"
+    },
+    {
+      "keyword": "best bench grinders",
+      "category": "power-tools",
+      "priority": "low"
+    },
+    {
+      "keyword": "best dual fuel generators",
+      "category": "generators",
+      "priority": "high"
+    },
+    {
+      "keyword": "best battery powered snow blowers",
+      "category": "snow-blowers",
+      "priority": "seasonal"
+    },
+    {
+      "keyword": "best cordless ratchet wrenches",
+      "category": "power-tools",
+      "priority": "medium"
+    }
+  ],
+  "completed": [],
+  "settings": {
+    "postsPerWeek": 2,
+    "autoPublish": false,
+    "requireReview": true,
+    "defaultCategory": "power-tools",
+    "amazonTag": "SHELZYSDESIGNS-20"
+  }
+}

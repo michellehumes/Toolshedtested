@@ -1,0 +1,129 @@
+name: Import Content to WordPress
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'posts/*.md'
+  workflow_dispatch:
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    name: Import Posts to WordPress
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get changed files
+        id: changed
+        run: |
+          # Get list of changed markdown files
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'posts/*.md' | tr '\n' ' ')
+          echo "files=$CHANGED" >> $GITHUB_OUTPUT
+          echo "Changed files: $CHANGED"
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Import to WordPress via REST API
+        if: steps.changed.outputs.files != ''
+        env:
+          WP_SITE_URL: ${{ secrets.WP_SITE_URL }}
+          WP_REST_API_KEY: ${{ secrets.WP_REST_API_KEY }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          for file in ${{ steps.changed.outputs.files }}; do
+            echo "Processing: $file"
+            
+            # Parse YAML frontmatter and content
+            php << 'IMPORT_SCRIPT'
+          <?php
+          $file = getenv('file') ?: '${{ steps.changed.outputs.files }}';
+          $files = explode(' ', trim($file));
+          
+          foreach ($files as $filepath) {
+              if (empty($filepath)) continue;
+              
+              $content = file_get_contents($filepath);
+              if (!$content) {
+                  echo "Could not read: $filepath\n";
+                  continue;
+              }
+              
+              // Parse YAML frontmatter
+              if (preg_match('/^---\s*\n(.*?)\n---\s*\n(.*)$/s', $content, $matches)) {
+                  $yaml = $matches[1];
+                  $body = $matches[2];
+                  
+                  // Simple YAML parsing
+                  $meta = [];
+                  foreach (explode("\n", $yaml) as $line) {
+                      if (preg_match('/^(\w+):\s*["\']?([^"\']+)["\']?\s*$/', $line, $m)) {
+                          $meta[$m[1]] = $m[2];
+                      }
+                  }
+                  
+                  $title = $meta['title'] ?? basename($filepath, '.md');
+                  $slug = $meta['slug'] ?? sanitize_title($title);
+                  $excerpt = $meta['excerpt'] ?? '';
+                  $category = $meta['category'] ?? 'uncategorized';
+                  
+                  // Convert markdown to HTML (basic)
+                  $html = $body;
+                  $html = preg_replace('/^## (.+)$/m', '<h2>$1</h2>', $html);
+                  $html = preg_replace('/^### (.+)$/m', '<h3>$1</h3>', $html);
+                  $html = preg_replace('/\*\*(.+?)\*\*/', '<strong>$1</strong>', $html);
+                  $html = preg_replace('/\[(.+?)\]\((.+?)\)/', '<a href="$2" rel="nofollow sponsored" target="_blank">$1</a>', $html);
+                  $html = nl2br($html);
+                  
+                  // Create post via REST API
+                  $data = [
+                      'title' => $title,
+                      'slug' => $slug,
+                      'content' => $html,
+                      'excerpt' => $excerpt,
+                      'status' => 'draft', // Set to draft for review
+                      'categories' => [], // Would need category ID lookup
+                  ];
+                  
+                  $ch = curl_init(getenv('WP_SITE_URL') . '/wp-json/wp/v2/posts');
+                  curl_setopt_array($ch, [
+                      CURLOPT_POST => true,
+                      CURLOPT_POSTFIELDS => json_encode($data),
+                      CURLOPT_HTTPHEADER => [
+                          'Content-Type: application/json',
+                          'Authorization: Basic ' . base64_encode(getenv('WP_USERNAME') . ':' . getenv('WP_APP_PASSWORD'))
+                      ],
+                      CURLOPT_RETURNTRANSFER => true
+                  ]);
+                  
+                  $response = curl_exec($ch);
+                  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                  curl_close($ch);
+                  
+                  if ($httpCode >= 200 && $httpCode < 300) {
+                      echo "✅ Imported: $title\n";
+                  } else {
+                      echo "❌ Failed to import: $title (HTTP $httpCode)\n";
+                      echo "Response: $response\n";
+                  }
+              }
+          }
+          
+          function sanitize_title($title) {
+              return strtolower(preg_replace('/[^a-z0-9]+/i', '-', $title));
+          }
+          ?>
+          IMPORT_SCRIPT
+          done
+
+      - name: Notify completion
+        run: |
+          echo "✅ Content import workflow completed"

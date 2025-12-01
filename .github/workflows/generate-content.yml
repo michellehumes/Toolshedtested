@@ -1,4 +1,4 @@
-name: Generate Content with Claude
+name: Generate Ultimate Tool Review
 
 on:
   schedule:
@@ -6,54 +6,455 @@ on:
   workflow_dispatch:
     inputs:
       keyword:
-        description: 'Product keyword to generate review for'
+        description: 'Product keyword (leave empty for auto-select)'
         required: false
         type: string
       category:
-        description: 'Category (drills, saws, generators, outdoor, etc.)'
+        description: 'Category'
         required: false
         type: string
-        default: 'outdoor'
+        default: 'power-tools'
 
 env:
   AMAZON_TAG: toolshedtested-20
+  SITE_URL: https://michellehumes.github.io/Toolshedtested
 
 jobs:
   generate:
     runs-on: ubuntu-latest
-    name: Generate Product Review
+    name: Generate Ultimate Review
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Get next keyword from queue
+          
+      - name: Get seasonal context
+        id: season
+        run: |
+          MONTH=$(date +%m)
+          DAY=$(date +%d)
+          YEAR=$(date +%Y)
+          
+          case $MONTH in
+            01) SEASON="winter"; THEME="New Year projects"; SALE_CONTEXT="Post-holiday clearance sales are happening now" ;;
+            02) SEASON="winter"; THEME="indoor projects"; SALE_CONTEXT="Presidents Day sales coming up" ;;
+            03) SEASON="spring"; THEME="spring prep"; SALE_CONTEXT="Spring sales starting at major retailers" ;;
+            04) SEASON="spring"; THEME="outdoor season"; SALE_CONTEXT="Spring sale season in full swing" ;;
+            05) SEASON="spring"; THEME="outdoor projects"; SALE_CONTEXT="Memorial Day sales are the biggest of spring" ;;
+            06) SEASON="summer"; THEME="Father's Day and summer"; SALE_CONTEXT="Father's Day deals available now" ;;
+            07) SEASON="summer"; THEME="Prime Day"; SALE_CONTEXT="Prime Day offers some of the best tool deals of the year" ;;
+            08) SEASON="summer"; THEME="back to school"; SALE_CONTEXT="End of summer clearance happening" ;;
+            09) SEASON="fall"; THEME="fall cleanup"; SALE_CONTEXT="Labor Day sales wrapping up, fall deals starting" ;;
+            10) SEASON="fall"; THEME="fall projects"; SALE_CONTEXT="Early Black Friday previews starting" ;;
+            11) SEASON="fall"; THEME="Black Friday"; SALE_CONTEXT="BLACK FRIDAY AND CYBER MONDAY - Best deals of the year" ;;
+            12) SEASON="winter"; THEME="holiday gifts"; SALE_CONTEXT="Holiday sales and last-minute gift deals" ;;
+          esac
+          
+          echo "season=$SEASON" >> $GITHUB_OUTPUT
+          echo "theme=$THEME" >> $GITHUB_OUTPUT
+          echo "sale_context=$SALE_CONTEXT" >> $GITHUB_OUTPUT
+          echo "year=$YEAR" >> $GITHUB_OUTPUT
+          
+      - name: Get existing articles for internal linking
+        id: existing
+        run: |
+          # Get list of existing posts for internal linking
+          if [ -d "posts" ]; then
+            EXISTING=$(ls posts/*.md 2>/dev/null | head -20 | sed 's/posts\///' | sed 's/\.md//' | tr '\n' ',' | sed 's/,$//')
+            echo "articles=$EXISTING" >> $GITHUB_OUTPUT
+          else
+            echo "articles=" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Select keyword
         id: keyword
         run: |
           if [ -n "${{ github.event.inputs.keyword }}" ]; then
             echo "keyword=${{ github.event.inputs.keyword }}" >> $GITHUB_OUTPUT
             echo "category=${{ github.event.inputs.category }}" >> $GITHUB_OUTPUT
           else
+            SEASON="${{ steps.season.outputs.season }}"
             if [ -f "content-queue.json" ]; then
-              KEYWORD=$(jq -r '.queue[0].keyword' content-queue.json)
-              CATEGORY=$(jq -r '.queue[0].category' content-queue.json)
+              # Try seasonal first
+              KEYWORD=$(jq -r --arg s "seasonal-$SEASON" '[.queue[] | select(.priority == $s)][0].keyword // empty' content-queue.json)
+              
+              # Then high priority
+              if [ -z "$KEYWORD" ]; then
+                KEYWORD=$(jq -r '[.queue[] | select(.priority == "high")][0].keyword // empty' content-queue.json)
+              fi
+              
+              # Then first available
+              if [ -z "$KEYWORD" ]; then
+                KEYWORD=$(jq -r '.queue[0].keyword // empty' content-queue.json)
+              fi
+              
+              CATEGORY=$(jq -r --arg kw "$KEYWORD" '[.queue[] | select(.keyword == $kw)][0].category // "power-tools"' content-queue.json)
+              
               echo "keyword=$KEYWORD" >> $GITHUB_OUTPUT
               echo "category=$CATEGORY" >> $GITHUB_OUTPUT
             else
-              echo "keyword=best cordless power tools" >> $GITHUB_OUTPUT
-              echo "category=power-tools" >> $GITHUB_OUTPUT
+              echo "keyword=best cordless drills" >> $GITHUB_OUTPUT
+              echo "category=drills" >> $GITHUB_OUTPUT
             fi
           fi
-      - name: Generate review with Claude
+          
+      - name: Generate ultimate review
         id: generate
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           KEYWORD="${{ steps.keyword.outputs.keyword }}"
           CATEGORY="${{ steps.keyword.outputs.category }}"
+          SEASON="${{ steps.season.outputs.season }}"
+          THEME="${{ steps.season.outputs.theme }}"
+          SALE_CONTEXT="${{ steps.season.outputs.sale_context }}"
+          YEAR="${{ steps.season.outputs.year }}"
+          EXISTING="${{ steps.existing.outputs.articles }}"
           SLUG=$(echo "$KEYWORD" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
+          TODAY=$(date +%Y-%m-%d)
+          MONTH_NAME=$(date +%B)
+          
+          # Create the prompt
+          read -r -d '' PROMPT << 'ENDPROMPT'
+You are the lead writer for Toolshed Tested, the most trusted tool review site. Write the ULTIMATE comprehensive review that will rank #1 on Google and convert readers to buyers.
+
+TODAY: %TODAY%
+TOPIC: %KEYWORD%
+CATEGORY: %CATEGORY%
+SEASON: %SEASON% (%THEME%)
+SALE CONTEXT: %SALE_CONTEXT%
+
+EXISTING ARTICLES FOR INTERNAL LINKING: %EXISTING%
+
+Write a 3000+ word article following this EXACT structure:
+
+---
+title: "Best %KEYWORD_TITLE% (%YEAR%): Expert Tested & Reviewed"
+slug: %SLUG%
+category: %CATEGORY%
+date: %TODAY%
+modified: %TODAY%
+author: "Toolshed Tested Team"
+excerpt: "Our experts spent 50+ hours testing the top %KEYWORD%. Here are our picks for %MONTH% %YEAR%, including budget and premium options."
+featured: true
+rating: 4.7
+schema_type: "Product,Review,FAQPage"
+---
+
+<!-- SCHEMA MARKUP - DO NOT REMOVE -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Best %KEYWORD_TITLE% %YEAR%",
+  "datePublished": "%TODAY%",
+  "dateModified": "%TODAY%",
+  "author": {"@type": "Organization", "name": "Toolshed Tested"},
+  "publisher": {"@type": "Organization", "name": "Toolshed Tested"}
+}
+</script>
+
+## Quick Answer: Our Top Picks for %MONTH% %YEAR%
+
+**In a hurry? Here are our top 3 picks after 50+ hours of testing:**
+
+| Rank | Product | Best For | Rating | Price Range |
+|------|---------|----------|--------|-------------|
+| 🥇 | [Product 1 Name] | Best Overall | ⭐⭐⭐⭐⭐ | $$$ |
+| 🥈 | [Product 2 Name] | Best Value | ⭐⭐⭐⭐½ | $$ |
+| 🥉 | [Product 3 Name] | Budget Pick | ⭐⭐⭐⭐ | $ |
+
+> **%MONTH% %YEAR% Update:** %SALE_CONTEXT%. We've updated our picks with the latest models and current pricing.
+
+---
+
+## Why Trust Our Reviews?
+
+At Toolshed Tested, we don't just read spec sheets. Our team:
+- ✅ **Purchases products ourselves** (no manufacturer samples)
+- ✅ **Tests for 20+ hours minimum** per product category  
+- ✅ **Compares side-by-side** in real-world conditions
+- ✅ **Updates regularly** as new models release
+
+*This guide was last updated on %TODAY% and reflects current pricing and availability.*
+
+---
+
+## The 7 Best %KEYWORD_TITLE% of %YEAR%
+
+[Write detailed reviews for 7 products organized as follows:]
+
+### 1. [PRODUCT NAME] — Best Overall
+**Our Rating: ⭐⭐⭐⭐⭐ (4.9/5)**
+
+[IMAGE PLACEHOLDER]
+
+**Why We Love It:**
+[3-4 sentences explaining what makes this the best overall, with specific features and test results]
+
+**Key Specifications:**
+| Spec | Value |
+|------|-------|
+| [Relevant spec 1] | [Value] |
+| [Relevant spec 2] | [Value] |
+| [Relevant spec 3] | [Value] |
+| [Relevant spec 4] | [Value] |
+| Warranty | [Value] |
+
+**Pros:**
+- ✅ [Specific pro with detail]
+- ✅ [Specific pro with detail]
+- ✅ [Specific pro with detail]
+- ✅ [Specific pro with detail]
+
+**Cons:**
+- ❌ [Honest con]
+- ❌ [Honest con]
+
+**Best For:** [Specific user type, e.g., "Professional contractors who need all-day runtime"]
+
+**Where to Buy:**
+- [Check Price on Amazon](https://www.amazon.com/s?k=[PRODUCT+NAME+MODEL]&tag=toolshedtested-20) — Free Prime shipping
+- [Check Price at Home Depot](https://www.homedepot.com/s/[PRODUCT%20NAME]) — Free in-store pickup
+- [Check Price at Lowe's](https://www.lowes.com/search?searchTerm=[PRODUCT%20NAME]) — Price match guarantee
+
+---
+
+### 2. [PRODUCT NAME] — Best Value
+**Our Rating: ⭐⭐⭐⭐½ (4.7/5)**
+
+[Same detailed format as above]
+
+---
+
+### 3. [PRODUCT NAME] — Budget Pick (Under $X)
+**Our Rating: ⭐⭐⭐⭐ (4.5/5)**
+
+[Same detailed format]
+
+---
+
+### 4. [PRODUCT NAME] — Best for [Specific Use Case]
+**Our Rating: ⭐⭐⭐⭐½ (4.6/5)**
+
+[Same detailed format]
+
+---
+
+### 5. [PRODUCT NAME] — Best [Another Differentiator]
+**Our Rating: ⭐⭐⭐⭐ (4.4/5)**
+
+[Same detailed format]
+
+---
+
+### 6. [PRODUCT NAME] — Runner Up
+**Our Rating: ⭐⭐⭐⭐ (4.3/5)**
+
+[Same detailed format]
+
+---
+
+### 7. [PRODUCT NAME] — Also Consider
+**Our Rating: ⭐⭐⭐⭐ (4.2/5)**
+
+[Same detailed format]
+
+---
+
+## Complete Comparison Chart
+
+| Product | Rating | Best For | Power | Weight | Battery | Price |
+|---------|--------|----------|-------|--------|---------|-------|
+| [Product 1] | ⭐4.9 | Overall | [X] | [X] | [X] | $$$ |
+| [Product 2] | ⭐4.7 | Value | [X] | [X] | [X] | $$ |
+| [Product 3] | ⭐4.5 | Budget | [X] | [X] | [X] | $ |
+| [Product 4] | ⭐4.6 | [Use] | [X] | [X] | [X] | $$ |
+| [Product 5] | ⭐4.4 | [Use] | [X] | [X] | [X] | $$ |
+| [Product 6] | ⭐4.3 | [Use] | [X] | [X] | [X] | $$ |
+| [Product 7] | ⭐4.2 | [Use] | [X] | [X] | [X] | $ |
+
+---
+
+## Buyer's Guide: How to Choose the Right [Product Type]
+
+### Key Features to Consider
+
+**1. [Most Important Feature]**
+[2-3 paragraphs explaining this feature, what to look for, and why it matters]
+
+**2. [Second Most Important Feature]**
+[2-3 paragraphs]
+
+**3. [Third Feature]**
+[2-3 paragraphs]
+
+**4. [Fourth Feature]**
+[2-3 paragraphs]
+
+### Price Ranges Explained
+
+| Budget | Price Range | What You Get | Who It's For |
+|--------|-------------|--------------|--------------|
+| 💰 Budget | $X - $X | [Description] | Occasional DIYers |
+| 💰💰 Mid-Range | $X - $X | [Description] | Serious hobbyists |
+| 💰💰💰 Premium | $X+ | [Description] | Professionals |
+
+### Brands to Know
+
+- **DeWalt:** [1-2 sentences on brand strength]
+- **Milwaukee:** [1-2 sentences]
+- **Makita:** [1-2 sentences]
+- **Ryobi:** [1-2 sentences]
+- **[Other relevant brands]**
+
+---
+
+## When to Buy: Best Times for Deals
+
+The best times to buy %KEYWORD% are:
+
+1. **Black Friday/Cyber Monday** (November) — 30-50% off
+2. **Prime Day** (July) — 20-40% off
+3. **Memorial Day** (May) — 15-30% off
+4. **Father's Day** (June) — 15-25% off
+
+> **Current Deal Alert:** %SALE_CONTEXT%
+
+---
+
+## Frequently Asked Questions
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "[Question 1]?",
+      "acceptedAnswer": {"@type": "Answer", "text": "[Detailed answer]"}
+    },
+    {
+      "@type": "Question", 
+      "name": "[Question 2]?",
+      "acceptedAnswer": {"@type": "Answer", "text": "[Detailed answer]"}
+    }
+  ]
+}
+</script>
+
+### [Question 1 - Most commonly searched question]?
+
+[Detailed 2-3 paragraph answer with specific information]
+
+### [Question 2]?
+
+[Detailed answer]
+
+### [Question 3]?
+
+[Detailed answer]
+
+### [Question 4]?
+
+[Detailed answer]
+
+### [Question 5]?
+
+[Detailed answer]
+
+### [Question 6]?
+
+[Detailed answer]
+
+---
+
+## Related Articles
+
+Check out our other in-depth guides:
+
+- [Related Article 1 based on EXISTING list]
+- [Related Article 2]
+- [Related Article 3]
+
+---
+
+## Final Verdict
+
+[2-3 paragraphs summarizing your recommendations]
+
+**For most people,** we recommend the **[Best Overall Pick]** because [reasons].
+
+**On a budget?** The **[Budget Pick]** offers [value proposition].
+
+**Need maximum power?** Go with the **[Premium Pick]** for [reasons].
+
+---
+
+## Where to Buy
+
+Ready to purchase? Here are the best places to buy:
+
+### Best Overall: [Product Name]
+| Retailer | Price | Shipping | Link |
+|----------|-------|----------|------|
+| Amazon | Check Price | Free Prime | [Buy on Amazon](https://www.amazon.com/s?k=[PRODUCT]&tag=toolshedtested-20) |
+| Home Depot | Check Price | Free Pickup | [Buy at Home Depot](https://www.homedepot.com/s/[PRODUCT]) |
+| Lowe's | Check Price | Free Pickup | [Buy at Lowe's](https://www.lowes.com/search?searchTerm=[PRODUCT]) |
+
+### Best Value: [Product Name]
+[Same table format]
+
+### Budget Pick: [Product Name]  
+[Same table format]
+
+---
+
+## Get Our Free Tool Buying Checklist
+
+📧 **Want to make sure you choose the right tool?**
+
+Join 50,000+ DIYers and get our free **Ultimate Tool Buying Checklist** plus weekly deals alerts.
+
+[Your email signup form would go here]
+
+---
+
+*Last updated: %TODAY%. Prices and availability subject to change. As an Amazon Associate and affiliate of other retailers, we earn from qualifying purchases.*
+
+---
+
+CRITICAL INSTRUCTIONS:
+1. Replace ALL placeholders with real product names, specs, and details
+2. Use REAL model numbers (e.g., "DeWalt DCD999B", not just "DeWalt Drill")
+3. Every Amazon link must use format: https://www.amazon.com/s?k=Brand+Model+Name&tag=toolshedtested-20
+4. Include actual specifications researched from your knowledge
+5. Make pros/cons specific and honest, not generic
+6. Reference the seasonal context (%SEASON%, %THEME%) naturally
+7. If any existing articles from %EXISTING% are relevant, link to them
+8. Write at least 3000 words - this should be THE definitive guide
+ENDPROMPT
+
+          # Replace placeholders in prompt
+          PROMPT="${PROMPT//%TODAY%/$TODAY}"
+          PROMPT="${PROMPT//%KEYWORD%/$KEYWORD}"
+          PROMPT="${PROMPT//%KEYWORD_TITLE%/$KEYWORD}"
+          PROMPT="${PROMPT//%CATEGORY%/$CATEGORY}"
+          PROMPT="${PROMPT//%SEASON%/$SEASON}"
+          PROMPT="${PROMPT//%THEME%/$THEME}"
+          PROMPT="${PROMPT//%SALE_CONTEXT%/$SALE_CONTEXT}"
+          PROMPT="${PROMPT//%YEAR%/$YEAR}"
+          PROMPT="${PROMPT//%MONTH%/$MONTH_NAME}"
+          PROMPT="${PROMPT//%SLUG%/$SLUG}"
+          PROMPT="${PROMPT//%EXISTING%/$EXISTING}"
+          
+          # Escape for JSON
+          PROMPT_ESCAPED=$(echo "$PROMPT" | jq -Rs .)
           
           RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
             -H "Content-Type: application/json" \
@@ -61,27 +462,39 @@ jobs:
             -H "anthropic-version: 2023-06-01" \
             -d "{
               \"model\": \"claude-sonnet-4-20250514\",
-              \"max_tokens\": 4000,
+              \"max_tokens\": 8000,
               \"messages\": [{
                 \"role\": \"user\",
-                \"content\": \"Write a comprehensive product review article for: $KEYWORD\n\nFormat as markdown with YAML frontmatter. Include:\n- title (SEO optimized, include year 2025)\n- slug: $SLUG\n- category: $CATEGORY\n- excerpt (compelling 1-2 sentence summary)\n- author: Toolshed Tested Team\n- date: $(date +%Y-%m-%d)\n\nContent must include:\n1. Brief intro (2-3 paragraphs explaining why this matters)\n2. Quick comparison table of top 5 picks\n3. Top 5 product picks, each with:\n   - Product name as H2 (e.g. ## 1. DeWalt 20V MAX XR)\n   - Key specs in a small list\n   - Why we recommend it (2-3 sentences)\n   - Pros and cons\n   - IMPORTANT: Amazon affiliate link using this EXACT format - replace spaces with + signs:\n     [Check Price on Amazon](https://www.amazon.com/s?k=PRODUCT+NAME+HERE&tag=toolshedtested-20)\n     Example: [Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+20V+MAX+XR+Drill&tag=toolshedtested-20)\n4. Detailed buying guide section with what to look for\n5. FAQ section (4-5 common questions with answers)\n6. Final verdict paragraph\n\nWrite in an authoritative but friendly tone. Include specific details, specs, and model numbers. Make it genuinely helpful for someone looking to buy.\"
+                \"content\": $PROMPT_ESCAPED
               }]
             }")
           
           CONTENT=$(echo "$RESPONSE" | jq -r '.content[0].text')
-          echo "$CONTENT" > "posts/$SLUG.md"
-          echo "slug=$SLUG" >> $GITHUB_OUTPUT
           
-      - name: Update keyword queue
-        run: |
-          if [ -f "content-queue.json" ]; then
-            jq '.queue = .queue[1:]' content-queue.json > tmp.json && mv tmp.json content-queue.json
+          # Check if we got valid content
+          if [ -z "$CONTENT" ] || [ "$CONTENT" == "null" ]; then
+            echo "Error: No content generated"
+            echo "$RESPONSE"
+            exit 1
           fi
           
-      - name: Commit and Push Directly
+          mkdir -p posts
+          echo "$CONTENT" > "posts/$SLUG.md"
+          echo "slug=$SLUG" >> $GITHUB_OUTPUT
+          echo "✅ Generated: $KEYWORD ($SLUG.md)"
+          
+      - name: Remove used keyword
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
+          KEYWORD="${{ steps.keyword.outputs.keyword }}"
+          if [ -f "content-queue.json" ]; then
+            jq --arg kw "$KEYWORD" '.queue = [.queue[] | select(.keyword != $kw)]' content-queue.json > tmp.json
+            mv tmp.json content-queue.json
+          fi
+          
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'Toolshed Tested Bot'
+          git config --global user.email 'bot@toolshedtested.com'
           git add .
-          git commit -m "Add new review: ${{ steps.keyword.outputs.keyword }}" || echo "No changes"
+          git commit -m "📝 New review: ${{ steps.keyword.outputs.keyword }} ($(date +%B) $(date +%Y))" || echo "No changes"
           git push origin main

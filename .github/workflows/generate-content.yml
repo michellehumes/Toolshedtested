@@ -2,7 +2,6 @@ name: Generate Content with Claude
 
 on:
   schedule:
-    # Run twice daily at 9am and 9pm UTC
     - cron: '0 9,21 * * *'
   workflow_dispatch:
     inputs:
@@ -23,16 +22,13 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     name: Generate Product Review
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
       - name: Get next keyword from queue
         id: keyword
         run: |
@@ -50,7 +46,6 @@ jobs:
               echo "category=power-tools" >> $GITHUB_OUTPUT
             fi
           fi
-
       - name: Generate review with Claude
         id: generate
         env:
@@ -69,26 +64,24 @@ jobs:
               \"max_tokens\": 4000,
               \"messages\": [{
                 \"role\": \"user\",
-                \"content\": \"Write a comprehensive product review article for: $KEYWORD\n\nFormat as markdown with YAML frontmatter. Include:\n- title (SEO optimized, include year 2025)\n- slug: $SLUG\n- category: $CATEGORY\n- excerpt (compelling 1-2 sentence summary)\n\nContent should include:\n1. Brief intro (2-3 paragraphs)\n2. Top 5 product picks with:\n   - Product name as H2\n   - Why it's great (2-3 sentences)\n   - Amazon affiliate link placeholder: [Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=toolshedtested-20)\n3. Buying guide section\n4. FAQ section (3-4 questions)\n\nWrite in an authoritative but friendly tone. Focus on helping readers make informed decisions. Include specific details and specifications where relevant.\"
+                \"content\": \"Write a comprehensive product review article for: $KEYWORD\n\nFormat as markdown with YAML frontmatter. Include:\n- title (SEO optimized, include year 2025)\n- slug: $SLUG\n- category: $CATEGORY\n- excerpt (compelling 1-2 sentence summary)\n- author: Toolshed Tested Team\n- date: $(date +%Y-%m-%d)\n\nContent must include:\n1. Brief intro (2-3 paragraphs explaining why this matters)\n2. Quick comparison table of top 5 picks\n3. Top 5 product picks, each with:\n   - Product name as H2 (e.g. ## 1. DeWalt 20V MAX XR)\n   - Key specs in a small list\n   - Why we recommend it (2-3 sentences)\n   - Pros and cons\n   - IMPORTANT: Amazon affiliate link using this EXACT format - replace spaces with + signs:\n     [Check Price on Amazon](https://www.amazon.com/s?k=PRODUCT+NAME+HERE&tag=toolshedtested-20)\n     Example: [Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+20V+MAX+XR+Drill&tag=toolshedtested-20)\n4. Detailed buying guide section with what to look for\n5. FAQ section (4-5 common questions with answers)\n6. Final verdict paragraph\n\nWrite in an authoritative but friendly tone. Include specific details, specs, and model numbers. Make it genuinely helpful for someone looking to buy.\"
               }]
             }")
           
           CONTENT=$(echo "$RESPONSE" | jq -r '.content[0].text')
           echo "$CONTENT" > "posts/$SLUG.md"
-          
           echo "slug=$SLUG" >> $GITHUB_OUTPUT
-          echo "filename=posts/$SLUG.md" >> $GITHUB_OUTPUT
-
+          
       - name: Update keyword queue
         run: |
           if [ -f "content-queue.json" ]; then
             jq '.queue = .queue[1:]' content-queue.json > tmp.json && mv tmp.json content-queue.json
           fi
-
+          
       - name: Commit and Push Directly
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
           git add .
-          git commit -m "Add new review: ${{ steps.keyword.outputs.keyword }}" || echo "No changes to commit"
+          git commit -m "Add new review: ${{ steps.keyword.outputs.keyword }}" || echo "No changes"
           git push origin main

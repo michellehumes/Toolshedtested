@@ -1,0 +1,76 @@
+name: Generate Content with Claude
+
+on:
+  schedule:
+    - cron: '0 9,21 * * *'
+  workflow_dispatch:
+    inputs:
+      keyword:
+        description: 'Product keyword to generate review for'
+        required: false
+        type: string
+      category:
+        description: 'Category (drills, saws, generators, outdoor, etc.)'
+        required: false
+        type: string
+        default: 'outdoor'
+
+env:
+  AMAZON_TAG: toolshedtested-20
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    name: Generate Product Review
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Get next keyword from queue
+        id: keyword
+        run: |
+          if [ -n "${{ github.event.inputs.keyword }}" ]; then
+            echo "keyword=${{ github.event.inputs.keyword }}" >> $GITHUB_OUTPUT
+            echo "category=${{ github.event.inputs.category }}" >> $GITHUB_OUTPUT
+          else
+            if [ -f "content-queue.json" ]; then
+              KEYWORD=$(jq -r '.queue[0].keyword' content-queue.json)
+              CATEGORY=$(jq -r '.queue[0].category' content-queue.json)
+              echo "keyword=$KEYWORD" >> $GITHUB_OUTPUT
+              echo "category=$CATEGORY" >> $GITHUB_OUTPUT
+            else
+              echo "keyword=best cordless power tools" >> $GITHUB_OUTPUT
+              echo "category=power-tools" >> $GITHUB_OUTPUT
+            fi
+          fi
+      - name: Generate review with Claude
+        id: generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          KEYWORD="${{ steps.keyword.outputs.keyword }}"
+          CATEGORY="${{ steps.keyword.outputs.category }}"
+          SLUG=$(echo "$KEYWORD" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
+          RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
+            -H "Content-Type: application/json" \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
+            -H "anthropic-version: 2023-06-01" \
+            -d "{\"model\": \"claude-sonnet-4-20250514\", \"max_tokens\": 4000, \"messages\": [{\"role\": \"user\", \"content\": \"Write a comprehensive product review article for: $KEYWORD. Format as markdown with YAML frontmatter including title, slug: $SLUG, category: $CATEGORY, excerpt. Include intro, top 5 picks with Amazon links using tag=toolshedtested-20, buying guide, and FAQ.\"}]}")
+          CONTENT=$(echo "$RESPONSE" | jq -r '.content[0].text')
+          echo "$CONTENT" > "posts/$SLUG.md"
+          echo "slug=$SLUG" >> $GITHUB_OUTPUT
+      - name: Update keyword queue
+        run: |
+          if [ -f "content-queue.json" ]; then
+            jq '.queue = .queue[1:]' content-queue.json > tmp.json && mv tmp.json content-queue.json
+          fi
+      - name: Commit and Push Directly
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add .
+          git commit -m "Add new review: ${{ steps.keyword.outputs.keyword }}" || echo "No changes"
+          git push origin main

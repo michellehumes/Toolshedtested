@@ -2,8 +2,8 @@ name: Generate Content with Claude
 
 on:
   schedule:
-    # Run every Monday at 9am UTC
-    - cron: '0 9 * * 1'
+    # Run twice daily at 9am and 9pm UTC
+    - cron: '0 9,21 * * *'
   workflow_dispatch:
     inputs:
       keyword:
@@ -17,7 +17,7 @@ on:
         default: 'outdoor'
 
 env:
-  AMAZON_TAG: SHELZYSDESIGNS-20
+  AMAZON_TAG: toolshedtested-20
 
 jobs:
   generate:
@@ -40,7 +40,6 @@ jobs:
             echo "keyword=${{ github.event.inputs.keyword }}" >> $GITHUB_OUTPUT
             echo "category=${{ github.event.inputs.category }}" >> $GITHUB_OUTPUT
           else
-            # Read from keyword queue file
             if [ -f "content-queue.json" ]; then
               KEYWORD=$(jq -r '.queue[0].keyword' content-queue.json)
               CATEGORY=$(jq -r '.queue[0].category' content-queue.json)
@@ -61,7 +60,6 @@ jobs:
           CATEGORY="${{ steps.keyword.outputs.category }}"
           SLUG=$(echo "$KEYWORD" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
           
-          # Generate the review content using Claude API
           RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
             -H "Content-Type: application/json" \
             -H "x-api-key: $ANTHROPIC_API_KEY" \
@@ -71,11 +69,10 @@ jobs:
               \"max_tokens\": 4000,
               \"messages\": [{
                 \"role\": \"user\",
-                \"content\": \"Write a comprehensive product review article for: $KEYWORD\n\nFormat as markdown with YAML frontmatter. Include:\n- title (SEO optimized, include year 2025)\n- slug: $SLUG\n- category: $CATEGORY\n- excerpt (compelling 1-2 sentence summary)\n\nContent should include:\n1. Brief intro (2-3 paragraphs)\n2. Top 5 product picks with:\n   - Product name as H2\n   - Why it's great (2-3 sentences)\n   - Amazon affiliate link placeholder: [Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=$AMAZON_TAG)\n3. Buying guide section\n4. FAQ section (3-4 questions)\n\nWrite in an authoritative but friendly tone. Focus on helping readers make informed decisions. Include specific details and specifications where relevant.\"
+                \"content\": \"Write a comprehensive product review article for: $KEYWORD\n\nFormat as markdown with YAML frontmatter. Include:\n- title (SEO optimized, include year 2025)\n- slug: $SLUG\n- category: $CATEGORY\n- excerpt (compelling 1-2 sentence summary)\n\nContent should include:\n1. Brief intro (2-3 paragraphs)\n2. Top 5 product picks with:\n   - Product name as H2\n   - Why it's great (2-3 sentences)\n   - Amazon affiliate link placeholder: [Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=toolshedtested-20)\n3. Buying guide section\n4. FAQ section (3-4 questions)\n\nWrite in an authoritative but friendly tone. Focus on helping readers make informed decisions. Include specific details and specifications where relevant.\"
               }]
             }")
           
-          # Extract content and save to file
           CONTENT=$(echo "$RESPONSE" | jq -r '.content[0].text')
           echo "$CONTENT" > "posts/$SLUG.md"
           

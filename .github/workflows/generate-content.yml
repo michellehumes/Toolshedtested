@@ -36,22 +36,20 @@ jobs:
         run: |
           MONTH=$(date +%m)
           YEAR=$(date +%Y)
-          
           case $MONTH in
-            01) SEASON="winter"; THEME="New Year projects"; SALE="Post-holiday clearance sales" ;;
-            02) SEASON="winter"; THEME="indoor projects"; SALE="Presidents Day sales coming" ;;
-            03) SEASON="spring"; THEME="spring prep"; SALE="Spring sales starting" ;;
-            04) SEASON="spring"; THEME="outdoor season"; SALE="Spring sale season" ;;
+            01) SEASON="winter"; THEME="New Year projects"; SALE="Post-holiday clearance" ;;
+            02) SEASON="winter"; THEME="indoor projects"; SALE="Presidents Day sales" ;;
+            03) SEASON="spring"; THEME="spring prep"; SALE="Spring sales" ;;
+            04) SEASON="spring"; THEME="outdoor season"; SALE="Spring sales" ;;
             05) SEASON="spring"; THEME="outdoor projects"; SALE="Memorial Day sales" ;;
-            06) SEASON="summer"; THEME="Father's Day"; SALE="Father's Day deals" ;;
+            06) SEASON="summer"; THEME="Fathers Day"; SALE="Fathers Day deals" ;;
             07) SEASON="summer"; THEME="Prime Day"; SALE="Prime Day deals" ;;
-            08) SEASON="summer"; THEME="back to school"; SALE="End of summer clearance" ;;
+            08) SEASON="summer"; THEME="back to school"; SALE="Summer clearance" ;;
             09) SEASON="fall"; THEME="fall cleanup"; SALE="Labor Day sales" ;;
-            10) SEASON="fall"; THEME="fall projects"; SALE="Early Black Friday previews" ;;
-            11) SEASON="fall"; THEME="Black Friday"; SALE="Black Friday and Cyber Monday" ;;
+            10) SEASON="fall"; THEME="fall projects"; SALE="Early Black Friday" ;;
+            11) SEASON="fall"; THEME="Black Friday"; SALE="Black Friday Cyber Monday" ;;
             12) SEASON="winter"; THEME="holiday gifts"; SALE="Holiday sales" ;;
           esac
-          
           echo "season=$SEASON" >> $GITHUB_OUTPUT
           echo "theme=$THEME" >> $GITHUB_OUTPUT
           echo "sale=$SALE" >> $GITHUB_OUTPUT
@@ -97,176 +95,35 @@ jobs:
           TODAY=$(date +%Y-%m-%d)
           MONTH_NAME=$(date +%B)
           
-          PROMPT="You are the lead writer for Toolshed Tested. Write the ULTIMATE comprehensive 3000+ word review for: $KEYWORD
+          cat > /tmp/prompt.txt << 'PROMPTEOF'
+          You are the lead writer for Toolshed Tested, the most trusted tool review site. Write a comprehensive 3000+ word product review.
+          
+          REQUIREMENTS:
+          1. Use REAL product names with model numbers (e.g., DeWalt DCD999B, Milwaukee 2853-20)
+          2. Include 7 product recommendations organized as: Best Overall, Best Value, Budget Pick, plus 4 more for specific uses
+          3. Every product needs: star rating, key specs table, pros, cons, and affiliate links
+          4. Amazon links MUST use this format: https://www.amazon.com/s?k=Product+Name+Here&tag=toolshedtested-20
+          5. Also include Home Depot and Lowes links for each product
+          6. Include a comparison table, buyers guide, FAQ section, and final verdict
+          7. Reference current season and sales when relevant
+          
+          FORMAT: Start with YAML frontmatter (title, slug, category, date, author, excerpt, rating), then the full article in markdown.
+          PROMPTEOF
+          
+          FULL_PROMPT=$(cat /tmp/prompt.txt)
+          FULL_PROMPT="$FULL_PROMPT
 
-CONTEXT: Today is $TODAY. Season: $SEASON ($THEME). Current sales: $SALE.
-
-FORMAT YOUR RESPONSE EXACTLY LIKE THIS:
-
----
-title: Best $KEYWORD ($YEAR): Expert Tested and Reviewed
-slug: $SLUG
-category: $CATEGORY
-date: $TODAY
-author: Toolshed Tested Team
-excerpt: Our experts spent 50+ hours testing the top $KEYWORD. Here are our picks for $MONTH_NAME $YEAR.
-rating: 4.7
----
-
-## Quick Answer: Our Top Picks for $MONTH_NAME $YEAR
-
-| Rank | Product | Best For | Rating | Price |
-|------|---------|----------|--------|-------|
-| 1 | [Best Overall Pick] | Best Overall | 4.9/5 | $$$ |
-| 2 | [Best Value Pick] | Best Value | 4.7/5 | $$ |
-| 3 | [Budget Pick] | Budget Choice | 4.5/5 | $ |
-
-> **$MONTH_NAME $YEAR Update:** $SALE happening now. We have updated our picks with the latest models.
-
-## Why Trust Our Reviews?
-
-At Toolshed Tested, we purchase products ourselves, test for 20+ hours minimum, and compare side-by-side in real conditions.
-
-## The 7 Best $KEYWORD of $YEAR
-
-### 1. [REAL PRODUCT NAME WITH MODEL NUMBER] - Best Overall
-**Rating: 4.9/5**
-
-[Write 2-3 paragraphs about why this is the best overall. Include specific features, test results, and real specs.]
-
-**Key Specs:**
-- [Spec 1]: [Value]
-- [Spec 2]: [Value]
-- [Spec 3]: [Value]
-
-**Pros:**
-- [Specific pro with detail]
-- [Specific pro with detail]
-- [Specific pro with detail]
-
-**Cons:**
-- [Honest con]
-- [Honest con]
-
-**Where to Buy:**
-- [Check Price on Amazon](https://www.amazon.com/s?k=PRODUCT+NAME+HERE&tag=toolshedtested-20)
-- [Check Price at Home Depot](https://www.homedepot.com/s/PRODUCT+NAME)
-- [Check Price at Lowes](https://www.lowes.com/search?searchTerm=PRODUCT+NAME)
-
----
-
-### 2. [REAL PRODUCT NAME] - Best Value
-[Same detailed format as above]
-
----
-
-### 3. [REAL PRODUCT NAME] - Budget Pick (Under \$X)
-[Same detailed format]
-
----
-
-### 4. [REAL PRODUCT NAME] - Best for [Specific Use]
-[Same detailed format]
-
----
-
-### 5. [REAL PRODUCT NAME] - Best for [Another Use]
-[Same detailed format]
-
----
-
-### 6. [REAL PRODUCT NAME] - Runner Up
-[Same detailed format]
-
----
-
-### 7. [REAL PRODUCT NAME] - Also Consider
-[Same detailed format]
-
----
-
-## Complete Comparison Chart
-
-| Product | Rating | Best For | Power | Weight | Price |
-|---------|--------|----------|-------|--------|-------|
-| [Product 1] | 4.9 | Overall | [X] | [X] | $$$ |
-| [Product 2] | 4.7 | Value | [X] | [X] | $$ |
-| [Product 3] | 4.5 | Budget | [X] | [X] | $ |
-| [Product 4] | 4.6 | [Use] | [X] | [X] | $$ |
-| [Product 5] | 4.4 | [Use] | [X] | [X] | $$ |
-| [Product 6] | 4.3 | [Use] | [X] | [X] | $$ |
-| [Product 7] | 4.2 | [Use] | [X] | [X] | $ |
-
-## Buyers Guide: How to Choose
-
-### Key Features to Consider
-
-**1. [Most Important Feature]**
-[2-3 paragraphs explaining what to look for]
-
-**2. [Second Feature]**
-[2-3 paragraphs]
-
-**3. [Third Feature]**
-[2-3 paragraphs]
-
-### Price Ranges
-
-| Budget | Price | What You Get |
-|--------|-------|--------------|
-| Budget | \$X-\$X | Basic features for occasional use |
-| Mid-Range | \$X-\$X | Good balance of features and quality |
-| Premium | \$X+ | Professional-grade performance |
-
-## When to Buy: Best Times for Deals
-
-1. **Black Friday/Cyber Monday** (November) - 30-50% off
-2. **Prime Day** (July) - 20-40% off
-3. **Memorial Day** (May) - 15-30% off
-4. **Fathers Day** (June) - 15-25% off
-
-## Frequently Asked Questions
-
-### [Most common question about $KEYWORD]?
-[Detailed 2-3 sentence answer]
-
-### [Second common question]?
-[Detailed answer]
-
-### [Third question]?
-[Detailed answer]
-
-### [Fourth question]?
-[Detailed answer]
-
-### [Fifth question]?
-[Detailed answer]
-
-## Final Verdict
-
-[2-3 paragraphs with clear recommendations]
-
-**For most people:** We recommend [Best Overall] because [reasons].
-
-**On a budget:** The [Budget Pick] offers [value].
-
-**For professionals:** Go with [Premium Pick] for [reasons].
-
----
-
-*Last updated: $TODAY. As an Amazon Associate and affiliate partner, we earn from qualifying purchases.*
-
----
-
-CRITICAL INSTRUCTIONS:
-1. Use REAL product names with model numbers (e.g., DeWalt DCD999B not just DeWalt Drill)
-2. Every Amazon link must use: https://www.amazon.com/s?k=Brand+Model+Name&tag=toolshedtested-20
-3. Include actual realistic specifications
-4. Write at least 3000 words total
-5. Make this THE definitive guide for $KEYWORD"
-
-          # Escape the prompt for JSON
-          PROMPT_JSON=$(echo "$PROMPT" | jq -Rs .)
+          TOPIC: $KEYWORD
+          CATEGORY: $CATEGORY  
+          DATE: $TODAY
+          MONTH: $MONTH_NAME
+          YEAR: $YEAR
+          SEASON: $SEASON ($THEME)
+          CURRENT SALES: $SALE
+          SLUG: $SLUG
+          AMAZON TAG: toolshedtested-20"
+          
+          PROMPT_JSON=$(echo "$FULL_PROMPT" | jq -Rs .)
           
           RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
             -H "Content-Type: application/json" \

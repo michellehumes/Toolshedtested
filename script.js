@@ -1,104 +1,188 @@
-// Mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mainNav = document.querySelector('.main-nav');
+/**
+ * Toolshed Tested - Main JavaScript
+ * Handles navigation, search, forms, and interactions
+ */
 
+(function() {
+    'use strict';
+
+    // DOM Elements
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mainNav = document.getElementById('main-nav');
+    const searchToggle = document.querySelector('.search-toggle');
+    const searchOverlay = document.getElementById('search-overlay');
+    const searchClose = document.querySelector('.search-close');
+    const header = document.querySelector('.site-header');
+    const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
+
+    // Mobile Menu
     if (mobileMenuBtn && mainNav) {
         mobileMenuBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
             mainNav.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
         });
 
-        // Close menu when clicking on a link
-        const navLinks = mainNav.querySelectorAll('a');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
+        document.addEventListener('click', function(e) {
+            if (!mainNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenuBtn.classList.remove('active');
                 mainNav.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+
+        dropdownItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    item.classList.toggle('active');
+                }
             });
         });
     }
 
-    // Contact form handling
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
+    // Search Overlay
+    if (searchToggle && searchOverlay) {
+        searchToggle.addEventListener('click', function() {
+            searchOverlay.classList.add('active');
+            const input = searchOverlay.querySelector('input');
+            if (input) setTimeout(() => input.focus(), 100);
+        });
 
-            // Basic validation
-            if (!name || !email || !message) {
-                showNotification('Please fill in all fields.', 'error');
-                return;
+        if (searchClose) {
+            searchClose.addEventListener('click', function() {
+                searchOverlay.classList.remove('active');
+            });
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
+                searchOverlay.classList.remove('active');
             }
-
-            if (!isValidEmail(email)) {
-                showNotification('Please enter a valid email address.', 'error');
-                return;
-            }
-
-            // Simulate form submission (in production, this would send to a server)
-            showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
-            contactForm.reset();
         });
     }
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(event) {
-            event.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    // Sticky Header
+    if (header) {
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            header.classList.toggle('scrolled', currentScroll > 100);
+            if (currentScroll > lastScroll && currentScroll > 300) {
+                header.classList.add('header-hidden');
+            } else {
+                header.classList.remove('header-hidden');
+            }
+            lastScroll = currentScroll;
+        }, { passive: true });
+    }
 
+    // Form Handling
+    const forms = document.querySelectorAll('form[action*="formspree"]');
+    forms.forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            const emailInput = form.querySelector('input[type="email"]');
+            
+            if (!emailInput || !emailInput.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+                showFormMessage(form, 'Please enter a valid email address.', 'error');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    showFormMessage(form, '🎉 Success! Check your email for the free guide.', 'success');
+                    form.reset();
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'sign_up', { method: 'email' });
+                    }
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (error) {
+                showFormMessage(form, 'Something went wrong. Please try again.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    });
+
+    function showFormMessage(form, message, type) {
+        const existing = form.querySelector('.form-message');
+        if (existing) existing.remove();
+
+        const messageEl = document.createElement('div');
+        messageEl.className = `form-message form-message-${type}`;
+        messageEl.textContent = message;
+        messageEl.style.cssText = `
+            padding: 12px 16px; margin-top: 12px; border-radius: 8px; font-size: 14px; font-weight: 500;
+            ${type === 'success' ? 'background:#d4edda;color:#155724;' : 'background:#f8d7da;color:#721c24;'}
+        `;
+        form.appendChild(messageEl);
+        setTimeout(() => messageEl.remove(), 5000);
+    }
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const offset = header ? header.offsetHeight + 20 : 20;
                 window.scrollTo({
-                    top: offsetPosition,
+                    top: target.offsetTop - offset,
                     behavior: 'smooth'
                 });
             }
         });
     });
-});
 
-// Email validation helper
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
+    // Affiliate Link Tracking
+    document.querySelectorAll('a[href*="amazon.com"], a[href*="amzn.to"]').forEach(link => {
+        link.addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'affiliate_click', {
+                    event_category: 'affiliate',
+                    event_label: this.href,
+                    transport_type: 'beacon'
+                });
+            }
+        });
+    });
 
-// Notification helper
-function showNotification(message, type) {
-    // Remove existing notification if any
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = 'notification ' + type;
-    notification.textContent = message;
-    notification.style.cssText = 'position: fixed; top: 80px; right: 20px; padding: 1rem 1.5rem; border-radius: 4px; z-index: 1001; transform: translateX(0); opacity: 1; transition: opacity 0.3s ease, transform 0.3s ease;';
-    
-    if (type === 'success') {
-        notification.style.background = '#48bb78';
-        notification.style.color = 'white';
-    } else {
-        notification.style.background = '#fc8181';
-        notification.style.color = 'white';
-    }
-
-    document.body.appendChild(notification);
-
-    // Auto remove after 5 seconds
-    setTimeout(function() {
-        if (notification && notification.parentNode) {
-            notification.remove();
+    // Announcement Bar Dismiss
+    const announcementBar = document.querySelector('.announcement-bar');
+    if (announcementBar) {
+        if (sessionStorage.getItem('announcement-dismissed')) {
+            announcementBar.style.display = 'none';
+        } else {
+            const closeBtn = document.createElement('button');
+            closeBtn.innerHTML = '×';
+            closeBtn.style.cssText = 'position:absolute;right:20px;top:50%;transform:translateY(-50%);background:none;border:none;color:white;font-size:20px;cursor:pointer;';
+            closeBtn.onclick = () => {
+                announcementBar.style.display = 'none';
+                sessionStorage.setItem('announcement-dismissed', 'true');
+            };
+            const container = announcementBar.querySelector('.container');
+            container.style.position = 'relative';
+            container.appendChild(closeBtn);
         }
-    }, 5000);
-}
+    }
+
+    console.log('🔧 Toolshed Tested initialized');
+})();

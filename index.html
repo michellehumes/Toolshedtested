@@ -3,115 +3,431 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Toolshed Tested - Honest reviews and testing of tools for DIY enthusiasts and professionals.">
-    <meta name="keywords" content="tool reviews, power tools, hand tools, DIY, tool testing">
-    <title>Toolshed Tested - Tools Tested and Reviewed</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Expert reviews of outdoor power equipment. We test drills, saws, generators, lawn mowers & more to help you find the best tools for your projects.">
+    <meta name="keywords" content="tool reviews, power tools, outdoor equipment, cordless drills, chainsaws, generators, lawn mowers">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Toolshed Tested - Expert Power Tool Reviews">
+    <meta property="og:description" content="In-depth reviews of outdoor power equipment. Find the best tools for your budget.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolshedtested.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Toolshed Tested - Expert Power Tool Reviews">
+    <meta name="twitter:description" content="In-depth reviews of outdoor power equipment. Find the best tools for your budget.">
+    
+    <title>Toolshed Tested - Expert Power Tool & Outdoor Equipment Reviews</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images-na.ssl-images-amazon.com">
+    
+    <!-- Fonts with display swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles-new.css">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Toolshed Tested",
+        "url": "https://toolshedtested.com",
+        "description": "Expert reviews of outdoor power equipment and tools",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Toolshed Tested",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://toolshedtested.com/logo.png"
+            }
+        }
+    }
+    </script>
 </head>
 <body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <p>🎉 <strong>Holiday Deals:</strong> Check out our <a href="#deals">Best Black Friday Tool Deals</a> guide!</p>
+        </div>
+    </div>
+
     <header class="site-header">
         <div class="container">
-            <div class="logo">
-                <h1>🔧 Toolshed Tested</h1>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+                <span class="logo-text">Toolshed <span class="logo-accent">Tested</span></span>
+            </a>
+            
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link">Power Tools <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="/reviews/cordless-drills">Cordless Drills</a>
+                            <a href="/reviews/impact-drivers">Impact Drivers</a>
+                            <a href="/reviews/circular-saws">Circular Saws</a>
+                            <a href="/reviews/miter-saws">Miter Saws</a>
+                            <a href="/reviews/jigsaws">Jigsaws</a>
+                            <a href="/reviews/angle-grinders">Angle Grinders</a>
+                            <a href="/reviews/sanders">Sanders</a>
+                        </div>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link">Outdoor <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="/reviews/chainsaws">Chainsaws</a>
+                            <a href="/reviews/leaf-blowers">Leaf Blowers</a>
+                            <a href="/reviews/lawn-mowers">Lawn Mowers</a>
+                            <a href="/reviews/pressure-washers">Pressure Washers</a>
+                            <a href="/reviews/snow-blowers">Snow Blowers</a>
+                            <a href="/reviews/generators">Generators</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="/buying-guides" class="nav-link">Buying Guides</a></li>
+                    <li class="nav-item"><a href="/deals" class="nav-link nav-link-highlight">Deals</a></li>
+                    <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+
+            <div class="header-actions">
+                <button class="search-toggle" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Search Overlay -->
+        <div class="search-overlay" id="search-overlay">
+            <div class="container">
+                <form class="search-form" action="/search" method="GET">
+                    <input type="search" name="q" placeholder="Search for tools, reviews, guides..." autocomplete="off">
+                    <button type="submit">Search</button>
+                </form>
+                <button class="search-close" aria-label="Close search">×</button>
+            </div>
         </div>
     </header>
 
     <main>
-        <section id="home" class="hero">
+        <!-- Hero Section -->
+        <section class="hero">
             <div class="container">
-                <h2>Tools Tested and Reviewed</h2>
-                <p>Honest, in-depth reviews of the tools you need for your next project.</p>
-                <a href="#reviews" class="cta-button">Explore Reviews</a>
+                <div class="hero-content">
+                    <span class="hero-badge">Trusted by 50,000+ DIYers</span>
+                    <h1>Find the <span class="highlight">Perfect Tool</span> for Every Project</h1>
+                    <p class="hero-subtitle">Expert, hands-on reviews of power tools and outdoor equipment. We test so you can buy with confidence.</p>
+                    
+                    <!-- Email Capture -->
+                    <form class="hero-email-form" id="hero-email-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="email-input-group">
+                            <input type="email" name="email" placeholder="Enter your email" required>
+                            <button type="submit">Get Free Guide</button>
+                        </div>
+                        <p class="form-note">📚 Get our free "Ultimate Tool Buying Guide 2025" PDF + weekly deals</p>
+                    </form>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&q=80" alt="Power tools workshop" loading="eager">
+                </div>
             </div>
         </section>
 
-        <section id="reviews" class="reviews">
+        <!-- Trust Bar -->
+        <section class="trust-bar">
             <div class="container">
-                <h2>Latest Reviews</h2>
-                <div class="review-grid">
+                <div class="trust-items">
+                    <div class="trust-item">
+                        <span class="trust-number">150+</span>
+                        <span class="trust-label">Tools Tested</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number">500+</span>
+                        <span class="trust-label">Hours of Testing</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number">20+</span>
+                        <span class="trust-label">Expert Reviews</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number">4.9★</span>
+                        <span class="trust-label">Reader Rating</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Categories -->
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title">Browse by Category</h2>
+                <div class="category-grid">
+                    <a href="/reviews/cordless-drills" class="category-card">
+                        <div class="category-icon">🔩</div>
+                        <h3>Cordless Drills</h3>
+                        <p>Best picks for DIY & pros</p>
+                    </a>
+                    <a href="/reviews/chainsaws" class="category-card">
+                        <div class="category-icon">🪚</div>
+                        <h3>Chainsaws</h3>
+                        <p>Gas, electric & battery</p>
+                    </a>
+                    <a href="/reviews/generators" class="category-card">
+                        <div class="category-icon">⚡</div>
+                        <h3>Generators</h3>
+                        <p>Portable & inverter models</p>
+                    </a>
+                    <a href="/reviews/pressure-washers" class="category-card">
+                        <div class="category-icon">💦</div>
+                        <h3>Pressure Washers</h3>
+                        <p>Electric & gas powered</p>
+                    </a>
+                    <a href="/reviews/lawn-mowers" class="category-card">
+                        <div class="category-icon">🌿</div>
+                        <h3>Lawn Mowers</h3>
+                        <p>Push, riding & robotic</p>
+                    </a>
+                    <a href="/reviews/circular-saws" class="category-card">
+                        <div class="category-icon">⚙️</div>
+                        <h3>Circular Saws</h3>
+                        <p>Cordless & corded</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Reviews -->
+        <section class="latest-reviews">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Latest Reviews</h2>
+                    <a href="/reviews" class="view-all-link">View All Reviews →</a>
+                </div>
+                
+                <div class="reviews-grid">
+                    <!-- Review Card 1 -->
                     <article class="review-card">
-                        <div class="review-image" aria-label="Power drill placeholder"></div>
+                        <span class="review-badge badge-top-pick">Top Pick</span>
+                        <div class="review-image">
+                            <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400&q=80" alt="DeWalt cordless drill" loading="lazy">
+                        </div>
                         <div class="review-content">
-                            <h3>Power Drills</h3>
-                            <p>Comparing the best cordless drills for home and professional use.</p>
-                            <span class="rating" aria-label="Rating: 4.5 out of 5">⭐⭐⭐⭐⭐</span>
+                            <span class="review-category">Cordless Drills</span>
+                            <h3><a href="/reviews/best-cordless-drills">Best Cordless Drills (2025) - 5 Top Picks Tested</a></h3>
+                            <p>After testing 15+ cordless drills, these are our top picks for every budget.</p>
+                            <div class="review-meta">
+                                <div class="review-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">4.8/5</span>
+                                </div>
+                                <span class="review-date">Dec 2025</span>
+                            </div>
                         </div>
                     </article>
+
+                    <!-- Review Card 2 -->
                     <article class="review-card">
-                        <div class="review-image" aria-label="Saw placeholder"></div>
+                        <span class="review-badge badge-best-value">Best Value</span>
+                        <div class="review-image">
+                            <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=400&q=80" alt="Circular saw cutting wood" loading="lazy">
+                        </div>
                         <div class="review-content">
-                            <h3>Circular Saws</h3>
-                            <p>Which circular saw delivers the best precision and power?</p>
-                            <span class="rating" aria-label="Rating: 4 out of 5">⭐⭐⭐⭐</span>
+                            <span class="review-category">Circular Saws</span>
+                            <h3><a href="/reviews/best-circular-saws">Best Circular Saws for DIY Projects</a></h3>
+                            <p>Which circular saw delivers the best precision and power for the price?</p>
+                            <div class="review-meta">
+                                <div class="review-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-text">4.5/5</span>
+                                </div>
+                                <span class="review-date">Dec 2025</span>
+                            </div>
                         </div>
                     </article>
+
+                    <!-- Review Card 3 -->
                     <article class="review-card">
-                        <div class="review-image" aria-label="Hand tools placeholder"></div>
+                        <div class="review-image">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Portable generator" loading="lazy">
+                        </div>
                         <div class="review-content">
-                            <h3>Hand Tool Sets</h3>
-                            <p>Essential hand tool sets for every workshop.</p>
-                            <span class="rating" aria-label="Rating: 4.5 out of 5">⭐⭐⭐⭐⭐</span>
+                            <span class="review-category">Generators</span>
+                            <h3><a href="/reviews/best-portable-generators">Best Portable Generators for Home Backup</a></h3>
+                            <p>Keep the lights on during outages with these reliable generators.</p>
+                            <div class="review-meta">
+                                <div class="review-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">4.7/5</span>
+                                </div>
+                                <span class="review-date">Nov 2025</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Review Card 4 -->
+                    <article class="review-card">
+                        <span class="review-badge badge-editors-choice">Editor's Choice</span>
+                        <div class="review-image">
+                            <img src="https://images.unsplash.com/photo-1589923188651-268a9765e432?w=400&q=80" alt="Pressure washer" loading="lazy">
+                        </div>
+                        <div class="review-content">
+                            <span class="review-category">Pressure Washers</span>
+                            <h3><a href="/reviews/best-pressure-washers">Best Electric Pressure Washers 2025</a></h3>
+                            <p>Clean decks, driveways, and siding with these powerful machines.</p>
+                            <div class="review-meta">
+                                <div class="review-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">4.9/5</span>
+                                </div>
+                                <span class="review-date">Nov 2025</span>
+                            </div>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about">
+        <!-- Comparison Tool CTA -->
+        <section class="comparison-cta">
             <div class="container">
-                <h2>About Toolshed Tested</h2>
-                <p>We're passionate about tools and dedicated to helping you find the right equipment for your projects. Our team tests each tool thoroughly, providing honest and detailed reviews to guide your purchasing decisions.</p>
-                <ul class="features">
-                    <li>✓ Hands-on testing</li>
-                    <li>✓ Unbiased reviews</li>
-                    <li>✓ Expert recommendations</li>
-                </ul>
+                <div class="cta-content">
+                    <h2>Can't Decide Between Two Tools?</h2>
+                    <p>Use our side-by-side comparison tool to find the perfect match for your needs.</p>
+                    <a href="/compare" class="btn btn-primary btn-large">Compare Tools →</a>
+                </div>
             </div>
         </section>
 
-        <section id="contact" class="contact">
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
             <div class="container">
-                <h2>Contact Us</h2>
-                <p>Have a tool you'd like us to review? Get in touch!</p>
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                <div class="newsletter-box">
+                    <div class="newsletter-content">
+                        <h2>🔧 Join 10,000+ Tool Enthusiasts</h2>
+                        <p>Get weekly deals, new reviews, and exclusive buying guides delivered to your inbox.</p>
+                        <ul class="newsletter-benefits">
+                            <li>✓ Exclusive discount codes</li>
+                            <li>✓ Early access to reviews</li>
+                            <li>✓ Free buying guides</li>
+                        </ul>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                    <form class="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <input type="email" name="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-secondary">Subscribe Free</button>
+                        <p class="form-disclaimer">No spam, unsubscribe anytime.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- About/Trust Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>Why Trust Toolshed Tested?</h2>
+                        <p>We're a team of contractors, woodworkers, and DIY enthusiasts who actually use the tools we review. Every product goes through rigorous real-world testing before we publish our verdict.</p>
+                        
+                        <div class="trust-points">
+                            <div class="trust-point">
+                                <span class="trust-icon">🔬</span>
+                                <div>
+                                    <h4>Hands-On Testing</h4>
+                                    <p>Every tool is used on real projects, not just unboxed.</p>
+                                </div>
+                            </div>
+                            <div class="trust-point">
+                                <span class="trust-icon">🎯</span>
+                                <div>
+                                    <h4>Unbiased Reviews</h4>
+                                    <p>We buy most tools ourselves. No pay-to-play reviews.</p>
+                                </div>
+                            </div>
+                            <div class="trust-point">
+                                <span class="trust-icon">💰</span>
+                                <div>
+                                    <h4>Best Value Focus</h4>
+                                    <p>We find the sweet spot between quality and price.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="/about" class="btn btn-outline">Learn More About Us →</a>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1581783898377-1c85bf937427?w=500&q=80" alt="Workshop with tools" loading="lazy">
                     </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2024 Toolshed Tested. All rights reserved.</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">Toolshed Tested</a>
+                    <p>Expert reviews of outdoor power equipment and tools since 2024.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="YouTube">📺</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook">👍</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="/reviews/cordless-drills">Cordless Drills</a></li>
+                        <li><a href="/reviews/chainsaws">Chainsaws</a></li>
+                        <li><a href="/reviews/generators">Generators</a></li>
+                        <li><a href="/reviews/pressure-washers">Pressure Washers</a></li>
+                        <li><a href="/reviews/lawn-mowers">Lawn Mowers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/buying-guides">Buying Guides</a></li>
+                        <li><a href="/deals">Current Deals</a></li>
+                        <li><a href="/compare">Compare Tools</a></li>
+                        <li><a href="/newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/disclosure">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Toolshed Tested. All rights reserved.</p>
+                <p class="affiliate-disclosure">As an Amazon Associate, we earn from qualifying purchases. <a href="/disclosure">Full disclosure</a></p>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script-new.js"></script>
 </body>
 </html>

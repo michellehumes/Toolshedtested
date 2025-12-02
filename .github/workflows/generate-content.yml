@@ -125,42 +125,31 @@ jobs:
           KEYWORD="${{ steps.keyword.outputs.keyword }}"
           TITLE="${{ steps.generate.outputs.title }}"
           CONTENT=$(cat /tmp/article_content.html)
-
-          CONTENT_JSON=$(echo "$CONTENT" | jq -Rs .)
-          TITLE_JSON=$(echo "$TITLE" | jq -Rs .)
-
           SLUG=$(echo "$KEYWORD" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
           SLUG="best-$SLUG"
-
           echo "Publishing: $TITLE"
           echo "Slug: $SLUG"
-
           AUTH=$(echo -n "$WP_USERNAME:$WP_PASSWORD" | base64)
-
-          EXISTING=$(curl -sk "$WP_SITE_URL/wp-json/wp/v2/posts?slug=$SLUG")
-          EXISTING_ID=$(echo "$EXISTING" | jq -r '.[0].id // empty')
-
-          if [ -n "$EXISTING_ID" ] && [ "$EXISTING_ID" != "null" ]; then
+          EXISTING=$(curl -s "$WP_SITE_URL/wp-json/wp/v2/posts?slug=$SLUG" 2>/dev/null || echo "[]")
+          if echo "$EXISTING" | jq -e '.[0].id' > /dev/null 2>&1; then
+            EXISTING_ID=$(echo "$EXISTING" | jq -r '.[0].id')
             echo "Updating existing post ID: $EXISTING_ID"
-            RESPONSE=$(curl -sk -X PUT "$WP_SITE_URL/wp-json/wp/v2/posts/$EXISTING_ID" \
-              -H "Authorization: Basic $AUTH" \
-              -H "Content-Type: application/json" \
-              -d "{\"title\": $TITLE_JSON, \"content\": $CONTENT_JSON, \"status\": \"publish\"}")
+            METHOD="PUT"
+            ENDPOINT="$WP_SITE_URL/wp-json/wp/v2/posts/$EXISTING_ID"
           else
             echo "Creating new post"
-            RESPONSE=$(curl -sk -X POST "$WP_SITE_URL/wp-json/wp/v2/posts" \
-              -H "Authorization: Basic $AUTH" \
-              -H "Content-Type: application/json" \
-              -d "{\"title\": $TITLE_JSON, \"content\": $CONTENT_JSON, \"slug\": \"$SLUG\", \"status\": \"publish\"}")
+            METHOD="POST"
+            ENDPOINT="$WP_SITE_URL/wp-json/wp/v2/posts"
           fi
-
+          PAYLOAD=$(jq -n --arg title "$TITLE" --arg content "$CONTENT" --arg slug "$SLUG" --arg status "publish" '{title: $title, content: $content, slug: $slug, status: $status}')
+          RESPONSE=$(curl -s -X "$METHOD" "$ENDPOINT" -H "Authorization: Basic $AUTH" -H "Content-Type: application/json" -d "$PAYLOAD")
           POST_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
           if [ -n "$POST_ID" ] && [ "$POST_ID" != "null" ]; then
             echo "Successfully published! Post ID: $POST_ID"
-            echo "URL: $WP_SITE_URL/$SLUG/"
+            echo "URL: $(echo "$RESPONSE" | jq -r '.link')"
           else
-            echo "Error publishing to WordPress:"
-            echo "$RESPONSE"
+            echo "Error publishing:"
+            echo "$RESPONSE" | head -c 500
             exit 1
           fi
 
@@ -174,5 +163,5 @@ jobs:
             git config --global user.email 'bot@toolshedtested.com'
             git add content-queue.json
             git commit -m "Remove published keyword: $KEYWORD" || echo "No changes"
-            git push origin main || echo "Push failed, will retry next run"
+            git push origin main || echo "Push failed"
           fi

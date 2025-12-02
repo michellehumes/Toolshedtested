@@ -14,55 +14,250 @@
     "acme_tools": "https://www.acmetools.com/search?q="
   },
   "queue": [
-    {"keyword": "cordless drill under 100", "category": "drills", "priority": "high"},
-    {"keyword": "dewalt vs milwaukee drill", "category": "drills", "priority": "high"},
-    {"keyword": "impact driver vs drill difference", "category": "drills", "priority": "high"},
-    {"keyword": "best drill for home use", "category": "drills", "priority": "high"},
-    {"keyword": "hammer drill vs regular drill", "category": "drills", "priority": "medium"},
-    {"keyword": "brushless vs brushed drill", "category": "drills", "priority": "medium"},
-    {"keyword": "christmas tool gifts for dad", "category": "seasonal", "priority": "seasonal-winter"},
-    {"keyword": "holiday tool deals 2025", "category": "seasonal", "priority": "seasonal-winter"},
-    {"keyword": "best tools for new homeowner", "category": "guides", "priority": "high"},
-    {"keyword": "starter tool kit for beginners", "category": "guides", "priority": "high"},
-    {"keyword": "circular saw under 100", "category": "saws", "priority": "high"},
-    {"keyword": "miter saw vs table saw", "category": "saws", "priority": "high"},
-    {"keyword": "best saw for cutting plywood", "category": "saws", "priority": "medium"},
-    {"keyword": "jigsaw vs circular saw", "category": "saws", "priority": "medium"},
-    {"keyword": "track saw vs table saw", "category": "saws", "priority": "medium"},
-    {"keyword": "generator for power outage", "category": "generators", "priority": "high"},
-    {"keyword": "quiet generator for camping", "category": "generators", "priority": "high"},
-    {"keyword": "solar generator vs gas generator", "category": "generators", "priority": "high"},
-    {"keyword": "whole house generator cost", "category": "generators", "priority": "medium"},
-    {"keyword": "inverter generator vs conventional", "category": "generators", "priority": "medium"},
-    {"keyword": "battery chainsaw vs gas", "category": "outdoor", "priority": "high"},
-    {"keyword": "electric lawn mower vs gas", "category": "outdoor", "priority": "high"},
-    {"keyword": "best leaf vacuum mulcher", "category": "outdoor", "priority": "seasonal-fall"},
-    {"keyword": "snow blower vs snow thrower", "category": "outdoor", "priority": "seasonal-winter"},
-    {"keyword": "robot lawn mower worth it", "category": "outdoor", "priority": "medium"},
-    {"keyword": "pressure washer psi guide", "category": "outdoor", "priority": "medium"},
-    {"keyword": "angle grinder vs die grinder", "category": "grinders", "priority": "high"},
-    {"keyword": "bench grinder wheel types", "category": "grinders", "priority": "medium"},
-    {"keyword": "oscillating tool uses", "category": "power-tools", "priority": "high"},
-    {"keyword": "air compressor size guide", "category": "air-tools", "priority": "high"},
-    {"keyword": "nail gun types explained", "category": "air-tools", "priority": "high"},
-    {"keyword": "brad nailer vs finish nailer", "category": "air-tools", "priority": "high"},
-    {"keyword": "mig welder for beginners", "category": "welding", "priority": "high"},
-    {"keyword": "stick welder vs mig welder", "category": "welding", "priority": "medium"},
-    {"keyword": "welder for home garage", "category": "welding", "priority": "medium"},
-    {"keyword": "random orbital sander vs sheet sander", "category": "sanders", "priority": "high"},
-    {"keyword": "belt sander uses", "category": "sanders", "priority": "medium"},
-    {"keyword": "router table vs handheld router", "category": "woodworking", "priority": "high"},
-    {"keyword": "planer vs jointer", "category": "woodworking", "priority": "high"},
-    {"keyword": "scroll saw vs band saw", "category": "woodworking", "priority": "medium"},
-    {"keyword": "workbench height guide", "category": "workshop", "priority": "medium"},
-    {"keyword": "garage workshop layout ideas", "category": "workshop", "priority": "medium"},
-    {"keyword": "tool storage solutions", "category": "workshop", "priority": "medium"},
-    {"keyword": "dewalt 20v max tools", "category": "brands", "priority": "high"},
-    {"keyword": "milwaukee m18 system", "category": "brands", "priority": "high"},
-    {"keyword": "makita vs dewalt comparison", "category": "brands", "priority": "high"},
-    {"keyword": "ryobi vs dewalt homeowner", "category": "brands", "priority": "high"},
-    {"keyword": "harbor freight tools worth buying", "category": "brands", "priority": "medium"},
-    {"keyword": "best tool brand 2025", "category": "brands", "priority": "high"},
-    {"keyword": "battery platform compatibility", "category": "guides", "priority": "high"}
+    {
+      "keyword": "dewalt vs milwaukee drill",
+      "category": "drills",
+      "priority": "high"
+    },
+    {
+      "keyword": "impact driver vs drill difference",
+      "category": "drills",
+      "priority": "high"
+    },
+    {
+      "keyword": "best drill for home use",
+      "category": "drills",
+      "priority": "high"
+    },
+    {
+      "keyword": "hammer drill vs regular drill",
+      "category": "drills",
+      "priority": "medium"
+    },
+    {
+      "keyword": "brushless vs brushed drill",
+      "category": "drills",
+      "priority": "medium"
+    },
+    {
+      "keyword": "christmas tool gifts for dad",
+      "category": "seasonal",
+      "priority": "seasonal-winter"
+    },
+    {
+      "keyword": "holiday tool deals 2025",
+      "category": "seasonal",
+      "priority": "seasonal-winter"
+    },
+    {
+      "keyword": "best tools for new homeowner",
+      "category": "guides",
+      "priority": "high"
+    },
+    {
+      "keyword": "starter tool kit for beginners",
+      "category": "guides",
+      "priority": "high"
+    },
+    {
+      "keyword": "circular saw under 100",
+      "category": "saws",
+      "priority": "high"
+    },
+    {
+      "keyword": "miter saw vs table saw",
+      "category": "saws",
+      "priority": "high"
+    },
+    {
+      "keyword": "best saw for cutting plywood",
+      "category": "saws",
+      "priority": "medium"
+    },
+    {
+      "keyword": "jigsaw vs circular saw",
+      "category": "saws",
+      "priority": "medium"
+    },
+    {
+      "keyword": "track saw vs table saw",
+      "category": "saws",
+      "priority": "medium"
+    },
+    {
+      "keyword": "generator for power outage",
+      "category": "generators",
+      "priority": "high"
+    },
+    {
+      "keyword": "quiet generator for camping",
+      "category": "generators",
+      "priority": "high"
+    },
+    {
+      "keyword": "solar generator vs gas generator",
+      "category": "generators",
+      "priority": "high"
+    },
+    {
+      "keyword": "whole house generator cost",
+      "category": "generators",
+      "priority": "medium"
+    },
+    {
+      "keyword": "inverter generator vs conventional",
+      "category": "generators",
+      "priority": "medium"
+    },
+    {
+      "keyword": "battery chainsaw vs gas",
+      "category": "outdoor",
+      "priority": "high"
+    },
+    {
+      "keyword": "electric lawn mower vs gas",
+      "category": "outdoor",
+      "priority": "high"
+    },
+    {
+      "keyword": "best leaf vacuum mulcher",
+      "category": "outdoor",
+      "priority": "seasonal-fall"
+    },
+    {
+      "keyword": "snow blower vs snow thrower",
+      "category": "outdoor",
+      "priority": "seasonal-winter"
+    },
+    {
+      "keyword": "robot lawn mower worth it",
+      "category": "outdoor",
+      "priority": "medium"
+    },
+    {
+      "keyword": "pressure washer psi guide",
+      "category": "outdoor",
+      "priority": "medium"
+    },
+    {
+      "keyword": "angle grinder vs die grinder",
+      "category": "grinders",
+      "priority": "high"
+    },
+    {
+      "keyword": "bench grinder wheel types",
+      "category": "grinders",
+      "priority": "medium"
+    },
+    {
+      "keyword": "oscillating tool uses",
+      "category": "power-tools",
+      "priority": "high"
+    },
+    {
+      "keyword": "air compressor size guide",
+      "category": "air-tools",
+      "priority": "high"
+    },
+    {
+      "keyword": "nail gun types explained",
+      "category": "air-tools",
+      "priority": "high"
+    },
+    {
+      "keyword": "brad nailer vs finish nailer",
+      "category": "air-tools",
+      "priority": "high"
+    },
+    {
+      "keyword": "mig welder for beginners",
+      "category": "welding",
+      "priority": "high"
+    },
+    {
+      "keyword": "stick welder vs mig welder",
+      "category": "welding",
+      "priority": "medium"
+    },
+    {
+      "keyword": "welder for home garage",
+      "category": "welding",
+      "priority": "medium"
+    },
+    {
+      "keyword": "random orbital sander vs sheet sander",
+      "category": "sanders",
+      "priority": "high"
+    },
+    {
+      "keyword": "belt sander uses",
+      "category": "sanders",
+      "priority": "medium"
+    },
+    {
+      "keyword": "router table vs handheld router",
+      "category": "woodworking",
+      "priority": "high"
+    },
+    {
+      "keyword": "planer vs jointer",
+      "category": "woodworking",
+      "priority": "high"
+    },
+    {
+      "keyword": "scroll saw vs band saw",
+      "category": "woodworking",
+      "priority": "medium"
+    },
+    {
+      "keyword": "workbench height guide",
+      "category": "workshop",
+      "priority": "medium"
+    },
+    {
+      "keyword": "garage workshop layout ideas",
+      "category": "workshop",
+      "priority": "medium"
+    },
+    {
+      "keyword": "tool storage solutions",
+      "category": "workshop",
+      "priority": "medium"
+    },
+    {
+      "keyword": "dewalt 20v max tools",
+      "category": "brands",
+      "priority": "high"
+    },
+    {
+      "keyword": "milwaukee m18 system",
+      "category": "brands",
+      "priority": "high"
+    },
+    {
+      "keyword": "makita vs dewalt comparison",
+      "category": "brands",
+      "priority": "high"
+    },
+    {
+      "keyword": "ryobi vs dewalt homeowner",
+      "category": "brands",
+      "priority": "high"
+    },
+    {
+      "keyword": "harbor freight tools worth buying",
+      "category": "brands",
+      "priority": "medium"
+    },
+    {
+      "keyword": "best tool brand 2025",
+      "category": "brands",
+      "priority": "high"
+    },
+    {
+      "keyword": "battery platform compatibility",
+      "category": "guides",
+      "priority": "high"
+    }
   ]
 }

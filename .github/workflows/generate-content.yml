@@ -81,30 +81,30 @@ jobs:
           
           # Create prompt file
           cat > /tmp/prompt.txt << 'EOF'
-          Write a comprehensive 2500+ word product review article in HTML format (not markdown).
-          
-          REQUIREMENTS:
-          1. Use REAL product names with model numbers
-          2. Include 5-7 product recommendations: Best Overall, Best Value, Budget Pick, plus others
-          3. Every product needs: description, pros, cons, and Amazon affiliate link
-          4. Amazon links MUST use: https://www.amazon.com/s?k=Product+Name+Here&tag=toolshedtested-20
-          5. Include comparison info, buyers guide, FAQ section
-          6. Use HTML formatting with proper headings (h2, h3), paragraphs, lists
-          7. Style product boxes with inline CSS for visual appeal
-          
-          OUTPUT FORMAT - Return ONLY valid HTML content, no markdown, no code blocks, starting directly with the content.
-          
-          Start with a quick answer box, then detailed product reviews, then buying guide, then FAQ.
-          EOF
+Write a comprehensive 2500+ word product review article in HTML format (not markdown).
+
+REQUIREMENTS:
+1. Use REAL product names with model numbers
+2. Include 5-7 product recommendations: Best Overall, Best Value, Budget Pick, plus others
+3. Every product needs: description, pros, cons, and Amazon affiliate link
+4. Amazon links MUST use: https://www.amazon.com/s?k=Product+Name+Here&tag=toolshedtested-20
+5. Include comparison info, buyers guide, FAQ section
+6. Use HTML formatting with proper headings (h2, h3), paragraphs, lists
+7. Style product boxes with inline CSS for visual appeal
+
+OUTPUT FORMAT - Return ONLY valid HTML content, no markdown, no code blocks, starting directly with the content.
+
+Start with a quick answer box, then detailed product reviews, then buying guide, then FAQ.
+EOF
           
           FULL_PROMPT=$(cat /tmp/prompt.txt)
           FULL_PROMPT="$FULL_PROMPT
-          
-          TOPIC: Best $KEYWORD
-          DATE: $MONTH_NAME $YEAR
-          SEASON: $SEASON ($THEME)
-          CURRENT SALES: $SALE
-          AMAZON TAG: toolshedtested-20"
+
+TOPIC: Best $KEYWORD
+DATE: $MONTH_NAME $YEAR
+SEASON: $SEASON ($THEME)
+CURRENT SALES: $SALE
+AMAZON TAG: toolshedtested-20"
           
           PROMPT_JSON=$(echo "$FULL_PROMPT" | jq -Rs .)
           
@@ -164,13 +164,13 @@ jobs:
           # Create auth header (Base64 encoded username:password)
           AUTH=$(echo -n "$WP_USERNAME:$WP_PASSWORD" | base64)
           
-          # Check if post with this slug exists
-          EXISTING=$(curl -s "$WP_SITE_URL/wp-json/wp/v2/posts?slug=$SLUG")
+          # Check if post with this slug exists (use -k for SSL bypass)
+          EXISTING=$(curl -sk "$WP_SITE_URL/wp-json/wp/v2/posts?slug=$SLUG")
           EXISTING_ID=$(echo "$EXISTING" | jq -r '.[0].id // empty')
           
           if [ -n "$EXISTING_ID" ] && [ "$EXISTING_ID" != "null" ]; then
             echo "Updating existing post ID: $EXISTING_ID"
-            RESPONSE=$(curl -s -X PUT "$WP_SITE_URL/wp-json/wp/v2/posts/$EXISTING_ID" \
+            RESPONSE=$(curl -sk -X PUT "$WP_SITE_URL/wp-json/wp/v2/posts/$EXISTING_ID" \
               -H "Authorization: Basic $AUTH" \
               -H "Content-Type: application/json" \
               -d "{
@@ -180,7 +180,7 @@ jobs:
               }")
           else
             echo "Creating new post"
-            RESPONSE=$(curl -s -X POST "$WP_SITE_URL/wp-json/wp/v2/posts" \
+            RESPONSE=$(curl -sk -X POST "$WP_SITE_URL/wp-json/wp/v2/posts" \
               -H "Authorization: Basic $AUTH" \
               -H "Content-Type: application/json" \
               -d "{

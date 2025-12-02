@@ -75,23 +75,76 @@ jobs:
           YEAR="${{ steps.season.outputs.year }}"
           MONTH_NAME=$(date +%B)
 
-          PROMPT="Write a comprehensive 2500+ word product review article in HTML format.
+          PROMPT="Write a comprehensive 2500+ word product review article in HTML format for an affiliate marketing site.
 
-          REQUIREMENTS:
-          1. Use REAL product names with model numbers
-          2. Include 5-7 product recommendations: Best Overall, Best Value, Budget Pick
-          3. Every product needs: description, pros, cons, and Amazon affiliate link
-          4. Amazon links format: https://www.amazon.com/s?k=Product+Name&tag=toolshedtested-20
-          5. Include comparison info, buyers guide, FAQ section
-          6. Use HTML formatting with h2, h3 headings, paragraphs, lists
-          7. Style product boxes with inline CSS
+          STRUCTURE (use these exact sections):
+          1. Introduction paragraph with hook about $THEME and $SALE
+          2. Quick comparison table of top 5 picks
+          3. Individual product reviews (5-7 products)
+          4. Buying guide section
+          5. FAQ section (5+ questions)
+          6. Conclusion with final recommendation
 
-          Return ONLY valid HTML content, no markdown, no code blocks.
+          HTML STYLING REQUIREMENTS - USE THESE EXACT CSS CLASSES:
+
+          FOR AFFILIATE DISCLOSURE (at top):
+          <div class=\"affiliate-disclosure\">
+          <strong>Affiliate Disclosure:</strong> We earn commissions from qualifying purchases. This doesn't affect our reviews or recommendations.
+          </div>
+
+          FOR COMPARISON TABLE:
+          <div class=\"comparison-table-wrapper\">
+          <table class=\"comparison-table\">
+          <thead><tr><th>Product</th><th>Best For</th><th>Rating</th><th>Price</th><th></th></tr></thead>
+          <tbody>
+          <tr><td class=\"product-cell\"><span class=\"product-name\">Product Name</span></td><td>Use case</td><td class=\"rating-cell\">⭐⭐⭐⭐⭐ 4.8</td><td class=\"price-cell\">\$XXX</td><td class=\"cta-cell\"><a href=\"URL\" class=\"tst-btn tst-btn-amazon\">Check Price</a></td></tr>
+          </tbody></table></div>
+
+          FOR EACH PRODUCT REVIEW BOX:
+          <div class=\"review-box\">
+          <div class=\"review-box-header\">
+          <div class=\"review-box-image\"><img src=\"https://via.placeholder.com/200x200?text=Product\" alt=\"Product Name\"></div>
+          <div class=\"review-box-info\">
+          <span class=\"badge badge-bestseller\">Best Overall</span> (or badge-editors-choice or badge-budget-pick)
+          <h3 class=\"review-box-title\">Product Name - Model Number</h3>
+          <div class=\"review-box-rating\"><span class=\"rating-stars\">⭐⭐⭐⭐⭐</span><span class=\"rating-score\">4.8/5</span></div>
+          <div class=\"review-box-price\">\$XXX</div>
+          <div class=\"review-box-cta\">
+          <a href=\"https://www.amazon.com/s?k=Product+Name&tag=toolshedtested-20\" class=\"tst-btn tst-btn-amazon\" target=\"_blank\" rel=\"nofollow noopener\">Check Price on Amazon</a>
+          </div></div></div>
+          <p>Detailed product description...</p>
+          <div class=\"pros-cons\">
+          <div class=\"pros-list\"><h4>Pros</h4><ul><li>Pro 1</li><li>Pro 2</li></ul></div>
+          <div class=\"cons-list\"><h4>Cons</h4><ul><li>Con 1</li><li>Con 2</li></ul></div>
+          </div></div>
+
+          FOR FAQ SECTION:
+          <div class=\"faq-section\"><h2>Frequently Asked Questions</h2>
+          <div class=\"faq-item\"><div class=\"faq-question\">Question here?</div><div class=\"faq-answer\"><div class=\"faq-answer-inner\">Answer here...</div></div></div>
+          </div>
+
+          FOR FINAL CTA:
+          <div class=\"final-cta\">
+          <h3>Ready to Buy?</h3>
+          <p>Our top pick is [Product Name] for most users.</p>
+          <a href=\"URL\" class=\"tst-btn tst-btn-cta\" target=\"_blank\" rel=\"nofollow noopener\">Get the Best Price on Amazon →</a>
+          </div>
+
+          IMPORTANT RULES:
+          - Use REAL product names with actual model numbers (DeWalt DCD771C2, Milwaukee 2804-20, etc.)
+          - All Amazon links: https://www.amazon.com/s?k=Product+Name+Model&tag=toolshedtested-20
+          - Include realistic prices based on current market
+          - Badge types: badge-bestseller (top pick), badge-editors-choice (premium), badge-budget-pick (value)
+          - Make content scannable with clear headings
+          - Write naturally, avoid robotic/AI-sounding text
+          - Focus on helping buyers make decisions
+
+          Return ONLY valid HTML content. No markdown, no code blocks, no backticks.
 
           TOPIC: Best $KEYWORD
           DATE: $MONTH_NAME $YEAR
           SEASON: $SEASON ($THEME)
-          CURRENT SALES: $SALE"
+          CURRENT DEALS: $SALE"
 
           PROMPT_JSON=$(echo "$PROMPT" | jq -Rs .)
 

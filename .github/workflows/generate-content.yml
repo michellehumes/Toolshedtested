@@ -1,4 +1,4 @@
-name: Generate Ultimate Tool Review
+name: Generate and Publish to WordPress
 
 on:
   schedule:
@@ -9,27 +9,17 @@ on:
         description: 'Product keyword (leave empty for auto-select)'
         required: false
         type: string
-      category:
-        description: 'Category'
-        required: false
-        type: string
-        default: 'power-tools'
 
 env:
   AMAZON_TAG: toolshedtested-20
 
 jobs:
-  generate:
+  generate-and-publish:
     runs-on: ubuntu-latest
-    name: Generate Ultimate Review
+    name: Generate Review and Publish to WordPress
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
           
       - name: Get seasonal context
         id: season
@@ -60,7 +50,6 @@ jobs:
         run: |
           if [ -n "${{ github.event.inputs.keyword }}" ]; then
             echo "keyword=${{ github.event.inputs.keyword }}" >> $GITHUB_OUTPUT
-            echo "category=${{ github.event.inputs.category }}" >> $GITHUB_OUTPUT
           else
             SEASON="${{ steps.season.outputs.season }}"
             if [ -f "content-queue.json" ]; then
@@ -71,59 +60,55 @@ jobs:
               if [ -z "$KEYWORD" ]; then
                 KEYWORD=$(jq -r '.queue[0].keyword // empty' content-queue.json)
               fi
-              CATEGORY=$(jq -r --arg kw "$KEYWORD" '[.queue[] | select(.keyword == $kw)][0].category // "power-tools"' content-queue.json)
               echo "keyword=$KEYWORD" >> $GITHUB_OUTPUT
-              echo "category=$CATEGORY" >> $GITHUB_OUTPUT
             else
               echo "keyword=best cordless drills" >> $GITHUB_OUTPUT
-              echo "category=drills" >> $GITHUB_OUTPUT
             fi
           fi
           
-      - name: Generate ultimate review
+      - name: Generate review with Claude
         id: generate
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           KEYWORD="${{ steps.keyword.outputs.keyword }}"
-          CATEGORY="${{ steps.keyword.outputs.category }}"
           SEASON="${{ steps.season.outputs.season }}"
           THEME="${{ steps.season.outputs.theme }}"
           SALE="${{ steps.season.outputs.sale }}"
           YEAR="${{ steps.season.outputs.year }}"
-          SLUG=$(echo "$KEYWORD" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
           TODAY=$(date +%Y-%m-%d)
           MONTH_NAME=$(date +%B)
           
-          cat > /tmp/prompt.txt << 'PROMPTEOF'
-          You are the lead writer for Toolshed Tested, the most trusted tool review site. Write a comprehensive 3000+ word product review.
+          # Create prompt file
+          cat > /tmp/prompt.txt << 'EOF'
+          Write a comprehensive 2500+ word product review article in HTML format (not markdown).
           
           REQUIREMENTS:
-          1. Use REAL product names with model numbers (e.g., DeWalt DCD999B, Milwaukee 2853-20)
-          2. Include 7 product recommendations organized as: Best Overall, Best Value, Budget Pick, plus 4 more for specific uses
-          3. Every product needs: star rating, key specs table, pros, cons, and affiliate links
-          4. Amazon links MUST use this format: https://www.amazon.com/s?k=Product+Name+Here&tag=toolshedtested-20
-          5. Also include Home Depot and Lowes links for each product
-          6. Include a comparison table, buyers guide, FAQ section, and final verdict
-          7. Reference current season and sales when relevant
+          1. Use REAL product names with model numbers
+          2. Include 5-7 product recommendations: Best Overall, Best Value, Budget Pick, plus others
+          3. Every product needs: description, pros, cons, and Amazon affiliate link
+          4. Amazon links MUST use: https://www.amazon.com/s?k=Product+Name+Here&tag=toolshedtested-20
+          5. Include comparison info, buyers guide, FAQ section
+          6. Use HTML formatting with proper headings (h2, h3), paragraphs, lists
+          7. Style product boxes with inline CSS for visual appeal
           
-          FORMAT: Start with YAML frontmatter (title, slug, category, date, author, excerpt, rating), then the full article in markdown.
-          PROMPTEOF
+          OUTPUT FORMAT - Return ONLY valid HTML content, no markdown, no code blocks, starting directly with the content.
+          
+          Start with a quick answer box, then detailed product reviews, then buying guide, then FAQ.
+          EOF
           
           FULL_PROMPT=$(cat /tmp/prompt.txt)
           FULL_PROMPT="$FULL_PROMPT
-
-          TOPIC: $KEYWORD
-          CATEGORY: $CATEGORY  
-          DATE: $TODAY
-          MONTH: $MONTH_NAME
-          YEAR: $YEAR
+          
+          TOPIC: Best $KEYWORD
+          DATE: $MONTH_NAME $YEAR
           SEASON: $SEASON ($THEME)
           CURRENT SALES: $SALE
-          SLUG: $SLUG
           AMAZON TAG: toolshedtested-20"
           
           PROMPT_JSON=$(echo "$FULL_PROMPT" | jq -Rs .)
+          
+          echo "Generating content for: $KEYWORD"
           
           RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
             -H "Content-Type: application/json" \
@@ -146,23 +131,86 @@ jobs:
             exit 1
           fi
           
-          mkdir -p posts
-          echo "$CONTENT" > "posts/$SLUG.md"
-          echo "slug=$SLUG" >> $GITHUB_OUTPUT
-          echo "Generated: $KEYWORD"
+          # Save content to file for next step
+          echo "$CONTENT" > /tmp/article_content.html
           
-      - name: Remove used keyword
+          # Create title
+          TITLE="Best $KEYWORD $YEAR: Expert Tested & Reviewed"
+          echo "title=$TITLE" >> $GITHUB_OUTPUT
+          
+          echo "Content generated successfully"
+          
+      - name: Publish to WordPress
+        env:
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          WP_SITE_URL: ${{ secrets.WP_SITE_URL }}
+        run: |
+          KEYWORD="${{ steps.keyword.outputs.keyword }}"
+          TITLE="${{ steps.generate.outputs.title }}"
+          CONTENT=$(cat /tmp/article_content.html)
+          
+          # Escape content for JSON
+          CONTENT_JSON=$(echo "$CONTENT" | jq -Rs .)
+          TITLE_JSON=$(echo "$TITLE" | jq -Rs .)
+          
+          # Create slug from keyword
+          SLUG=$(echo "$KEYWORD" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
+          SLUG="best-$SLUG"
+          
+          echo "Publishing: $TITLE"
+          echo "Slug: $SLUG"
+          
+          # Create auth header (Base64 encoded username:password)
+          AUTH=$(echo -n "$WP_USERNAME:$WP_PASSWORD" | base64)
+          
+          # Check if post with this slug exists
+          EXISTING=$(curl -s "$WP_SITE_URL/wp-json/wp/v2/posts?slug=$SLUG")
+          EXISTING_ID=$(echo "$EXISTING" | jq -r '.[0].id // empty')
+          
+          if [ -n "$EXISTING_ID" ] && [ "$EXISTING_ID" != "null" ]; then
+            echo "Updating existing post ID: $EXISTING_ID"
+            RESPONSE=$(curl -s -X PUT "$WP_SITE_URL/wp-json/wp/v2/posts/$EXISTING_ID" \
+              -H "Authorization: Basic $AUTH" \
+              -H "Content-Type: application/json" \
+              -d "{
+                \"title\": $TITLE_JSON,
+                \"content\": $CONTENT_JSON,
+                \"status\": \"publish\"
+              }")
+          else
+            echo "Creating new post"
+            RESPONSE=$(curl -s -X POST "$WP_SITE_URL/wp-json/wp/v2/posts" \
+              -H "Authorization: Basic $AUTH" \
+              -H "Content-Type: application/json" \
+              -d "{
+                \"title\": $TITLE_JSON,
+                \"content\": $CONTENT_JSON,
+                \"slug\": \"$SLUG\",
+                \"status\": \"publish\"
+              }")
+          fi
+          
+          # Check response
+          POST_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
+          if [ -n "$POST_ID" ] && [ "$POST_ID" != "null" ]; then
+            echo "Successfully published! Post ID: $POST_ID"
+            echo "URL: $WP_SITE_URL/$SLUG/"
+          else
+            echo "Error publishing to WordPress:"
+            echo "$RESPONSE"
+            exit 1
+          fi
+          
+      - name: Remove used keyword from queue
         run: |
           KEYWORD="${{ steps.keyword.outputs.keyword }}"
           if [ -f "content-queue.json" ]; then
             jq --arg kw "$KEYWORD" '.queue = [.queue[] | select(.keyword != $kw)]' content-queue.json > tmp.json
             mv tmp.json content-queue.json
+            git config --global user.name 'Toolshed Bot'
+            git config --global user.email 'bot@toolshedtested.com'
+            git add content-queue.json
+            git commit -m "Remove published keyword: $KEYWORD" || echo "No changes"
+            git push origin main || echo "Push failed, will retry next run"
           fi
-          
-      - name: Commit and Push
-        run: |
-          git config --global user.name 'Toolshed Tested Bot'
-          git config --global user.email 'bot@toolshedtested.com'
-          git add .
-          git commit -m "New review: ${{ steps.keyword.outputs.keyword }}" || echo "No changes"
-          git push origin main

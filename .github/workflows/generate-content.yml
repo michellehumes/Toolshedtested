@@ -101,7 +101,7 @@ jobs:
             -H "Content-Type: application/json" \
             -H "x-api-key: $ANTHROPIC_API_KEY" \
             -H "anthropic-version: 2023-06-01" \
-            -d "{\"model\": \"claude-3-5-sonnet-latest\", \"max_tokens\": 8000, \"messages\": [{\"role\": \"user\", \"content\": $PROMPT_JSON}]}")
+            -d "{\"model\": \"claude-3-5-sonnet-20241022\", \"max_tokens\": 8000, \"messages\": [{\"role\": \"user\", \"content\": $PROMPT_JSON}]}")
 
           CONTENT=$(echo "$RESPONSE" | jq -r '.content[0].text')
 

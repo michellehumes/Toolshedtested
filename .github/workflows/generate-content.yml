@@ -139,7 +139,7 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq ca-certificates > /dev/null 2>&1 || true
           
           echo "Checking for existing post..."
-          EXISTING=$(curl -sS --retry 3 --retry-delay 2 --connect-timeout 30 "$WP_SITE_URL/wp-json/wp/v2/posts?slug=$SLUG" 2>&1) || EXISTING="[]"
+          EXISTING=$(curl -sS --insecure --retry 3 --retry-delay 2 --connect-timeout 30 "$WP_SITE_URL/wp-json/wp/v2/posts?slug=$SLUG" 2>&1) || EXISTING="[]"
           
           if echo "$EXISTING" | jq -e '.[0].id' > /dev/null 2>&1; then
             EXISTING_ID=$(echo "$EXISTING" | jq -r '.[0].id')
@@ -157,7 +157,7 @@ jobs:
           echo "Payload size: $(echo "$PAYLOAD" | wc -c) bytes"
           
           echo "Sending to WordPress..."
-          HTTP_CODE=$(curl -sS -w "%{http_code}" -o /tmp/wp_response.json --retry 3 --retry-delay 5 --connect-timeout 30 --max-time 120 -X "$METHOD" "$ENDPOINT" -H "Authorization: Basic $AUTH" -H "Content-Type: application/json" -d "$PAYLOAD") || {
+          HTTP_CODE=$(curl -sS --insecure -w "%{http_code}" -o /tmp/wp_response.json --retry 3 --retry-delay 5 --connect-timeout 30 --max-time 120 -X "$METHOD" "$ENDPOINT" -H "Authorization: Basic $AUTH" -H "Content-Type: application/json" -d "$PAYLOAD") || {
             echo "Curl failed"
             cat /tmp/wp_response.json 2>/dev/null || echo "No response"
             exit 1

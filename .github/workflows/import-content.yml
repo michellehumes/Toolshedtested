@@ -89,8 +89,7 @@ jobs:
                       'slug' => $slug,
                       'content' => $html,
                       'excerpt' => $excerpt,
-                      'status' => 'draft', // Set to draft for review
-                      'categories' => [], // Would need category ID lookup
+                'status' => 'publish', // Auto-publish to WordPress                      'categories' => [], // Would need category ID lookup
                   ];
                   
                   $ch = curl_init(getenv('WP_SITE_URL') . '/wp-json/wp/v2/posts');

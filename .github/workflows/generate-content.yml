@@ -88,32 +88,32 @@ jobs:
 
           Return ONLY valid HTML content, no markdown, no code blocks.
 
-          TOPIC: Best $KEYWORD
-          DATE: $MONTH_NAME $YEAR
-          SEASON: $SEASON ($THEME)
-          CURRENT SALES: $SALE"
+          TOPIC: Best \$KEYWORD
+          DATE: \$MONTH_NAME \$YEAR
+          SEASON: \$SEASON (\$THEME)
+          CURRENT SALES: \$SALE"
 
-          PROMPT_JSON=$(echo "$PROMPT" | jq -Rs .)
+          PROMPT_JSON=\$(echo "\$PROMPT" | jq -Rs .)
 
-          echo "Generating content for: $KEYWORD"
+          echo "Generating content for: \$KEYWORD"
 
-          RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
-            -H "Content-Type: application/json" \
-            -H "x-api-key: $ANTHROPIC_API_KEY" \
-            -H "anthropic-version: 2023-06-01" \
-            -d "{\"model\": \"claude-sonnet-4-20250514\", \"max_tokens\": 8000, \"messages\": [{\"role\": \"user\", \"content\": $PROMPT_JSON}]}")
+          RESPONSE=\$(curl -s https://api.anthropic.com/v1/messages \\
+            -H "Content-Type: application/json" \\
+            -H "x-api-key: \$ANTHROPIC_API_KEY" \\
+            -H "anthropic-version: 2023-06-01" \\
+            -d "{\"model\": \"claude-sonnet-4-20250514\", \"max_tokens\": 8000, \"messages\": [{\"role\": \"user\", \"content\": \$PROMPT_JSON}]}")
 
-          CONTENT=$(echo "$RESPONSE" | jq -r '.content[0].text')
+          CONTENT=\$(echo "\$RESPONSE" | jq -r '.content[0].text')
 
-          if [ -z "$CONTENT" ] || [ "$CONTENT" == "null" ]; then
+          if [ -z "\$CONTENT" ] || [ "\$CONTENT" == "null" ]; then
             echo "Error generating content"
-            echo "$RESPONSE"
+            echo "\$RESPONSE"
             exit 1
           fi
 
-          echo "$CONTENT" > /tmp/article_content.html
-          TITLE="Best $KEYWORD $YEAR: Expert Tested & Reviewed"
-          echo "title=$TITLE" >> $GITHUB_OUTPUT
+          echo "\$CONTENT" > /tmp/article_content.html
+          TITLE="Best \$KEYWORD \$YEAR: Expert Tested & Reviewed"
+          echo "title=\$TITLE" >> \$GITHUB_OUTPUT
           echo "Content generated successfully"
 
       - name: Publish to WordPress
@@ -122,46 +122,80 @@ jobs:
           WP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
           WP_SITE_URL: ${{ secrets.WP_SITE_URL }}
         run: |
+          set -e
+          
           KEYWORD="${{ steps.keyword.outputs.keyword }}"
           TITLE="${{ steps.generate.outputs.title }}"
-          CONTENT=$(cat /tmp/article_content.html)
-          SLUG=$(echo "$KEYWORD" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
-          SLUG="best-$SLUG"
-          echo "Publishing: $TITLE"
-          echo "Slug: $SLUG"
-          AUTH=$(echo -n "$WP_USERNAME:$WP_PASSWORD" | base64)
-          EXISTING=$(curl -s "$WP_SITE_URL/wp-json/wp/v2/posts?slug=$SLUG" 2>/dev/null || echo "[]")
-          if echo "$EXISTING" | jq -e '.[0].id' > /dev/null 2>&1; then
-            EXISTING_ID=$(echo "$EXISTING" | jq -r '.[0].id')
-            echo "Updating existing post ID: $EXISTING_ID"
+          CONTENT=\$(cat /tmp/article_content.html)
+          
+          SLUG=\$(echo "\$KEYWORD" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
+          SLUG="best-\$SLUG"
+          
+          echo "Publishing: \$TITLE"
+          echo "Slug: \$SLUG"
+          
+          AUTH=\$(echo -n "\$WP_USERNAME:\$WP_PASSWORD" | base64)
+          
+          sudo apt-get update -qq && sudo apt-get install -y -qq ca-certificates > /dev/null 2>&1 || true
+          
+          echo "Checking for existing post..."
+          EXISTING=\$(curl -sS --retry 3 --retry-delay 2 --connect-timeout 30 "\$WP_SITE_URL/wp-json/wp/v2/posts?slug=\$SLUG" 2>&1) || EXISTING="[]"
+          
+          if echo "\$EXISTING" | jq -e '.[0].id' > /dev/null 2>&1; then
+            EXISTING_ID=\$(echo "\$EXISTING" | jq -r '.[0].id')
+            echo "Updating existing post ID: \$EXISTING_ID"
             METHOD="PUT"
-            ENDPOINT="$WP_SITE_URL/wp-json/wp/v2/posts/$EXISTING_ID"
+            ENDPOINT="\$WP_SITE_URL/wp-json/wp/v2/posts/\$EXISTING_ID"
           else
             echo "Creating new post"
             METHOD="POST"
-            ENDPOINT="$WP_SITE_URL/wp-json/wp/v2/posts"
+            ENDPOINT="\$WP_SITE_URL/wp-json/wp/v2/posts"
           fi
-          PAYLOAD=$(jq -n --arg title "$TITLE" --arg content "$CONTENT" --arg slug "$SLUG" --arg status "publish" '{title: $title, content: $content, slug: $slug, status: $status}')
-          RESPONSE=$(curl -s -X "$METHOD" "$ENDPOINT" -H "Authorization: Basic $AUTH" -H "Content-Type: application/json" -d "$PAYLOAD")
-          POST_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
-          if [ -n "$POST_ID" ] && [ "$POST_ID" != "null" ]; then
-            echo "Successfully published! Post ID: $POST_ID"
-            echo "URL: $(echo "$RESPONSE" | jq -r '.link')"
+          
+          PAYLOAD=\$(jq -n --arg title "\$TITLE" --arg content "\$CONTENT" --arg slug "\$SLUG" --arg status "publish" '{title: \$title, content: \$content, slug: \$slug, status: \$status}')
+          
+          echo "Payload size: \$(echo "\$PAYLOAD" | wc -c) bytes"
+          
+          echo "Sending to WordPress..."
+          HTTP_CODE=\$(curl -sS -w "%{http_code}" -o /tmp/wp_response.json --retry 3 --retry-delay 5 --connect-timeout 30 --max-time 120 -X "\$METHOD" "\$ENDPOINT" -H "Authorization: Basic \$AUTH" -H "Content-Type: application/json" -d "\$PAYLOAD" 2>&1) || {
+            echo "Curl failed"
+            cat /tmp/wp_response.json 2>/dev/null || echo "No response"
+            exit 1
+          }
+          
+          echo "HTTP Response Code: \$HTTP_CODE"
+          
+          if [ "\$HTTP_CODE" -ge 200 ] && [ "\$HTTP_CODE" -lt 300 ]; then
+            RESPONSE=\$(cat /tmp/wp_response.json)
+            POST_ID=\$(echo "\$RESPONSE" | jq -r '.id // empty')
+            POST_LINK=\$(echo "\$RESPONSE" | jq -r '.link // empty')
+            
+            if [ -n "\$POST_ID" ] && [ "\$POST_ID" != "null" ]; then
+              echo ""
+              echo "Successfully published!"
+              echo "Post ID: \$POST_ID"
+              echo "URL: \$POST_LINK"
+            else
+              echo "Response missing post ID"
+              cat /tmp/wp_response.json | head -c 1000
+              exit 1
+            fi
           else
-            echo "Error publishing:"
-            echo "$RESPONSE" | head -c 500
+            echo "WordPress API error (HTTP \$HTTP_CODE):"
+            cat /tmp/wp_response.json | head -c 1000
             exit 1
           fi
 
       - name: Remove used keyword from queue
+        if: success() && github.event.inputs.keyword == ''
         run: |
-          KEYWORD="${{ steps.keyword.outputs.keyword }}"
           if [ -f "content-queue.json" ]; then
-            jq --arg kw "$KEYWORD" '.queue = [.queue[] | select(.keyword != $kw)]' content-queue.json > tmp.json
-            mv tmp.json content-queue.json
-            git config --global user.name 'Toolshed Bot'
-            git config --global user.email 'bot@toolshedtested.com'
+            USED_KEYWORD=\$(jq -r '.queue[0].keyword' content-queue.json)
+            jq 'del(.queue[0])' content-queue.json > temp.json && mv temp.json content-queue.json
+            
+            git config user.name "GitHub Actions"
+            git config user.email "actions@github.com"
             git add content-queue.json
-            git commit -m "Remove published keyword: $KEYWORD" || echo "No changes"
-            git push origin main || echo "Push failed"
+            git commit -m "Remove published keyword: \$USED_KEYWORD" || echo "No changes"
+            git push || echo "Push failed"
           fi

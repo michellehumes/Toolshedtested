@@ -1,0 +1,199 @@
+/**
+ * ENHANCED AFFILIATE BUTTON STYLES FOR TOOLSHED TESTED
+ * =====================================================
+ * Loaded via CDN or theme customizer
+ * Add to WordPress: Appearance > Customize > Additional CSS
+ */
+
+/* ===========================================
+   BASE AFFILIATE BUTTON STYLES
+   =========================================== */
+
+.affiliate-button,
+a[href*="amazon.com"].tst-btn,
+a.check-price-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  color: #1a1a1a !important;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none !important;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.affiliate-button:hover,
+a[href*="amazon.com"].tst-btn:hover,
+a.check-price-button:hover {
+  background: linear-gradient(135deg, #ffb74d 0%, #ff9800 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+  color: #1a1a1a !important;
+}
+
+.affiliate-button:active {
+  transform: translateY(0);
+}
+
+/* ===========================================
+   PRODUCT CARD ENHANCEMENTS
+   =========================================== */
+
+/* Best pick badges */
+div[style*="border: 2px solid #4caf50"],
+div[style*="border:2px solid #4caf50"] {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+div[style*="border: 2px solid #4caf50"]:hover,
+div[style*="border:2px solid #4caf50"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+}
+
+/* Product card CTA buttons */
+div[style*="border: 2px solid"] a[href*="amazon.com"],
+div[style*="border:2px solid"] a[href*="amazon.com"] {
+  transition: all 0.3s ease;
+}
+
+div[style*="border: 2px solid"] a[href*="amazon.com"]:hover,
+div[style*="border:2px solid"] a[href*="amazon.com"]:hover {
+  transform: scale(1.02);
+}
+
+/* ===========================================
+   COMPARISON TABLE BUTTONS
+   =========================================== */
+
+table a[href*="amazon.com"] {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  color: #1a1a1a !important;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+table a[href*="amazon.com"]:hover {
+  background: linear-gradient(135deg, #ffb74d, #ff9800);
+  transform: translateY(-1px);
+}
+
+/* ===========================================
+   QUICK ANSWER BOX STYLING
+   =========================================== */
+
+div[style*="background: #e8f5e9"],
+div[style*="background:#e8f5e9"] {
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+div[style*="background: #e8f5e9"]:hover,
+div[style*="background:#e8f5e9"]:hover {
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.15);
+}
+
+/* ===========================================
+   AFFILIATE DISCLOSURE BOX (auto-added)
+   =========================================== */
+
+.affiliate-disclosure-box {
+  background: #f0f7f0;
+  border: 1px solid #c8e6c9;
+  border-radius: 6px;
+  padding: 15px 20px;
+  margin-bottom: 25px;
+  font-size: 0.9em;
+}
+
+.affiliate-disclosure-box p {
+  margin: 0;
+  color: #2e7d32;
+}
+
+.affiliate-disclosure-box a {
+  color: #1b5e20;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.affiliate-disclosure-box a:hover {
+  border-bottom-style: solid;
+}
+
+/* ===========================================
+   PULSE ANIMATION FOR FEATURED BUTTONS
+   =========================================== */
+
+@keyframes subtle-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(255, 152, 0, 0.45);
+  }
+}
+
+/* Apply subtle pulse to main CTA in best overall cards */
+div[style*="BEST OVERALL"] a[href*="amazon.com"],
+div[style*="border: 2px solid #4caf50"] a[style*="background: #ff9800"],
+div[style*="border:2px solid #4caf50"] a[style*="background:#ff9800"] {
+  animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+/* ===========================================
+   ACCESSIBILITY
+   =========================================== */
+
+a[href*="amazon.com"]:focus,
+.affiliate-button:focus {
+  outline: 3px solid #ff9800;
+  outline-offset: 3px;
+}
+
+a[href*="amazon.com"]:focus:not(:focus-visible),
+.affiliate-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .affiliate-button,
+  div[style*="border: 2px solid"],
+  table a[href*="amazon.com"] {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===========================================
+   MOBILE OPTIMIZATIONS
+   =========================================== */
+
+@media (max-width: 600px) {
+  .affiliate-button,
+  a.check-price-button {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  table a[href*="amazon.com"] {
+    padding: 10px 14px;
+    font-size: 0.8rem;
+  }
+}

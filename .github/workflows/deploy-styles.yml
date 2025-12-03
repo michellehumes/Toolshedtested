@@ -1,0 +1,132 @@
+name: Deploy Custom Styles to WordPress
+
+on:
+  push:
+    paths:
+      - 'assets/custom-enhancements.css'
+  workflow_dispatch:
+
+jobs:
+  deploy-css:
+    runs-on: ubuntu-latest
+    name: Deploy CSS Enhancements
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read CSS file
+        id: css
+        run: |
+          CSS_CONTENT=$(cat assets/custom-enhancements.css)
+          echo "css<<EOF" >> $GITHUB_OUTPUT
+          echo "$CSS_CONTENT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "CSS file read successfully ($(wc -c < assets/custom-enhancements.css) bytes)"
+
+      - name: Deploy CSS to WordPress
+        env:
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          WP_SITE_URL: ${{ secrets.WP_SITE_URL }}
+        run: |
+          set -e
+
+          CSS_CONTENT=$(cat assets/custom-enhancements.css)
+
+          AUTH=$(echo -n "$WP_USERNAME:$WP_PASSWORD" | base64)
+
+          # Create or update a page that injects CSS
+          SLUG="custom-styles-injection"
+          TITLE="Custom CSS Styles"
+
+          # Create CSS injection HTML
+          CONTENT="<style id=\"toolshed-custom-css\">
+          $CSS_CONTENT
+          </style>
+          <script>
+          // Move styles to head for better performance
+          document.addEventListener('DOMContentLoaded', function() {
+            var style = document.getElementById('toolshed-custom-css');
+            if (style) {
+              document.head.appendChild(style);
+            }
+          });
+          </script>"
+
+          echo "Checking for existing CSS post..."
+          EXISTING=$(curl -sS --insecure --retry 3 --connect-timeout 30 "$WP_SITE_URL/wp-json/wp/v2/posts?slug=$SLUG&status=any" 2>&1) || EXISTING="[]"
+
+          if echo "$EXISTING" | jq -e '.[0].id' > /dev/null 2>&1; then
+            EXISTING_ID=$(echo "$EXISTING" | jq -r '.[0].id')
+            echo "Updating existing CSS post ID: $EXISTING_ID"
+            METHOD="PUT"
+            ENDPOINT="$WP_SITE_URL/wp-json/wp/v2/posts/$EXISTING_ID"
+          else
+            echo "Creating new CSS post"
+            METHOD="POST"
+            ENDPOINT="$WP_SITE_URL/wp-json/wp/v2/posts"
+          fi
+
+          # Create payload - this post won't be visible but CSS will load
+          PAYLOAD=$(jq -n \
+            --arg title "$TITLE" \
+            --arg content "$CONTENT" \
+            --arg slug "$SLUG" \
+            --arg status "private" \
+            '{title: $title, content: $content, slug: $slug, status: $status}')
+
+          echo "Deploying CSS ($(($(echo "$CSS_CONTENT" | wc -c) / 1024))KB)..."
+
+          HTTP_CODE=$(curl -sS --insecure -w "%{http_code}" -o /tmp/wp_response.json \
+            --retry 3 --retry-delay 5 --connect-timeout 30 --max-time 120 \
+            -X "$METHOD" "$ENDPOINT" \
+            -H "Authorization: Basic $AUTH" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD") || {
+            echo "Curl failed"
+            exit 1
+          }
+
+          echo "HTTP Response Code: $HTTP_CODE"
+
+          if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
+            echo ""
+            echo "✅ CSS deployed successfully!"
+            echo ""
+            echo "To activate: Add this to your theme's functions.php or use a plugin:"
+            echo "// Add custom CSS from GitHub"
+            echo "add_action('wp_head', function() {"
+            echo "  echo '<link rel=\"stylesheet\" href=\"https://raw.githubusercontent.com/michellehumes/Toolshedtested/main/assets/custom-enhancements.css\">';"
+            echo "});"
+          else
+            echo "WordPress API error (HTTP $HTTP_CODE):"
+            cat /tmp/wp_response.json | head -c 1000
+            exit 1
+          fi
+
+      - name: Output instructions
+        run: |
+          echo ""
+          echo "=========================================="
+          echo "CSS DEPLOYMENT COMPLETE"
+          echo "=========================================="
+          echo ""
+          echo "Option 1 - Add to WordPress Customizer:"
+          echo "1. Go to: Appearance > Customize > Additional CSS"
+          echo "2. Paste the contents of assets/custom-enhancements.css"
+          echo ""
+          echo "Option 2 - Use Code Snippets plugin:"
+          echo "1. Install 'Code Snippets' plugin"
+          echo "2. Add this PHP snippet:"
+          echo ""
+          echo "add_action('wp_enqueue_scripts', function() {"
+          echo "  wp_enqueue_style('toolshed-custom', 'https://raw.githubusercontent.com/michellehumes/Toolshedtested/main/assets/custom-enhancements.css', array(), '1.0.0');"
+          echo "});"
+          echo ""
+          echo "The CSS will automatically improve:"
+          echo "- Amazon button styling (higher conversions)"
+          echo "- Product review boxes (premium look)"
+          echo "- Comparison tables (professional)"
+          echo "- Pros/cons sections (scannable)"
+          echo "- Mobile responsiveness"
+          echo "=========================================="

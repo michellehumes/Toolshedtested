@@ -8,6 +8,10 @@ import os
 import sys
 import base64
 import requests
+import urllib3
+
+# Disable SSL warnings for local development
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Configuration from environment variables
 WP_URL = os.environ.get('WP_URL', 'https://toolshedtested.com').rstrip('/')
@@ -31,7 +35,8 @@ def check_page_exists(slug):
     response = requests.get(
         f"{API_BASE}/pages",
         headers=headers,
-        params={"slug": slug, "status": "any"}
+        params={"slug": slug, "status": "any"},
+        verify=False  # Skip SSL verification
     )
 
     if response.status_code == 200:
@@ -63,14 +68,16 @@ def publish_page(title, slug, content, meta_description=""):
         response = requests.post(
             f"{API_BASE}/pages/{existing_id}",
             headers=headers,
-            json=page_data
+            json=page_data,
+            verify=False  # Skip SSL verification
         )
         action = "Updated"
     else:
         response = requests.post(
             f"{API_BASE}/pages",
             headers=headers,
-            json=page_data
+            json=page_data,
+            verify=False  # Skip SSL verification
         )
         action = "Created"
 

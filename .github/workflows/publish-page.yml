@@ -1,0 +1,121 @@
+name: Publish Single Page
+
+on:
+  workflow_dispatch:
+    inputs:
+      page_file:
+        description: 'Page file to publish (e.g., pages/disclosure.md)'
+        required: true
+        default: 'pages/disclosure.md'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: Publish Page to WordPress
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests pyyaml markdown
+
+      - name: Publish page
+        env:
+          WP_SITE_URL: ${{ secrets.WP_SITE_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          python3 << 'SCRIPT'
+          import os
+          import base64
+          import requests
+          import yaml
+          import markdown
+          from pathlib import Path
+
+          # Configuration
+          WP_URL = os.environ.get('WP_SITE_URL', '').rstrip('/')
+          WP_USER = os.environ.get('WP_USERNAME', '')
+          WP_PASS = os.environ.get('WP_APP_PASSWORD', '')
+          PAGE_FILE = '${{ github.event.inputs.page_file }}'
+
+          print(f"Publishing: {PAGE_FILE}")
+          print(f"To: {WP_URL}")
+
+          # Read file
+          content = Path(PAGE_FILE).read_text()
+
+          # Parse frontmatter
+          if content.startswith('---'):
+              parts = content.split('---', 2)
+              frontmatter = yaml.safe_load(parts[1])
+              body = parts[2].strip()
+          else:
+              frontmatter = {}
+              body = content
+
+          # Convert to HTML
+          html = markdown.markdown(body, extensions=['tables', 'fenced_code'])
+
+          # Auth header
+          credentials = f"{WP_USER}:{WP_PASS}"
+          token = base64.b64encode(credentials.encode()).decode()
+          headers = {
+              "Authorization": f"Basic {token}",
+              "Content-Type": "application/json"
+          }
+
+          # Check if page exists
+          slug = frontmatter.get('slug', Path(PAGE_FILE).stem)
+          response = requests.get(
+              f"{WP_URL}/wp-json/wp/v2/pages",
+              headers=headers,
+              params={"slug": slug, "status": "any"}
+          )
+
+          existing_id = None
+          if response.status_code == 200:
+              pages = response.json()
+              if pages:
+                  existing_id = pages[0]['id']
+                  print(f"Found existing page: {existing_id}")
+
+          # Prepare data
+          page_data = {
+              "title": frontmatter.get('title', Path(PAGE_FILE).stem),
+              "slug": slug,
+              "content": html,
+              "status": "publish"
+          }
+
+          # Publish
+          if existing_id:
+              response = requests.post(
+                  f"{WP_URL}/wp-json/wp/v2/pages/{existing_id}",
+                  headers=headers,
+                  json=page_data
+              )
+              action = "Updated"
+          else:
+              response = requests.post(
+                  f"{WP_URL}/wp-json/wp/v2/pages",
+                  headers=headers,
+                  json=page_data
+              )
+              action = "Created"
+
+          if response.status_code in [200, 201]:
+              result = response.json()
+              print(f"✅ {action}: {result['title']['rendered']}")
+              print(f"   URL: {result['link']}")
+          else:
+              print(f"❌ Failed: {response.status_code}")
+              print(response.text[:500])
+              exit(1)
+          SCRIPT

@@ -1,0 +1,249 @@
+======================================================================
+CONTENT ANALYSIS REPORT - ToolShedTested
+Generated: 2025-12-05 13:47:46
+======================================================================
+
+SUMMARY
+----------------------------------------
+Total posts analyzed: 25
+Average word count: 473
+Average score: 40.0/100
+Grade distribution: {'F': 18, 'D': 3, 'C': 4}
+
+POSTS NEEDING ATTENTION
+----------------------------------------
+
+Best Angle Grinders (2025) - 5 Models Tested for Grinding & Cutting
+  File: angle-grinders.md
+  Grade: F (Score: 35)
+  Word count: 174
+  - ISSUE: Word count (174) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Battery Chainsaws (2025) - 5 Cordless Models Tested
+  File: battery-chainsaws.md
+  Grade: F (Score: 30)
+  Word count: 40
+  - ISSUE: Word count (40) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+best-battery-powered-lawn-mowers-2025
+  File: best-battery-powered-lawn-mowers-2025.md
+  Grade: D (Score: 45)
+  Word count: 790
+  - ISSUE: Word count (790) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Battery Powered Lawn Mowers (2025) - 7 Top Picks Tested
+  File: best-battery-powered-lawn-mowers.md
+  Grade: D (Score: 55)
+  Word count: 321
+  - ISSUE: Word count (321) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a clear conclusion/verdict section
+  - Suggestion: Consider adding more H2 sections (4/5)
+
+best-portable-air-compressors
+  File: best-portable-air-compressors.md
+  Grade: D (Score: 45)
+  Word count: 979
+  - ISSUE: Word count (979) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Chainsaws (2025) - 5 Models Tested for Homeowners & Pros
+  File: chainsaws.md
+  Grade: F (Score: 30)
+  Word count: 39
+  - ISSUE: Word count (39) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Circular Saws (2025) - 5 Top Picks for Clean, Accurate Cuts
+  File: circular-saws.md
+  Grade: F (Score: 35)
+  Word count: 185
+  - ISSUE: Word count (185) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Cordless Leaf Blowers (2025) - 6 Battery Models Tested
+  File: cordless-leaf-blowers.md
+  Grade: F (Score: 30)
+  Word count: 40
+  - ISSUE: Word count (40) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Electric Pressure Washers (2025) - 4 Quiet, Powerful Models
+  File: electric-pressure-washers.md
+  Grade: F (Score: 30)
+  Word count: 41
+  - ISSUE: Word count (41) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Impact Drivers (2025) - 5 Models Tested for Speed & Power
+  File: impact-drivers.md
+  Grade: F (Score: 35)
+  Word count: 188
+  - ISSUE: Word count (188) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Inverter Generators (2025) - 5 Quiet Power Solutions Tested
+  File: inverter-generators.md
+  Grade: F (Score: 30)
+  Word count: 37
+  - ISSUE: Word count (37) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Jigsaws (2025) - 5 Models Tested for Curved & Intricate Cuts
+  File: jigsaws.md
+  Grade: F (Score: 35)
+  Word count: 182
+  - ISSUE: Word count (182) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Lawn Mowers (2025) - 5 Top Picks Tested
+  File: lawn-mowers.md
+  Grade: F (Score: 30)
+  Word count: 38
+  - ISSUE: Word count (38) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Leaf Blowers (2025) - 5 Models Tested for Power & Value
+  File: leaf-blowers.md
+  Grade: F (Score: 30)
+  Word count: 41
+  - ISSUE: Word count (41) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Miter Saws (2025) - 5 Models Tested for Trim & Framing
+  File: miter-saws.md
+  Grade: F (Score: 35)
+  Word count: 80
+  - ISSUE: Word count (80) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Oscillating Multi-Tools (2025) - 5 Versatile Tools Tested
+  File: oscillating-multi-tools.md
+  Grade: F (Score: 35)
+  Word count: 181
+  - ISSUE: Word count (181) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Portable Generators (2025) - 5 Reliable Models Tested
+  File: portable-generators.md
+  Grade: F (Score: 30)
+  Word count: 41
+  - ISSUE: Word count (41) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Pressure Washers (2025) - 5 Top Models Tested & Compared
+  File: pressure-washers.md
+  Grade: F (Score: 30)
+  Word count: 49
+  - ISSUE: Word count (49) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Random Orbital Sanders (2025) - 5 Top Picks for Smooth Finishes
+  File: random-orbital-sanders.md
+  Grade: F (Score: 35)
+  Word count: 180
+  - ISSUE: Word count (180) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Reciprocating Saws (2025) - 5 Models Tested for Demolition & Pruning
+  File: reciprocating-saws.md
+  Grade: F (Score: 35)
+  Word count: 179
+  - ISSUE: Word count (179) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+Best Table Saws (2025) - 5 Top Picks for Workshop & Jobsite
+  File: table-saws.md
+  Grade: F (Score: 35)
+  Word count: 185
+  - ISSUE: Word count (185) below minimum (2500)
+  - ISSUE: Missing pros/cons sections
+  - Suggestion: Add a comparison table for better user experience
+  - Suggestion: Add FAQ section for rich snippets potential
+  - Suggestion: Add a clear conclusion/verdict section
+
+CATEGORY BREAKDOWN
+----------------------------------------
+  chainsaws: 2 posts, avg score: 30.0
+  drills: 2 posts, avg score: 50.0
+  generators: 2 posts, avg score: 30.0
+  grinders: 1 posts, avg score: 35.0
+  lawn-mowers: 2 posts, avg score: 42.5
+  leaf-blowers: 2 posts, avg score: 30.0
+  multi-tools: 1 posts, avg score: 35.0
+  outdoor: 2 posts, avg score: 67.5
+  pressure-washers: 2 posts, avg score: 30.0
+  sanders: 1 posts, avg score: 35.0
+  saws: 5 posts, avg score: 35.0
+  uncategorized: 3 posts, avg score: 53.3
+
+PRIORITIZED ACTION ITEMS
+----------------------------------------
+  1. angle-grinders.md: Word count (174) below minimum (2500)
+  2. angle-grinders.md: Missing pros/cons sections
+  3. battery-chainsaws.md: Word count (40) below minimum (2500)
+  4. battery-chainsaws.md: Missing pros/cons sections
+  5. best-battery-powered-lawn-mowers-2025.md: Word count (790) below minimum (2500)
+  6. best-battery-powered-lawn-mowers-2025.md: Missing pros/cons sections
+  7. best-battery-powered-lawn-mowers.md: Word count (321) below minimum (2500)
+  8. best-battery-powered-lawn-mowers.md: Missing pros/cons sections
+  9. best-cordless-hedge-trimmers.md: Word count (1032) below minimum (2500)
+  10. best-cordless-hedge-trimmers.md: Missing pros/cons sections

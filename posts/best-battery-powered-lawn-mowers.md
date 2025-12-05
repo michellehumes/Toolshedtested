@@ -37,7 +37,7 @@ The EGO LM2135SP is the Tesla of lawn mowers. The 56V ARC lithium battery paired
 
 **Cons:** Heavy at 77 lbs, premium price
 
-[Check Price on Amazon](https://www.amazon.com/dp/B09MZ3LXHP?tag=SHELZYSDESIGNS-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B09MZ3LXHP?tag=toolshedtested-20)
 
 ## 2. Ryobi 40V HP Brushless - Best Value
 
@@ -48,7 +48,7 @@ The Ryobi 40V HP punches way above its price point. It's $200-300 cheaper than E
 - Cutting Width: 20 inches
 - Runtime: Up to 50 minutes
 
-[Check Price on Amazon](https://www.amazon.com/dp/B08XYSYP8F?tag=SHELZYSDESIGNS-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B08XYSYP8F?tag=toolshedtested-20)
 
 ## FAQ
 

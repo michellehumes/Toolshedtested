@@ -559,3 +559,52 @@ function tst_track_affiliate_click() {
 }
 add_action( 'wp_ajax_tst_track_click', 'tst_track_affiliate_click' );
 add_action( 'wp_ajax_nopriv_tst_track_click', 'tst_track_affiliate_click' );
+
+/**
+ * Redirect /disclosure/ to /affiliate-disclosure/
+ */
+function tst_disclosure_redirect() {
+    if ( is_404() ) {
+        global $wp;
+        if ( $wp->request === 'disclosure' ) {
+            wp_redirect( home_url( '/affiliate-disclosure/' ), 301 );
+            exit;
+        }
+    }
+}
+add_action( 'template_redirect', 'tst_disclosure_redirect' );
+
+/**
+ * Enqueue email popup script
+ */
+function tst_enqueue_popup_script() {
+    if ( ! is_admin() ) {
+        wp_enqueue_script(
+            'tst-email-popup',
+            TST_THEME_URI . '/assets/js/email-popup.js',
+            array(),
+            TST_VERSION,
+            true
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'tst_enqueue_popup_script' );
+
+/**
+ * Get the primary affiliate URL for mobile sticky CTA
+ */
+function tst_get_primary_affiliate_url() {
+    if ( is_singular( 'post' ) || is_singular( 'product_review' ) ) {
+        $affiliate_url = get_post_meta( get_the_ID(), '_tst_affiliate_url', true );
+        if ( $affiliate_url ) {
+            return $affiliate_url;
+        }
+
+        // Try to find first Amazon link in content
+        global $post;
+        if ( $post && preg_match( '/href=["\']([^"\']*amazon\.com[^"\']*)["\']/', $post->post_content, $matches ) ) {
+            return $matches[1];
+        }
+    }
+    return '';
+}

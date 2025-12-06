@@ -642,3 +642,328 @@
         display: none !important;
     }
 }
+
+/* ==========================================================================
+   Trust Bar
+   ========================================================================== */
+.trust-bar {
+    background: var(--tst-primary);
+    color: var(--tst-white);
+    padding: 8px 0;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.trust-bar .tst-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.trust-icon {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .trust-bar {
+        font-size: 11px;
+        padding: 6px 0;
+    }
+    .trust-bar .tst-container {
+        gap: 12px;
+    }
+}
+
+/* ==========================================================================
+   Mobile Sticky CTA
+   ========================================================================== */
+.mobile-sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    padding: 12px 20px;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-sticky-cta.visible {
+    transform: translateY(0);
+}
+
+.mobile-sticky-cta a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #111;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.mobile-sticky-cta .sticky-cta-price {
+    background: #111;
+    color: #f0c14b;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .mobile-sticky-cta {
+        display: block;
+    }
+
+    body.has-sticky-cta {
+        padding-bottom: 60px;
+    }
+}
+
+/* ==========================================================================
+   Enhanced Amazon CTA Button
+   ========================================================================== */
+.tst-btn-amazon {
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b) !important;
+    border: 1px solid #a88734 !important;
+    color: #111 !important;
+    padding: 14px 28px;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.tst-btn-amazon:hover {
+    background: linear-gradient(to bottom, #f5d78e, #eeb933) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tst-btn-amazon .btn-price {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.review-box .tst-btn-amazon {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 32px;
+    font-size: 18px;
+}
+
+/* ==========================================================================
+   Email Popup
+   ========================================================================== */
+.email-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+}
+
+.email-popup.visible {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+
+.popup-content {
+    position: relative;
+    background: var(--tst-white);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    animation: popupSlide 0.3s ease;
+}
+
+@keyframes popupSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--tst-gray-500);
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.popup-close:hover {
+    color: var(--tst-gray-700);
+}
+
+.popup-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.popup-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--tst-gray-900);
+}
+
+.popup-content > p {
+    color: var(--tst-gray-600);
+    margin-bottom: 20px;
+}
+
+.popup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.popup-form input[type="email"] {
+    padding: 14px;
+    border: 2px solid var(--tst-gray-300);
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.popup-form input[type="email"]:focus {
+    border-color: var(--tst-primary);
+    outline: none;
+}
+
+.popup-form button {
+    padding: 14px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.popup-note {
+    font-size: 12px;
+    color: var(--tst-gray-500);
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Quick Comparison Table
+   ========================================================================== */
+.quick-comparison {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--tst-gray-100);
+    border-radius: var(--tst-radius-lg);
+}
+
+.quick-comparison h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.comparison-table-wrapper {
+    overflow-x: auto;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--tst-white);
+    border-radius: var(--tst-radius-md);
+    overflow: hidden;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--tst-gray-200);
+}
+
+.comparison-table th {
+    background: var(--tst-primary);
+    color: var(--tst-white);
+    font-weight: 600;
+}
+
+.comparison-table .product-name .badge {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.comparison-table .product-rating {
+    white-space: nowrap;
+}
+
+.comparison-table .rating-number {
+    font-size: 0.875rem;
+    color: var(--tst-gray-600);
+    margin-left: 4px;
+}
+
+.comparison-table .product-price {
+    font-weight: 700;
+    color: var(--tst-primary);
+    font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+    .comparison-table th:nth-child(3),
+    .comparison-table td:nth-child(3) {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   Print Styles for New Components
+   ========================================================================== */
+@media print {
+    .mobile-sticky-cta,
+    .email-popup,
+    .trust-bar {
+        display: none !important;
+    }
+}

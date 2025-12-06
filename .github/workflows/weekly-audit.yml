@@ -1,0 +1,104 @@
+name: Weekly Site Audit
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Sunday midnight UTC
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  full-site-audit:
+    runs-on: ubuntu-latest
+    name: Full Site Audit
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 pyyaml markdown python-frontmatter
+
+      - name: Run full site audit
+        run: python scripts/full_site_audit.py
+
+      - name: Generate weekly report
+        run: python scripts/generate_weekly_report.py
+
+      - name: Upload audit reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-audit-${{ github.run_number }}
+          path: |
+            reports/site-audit-*.json
+            reports/site-audit-*.md
+            reports/weekly-report-*.md
+          retention-days: 90
+
+      - name: Create issue for critical problems
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const reports = fs.readdirSync('reports').filter(f => f.startsWith('site-audit-') && f.endsWith('.json'));
+            if (reports.length === 0) return;
+
+            const latestReport = reports.sort().pop();
+            const data = JSON.parse(fs.readFileSync(`reports/${latestReport}`));
+
+            const issues = data.filter(p => p.issues && p.issues.length > 0);
+            if (issues.length === 0) return;
+
+            let body = '## Weekly Audit Found Issues\n\n';
+            for (const page of issues) {
+              body += `### ${page.url}\n`;
+              for (const issue of page.issues) {
+                body += `- ${issue}\n`;
+              }
+              body += '\n';
+            }
+
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Site Audit Issues - ${new Date().toISOString().split('T')[0]}`,
+              body: body,
+              labels: ['audit', 'automated']
+            });
+
+  schema-validation:
+    runs-on: ubuntu-latest
+    name: Schema Deep Validation
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Validate all schemas
+        run: python scripts/validate_schema.py
+
+  content-freshness:
+    runs-on: ubuntu-latest
+    name: Check Content Freshness
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check post dates
+        run: |
+          echo "Checking for stale content..."
+          find posts/ -name "*.md" -mtime +90 -exec echo "Needs update: {}" \;

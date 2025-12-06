@@ -260,6 +260,42 @@
     };
 
     /**
+     * Mobile Sticky CTA
+     */
+    const initMobileStickyCTA = () => {
+        const stickyCTA = document.querySelector('.mobile-sticky-cta');
+        if (!stickyCTA) return;
+
+        const showAfter = 300; // pixels from top
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > showAfter) {
+                stickyCTA.classList.add('visible');
+                document.body.classList.add('has-sticky-cta');
+            } else {
+                stickyCTA.classList.remove('visible');
+                document.body.classList.remove('has-sticky-cta');
+            }
+        });
+
+        // Track CTA clicks
+        const ctaLink = stickyCTA.querySelector('a');
+        if (ctaLink) {
+            ctaLink.addEventListener('click', () => {
+                // Track with GA4 if available
+                if (typeof gtag === 'function') {
+                    gtag('event', 'affiliate_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'mobile_sticky_cta'
+                    });
+                }
+            });
+        }
+    };
+
+    /**
      * Initialize all modules
      */
     const init = () => {
@@ -272,6 +308,7 @@
         initReadingProgress();
         initFAQAccordion();
         initBackToTop();
+        initMobileStickyCTA();
     };
 
     // Run on DOM ready

@@ -61,12 +61,21 @@
                 <?php endif; ?>
             </div>
 
-            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span class="screen-reader-text"><?php esc_html_e( 'Menu', 'toolshed-tested' ); ?></span>
-            </button>
+            <div class="header-actions">
+                <button class="mobile-search-toggle" aria-expanded="false" aria-label="<?php esc_attr_e( 'Search', 'toolshed-tested' ); ?>">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </button>
+
+                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span class="screen-reader-text"><?php esc_html_e( 'Menu', 'toolshed-tested' ); ?></span>
+                </button>
+            </div>
 
             <nav id="site-navigation" class="main-navigation">
                 <?php
@@ -84,11 +93,18 @@
             <div class="header-search">
                 <?php get_search_form(); ?>
             </div>
+
+            <!-- Mobile Search Drawer -->
+            <div class="mobile-search-drawer" aria-hidden="true">
+                <div class="mobile-search-inner">
+                    <?php get_search_form(); ?>
+                </div>
+            </div>
         </div>
     </div>
 </header>
 
-<?php if ( is_singular( 'product_review' ) || is_singular( 'post' ) ) : ?>
+<?php if ( is_singular( 'product_review' ) || is_singular( 'post' ) || is_tax( 'product_category' ) || is_tax( 'product_brand' ) || is_post_type_archive( 'product_review' ) || is_category() || is_archive() ) : ?>
     <nav class="breadcrumbs" aria-label="<?php esc_attr_e( 'Breadcrumb', 'toolshed-tested' ); ?>">
         <div class="tst-container">
             <?php tst_breadcrumbs(); ?>

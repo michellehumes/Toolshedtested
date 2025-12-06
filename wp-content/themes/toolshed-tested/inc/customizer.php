@@ -207,8 +207,35 @@ function tst_customize_register( $wp_customize ) {
     $wp_customize->add_section(
         'tst_newsletter',
         array(
-            'title'    => esc_html__( 'Newsletter', 'toolshed-tested' ),
-            'priority' => 150,
+            'title'       => esc_html__( 'Newsletter & Email', 'toolshed-tested' ),
+            'priority'    => 150,
+            'description' => esc_html__( 'Configure your email capture and newsletter settings.', 'toolshed-tested' ),
+        )
+    );
+
+    // Email Service Provider
+    $wp_customize->add_setting(
+        'tst_email_provider',
+        array(
+            'default'           => 'custom',
+            'sanitize_callback' => 'sanitize_text_field',
+        )
+    );
+
+    $wp_customize->add_control(
+        'tst_email_provider',
+        array(
+            'type'        => 'select',
+            'section'     => 'tst_newsletter',
+            'label'       => esc_html__( 'Email Service Provider', 'toolshed-tested' ),
+            'description' => esc_html__( 'Select your email marketing platform.', 'toolshed-tested' ),
+            'choices'     => array(
+                'custom'      => esc_html__( 'Custom Form Action', 'toolshed-tested' ),
+                'mailchimp'   => esc_html__( 'Mailchimp', 'toolshed-tested' ),
+                'convertkit'  => esc_html__( 'ConvertKit', 'toolshed-tested' ),
+                'beehiiv'     => esc_html__( 'Beehiiv', 'toolshed-tested' ),
+                'buttondown'  => esc_html__( 'Buttondown', 'toolshed-tested' ),
+            ),
         )
     );
 
@@ -226,8 +253,118 @@ function tst_customize_register( $wp_customize ) {
         array(
             'type'        => 'url',
             'section'     => 'tst_newsletter',
-            'label'       => esc_html__( 'Newsletter Form Action URL', 'toolshed-tested' ),
-            'description' => esc_html__( 'Enter the form action URL from your email provider.', 'toolshed-tested' ),
+            'label'       => esc_html__( 'Form Action URL', 'toolshed-tested' ),
+            'description' => esc_html__( 'Enter the form action URL from your email provider. For Mailchimp, use your list signup URL. For ConvertKit, use your form action URL.', 'toolshed-tested' ),
+        )
+    );
+
+    // Email Field Name (for different providers)
+    $wp_customize->add_setting(
+        'tst_email_field_name',
+        array(
+            'default'           => 'email',
+            'sanitize_callback' => 'sanitize_text_field',
+        )
+    );
+
+    $wp_customize->add_control(
+        'tst_email_field_name',
+        array(
+            'type'        => 'text',
+            'section'     => 'tst_newsletter',
+            'label'       => esc_html__( 'Email Field Name', 'toolshed-tested' ),
+            'description' => esc_html__( 'The name attribute for the email input. Mailchimp uses "EMAIL", ConvertKit uses "email_address".', 'toolshed-tested' ),
+        )
+    );
+
+    // Popup Settings
+    $wp_customize->add_setting(
+        'tst_popup_enabled',
+        array(
+            'default'           => true,
+            'sanitize_callback' => 'tst_sanitize_checkbox',
+        )
+    );
+
+    $wp_customize->add_control(
+        'tst_popup_enabled',
+        array(
+            'type'    => 'checkbox',
+            'section' => 'tst_newsletter',
+            'label'   => esc_html__( 'Enable Email Popup', 'toolshed-tested' ),
+        )
+    );
+
+    // Popup Headline
+    $wp_customize->add_setting(
+        'tst_popup_headline',
+        array(
+            'default'           => esc_html__( 'Get the Free Tool Buying Checklist', 'toolshed-tested' ),
+            'sanitize_callback' => 'sanitize_text_field',
+        )
+    );
+
+    $wp_customize->add_control(
+        'tst_popup_headline',
+        array(
+            'type'    => 'text',
+            'section' => 'tst_newsletter',
+            'label'   => esc_html__( 'Popup Headline', 'toolshed-tested' ),
+        )
+    );
+
+    // Popup Description
+    $wp_customize->add_setting(
+        'tst_popup_description',
+        array(
+            'default'           => esc_html__( 'Join 5,000+ DIYers who get our weekly tool deals and buying guides.', 'toolshed-tested' ),
+            'sanitize_callback' => 'sanitize_text_field',
+        )
+    );
+
+    $wp_customize->add_control(
+        'tst_popup_description',
+        array(
+            'type'    => 'text',
+            'section' => 'tst_newsletter',
+            'label'   => esc_html__( 'Popup Description', 'toolshed-tested' ),
+        )
+    );
+
+    // Popup Button Text
+    $wp_customize->add_setting(
+        'tst_popup_button_text',
+        array(
+            'default'           => esc_html__( 'Get Free Checklist', 'toolshed-tested' ),
+            'sanitize_callback' => 'sanitize_text_field',
+        )
+    );
+
+    $wp_customize->add_control(
+        'tst_popup_button_text',
+        array(
+            'type'    => 'text',
+            'section' => 'tst_newsletter',
+            'label'   => esc_html__( 'Popup Button Text', 'toolshed-tested' ),
+        )
+    );
+
+    // Success Redirect URL
+    $wp_customize->add_setting(
+        'tst_newsletter_success_url',
+        array(
+            'default'           => '',
+            'sanitize_callback' => 'esc_url_raw',
+        )
+    );
+
+    $wp_customize->add_control(
+        'tst_newsletter_success_url',
+        array(
+            'type'        => 'url',
+            'section'     => 'tst_newsletter',
+            'label'       => esc_html__( 'Success Redirect URL', 'toolshed-tested' ),
+            'description' => esc_html__( 'Optional: Redirect users to this URL after signup (e.g., a thank you page with your lead magnet).', 'toolshed-tested' ),
         )
     );
 }

@@ -116,20 +116,29 @@ if ( $affiliate_url ) :
 <?php endif; ?>
 
 <!-- Email Capture Popup -->
-<div id="email-popup" class="email-popup">
+<?php if ( get_theme_mod( 'tst_popup_enabled', true ) ) :
+    $popup_headline    = get_theme_mod( 'tst_popup_headline', __( 'Get the Free Tool Buying Checklist', 'toolshed-tested' ) );
+    $popup_description = get_theme_mod( 'tst_popup_description', __( 'Join 5,000+ DIYers who get our weekly tool deals and buying guides.', 'toolshed-tested' ) );
+    $popup_button      = get_theme_mod( 'tst_popup_button_text', __( 'Get Free Checklist', 'toolshed-tested' ) );
+    $email_field_name  = get_theme_mod( 'tst_email_field_name', 'email' );
+    $form_action       = get_theme_mod( 'tst_newsletter_action', '#' );
+    $success_url       = get_theme_mod( 'tst_newsletter_success_url', '' );
+?>
+<div id="email-popup" class="email-popup" data-success-url="<?php echo esc_url( $success_url ); ?>">
     <div class="popup-overlay"></div>
     <div class="popup-content">
         <button class="popup-close" aria-label="<?php esc_attr_e( 'Close', 'toolshed-tested' ); ?>">&times;</button>
         <div class="popup-icon">&#128295;</div>
-        <h3><?php esc_html_e( 'Get the Free Tool Buying Checklist', 'toolshed-tested' ); ?></h3>
-        <p><?php esc_html_e( 'Join 5,000+ DIYers who get our weekly tool deals and buying guides.', 'toolshed-tested' ); ?></p>
-        <form class="popup-form" action="<?php echo esc_url( get_theme_mod( 'tst_newsletter_action', '#' ) ); ?>" method="post">
-            <input type="email" name="email" placeholder="<?php esc_attr_e( 'Enter your email', 'toolshed-tested' ); ?>" required>
-            <button type="submit" class="tst-btn tst-btn-primary"><?php esc_html_e( 'Get Free Checklist', 'toolshed-tested' ); ?></button>
+        <h3><?php echo esc_html( $popup_headline ); ?></h3>
+        <p><?php echo esc_html( $popup_description ); ?></p>
+        <form class="popup-form" action="<?php echo esc_url( $form_action ); ?>" method="post">
+            <input type="email" name="<?php echo esc_attr( $email_field_name ); ?>" placeholder="<?php esc_attr_e( 'Enter your email', 'toolshed-tested' ); ?>" required>
+            <button type="submit" class="tst-btn tst-btn-primary"><?php echo esc_html( $popup_button ); ?></button>
         </form>
         <p class="popup-note"><?php esc_html_e( 'No spam. Unsubscribe anytime.', 'toolshed-tested' ); ?></p>
     </div>
 </div>
+<?php endif; ?>
 
 <?php wp_footer(); ?>
 

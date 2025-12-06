@@ -1,0 +1,1434 @@
+[
+  {
+    "url": "https://toolshedtested.com/category/drills/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (24 chars)",
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)",
+      "Low affiliate link count for review/category page"
+    ],
+    "stats": {
+      "title_length": 24,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 8,
+      "h3_count": 4,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 8,
+      "schema_count": 1,
+      "internal_links": 57,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/makita-vs-milwaukee/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (71 chars)",
+      "Meta description too long (202 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 71,
+      "meta_desc_length": 202,
+      "h1_count": 2,
+      "h2_count": 6,
+      "h3_count": 7,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 2,
+      "schema_count": 2,
+      "internal_links": 40,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/author/michelle-e-humesgmail-com/page/2/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 46,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 10,
+      "h3_count": 5,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 10,
+      "schema_count": 1,
+      "internal_links": 67,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/author/michelle-e-humesgmail-com/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 32,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 10,
+      "h3_count": 5,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 10,
+      "schema_count": 1,
+      "internal_links": 66,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/privacy-policy/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (190 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 32,
+      "meta_desc_length": 190,
+      "h1_count": 2,
+      "h2_count": 7,
+      "h3_count": 0,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 0,
+      "schema_count": 1,
+      "internal_links": 19,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-table-saws/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (176 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text"
+    ],
+    "stats": {
+      "title_length": 58,
+      "meta_desc_length": 176,
+      "h1_count": 2,
+      "h2_count": 5,
+      "h3_count": 8,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 7,
+      "tagged_links": 7,
+      "cta_buttons": 7,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 7
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/blog/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (22 chars)",
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 22,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 10,
+      "h3_count": 4,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 11,
+      "schema_count": 1,
+      "internal_links": 68,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-jigsaws/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (195 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 58,
+      "meta_desc_length": 195,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/contact/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (25 chars)",
+      "Meta description too long (181 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 25,
+      "meta_desc_length": 181,
+      "h1_count": 2,
+      "h2_count": 4,
+      "h3_count": 0,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 0,
+      "schema_count": 1,
+      "internal_links": 18,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-chainsaws/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (62 chars)",
+      "Meta description too long (200 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text"
+    ],
+    "stats": {
+      "title_length": 62,
+      "meta_desc_length": 200,
+      "h1_count": 2,
+      "h2_count": 5,
+      "h3_count": 8,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 7,
+      "tagged_links": 7,
+      "cta_buttons": 7,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 7
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/category/multi-tools/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (29 chars)",
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)",
+      "Low affiliate link count for review/category page"
+    ],
+    "stats": {
+      "title_length": 29,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 5,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 2,
+      "schema_count": 1,
+      "internal_links": 39,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-circular-saws/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (189 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text"
+    ],
+    "stats": {
+      "title_length": 60,
+      "meta_desc_length": 189,
+      "h1_count": 2,
+      "h2_count": 5,
+      "h3_count": 8,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 7,
+      "tagged_links": 7,
+      "cta_buttons": 7,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 7
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/category/grinders/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (26 chars)",
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)",
+      "Low affiliate link count for review/category page"
+    ],
+    "stats": {
+      "title_length": 26,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 3,
+      "h3_count": 4,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 3,
+      "schema_count": 1,
+      "internal_links": 42,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-angle-grinder-under-50/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (79 chars)",
+      "Meta description too long (185 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 79,
+      "meta_desc_length": 185,
+      "h1_count": 2,
+      "h2_count": 4,
+      "h3_count": 8,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 3,
+      "tagged_links": 3,
+      "cta_buttons": 3,
+      "schema_count": 2,
+      "internal_links": 40,
+      "external_links": 3
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-leaf-blowers/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (181 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 56,
+      "meta_desc_length": 181,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/affiliate-disclosure/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (190 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 38,
+      "meta_desc_length": 190,
+      "h1_count": 2,
+      "h2_count": 5,
+      "h3_count": 0,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 0,
+      "schema_count": 1,
+      "internal_links": 18,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-wood-routers/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (202 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 56,
+      "meta_desc_length": 202,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/category/welding/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (25 chars)",
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 25,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 1,
+      "h3_count": 5,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 1,
+      "schema_count": 1,
+      "internal_links": 36,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-jigsaw-under-100/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (68 chars)",
+      "Meta description too long (174 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 68,
+      "meta_desc_length": 174,
+      "h1_count": 2,
+      "h2_count": 4,
+      "h3_count": 9,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 4,
+      "tagged_links": 4,
+      "cta_buttons": 3,
+      "schema_count": 2,
+      "internal_links": 40,
+      "external_links": 4
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-rotary-hammers/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (61 chars)",
+      "Meta description too long (210 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 61,
+      "meta_desc_length": 210,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-pressure-washers/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (205 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 60,
+      "meta_desc_length": 205,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/reviews/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 41,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 1,
+      "h3_count": 0,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 0,
+      "schema_count": 1,
+      "internal_links": 17,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/blog/page/4/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (22 chars)",
+      "Meta description too short (36 chars)"
+    ],
+    "stats": {
+      "title_length": 22,
+      "meta_desc_length": 36,
+      "h1_count": 1,
+      "h2_count": 1,
+      "h3_count": 4,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 1,
+      "schema_count": 1,
+      "internal_links": 40,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/author/michelle-e-humesgmail-com/page/3/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 46,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 4,
+      "h3_count": 5,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 4,
+      "schema_count": 1,
+      "internal_links": 48,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-angle-grinders/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (251 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 57,
+      "meta_desc_length": 251,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-bench-grinders/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (65 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text"
+    ],
+    "stats": {
+      "title_length": 65,
+      "meta_desc_length": 160,
+      "h1_count": 2,
+      "h2_count": 1,
+      "h3_count": 6,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 4,
+      "tagged_links": 4,
+      "cta_buttons": 3,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 4
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-portable-generators/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (198 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 47,
+      "meta_desc_length": 198,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/faq/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (21 chars)",
+      "Meta description too long (184 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 21,
+      "meta_desc_length": 184,
+      "h1_count": 2,
+      "h2_count": 3,
+      "h3_count": 8,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 0,
+      "schema_count": 1,
+      "internal_links": 19,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-cordless-drill-under-100/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (78 chars)",
+      "Meta description too long (189 chars)",
+      "Multiple H1 tags (3)",
+      "1/6 images missing alt text"
+    ],
+    "stats": {
+      "title_length": 78,
+      "meta_desc_length": 189,
+      "h1_count": 3,
+      "h2_count": 4,
+      "h3_count": 26,
+      "total_images": 6,
+      "images_without_alt": 1,
+      "amazon_links": 6,
+      "tagged_links": 6,
+      "cta_buttons": 5,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 6
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-impact-drivers/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (189 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text"
+    ],
+    "stats": {
+      "title_length": 56,
+      "meta_desc_length": 189,
+      "h1_count": 2,
+      "h2_count": 5,
+      "h3_count": 8,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 7,
+      "tagged_links": 7,
+      "cta_buttons": 7,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 7
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-shop-vacs/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (193 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 55,
+      "meta_desc_length": 193,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-cordless-drills/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (176 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text"
+    ],
+    "stats": {
+      "title_length": 57,
+      "meta_desc_length": 176,
+      "h1_count": 2,
+      "h2_count": 5,
+      "h3_count": 8,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 7,
+      "tagged_links": 7,
+      "cta_buttons": 7,
+      "schema_count": 2,
+      "internal_links": 41,
+      "external_links": 7
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-power-tools-for-beginners/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (82 chars)",
+      "Meta description too long (196 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 82,
+      "meta_desc_length": 196,
+      "h1_count": 2,
+      "h2_count": 4,
+      "h3_count": 10,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 5,
+      "tagged_links": 5,
+      "cta_buttons": 5,
+      "schema_count": 2,
+      "internal_links": 40,
+      "external_links": 5
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/blog/page/3/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (22 chars)",
+      "Meta description too short (36 chars)"
+    ],
+    "stats": {
+      "title_length": 22,
+      "meta_desc_length": 36,
+      "h1_count": 1,
+      "h2_count": 10,
+      "h3_count": 4,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 10,
+      "schema_count": 1,
+      "internal_links": 68,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-oscillating-multi-tools/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (198 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 51,
+      "meta_desc_length": 198,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-mig-welders/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (225 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 56,
+      "meta_desc_length": 225,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/author/michelle-e-humesgmail-com/page/1/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 32,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 10,
+      "h3_count": 5,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 10,
+      "schema_count": 1,
+      "internal_links": 66,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/category/saws/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (22 chars)",
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)",
+      "Low affiliate link count for review/category page"
+    ],
+    "stats": {
+      "title_length": 22,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 8,
+      "h3_count": 4,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 8,
+      "schema_count": 1,
+      "internal_links": 57,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/category/sanders/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (25 chars)",
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)",
+      "Low affiliate link count for review/category page"
+    ],
+    "stats": {
+      "title_length": 25,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 4,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 2,
+      "schema_count": 1,
+      "internal_links": 39,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-best-drill-for-home-use/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (77 chars)",
+      "Multiple H1 tags (3)",
+      "1/8 images missing alt text"
+    ],
+    "stats": {
+      "title_length": 77,
+      "meta_desc_length": 159,
+      "h1_count": 3,
+      "h2_count": 3,
+      "h3_count": 20,
+      "total_images": 8,
+      "images_without_alt": 1,
+      "amazon_links": 8,
+      "tagged_links": 8,
+      "cta_buttons": 7,
+      "schema_count": 2,
+      "internal_links": 41,
+      "external_links": 8
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/category/shop-equipment/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 32,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 1,
+      "h3_count": 5,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 1,
+      "schema_count": 1,
+      "internal_links": 36,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (22 chars)",
+      "Meta description too long (193 chars)",
+      "Multiple H1 tags (3)"
+    ],
+    "stats": {
+      "title_length": 22,
+      "meta_desc_length": 193,
+      "h1_count": 3,
+      "h2_count": 2,
+      "h3_count": 0,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 0,
+      "schema_count": 3,
+      "internal_links": 24,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/category/outdoor-power/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)",
+      "Low affiliate link count for review/category page"
+    ],
+    "stats": {
+      "title_length": 31,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 3,
+      "h3_count": 4,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 3,
+      "schema_count": 1,
+      "internal_links": 42,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-reciprocating-saws/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (64 chars)",
+      "Meta description too long (228 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 64,
+      "meta_desc_length": 228,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-dewalt-vs-milwaukee-drill/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (79 chars)",
+      "Meta description too long (182 chars)",
+      "Multiple H1 tags (3)",
+      "1/7 images missing alt text"
+    ],
+    "stats": {
+      "title_length": 79,
+      "meta_desc_length": 182,
+      "h1_count": 3,
+      "h2_count": 4,
+      "h3_count": 23,
+      "total_images": 7,
+      "images_without_alt": 1,
+      "amazon_links": 6,
+      "tagged_links": 6,
+      "cta_buttons": 6,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 6
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-circular-saw-under-150/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (77 chars)",
+      "Meta description too long (208 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 77,
+      "meta_desc_length": 208,
+      "h1_count": 2,
+      "h2_count": 4,
+      "h3_count": 9,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 4,
+      "tagged_links": 4,
+      "cta_buttons": 3,
+      "schema_count": 2,
+      "internal_links": 40,
+      "external_links": 4
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/category/air-tools/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (27 chars)",
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 27,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 1,
+      "h3_count": 5,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 1,
+      "schema_count": 1,
+      "internal_links": 36,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-random-orbital-sanders/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (222 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 50,
+      "meta_desc_length": 222,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/blog/page/1/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (22 chars)",
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 22,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 10,
+      "h3_count": 4,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 11,
+      "schema_count": 1,
+      "internal_links": 68,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-orbital-sander-under-50/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (83 chars)",
+      "Meta description too long (190 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 83,
+      "meta_desc_length": 190,
+      "h1_count": 2,
+      "h2_count": 4,
+      "h3_count": 9,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 4,
+      "tagged_links": 4,
+      "cta_buttons": 3,
+      "schema_count": 2,
+      "internal_links": 40,
+      "external_links": 4
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-miter-saws/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (194 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text"
+    ],
+    "stats": {
+      "title_length": 56,
+      "meta_desc_length": 194,
+      "h1_count": 2,
+      "h2_count": 5,
+      "h3_count": 8,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 7,
+      "tagged_links": 7,
+      "cta_buttons": 7,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 7
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/blog/page/2/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too short (22 chars)",
+      "Meta description too short (36 chars)"
+    ],
+    "stats": {
+      "title_length": 22,
+      "meta_desc_length": 36,
+      "h1_count": 1,
+      "h2_count": 10,
+      "h3_count": 4,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 10,
+      "schema_count": 1,
+      "internal_links": 68,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-air-compressors/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too long (220 chars)",
+      "Multiple H1 tags (2)",
+      "1/1 images missing alt text",
+      "Low affiliate link count for review/category page",
+      "Few CTA buttons"
+    ],
+    "stats": {
+      "title_length": 43,
+      "meta_desc_length": 220,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 7,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 2,
+      "tagged_links": 2,
+      "cta_buttons": 1,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 2
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/category/uncategorized/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Meta description too short (36 chars)",
+      "Multiple H1 tags (2)",
+      "Low affiliate link count for review/category page"
+    ],
+    "stats": {
+      "title_length": 31,
+      "meta_desc_length": 36,
+      "h1_count": 2,
+      "h2_count": 2,
+      "h3_count": 5,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 0,
+      "tagged_links": 0,
+      "cta_buttons": 2,
+      "schema_count": 1,
+      "internal_links": 39,
+      "external_links": 0
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-impact-driver-vs-drill-difference/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (87 chars)",
+      "Meta description too long (171 chars)",
+      "Multiple H1 tags (3)",
+      "1/1 images missing alt text"
+    ],
+    "stats": {
+      "title_length": 87,
+      "meta_desc_length": 171,
+      "h1_count": 3,
+      "h2_count": 7,
+      "h3_count": 28,
+      "total_images": 1,
+      "images_without_alt": 1,
+      "amazon_links": 7,
+      "tagged_links": 7,
+      "cta_buttons": 6,
+      "schema_count": 2,
+      "internal_links": 42,
+      "external_links": 7
+    }
+  },
+  {
+    "url": "https://toolshedtested.com/best-impact-driver-under-100/",
+    "status_code": 200,
+    "issues": [],
+    "warnings": [
+      "Title too long (73 chars)",
+      "Meta description too long (190 chars)",
+      "Multiple H1 tags (2)"
+    ],
+    "stats": {
+      "title_length": 73,
+      "meta_desc_length": 190,
+      "h1_count": 2,
+      "h2_count": 4,
+      "h3_count": 9,
+      "total_images": 0,
+      "images_without_alt": 0,
+      "amazon_links": 4,
+      "tagged_links": 4,
+      "cta_buttons": 3,
+      "schema_count": 2,
+      "internal_links": 40,
+      "external_links": 4
+    }
+  }
+]

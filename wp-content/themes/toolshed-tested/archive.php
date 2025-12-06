@@ -17,6 +17,13 @@ get_header();
             ?>
         </header>
 
+        <?php
+        // Show top picks comparison table on category pages
+        if ( is_category() || is_tax( 'product_category' ) ) :
+            get_template_part( 'template-parts/category/top-picks-table' );
+        endif;
+        ?>
+
         <div class="content-area <?php echo is_active_sidebar( 'sidebar-1' ) ? 'has-sidebar' : ''; ?>">
             <div class="main-content">
                 <?php if ( have_posts() ) : ?>

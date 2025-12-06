@@ -23,6 +23,7 @@ class TST_Schema {
         add_action( 'wp_head', array( $this, 'output_organization_schema' ) );
         add_action( 'wp_head', array( $this, 'output_website_schema' ) );
         add_action( 'wp_head', array( $this, 'output_breadcrumb_schema' ) );
+        add_action( 'wp_head', array( $this, 'output_faq_schema' ) );
     }
 
     /**
@@ -166,6 +167,86 @@ class TST_Schema {
 
             echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
         }
+    }
+
+    /**
+     * Output FAQ Page Schema
+     *
+     * Adds FAQPage structured data to FAQ pages for rich snippets
+     */
+    public function output_faq_schema() {
+        // Check if this is the FAQ page
+        if ( ! is_page( 'faq' ) && ! is_page( 'frequently-asked-questions' ) ) {
+            return;
+        }
+
+        // Define FAQ items - these match the actual FAQ page content
+        $faq_items = array(
+            // About Our Reviews
+            array(
+                'question' => 'How do you test the tools?',
+                'answer'   => 'We purchase all tools at full retail price with our own money and test them in real workshop conditions. Each tool undergoes 20+ hours of hands-on testing, including drilling through various materials (pine, oak, steel), extended runtime tests, and durability assessments over 6-12 months.',
+            ),
+            array(
+                'question' => 'Do you accept free products from manufacturers?',
+                'answer'   => 'No. We buy every tool we test at full retail price. This ensures our reviews remain completely independent and unbiased. We never accept manufacturer samples or sponsored products.',
+            ),
+            array(
+                'question' => 'How do you make money?',
+                'answer'   => 'We earn affiliate commissions when you purchase through our links, primarily through Amazon Associates and other retailers like Home Depot and Lowe\'s. This doesn\'t affect the price you pay or our recommendations - we recommend the best tools regardless of commission rates.',
+            ),
+            array(
+                'question' => 'How often do you update reviews?',
+                'answer'   => 'We update our reviews whenever new models are released or when we discover significant changes in product quality, pricing, or availability. Major roundup articles are refreshed at least annually, and we conduct long-term follow-up testing at 6-12 months.',
+            ),
+            // Buying Advice
+            array(
+                'question' => 'What\'s the difference between brushless and brushed motors?',
+                'answer'   => 'Brushless motors are more efficient, generate less heat, last longer, and deliver more power than brushed motors. They cost more upfront but provide better value for frequent users due to longer lifespan and better performance. Brushed motors are fine for occasional DIY use and light-duty tasks.',
+            ),
+            array(
+                'question' => 'Should I stick with one battery platform?',
+                'answer'   => 'Yes, sticking with one battery platform (like DeWalt 20V MAX, Milwaukee M18, or Makita 18V LXT) saves money and reduces clutter. You can share batteries across all tools in the system. Consider the tool selection, battery availability, and your specific needs when choosing a platform.',
+            ),
+            array(
+                'question' => 'How do I choose the right tool for my needs?',
+                'answer'   => 'Consider your primary use case (DIY vs professional), frequency of use, budget, and whether you\'re already invested in a battery platform. Our buying guides break down recommendations by user type: Budget Picks for occasional users, Best Value for regular DIYers, and Professional Grade for daily use.',
+            ),
+            // Site Questions
+            array(
+                'question' => 'Can I suggest a product for review?',
+                'answer'   => 'Absolutely! We welcome suggestions from our readers. Send your product review requests to hello@toolshedtested.com. While we can\'t review everything suggested, we prioritize requests based on reader interest and market relevance.',
+            ),
+            array(
+                'question' => 'How can I support ToolShed Tested?',
+                'answer'   => 'The best way to support us is by using our affiliate links when making purchases - it costs you nothing extra but helps fund our testing. You can also subscribe to our newsletter, share our reviews with friends, and follow us on social media.',
+            ),
+            array(
+                'question' => 'Do you have a warranty or return policy?',
+                'answer'   => 'We don\'t sell products directly - we provide reviews and recommendations. For warranty and return questions, please contact the retailer where you made your purchase (Amazon, Home Depot, Lowe\'s, etc.) or the tool manufacturer directly.',
+            ),
+        );
+
+        // Build the schema
+        $main_entity = array();
+        foreach ( $faq_items as $item ) {
+            $main_entity[] = array(
+                '@type'          => 'Question',
+                'name'           => $item['question'],
+                'acceptedAnswer' => array(
+                    '@type' => 'Answer',
+                    'text'  => $item['answer'],
+                ),
+            );
+        }
+
+        $schema = array(
+            '@context'   => 'https://schema.org',
+            '@type'      => 'FAQPage',
+            'mainEntity' => $main_entity,
+        );
+
+        echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
     }
 }
 

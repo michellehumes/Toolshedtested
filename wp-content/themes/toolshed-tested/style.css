@@ -296,6 +296,8 @@ p {
     border: none;
     cursor: pointer;
     padding: var(--tst-spacing-sm);
+    min-width: 44px;  /* Minimum tap target */
+    min-height: 44px; /* Minimum tap target */
 }
 
 .menu-toggle span {
@@ -338,6 +340,139 @@ p {
         display: block;
         padding: var(--tst-spacing-md) 0;
     }
+
+    /* Mobile dropdown menus */
+    .main-navigation .sub-menu {
+        position: static;
+        box-shadow: none;
+        padding-left: var(--tst-spacing-lg);
+        display: none;
+    }
+
+    .main-navigation .menu-item-has-children.open > .sub-menu {
+        display: block;
+    }
+
+    .main-navigation .sub-menu a {
+        font-size: var(--tst-text-sm);
+        color: var(--tst-gray-600);
+    }
+
+    /* Mobile dropdown toggle button */
+    .dropdown-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .dropdown-toggle::before {
+        content: '+';
+        font-size: 1.5rem;
+        color: var(--tst-gray-600);
+        transition: transform var(--tst-transition-fast);
+    }
+
+    .menu-item-has-children.open > .dropdown-toggle::before {
+        content: '-';
+    }
+
+    .main-navigation li {
+        position: relative;
+    }
+
+    .main-navigation .menu-item-has-children > a {
+        padding-right: 50px; /* Make room for toggle button */
+    }
+}
+
+/* ==========================================================================
+   Desktop Dropdown Menus
+   ========================================================================== */
+@media (min-width: 769px) {
+    /* Hide mobile dropdown toggle on desktop */
+    .dropdown-toggle {
+        display: none;
+    }
+
+    .main-navigation .menu-item-has-children {
+        position: relative;
+    }
+
+    .main-navigation .menu-item-has-children > a::after {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 6px;
+        vertical-align: middle;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid currentColor;
+        transition: transform var(--tst-transition-fast);
+    }
+
+    .main-navigation .menu-item-has-children:hover > a::after {
+        transform: rotate(180deg);
+    }
+
+    .main-navigation .sub-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 220px;
+        background: var(--tst-white);
+        box-shadow: var(--tst-shadow-lg);
+        border-radius: var(--tst-radius-md);
+        padding: var(--tst-spacing-sm) 0;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity var(--tst-transition-fast), transform var(--tst-transition-fast);
+    }
+
+    .main-navigation .menu-item-has-children:hover > .sub-menu {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .main-navigation .sub-menu li {
+        border-bottom: none;
+    }
+
+    .main-navigation .sub-menu a {
+        display: block;
+        padding: var(--tst-spacing-sm) var(--tst-spacing-lg);
+        color: var(--tst-gray-700);
+        font-size: var(--tst-text-sm);
+    }
+
+    .main-navigation .sub-menu a:hover {
+        background: var(--tst-gray-100);
+        color: var(--tst-primary);
+    }
+
+    .main-navigation .sub-menu a::after {
+        display: none; /* Remove underline animation on dropdown items */
+    }
+
+    .main-navigation .sub-menu .view-all a {
+        font-weight: 600;
+        color: var(--tst-primary);
+        border-top: 1px solid var(--tst-gray-200);
+        margin-top: var(--tst-spacing-xs);
+        padding-top: var(--tst-spacing-md);
+    }
 }
 
 /* ==========================================================================
@@ -371,7 +506,8 @@ p {
     align-items: center;
     justify-content: center;
     gap: var(--tst-spacing-sm);
-    padding: var(--tst-spacing-sm) var(--tst-spacing-lg);
+    padding: var(--tst-spacing-md) var(--tst-spacing-lg);
+    min-height: 44px; /* Minimum tap target for mobile accessibility */
     font-family: var(--tst-font-primary);
     font-weight: 600;
     font-size: var(--tst-text-base);
@@ -890,10 +1026,19 @@ p {
 .entry-content {
     font-size: var(--tst-text-lg);
     line-height: 1.8;
+    max-width: 70ch; /* Optimal line length for readability */
 }
 
 .entry-content h2 {
     margin-top: var(--tst-spacing-2xl);
+    padding-top: var(--tst-spacing-lg);
+    border-top: 1px solid var(--tst-gray-200); /* Visual separator between sections */
+}
+
+.entry-content h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
 }
 
 .entry-content h3 {

@@ -1078,13 +1078,178 @@
 }
 
 /* ==========================================================================
+   Quick Comparison Section
+   ========================================================================== */
+.quick-comparison {
+    margin: var(--tst-spacing-2xl) 0;
+    padding: var(--tst-spacing-xl);
+    background: var(--tst-gray-100);
+    border-radius: var(--tst-radius-lg);
+}
+
+.quick-comparison h2 {
+    font-size: var(--tst-text-2xl);
+    margin-bottom: var(--tst-spacing-sm);
+    color: var(--tst-gray-900);
+}
+
+.quick-comparison .comparison-intro {
+    color: var(--tst-gray-600);
+    margin-bottom: var(--tst-spacing-lg);
+}
+
+.quick-comparison .comparison-cta {
+    text-align: center;
+    margin-top: var(--tst-spacing-lg);
+    margin-bottom: 0;
+}
+
+.quick-comparison .view-all-link {
+    font-weight: 600;
+    color: var(--tst-primary);
+}
+
+.quick-comparison .view-all-link:hover {
+    color: var(--tst-primary-dark);
+}
+
+/* ==========================================================================
+   What's Next Section
+   ========================================================================== */
+.whats-next {
+    margin: var(--tst-spacing-2xl) 0;
+    padding: var(--tst-spacing-xl);
+    background: linear-gradient(135deg, var(--tst-gray-100) 0%, var(--tst-white) 100%);
+    border: 1px solid var(--tst-gray-200);
+    border-radius: var(--tst-radius-lg);
+}
+
+.whats-next h3 {
+    font-size: var(--tst-text-2xl);
+    margin-bottom: var(--tst-spacing-sm);
+    color: var(--tst-gray-900);
+}
+
+.whats-next .whats-next-intro {
+    color: var(--tst-gray-600);
+    margin-bottom: var(--tst-spacing-lg);
+}
+
+.next-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--tst-spacing-md);
+}
+
+@media (max-width: 768px) {
+    .next-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+.next-action-card {
+    display: flex;
+    align-items: center;
+    gap: var(--tst-spacing-md);
+    padding: var(--tst-spacing-lg);
+    background: var(--tst-white);
+    border: 1px solid var(--tst-gray-200);
+    border-radius: var(--tst-radius-md);
+    text-decoration: none;
+    color: var(--tst-gray-800);
+    transition: all var(--tst-transition-fast);
+}
+
+.next-action-card:hover {
+    border-color: var(--tst-primary);
+    box-shadow: var(--tst-shadow-md);
+    transform: translateY(-2px);
+}
+
+.next-action-card .action-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--tst-gray-100);
+    border-radius: var(--tst-radius-md);
+    color: var(--tst-primary);
+}
+
+.next-action-card:hover .action-icon {
+    background: var(--tst-primary);
+    color: var(--tst-white);
+}
+
+.next-action-card .action-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.next-action-card .action-title {
+    display: block;
+    font-weight: 600;
+    font-size: var(--tst-text-base);
+    color: var(--tst-gray-900);
+    margin-bottom: 2px;
+}
+
+.next-action-card .action-desc {
+    display: block;
+    font-size: var(--tst-text-sm);
+    color: var(--tst-gray-600);
+}
+
+.next-action-card .action-arrow {
+    flex-shrink: 0;
+    font-size: var(--tst-text-xl);
+    color: var(--tst-gray-400);
+    transition: transform var(--tst-transition-fast);
+}
+
+.next-action-card:hover .action-arrow {
+    transform: translateX(4px);
+    color: var(--tst-primary);
+}
+
+/* ==========================================================================
+   Table Scroll Indicator for Mobile
+   ========================================================================== */
+.comparison-table-wrapper {
+    position: relative;
+}
+
+.comparison-table-wrapper[data-scrollable]::after {
+    content: 'Scroll for more \2192';
+    display: none;
+    text-align: center;
+    font-size: 12px;
+    color: var(--tst-gray-500);
+    padding: var(--tst-spacing-sm);
+}
+
+@media (max-width: 768px) {
+    .comparison-table-wrapper[data-scrollable]::after {
+        display: block;
+    }
+
+    .comparison-table-wrapper.scrolled::after {
+        display: none;
+    }
+}
+
+/* ==========================================================================
    Print Styles for New Components
    ========================================================================== */
 @media print {
     .mobile-sticky-cta,
     .email-popup,
     .trust-bar,
-    .category-top-picks {
+    .category-top-picks,
+    .whats-next,
+    .quick-comparison {
         display: none !important;
     }
 }

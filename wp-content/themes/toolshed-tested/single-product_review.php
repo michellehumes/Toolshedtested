@@ -166,18 +166,24 @@ get_header();
                     </section>
                 <?php endif; ?>
 
+                <!-- Quick Comparison -->
+                <?php get_template_part( 'template-parts/review/quick', 'comparison' ); ?>
+
                 <!-- Final CTA -->
                 <div class="final-cta">
                     <?php if ( $affiliate_url ) : ?>
-                        <a href="<?php echo esc_url( $affiliate_url ); ?>" 
-                           class="tst-btn tst-btn-cta affiliate-link" 
-                           target="_blank" 
+                        <a href="<?php echo esc_url( $affiliate_url ); ?>"
+                           class="tst-btn tst-btn-cta affiliate-link"
+                           target="_blank"
                            rel="nofollow noopener sponsored"
                            data-product-id="<?php echo esc_attr( get_the_ID() ); ?>">
                             <?php esc_html_e( 'Buy Now on Amazon', 'toolshed-tested' ); ?>
                         </a>
                     <?php endif; ?>
                 </div>
+
+                <!-- What's Next -->
+                <?php get_template_part( 'template-parts/review/whats', 'next' ); ?>
 
                 <!-- Author Box -->
                 <?php tst_author_box(); ?>

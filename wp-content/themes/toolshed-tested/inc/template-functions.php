@@ -286,13 +286,76 @@ function tst_related_reviews() {
 
 /**
  * Default primary menu fallback
+ * Displays categories and brands for better buyer-intent navigation
  */
 function tst_default_menu() {
     echo '<ul id="primary-menu">';
-    echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'toolshed-tested' ) . '</a></li>';
-    echo '<li><a href="' . esc_url( get_post_type_archive_link( 'product_review' ) ) . '">' . esc_html__( 'Reviews', 'toolshed-tested' ) . '</a></li>';
+
+    // Tool Reviews with categories dropdown
+    echo '<li class="menu-item-has-children">';
+    echo '<a href="' . esc_url( get_post_type_archive_link( 'product_review' ) ) . '">' . esc_html__( 'Tool Reviews', 'toolshed-tested' ) . '</a>';
+    echo '<ul class="sub-menu">';
+
+    $categories = get_terms( array(
+        'taxonomy'   => 'product_category',
+        'hide_empty' => false,
+        'number'     => 6,
+    ) );
+
+    if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
+        foreach ( $categories as $category ) {
+            echo '<li><a href="' . esc_url( get_term_link( $category ) ) . '">' . esc_html( $category->name ) . '</a></li>';
+        }
+    } else {
+        // Fallback categories if none exist yet
+        $default_categories = array( 'Chainsaws', 'Leaf Blowers', 'Lawn Mowers', 'String Trimmers', 'Pressure Washers' );
+        foreach ( $default_categories as $cat_name ) {
+            echo '<li><a href="' . esc_url( get_post_type_archive_link( 'product_review' ) ) . '">' . esc_html( $cat_name ) . '</a></li>';
+        }
+    }
+
+    echo '<li class="view-all"><a href="' . esc_url( get_post_type_archive_link( 'product_review' ) ) . '">' . esc_html__( 'View All Reviews', 'toolshed-tested' ) . '</a></li>';
+    echo '</ul></li>';
+
+    // Brands dropdown
+    echo '<li class="menu-item-has-children">';
+    echo '<a href="' . esc_url( home_url( '/brand/' ) ) . '">' . esc_html__( 'Brands', 'toolshed-tested' ) . '</a>';
+    echo '<ul class="sub-menu">';
+
+    $brands = get_terms( array(
+        'taxonomy'   => 'product_brand',
+        'hide_empty' => false,
+        'number'     => 6,
+    ) );
+
+    if ( ! is_wp_error( $brands ) && ! empty( $brands ) ) {
+        foreach ( $brands as $brand ) {
+            echo '<li><a href="' . esc_url( get_term_link( $brand ) ) . '">' . esc_html( $brand->name ) . '</a></li>';
+        }
+    } else {
+        // Fallback brands if none exist yet
+        $default_brands = array( 'DeWalt', 'Milwaukee', 'Ryobi', 'Stihl', 'Husqvarna', 'Makita' );
+        foreach ( $default_brands as $brand_name ) {
+            echo '<li><a href="' . esc_url( get_post_type_archive_link( 'product_review' ) ) . '">' . esc_html( $brand_name ) . '</a></li>';
+        }
+    }
+
+    echo '<li class="view-all"><a href="' . esc_url( home_url( '/brand/' ) ) . '">' . esc_html__( 'All Brands', 'toolshed-tested' ) . '</a></li>';
+    echo '</ul></li>';
+
+    // Buying Guides
+    echo '<li class="menu-item-has-children">';
+    echo '<a href="' . esc_url( home_url( '/guides/' ) ) . '">' . esc_html__( 'Buying Guides', 'toolshed-tested' ) . '</a>';
+    echo '<ul class="sub-menu">';
+    echo '<li><a href="' . esc_url( home_url( '/guides/beginners/' ) ) . '">' . esc_html__( "Beginner's Guide", 'toolshed-tested' ) . '</a></li>';
+    echo '<li><a href="' . esc_url( home_url( '/guides/budget-picks/' ) ) . '">' . esc_html__( 'Best Budget Picks', 'toolshed-tested' ) . '</a></li>';
+    echo '<li><a href="' . esc_url( home_url( '/guides/professional/' ) ) . '">' . esc_html__( 'Professional Grade', 'toolshed-tested' ) . '</a></li>';
+    echo '<li><a href="' . esc_url( home_url( '/comparisons/' ) ) . '">' . esc_html__( 'Comparison Charts', 'toolshed-tested' ) . '</a></li>';
+    echo '</ul></li>';
+
+    // About
     echo '<li><a href="' . esc_url( home_url( '/about/' ) ) . '">' . esc_html__( 'About', 'toolshed-tested' ) . '</a></li>';
-    echo '<li><a href="' . esc_url( home_url( '/contact/' ) ) . '">' . esc_html__( 'Contact', 'toolshed-tested' ) . '</a></li>';
+
     echo '</ul>';
 }
 

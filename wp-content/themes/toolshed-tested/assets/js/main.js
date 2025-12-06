@@ -31,6 +31,35 @@
                 menuToggle.setAttribute('aria-expanded', 'false');
             }
         });
+
+        // Handle mobile dropdown toggles
+        const dropdownParents = navigation.querySelectorAll('.menu-item-has-children > a');
+        dropdownParents.forEach(link => {
+            // Create toggle button for mobile
+            const toggleBtn = document.createElement('button');
+            toggleBtn.className = 'dropdown-toggle';
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            toggleBtn.innerHTML = '<span class="screen-reader-text">Toggle submenu</span>';
+            link.parentNode.insertBefore(toggleBtn, link.nextSibling);
+
+            toggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const parent = toggleBtn.parentNode;
+                const isOpen = parent.classList.contains('open');
+
+                // Close other open dropdowns
+                navigation.querySelectorAll('.menu-item-has-children.open').forEach(item => {
+                    if (item !== parent) {
+                        item.classList.remove('open');
+                        item.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Toggle current dropdown
+                parent.classList.toggle('open');
+                toggleBtn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+            });
+        });
     };
 
     /**
@@ -296,6 +325,22 @@
     };
 
     /**
+     * Table Scroll Detection
+     * Hides "scroll for more" indicator once user has scrolled
+     */
+    const initTableScrollIndicator = () => {
+        const tableWrappers = document.querySelectorAll('.comparison-table-wrapper[data-scrollable]');
+
+        tableWrappers.forEach(wrapper => {
+            wrapper.addEventListener('scroll', () => {
+                if (wrapper.scrollLeft > 10) {
+                    wrapper.classList.add('scrolled');
+                }
+            }, { passive: true });
+        });
+    };
+
+    /**
      * Initialize all modules
      */
     const init = () => {
@@ -309,6 +354,7 @@
         initFAQAccordion();
         initBackToTop();
         initMobileStickyCTA();
+        initTableScrollIndicator();
     };
 
     // Run on DOM ready

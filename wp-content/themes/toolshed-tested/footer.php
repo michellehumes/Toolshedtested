@@ -29,11 +29,29 @@
                 <div class="footer-widget-area">
                     <h4 class="footer-widget-title"><?php esc_html_e( 'Categories', 'toolshed-tested' ); ?></h4>
                     <ul>
-                        <li><a href="#"><?php esc_html_e( 'Lawn Mowers', 'toolshed-tested' ); ?></a></li>
-                        <li><a href="#"><?php esc_html_e( 'Chainsaws', 'toolshed-tested' ); ?></a></li>
-                        <li><a href="#"><?php esc_html_e( 'Leaf Blowers', 'toolshed-tested' ); ?></a></li>
-                        <li><a href="#"><?php esc_html_e( 'String Trimmers', 'toolshed-tested' ); ?></a></li>
-                        <li><a href="#"><?php esc_html_e( 'Pressure Washers', 'toolshed-tested' ); ?></a></li>
+                        <?php
+                        $footer_categories = get_terms( array(
+                            'taxonomy'   => 'product_category',
+                            'hide_empty' => false,
+                            'number'     => 5,
+                        ) );
+
+                        if ( ! is_wp_error( $footer_categories ) && ! empty( $footer_categories ) ) :
+                            foreach ( $footer_categories as $cat ) :
+                                ?>
+                                <li><a href="<?php echo esc_url( get_term_link( $cat ) ); ?>"><?php echo esc_html( $cat->name ); ?></a></li>
+                                <?php
+                            endforeach;
+                        else :
+                            // Fallback with links to reviews archive
+                            $fallback_cats = array( 'Lawn Mowers', 'Chainsaws', 'Leaf Blowers', 'String Trimmers', 'Pressure Washers' );
+                            foreach ( $fallback_cats as $cat_name ) :
+                                ?>
+                                <li><a href="<?php echo esc_url( get_post_type_archive_link( 'product_review' ) ); ?>"><?php echo esc_html( $cat_name ); ?></a></li>
+                                <?php
+                            endforeach;
+                        endif;
+                        ?>
                     </ul>
                 </div>
             <?php endif; ?>

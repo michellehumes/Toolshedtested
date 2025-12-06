@@ -20,6 +20,24 @@
 
 <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'toolshed-tested' ); ?></a>
 
+<!-- Trust Bar -->
+<div class="trust-bar">
+    <div class="tst-container">
+        <span class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <?php esc_html_e( '150+ Tools Tested', 'toolshed-tested' ); ?>
+        </span>
+        <span class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            <?php esc_html_e( '500+ Hours Research', 'toolshed-tested' ); ?>
+        </span>
+        <span class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+            <?php esc_html_e( '100% Independent', 'toolshed-tested' ); ?>
+        </span>
+    </div>
+</div>
+
 <header id="masthead" class="site-header">
     <div class="tst-container">
         <div class="header-inner">

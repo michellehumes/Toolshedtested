@@ -99,6 +99,38 @@
     </div>
 </footer>
 
+<?php
+// Mobile Sticky CTA for product pages
+$affiliate_url = tst_get_primary_affiliate_url();
+if ( $affiliate_url ) :
+    $price = get_post_meta( get_the_ID(), '_tst_price', true );
+?>
+<div class="mobile-sticky-cta">
+    <a href="<?php echo esc_url( $affiliate_url ); ?>" target="_blank" rel="nofollow noopener sponsored">
+        <span class="sticky-cta-text"><?php esc_html_e( 'Check Best Price on Amazon', 'toolshed-tested' ); ?></span>
+        <?php if ( $price ) : ?>
+            <span class="sticky-cta-price"><?php echo esc_html( $price ); ?></span>
+        <?php endif; ?>
+    </a>
+</div>
+<?php endif; ?>
+
+<!-- Email Capture Popup -->
+<div id="email-popup" class="email-popup">
+    <div class="popup-overlay"></div>
+    <div class="popup-content">
+        <button class="popup-close" aria-label="<?php esc_attr_e( 'Close', 'toolshed-tested' ); ?>">&times;</button>
+        <div class="popup-icon">&#128295;</div>
+        <h3><?php esc_html_e( 'Get the Free Tool Buying Checklist', 'toolshed-tested' ); ?></h3>
+        <p><?php esc_html_e( 'Join 5,000+ DIYers who get our weekly tool deals and buying guides.', 'toolshed-tested' ); ?></p>
+        <form class="popup-form" action="<?php echo esc_url( get_theme_mod( 'tst_newsletter_action', '#' ) ); ?>" method="post">
+            <input type="email" name="email" placeholder="<?php esc_attr_e( 'Enter your email', 'toolshed-tested' ); ?>" required>
+            <button type="submit" class="tst-btn tst-btn-primary"><?php esc_html_e( 'Get Free Checklist', 'toolshed-tested' ); ?></button>
+        </form>
+        <p class="popup-note"><?php esc_html_e( 'No spam. Unsubscribe anytime.', 'toolshed-tested' ); ?></p>
+    </div>
+</div>
+
 <?php wp_footer(); ?>
 
 </body>

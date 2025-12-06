@@ -1,0 +1,104 @@
+name: Daily Site Maintenance
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 6 AM UTC daily
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  check-affiliate-links:
+    runs-on: ubuntu-latest
+    name: Check Affiliate Links
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4
+
+      - name: Check affiliate links
+        run: python scripts/check_affiliate_links.py
+        continue-on-error: true
+
+      - name: Upload link report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: link-report-${{ github.run_number }}
+          path: reports/link-check-*.json
+          retention-days: 30
+
+  validate-schema:
+    runs-on: ubuntu-latest
+    name: Validate Schema Markup
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Validate schema markup
+        run: python scripts/validate_schema.py
+        continue-on-error: true
+
+  analyze-content:
+    runs-on: ubuntu-latest
+    name: Analyze Content Quality
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml markdown python-frontmatter
+
+      - name: Analyze content
+        run: python scripts/analyze_content.py posts/
+        continue-on-error: true
+
+      - name: Upload content report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: content-report-${{ github.run_number }}
+          path: scripts/content_analysis_report.txt
+          retention-days: 30
+
+  ping-search-engines:
+    runs-on: ubuntu-latest
+    name: Ping Search Engines
+    needs: [check-affiliate-links, validate-schema]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Ping search engines
+        run: python scripts/ping_search_engines.py

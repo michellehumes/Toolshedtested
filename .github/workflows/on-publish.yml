@@ -1,0 +1,163 @@
+name: Post-Publish Actions
+
+on:
+  push:
+    paths:
+      - 'posts/**/*.md'
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      post_path:
+        description: 'Specific post to publish (e.g., posts/my-post.md)'
+        required: false
+        type: string
+
+jobs:
+  validate-content:
+    runs-on: ubuntu-latest
+    name: Validate Content
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml python-frontmatter markdown
+
+      - name: Get changed files
+        id: changed-files
+        run: |
+          if [ -n "${{ github.event.inputs.post_path }}" ]; then
+            echo "files=${{ github.event.inputs.post_path }}" >> $GITHUB_OUTPUT
+          else
+            echo "files=$(git diff --name-only HEAD~1 HEAD -- 'posts/*.md' | tr '\n' ' ')" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Validate posts
+        run: |
+          for file in ${{ steps.changed-files.outputs.files }}; do
+            if [ -f "$file" ]; then
+              echo "Validating: $file"
+              python -c "
+          import frontmatter
+          import sys
+          post = frontmatter.load('$file')
+          required = ['title', 'date']
+          missing = [f for f in required if f not in post.keys()]
+          if missing:
+              print(f'Missing required frontmatter: {missing}')
+              sys.exit(1)
+          if len(post.content) < 500:
+              print('Warning: Content seems short')
+          print('✓ Validation passed')
+          "
+            fi
+          done
+
+  check-affiliate-tags:
+    runs-on: ubuntu-latest
+    name: Check Affiliate Tags
+    needs: validate-content
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Check affiliate tags
+        run: python scripts/fix_affiliate_tags.py --check
+
+  publish-to-wordpress:
+    runs-on: ubuntu-latest
+    name: Publish to WordPress
+    needs: check-affiliate-tags
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests pyyaml python-frontmatter markdown
+
+      - name: Get changed files
+        id: changed-files
+        run: |
+          echo "files=$(git diff --name-only HEAD~1 HEAD -- 'posts/*.md' | tr '\n' ' ')" >> $GITHUB_OUTPUT
+
+      - name: Publish to WordPress
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          for file in ${{ steps.changed-files.outputs.files }}; do
+            if [ -f "$file" ]; then
+              echo "Publishing: $file"
+              python scripts/wp_publish.py "$file" || echo "Failed to publish $file"
+            fi
+          done
+        continue-on-error: true
+
+  ping-search-engines:
+    runs-on: ubuntu-latest
+    name: Ping Search Engines
+    needs: publish-to-wordpress
+    if: always() && needs.publish-to-wordpress.result == 'success'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Ping search engines
+        run: python scripts/ping_search_engines.py
+
+  notify-completion:
+    runs-on: ubuntu-latest
+    name: Notify Completion
+    needs: [publish-to-wordpress, ping-search-engines]
+    if: always()
+
+    steps:
+      - name: Summary
+        run: |
+          echo "## Publish Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Step | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Validation | ${{ needs.validate-content.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Affiliate Check | ${{ needs.check-affiliate-tags.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| WordPress Publish | ${{ needs.publish-to-wordpress.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Search Engine Ping | ${{ needs.ping-search-engines.result }} |" >> $GITHUB_STEP_SUMMARY

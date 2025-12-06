@@ -145,6 +145,52 @@
     };
 
     /**
+     * Mobile Search Toggle
+     */
+    const initMobileSearchToggle = () => {
+        const mobileSearchToggle = document.querySelector('.mobile-search-toggle');
+        const mobileSearchDrawer = document.querySelector('.mobile-search-drawer');
+
+        if (!mobileSearchToggle || !mobileSearchDrawer) return;
+
+        mobileSearchToggle.addEventListener('click', () => {
+            const isExpanded = mobileSearchToggle.getAttribute('aria-expanded') === 'true';
+
+            mobileSearchToggle.setAttribute('aria-expanded', !isExpanded);
+            mobileSearchDrawer.classList.toggle('visible');
+            mobileSearchDrawer.setAttribute('aria-hidden', isExpanded);
+
+            // Focus search input when opening
+            if (!isExpanded) {
+                const input = mobileSearchDrawer.querySelector('input[type="search"]');
+                if (input) {
+                    setTimeout(() => input.focus(), 100);
+                }
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileSearchDrawer.classList.contains('visible')) {
+                mobileSearchDrawer.classList.remove('visible');
+                mobileSearchToggle.setAttribute('aria-expanded', 'false');
+                mobileSearchDrawer.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileSearchDrawer.contains(e.target) &&
+                !mobileSearchToggle.contains(e.target) &&
+                mobileSearchDrawer.classList.contains('visible')) {
+                mobileSearchDrawer.classList.remove('visible');
+                mobileSearchToggle.setAttribute('aria-expanded', 'false');
+                mobileSearchDrawer.setAttribute('aria-hidden', 'true');
+            }
+        });
+    };
+
+    /**
      * Copy to Clipboard for Share Links
      */
     const initShareButtons = () => {
@@ -260,6 +306,24 @@
     };
 
     /**
+     * Table Scroll Indicator
+     */
+    const initTableScrollIndicator = () => {
+        const tableWrappers = document.querySelectorAll('.comparison-table-wrapper');
+
+        tableWrappers.forEach(wrapper => {
+            const checkScroll = () => {
+                const isScrolledEnd = wrapper.scrollLeft + wrapper.clientWidth >= wrapper.scrollWidth - 10;
+                wrapper.classList.toggle('scrolled-end', isScrolledEnd);
+            };
+
+            wrapper.addEventListener('scroll', checkScroll);
+            // Initial check
+            checkScroll();
+        });
+    };
+
+    /**
      * Mobile Sticky CTA
      */
     const initMobileStickyCTA = () => {
@@ -304,10 +368,12 @@
         initStickyHeader();
         initLazyLoad();
         initSearchToggle();
+        initMobileSearchToggle();
         initShareButtons();
         initReadingProgress();
         initFAQAccordion();
         initBackToTop();
+        initTableScrollIndicator();
         initMobileStickyCTA();
     };
 

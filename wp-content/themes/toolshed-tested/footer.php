@@ -29,11 +29,27 @@
                 <div class="footer-widget-area">
                     <h4 class="footer-widget-title"><?php esc_html_e( 'Categories', 'toolshed-tested' ); ?></h4>
                     <ul>
-                        <li><a href="#"><?php esc_html_e( 'Lawn Mowers', 'toolshed-tested' ); ?></a></li>
-                        <li><a href="#"><?php esc_html_e( 'Chainsaws', 'toolshed-tested' ); ?></a></li>
-                        <li><a href="#"><?php esc_html_e( 'Leaf Blowers', 'toolshed-tested' ); ?></a></li>
-                        <li><a href="#"><?php esc_html_e( 'String Trimmers', 'toolshed-tested' ); ?></a></li>
-                        <li><a href="#"><?php esc_html_e( 'Pressure Washers', 'toolshed-tested' ); ?></a></li>
+                        <?php
+                        $footer_categories = get_terms(
+                            array(
+                                'taxonomy'   => 'product_category',
+                                'hide_empty' => false,
+                                'number'     => 6,
+                                'orderby'    => 'count',
+                                'order'      => 'DESC',
+                            )
+                        );
+                        if ( $footer_categories && ! is_wp_error( $footer_categories ) ) :
+                            foreach ( $footer_categories as $category ) :
+                                ?>
+                                <li><a href="<?php echo esc_url( get_term_link( $category ) ); ?>"><?php echo esc_html( $category->name ); ?></a></li>
+                                <?php
+                            endforeach;
+                        else :
+                            // Fallback if no categories exist yet
+                            ?>
+                            <li><a href="<?php echo esc_url( get_post_type_archive_link( 'product_review' ) ); ?>"><?php esc_html_e( 'All Reviews', 'toolshed-tested' ); ?></a></li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             <?php endif; ?>

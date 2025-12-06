@@ -52,7 +52,6 @@ function tst_breadcrumbs() {
 
     $separator = '<span class="separator">/</span>';
 
-    echo '<nav class="breadcrumbs" aria-label="' . esc_attr__( 'Breadcrumb', 'toolshed-tested' ) . '">';
     echo '<a href="' . esc_url( home_url() ) . '">' . esc_html__( 'Home', 'toolshed-tested' ) . '</a>';
 
     if ( is_singular( 'product_review' ) ) {
@@ -79,6 +78,19 @@ function tst_breadcrumbs() {
     } elseif ( is_page() ) {
         echo wp_kses_post( $separator );
         echo '<span class="current">' . esc_html( get_the_title() ) . '</span>';
+    } elseif ( is_tax( 'product_category' ) ) {
+        echo wp_kses_post( $separator );
+        echo '<a href="' . esc_url( get_post_type_archive_link( 'product_review' ) ) . '">' . esc_html__( 'Reviews', 'toolshed-tested' ) . '</a>';
+        echo wp_kses_post( $separator );
+        echo '<span class="current">' . esc_html( single_term_title( '', false ) ) . '</span>';
+    } elseif ( is_tax( 'product_brand' ) ) {
+        echo wp_kses_post( $separator );
+        echo '<a href="' . esc_url( get_post_type_archive_link( 'product_review' ) ) . '">' . esc_html__( 'Reviews', 'toolshed-tested' ) . '</a>';
+        echo wp_kses_post( $separator );
+        echo '<span class="current">' . esc_html( single_term_title( '', false ) ) . ' ' . esc_html__( 'Reviews', 'toolshed-tested' ) . '</span>';
+    } elseif ( is_post_type_archive( 'product_review' ) ) {
+        echo wp_kses_post( $separator );
+        echo '<span class="current">' . esc_html__( 'All Reviews', 'toolshed-tested' ) . '</span>';
     } elseif ( is_category() ) {
         echo wp_kses_post( $separator );
         echo '<span class="current">' . esc_html( single_cat_title( '', false ) ) . '</span>';
@@ -89,8 +101,6 @@ function tst_breadcrumbs() {
         echo wp_kses_post( $separator );
         echo '<span class="current">' . esc_html( get_the_archive_title() ) . '</span>';
     }
-
-    echo '</nav>';
 }
 
 /**
@@ -290,7 +300,53 @@ function tst_related_reviews() {
 function tst_default_menu() {
     echo '<ul id="primary-menu">';
     echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'toolshed-tested' ) . '</a></li>';
-    echo '<li><a href="' . esc_url( get_post_type_archive_link( 'product_review' ) ) . '">' . esc_html__( 'Reviews', 'toolshed-tested' ) . '</a></li>';
+
+    // Reviews with category dropdown
+    echo '<li class="menu-item-has-children">';
+    echo '<a href="' . esc_url( get_post_type_archive_link( 'product_review' ) ) . '">' . esc_html__( 'Reviews', 'toolshed-tested' ) . '</a>';
+
+    $categories = get_terms(
+        array(
+            'taxonomy'   => 'product_category',
+            'hide_empty' => false,
+            'number'     => 8,
+            'orderby'    => 'name',
+            'order'      => 'ASC',
+        )
+    );
+
+    if ( $categories && ! is_wp_error( $categories ) ) {
+        echo '<ul class="sub-menu">';
+        echo '<li><a href="' . esc_url( get_post_type_archive_link( 'product_review' ) ) . '">' . esc_html__( 'All Reviews', 'toolshed-tested' ) . '</a></li>';
+        foreach ( $categories as $category ) {
+            echo '<li><a href="' . esc_url( get_term_link( $category ) ) . '">' . esc_html( $category->name ) . '</a></li>';
+        }
+        echo '</ul>';
+    }
+    echo '</li>';
+
+    // Brands dropdown
+    $brands = get_terms(
+        array(
+            'taxonomy'   => 'product_brand',
+            'hide_empty' => false,
+            'number'     => 8,
+            'orderby'    => 'count',
+            'order'      => 'DESC',
+        )
+    );
+
+    if ( $brands && ! is_wp_error( $brands ) && ! empty( $brands ) ) {
+        echo '<li class="menu-item-has-children">';
+        echo '<a href="#">' . esc_html__( 'Brands', 'toolshed-tested' ) . '</a>';
+        echo '<ul class="sub-menu">';
+        foreach ( $brands as $brand ) {
+            echo '<li><a href="' . esc_url( get_term_link( $brand ) ) . '">' . esc_html( $brand->name ) . '</a></li>';
+        }
+        echo '</ul>';
+        echo '</li>';
+    }
+
     echo '<li><a href="' . esc_url( home_url( '/about/' ) ) . '">' . esc_html__( 'About', 'toolshed-tested' ) . '</a></li>';
     echo '<li><a href="' . esc_url( home_url( '/contact/' ) ) . '">' . esc_html__( 'Contact', 'toolshed-tested' ) . '</a></li>';
     echo '</ul>';

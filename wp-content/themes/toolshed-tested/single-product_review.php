@@ -166,15 +166,137 @@ get_header();
                     </section>
                 <?php endif; ?>
 
+                <!-- Compare Alternatives -->
+                <?php
+                $categories     = get_the_terms( get_the_ID(), 'product_category' );
+                $category_ids   = array();
+                if ( $categories && ! is_wp_error( $categories ) ) {
+                    foreach ( $categories as $cat ) {
+                        $category_ids[] = $cat->term_id;
+                    }
+                }
+
+                if ( ! empty( $category_ids ) ) :
+                    $alternatives = new WP_Query(
+                        array(
+                            'post_type'      => 'product_review',
+                            'posts_per_page' => 3,
+                            'post__not_in'   => array( get_the_ID() ),
+                            'tax_query'      => array(
+                                array(
+                                    'taxonomy' => 'product_category',
+                                    'field'    => 'term_id',
+                                    'terms'    => $category_ids,
+                                ),
+                            ),
+                            'meta_key'       => '_tst_rating',
+                            'orderby'        => 'meta_value_num',
+                            'order'          => 'DESC',
+                        )
+                    );
+
+                    if ( $alternatives->have_posts() ) :
+                        ?>
+                        <section class="compare-alternatives">
+                            <h2><?php esc_html_e( 'Compare With Alternatives', 'toolshed-tested' ); ?></h2>
+                            <p class="section-subtitle"><?php esc_html_e( 'See how this product stacks up against similar options.', 'toolshed-tested' ); ?></p>
+
+                            <div class="comparison-table-wrapper">
+                                <table class="comparison-table alternatives-table">
+                                    <thead>
+                                        <tr>
+                                            <th><?php esc_html_e( 'Product', 'toolshed-tested' ); ?></th>
+                                            <th><?php esc_html_e( 'Rating', 'toolshed-tested' ); ?></th>
+                                            <th class="hide-mobile"><?php esc_html_e( 'Price', 'toolshed-tested' ); ?></th>
+                                            <th><?php esc_html_e( 'Action', 'toolshed-tested' ); ?></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Current Product Row -->
+                                        <tr class="current-product">
+                                            <td class="product-name">
+                                                <span class="badge badge-current"><?php esc_html_e( 'This Product', 'toolshed-tested' ); ?></span>
+                                                <strong><?php the_title(); ?></strong>
+                                            </td>
+                                            <td class="product-rating">
+                                                <?php if ( $rating ) : ?>
+                                                    <?php echo wp_kses_post( tst_star_rating( $rating ) ); ?>
+                                                    <span class="rating-number"><?php echo esc_html( $rating ); ?>/5</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td class="product-price hide-mobile"><?php echo $price ? esc_html( $price ) : '—'; ?></td>
+                                            <td class="product-cta">
+                                                <?php if ( $affiliate_url ) : ?>
+                                                    <a href="<?php echo esc_url( $affiliate_url ); ?>"
+                                                       class="tst-btn tst-btn-amazon"
+                                                       target="_blank"
+                                                       rel="nofollow noopener sponsored">
+                                                        <?php esc_html_e( 'Check Price', 'toolshed-tested' ); ?>
+                                                    </a>
+                                                <?php endif; ?>
+                                            </td>
+                                        </tr>
+                                        <!-- Alternative Products -->
+                                        <?php
+                                        while ( $alternatives->have_posts() ) :
+                                            $alternatives->the_post();
+                                            $alt_rating       = get_post_meta( get_the_ID(), '_tst_rating', true );
+                                            $alt_price        = get_post_meta( get_the_ID(), '_tst_price', true );
+                                            $alt_affiliate    = get_post_meta( get_the_ID(), '_tst_affiliate_url', true );
+                                            ?>
+                                            <tr>
+                                                <td class="product-name">
+                                                    <a href="<?php the_permalink(); ?>">
+                                                        <strong><?php the_title(); ?></strong>
+                                                    </a>
+                                                </td>
+                                                <td class="product-rating">
+                                                    <?php if ( $alt_rating ) : ?>
+                                                        <?php echo wp_kses_post( tst_star_rating( $alt_rating ) ); ?>
+                                                        <span class="rating-number"><?php echo esc_html( $alt_rating ); ?>/5</span>
+                                                    <?php endif; ?>
+                                                </td>
+                                                <td class="product-price hide-mobile"><?php echo $alt_price ? esc_html( $alt_price ) : '—'; ?></td>
+                                                <td class="product-cta">
+                                                    <?php if ( $alt_affiliate ) : ?>
+                                                        <a href="<?php echo esc_url( $alt_affiliate ); ?>"
+                                                           class="tst-btn tst-btn-amazon"
+                                                           target="_blank"
+                                                           rel="nofollow noopener sponsored">
+                                                            <?php esc_html_e( 'Check Price', 'toolshed-tested' ); ?>
+                                                        </a>
+                                                    <?php else : ?>
+                                                        <a href="<?php the_permalink(); ?>" class="tst-btn tst-btn-primary">
+                                                            <?php esc_html_e( 'Read Review', 'toolshed-tested' ); ?>
+                                                        </a>
+                                                    <?php endif; ?>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        endwhile;
+                                        wp_reset_postdata();
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <?php
+                    endif;
+                endif;
+                ?>
+
                 <!-- Final CTA -->
                 <div class="final-cta">
                     <?php if ( $affiliate_url ) : ?>
-                        <a href="<?php echo esc_url( $affiliate_url ); ?>" 
-                           class="tst-btn tst-btn-cta affiliate-link" 
-                           target="_blank" 
+                        <a href="<?php echo esc_url( $affiliate_url ); ?>"
+                           class="tst-btn tst-btn-amazon affiliate-link"
+                           target="_blank"
                            rel="nofollow noopener sponsored"
                            data-product-id="<?php echo esc_attr( get_the_ID() ); ?>">
-                            <?php esc_html_e( 'Buy Now on Amazon', 'toolshed-tested' ); ?>
+                            <?php esc_html_e( 'Check Best Price on Amazon', 'toolshed-tested' ); ?>
+                            <?php if ( $price ) : ?>
+                                <span class="btn-price"><?php echo esc_html( $price ); ?></span>
+                            <?php endif; ?>
                         </a>
                     <?php endif; ?>
                 </div>

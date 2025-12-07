@@ -11,10 +11,10 @@ We tested gas, electric, and robotic mowers.
 
 The benchmark—starts first pull, NeXite deck won't rust.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B084TFPFFR?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B084TFPFFR?tag=toolshedtested-20)
 
 ## Best Battery: EGO LM2135SP
 
 Self-propelled, 21-inch cut, half-acre range.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B08YD2VFXJ?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B08YD2VFXJ?tag=toolshedtested-20)

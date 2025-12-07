@@ -11,10 +11,10 @@ Battery blowers now match gas for power.
 
 650 CFM with variable speed and turbo.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B08Y51QV51?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B08Y51QV51?tag=toolshedtested-20)
 
 ## Best Value: Greenworks 80V
 
 730 CFM at $80 less than the competition.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B0BRZBQ3YD?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0BRZBQ3YD?tag=toolshedtested-20)

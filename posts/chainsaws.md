@@ -11,10 +11,10 @@ We tested gas, battery, and electric chainsaws.
 
 50cc engine handles firewood to storm cleanup.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B004HHISLY?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B004HHISLY?tag=toolshedtested-20)
 
 ## Best Battery: EGO CS1804
 
 18-inch bar, instant start, no fumes.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B07NSCFV13?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07NSCFV13?tag=toolshedtested-20)

@@ -11,10 +11,10 @@ Battery chainsaws can now replace gas for most homeowners.
 
 18-inch bar cuts as fast as mid-range gas.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B07NSCFV13?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07NSCFV13?tag=toolshedtested-20)
 
 ## Best Value: Greenworks 40V
 
 Great performance at budget-friendly price.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B00HHVPF5C?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00HHVPF5C?tag=toolshedtested-20)

@@ -21,7 +21,7 @@ The DEWALT DCC020IB stands out as the best overall portable air compressor for i
 
 What sets this model apart is its dual power options – it runs on DEWALT's 20V MAX battery system or plugs into any 12V DC outlet. The bright LED light and easy-to-read digital gauge make it perfect for roadside emergencies, while the automatic shut-off feature ensures precise inflation every time.
 
-[Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01M69ALN1?tag=toolshedtested-20)
 
 ## Ryobi P737 18V ONE+ Portable Cordless Power Inflator
 
@@ -29,7 +29,7 @@ The Ryobi P737 offers outstanding value for money, making it our top budget pick
 
 This model shines with its user-friendly design, featuring preset pressure settings for cars, bikes, and sports equipment. The integrated LED work light and storage compartment for accessories add practical value that users appreciate during real-world use.
 
-[Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B06XFWLXN3?tag=toolshedtested-20)
 
 ## VIAIR 88P Portable Air Compressor
 
@@ -37,7 +37,7 @@ For maximum portability without sacrificing power, the VIAIR 88P is our top comp
 
 The VIAIR 88P features a 10-foot power cord and 16-foot air hose, providing excellent reach for all vehicle positions. Its direct-drive motor operates efficiently while maintaining relatively quiet operation, and the unit includes a convenient carrying case for organized storage.
 
-[Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B005ASY23I?tag=toolshedtested-20)
 
 ## California Air Tools CAT-1P1060S Light Duty Air Compressor
 
@@ -45,7 +45,7 @@ The CAT-1P1060S represents the best option for users who need consistent air sup
 
 Weighing only 29 pounds with a convenient carrying handle, this compressor strikes an excellent balance between power and portability. The oil-free pump requires minimal maintenance, while the thermal overload protection ensures long-term reliability even under demanding conditions.
 
-[Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01LXZQCD5?tag=toolshedtested-20)
 
 ## CRAFTSMAN V20 Cordless Tire Inflator (CMCE520B)
 
@@ -53,7 +53,7 @@ The CRAFTSMAN V20 earns our recommendation as the best professional-grade portab
 
 Built with durability in mind, this model features a rugged housing that can withstand job site conditions while maintaining precision performance. The integrated LED light, multiple nozzle attachments, and efficient battery usage make it an excellent choice for professionals who demand reliability and versatility.
 
-[Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07YBDJFZR?tag=toolshedtested-20)
 
 ## Buying Guide: What to Consider When Choosing a Portable Air Compressor
 

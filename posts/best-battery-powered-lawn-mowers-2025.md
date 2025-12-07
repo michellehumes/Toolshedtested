@@ -26,7 +26,7 @@ The EGO Power+ LM2142SP stands out as our top pick for its exceptional balance o
 - Rapid reload feature for easy height adjustment
 - 5-year tool warranty, 3-year battery warranty
 
-[Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0C3T8GPDH?tag=toolshedtested-20)
 
 ## Greenworks Pro 80V 21-Inch Self-Propelled
 
@@ -39,7 +39,7 @@ The Greenworks Pro 80V earns high marks for its robust build quality and impress
 - Single-lever height adjustment (1.5"-3.75")
 - Compatible with Greenworks 80V tool system
 
-[Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0C3M6S5NG?tag=toolshedtested-20)
 
 ## Ryobi RY401110 40V Brushless 20-Inch
 
@@ -52,7 +52,7 @@ The Ryobi RY401110 offers excellent value for homeowners with medium-sized lawns
 - Compatible with Ryobi 40V battery platform
 - 5-year tool warranty
 
-[Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B09MQ2YJPM?tag=toolshedtested-20)
 
 ## BLACK+DECKER MM2000 13-Inch Electric
 
@@ -65,7 +65,7 @@ For small yards and tight budgets, the BLACK+DECKER MM2000 delivers surprising c
 - Compact storage with folding handle
 - 2-year limited warranty
 
-[Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00HH6CSN4?tag=toolshedtested-20)
 
 ## Toro Recycler 60V Max 21-Inch SmartStow
 
@@ -78,7 +78,7 @@ The Toro Recycler 60V Max impresses with its innovative SmartStow design that al
 - 21-inch aluminum deck for durability and weight savings
 - 5-year full coverage warranty
 
-[Check Price on Amazon](https://www.amazon.com/dp/ASIN?tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B09MQ4PCKV?tag=toolshedtested-20)
 
 ## Buying Guide: What to Consider When Choosing a Battery Lawn Mower
 

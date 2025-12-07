@@ -11,10 +11,10 @@ Inverter generators: clean power, quiet operation.
 
 48 dBA whisper quiet, incredibly reliable.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B07MZBJJX6?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07MZBJJX6?tag=toolshedtested-20)
 
 ## Best Value: WEN 56235i
 
 Half the Honda price, great for camping.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B07W5XMWVK?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07W5XMWVK?tag=toolshedtested-20)

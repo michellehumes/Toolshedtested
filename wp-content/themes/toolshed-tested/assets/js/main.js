@@ -324,6 +324,75 @@
     };
 
     /**
+     * Dark Mode Toggle
+     */
+    const initDarkMode = () => {
+        const toggle = document.querySelector('.dark-mode-toggle');
+        if (!toggle) return;
+
+        // Check for saved preference or system preference
+        const savedTheme = localStorage.getItem('tst-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark-mode');
+        }
+
+        toggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark-mode');
+
+            const isDark = document.documentElement.classList.contains('dark-mode');
+            localStorage.setItem('tst-theme', isDark ? 'dark' : 'light');
+
+            // Announce change to screen readers
+            const announcement = isDark ? 'Dark mode enabled' : 'Light mode enabled';
+            toggle.setAttribute('aria-label', announcement);
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('tst-theme')) {
+                document.documentElement.classList.toggle('dark-mode', e.matches);
+            }
+        });
+    };
+
+    /**
+     * Scroll-triggered Fade-in Animations
+     */
+    const initScrollAnimations = () => {
+        const animatedElements = document.querySelectorAll(
+            '.review-box, .pros-cons, .specifications-section, .verdict-box, ' +
+            '.compare-alternatives, .author-box, .related-reviews, .faq-section, ' +
+            '.review-card, .posts-grid article'
+        );
+
+        if (!animatedElements.length) return;
+
+        // Add initial state class
+        animatedElements.forEach(el => {
+            el.classList.add('animate-on-scroll');
+        });
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        animatedElements.forEach(el => observer.observe(el));
+    };
+
+    /**
      * Mobile Sticky CTA
      */
     const initMobileStickyCTA = () => {
@@ -363,6 +432,7 @@
      * Initialize all modules
      */
     const init = () => {
+        initDarkMode();
         initMobileNav();
         initSmoothScroll();
         initStickyHeader();
@@ -375,6 +445,7 @@
         initBackToTop();
         initTableScrollIndicator();
         initMobileStickyCTA();
+        initScrollAnimations();
     };
 
     // Run on DOM ready

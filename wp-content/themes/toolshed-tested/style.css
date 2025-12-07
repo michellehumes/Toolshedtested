@@ -91,6 +91,31 @@ Toolshed Tested - Outdoor Power Equipment Reviews
     /* Container */
     --tst-container-max: 1200px;
     --tst-content-max: 800px;
+
+    /* Semantic Colors (for dark mode) */
+    --tst-bg-primary: var(--tst-white);
+    --tst-bg-secondary: var(--tst-gray-100);
+    --tst-bg-tertiary: var(--tst-gray-200);
+    --tst-text-primary: var(--tst-gray-800);
+    --tst-text-secondary: var(--tst-gray-600);
+    --tst-text-muted: var(--tst-gray-500);
+    --tst-border-color: var(--tst-gray-200);
+    --tst-border-color-strong: var(--tst-gray-300);
+}
+
+/* Dark Mode Variables */
+html.dark-mode {
+    --tst-bg-primary: #0f0f0f;
+    --tst-bg-secondary: #1a1a1a;
+    --tst-bg-tertiary: #262626;
+    --tst-text-primary: #f0f0f0;
+    --tst-text-secondary: #a0a0a0;
+    --tst-text-muted: #707070;
+    --tst-border-color: #2a2a2a;
+    --tst-border-color-strong: #3a3a3a;
+    --tst-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --tst-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+    --tst-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4);
 }
 
 /* ==========================================================================
@@ -117,10 +142,11 @@ body {
     font-family: var(--tst-font-primary);
     font-size: var(--tst-text-base);
     line-height: 1.6;
-    color: var(--tst-gray-800);
-    background-color: var(--tst-white);
+    color: var(--tst-text-primary);
+    background-color: var(--tst-bg-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color var(--tst-transition-base), color var(--tst-transition-base);
 }
 
 img,
@@ -1320,15 +1346,182 @@ p {
 }
 
 /* ==========================================================================
-   Dark Mode (Optional - User Preference)
+   Dark Mode Toggle Button
    ========================================================================== */
-@media (prefers-color-scheme: dark) {
-    .dark-mode-enabled {
-        --tst-white: #1a1a2e;
-        --tst-black: #ffffff;
-        --tst-gray-100: #16213e;
-        --tst-gray-200: #1f3460;
-        --tst-gray-800: #e0e0e0;
-        --tst-gray-900: #f5f5f5;
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: var(--tst-radius-full);
+    cursor: pointer;
+    transition: background-color var(--tst-transition-fast);
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--tst-bg-secondary);
+}
+
+.dark-mode-toggle svg {
+    transition: opacity var(--tst-transition-fast), transform var(--tst-transition-fast);
+}
+
+.dark-mode-toggle .moon-icon {
+    display: none;
+}
+
+html.dark-mode .dark-mode-toggle .sun-icon {
+    display: none;
+}
+
+html.dark-mode .dark-mode-toggle .moon-icon {
+    display: block;
+}
+
+/* ==========================================================================
+   Reading Time
+   ========================================================================== */
+.reading-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--tst-text-sm);
+    color: var(--tst-text-secondary);
+}
+
+.reading-time-icon {
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Scroll Animations
+   ========================================================================== */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation delays for grids */
+.posts-grid .animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
+.posts-grid .animate-on-scroll:nth-child(2) { transition-delay: 100ms; }
+.posts-grid .animate-on-scroll:nth-child(3) { transition-delay: 200ms; }
+.posts-grid .animate-on-scroll:nth-child(4) { transition-delay: 300ms; }
+.posts-grid .animate-on-scroll:nth-child(5) { transition-delay: 400ms; }
+.posts-grid .animate-on-scroll:nth-child(6) { transition-delay: 500ms; }
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
+}
+
+/* ==========================================================================
+   Dark Mode Element Overrides
+   ========================================================================== */
+html.dark-mode .site-header {
+    background-color: var(--tst-bg-secondary);
+    border-bottom-color: var(--tst-border-color);
+}
+
+html.dark-mode .trust-bar {
+    background-color: var(--tst-bg-tertiary);
+}
+
+html.dark-mode .main-navigation .sub-menu {
+    background-color: var(--tst-bg-secondary);
+    border-color: var(--tst-border-color);
+}
+
+html.dark-mode .review-box,
+html.dark-mode .review-card {
+    background-color: var(--tst-bg-secondary);
+    border-color: var(--tst-border-color);
+}
+
+html.dark-mode .pros-cons {
+    background-color: var(--tst-bg-secondary);
+}
+
+html.dark-mode .spec-table,
+html.dark-mode .comparison-table {
+    background-color: var(--tst-bg-secondary);
+}
+
+html.dark-mode .spec-table th,
+html.dark-mode .comparison-table th {
+    background-color: var(--tst-bg-tertiary);
+}
+
+html.dark-mode .spec-table tr:nth-child(even),
+html.dark-mode .comparison-table tr:nth-child(even) {
+    background-color: var(--tst-bg-tertiary);
+}
+
+html.dark-mode .author-box {
+    background-color: var(--tst-bg-secondary);
+    border-color: var(--tst-border-color);
+}
+
+html.dark-mode .table-of-contents {
+    background-color: var(--tst-bg-secondary);
+    border-color: var(--tst-border-color);
+}
+
+html.dark-mode .affiliate-disclosure {
+    background-color: var(--tst-bg-tertiary);
+    border-color: var(--tst-border-color);
+}
+
+html.dark-mode .breadcrumbs {
+    background-color: var(--tst-bg-secondary);
+}
+
+html.dark-mode .site-footer {
+    background-color: var(--tst-bg-secondary);
+}
+
+html.dark-mode input,
+html.dark-mode textarea,
+html.dark-mode select {
+    background-color: var(--tst-bg-tertiary);
+    border-color: var(--tst-border-color);
+    color: var(--tst-text-primary);
+}
+
+html.dark-mode .search-form input[type="search"] {
+    background-color: var(--tst-bg-tertiary);
+    border-color: var(--tst-border-color);
+    color: var(--tst-text-primary);
+}
+
+html.dark-mode a {
+    color: var(--tst-primary-light);
+}
+
+html.dark-mode h1,
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode h4,
+html.dark-mode h5,
+html.dark-mode h6 {
+    color: var(--tst-text-primary);
+}
+
+html.dark-mode .entry-title,
+html.dark-mode .widget-title,
+html.dark-mode .footer-widget-title {
+    color: var(--tst-text-primary);
 }

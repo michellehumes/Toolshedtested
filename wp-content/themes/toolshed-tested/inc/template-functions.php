@@ -211,11 +211,12 @@ add_filter( 'the_content', 'tst_add_heading_ids', 5 );
  * Display author box
  */
 function tst_author_box() {
-    $author_id   = get_the_author_meta( 'ID' );
-    $author_name = get_the_author();
-    $author_bio  = get_the_author_meta( 'description' );
-    $author_url  = get_author_posts_url( $author_id );
+    $author_id    = get_the_author_meta( 'ID' );
+    $author_name  = get_the_author();
+    $author_bio   = get_the_author_meta( 'description' );
+    $author_url   = get_author_posts_url( $author_id );
     $author_title = get_the_author_meta( 'job_title' );
+    $post_count   = count_user_posts( $author_id, array( 'post', 'product_review' ), true );
 
     if ( empty( $author_bio ) ) {
         return;
@@ -223,20 +224,38 @@ function tst_author_box() {
     ?>
     <div class="author-box">
         <div class="author-avatar">
-            <?php echo get_avatar( $author_id, 80 ); ?>
+            <?php echo get_avatar( $author_id, 96 ); ?>
+            <span class="author-verified-badge" title="<?php esc_attr_e( 'Verified Expert', 'toolshed-tested' ); ?>">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                </svg>
+            </span>
         </div>
         <div class="author-info">
-            <h4>
-                <a href="<?php echo esc_url( $author_url ); ?>">
-                    <?php echo esc_html( $author_name ); ?>
-                </a>
-            </h4>
-            <?php if ( $author_title ) : ?>
-                <p class="author-title"><?php echo esc_html( $author_title ); ?></p>
-            <?php endif; ?>
+            <div class="author-header">
+                <h4>
+                    <a href="<?php echo esc_url( $author_url ); ?>">
+                        <?php echo esc_html( $author_name ); ?>
+                    </a>
+                </h4>
+                <?php if ( $author_title ) : ?>
+                    <p class="author-title"><?php echo esc_html( $author_title ); ?></p>
+                <?php endif; ?>
+            </div>
+            <?php echo wp_kses_post( tst_author_credentials( $author_id ) ); ?>
             <p class="author-bio"><?php echo esc_html( $author_bio ); ?></p>
-            <a href="<?php echo esc_url( $author_url ); ?>" class="author-link">
-                <?php esc_html_e( 'View all posts', 'toolshed-tested' ); ?> &rarr;
+            <div class="author-stats">
+                <span class="stat">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    <?php
+                    /* translators: %d: number of reviews */
+                    printf( esc_html( _n( '%d Review', '%d Reviews', $post_count, 'toolshed-tested' ) ), (int) $post_count );
+                    ?>
+                </span>
+            </div>
+            <a href="<?php echo esc_url( $author_url ); ?>" class="author-link tst-btn tst-btn-secondary">
+                <?php esc_html_e( 'View all reviews', 'toolshed-tested' ); ?>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
         </div>
     </div>
@@ -379,3 +398,171 @@ function tst_custom_body_classes( $classes ) {
     return $classes;
 }
 add_filter( 'body_class', 'tst_custom_body_classes' );
+
+/**
+ * Calculate and display reading time
+ *
+ * @param int|null $post_id Post ID (optional).
+ * @return string Reading time HTML.
+ */
+function tst_reading_time( $post_id = null ) {
+    if ( ! $post_id ) {
+        $post_id = get_the_ID();
+    }
+
+    $content    = get_post_field( 'post_content', $post_id );
+    $word_count = str_word_count( wp_strip_all_tags( $content ) );
+    $read_time  = ceil( $word_count / 200 ); // 200 words per minute average
+
+    if ( $read_time < 1 ) {
+        $read_time = 1;
+    }
+
+    $output = '<span class="reading-time">';
+    $output .= '<svg class="reading-time-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">';
+    $output .= '<circle cx="12" cy="12" r="10"/>';
+    $output .= '<polyline points="12 6 12 12 16 14"/>';
+    $output .= '</svg>';
+    /* translators: %d: number of minutes */
+    $output .= sprintf( esc_html__( '%d min read', 'toolshed-tested' ), $read_time );
+    $output .= '</span>';
+
+    return $output;
+}
+
+/**
+ * Display expert credentials for author
+ *
+ * @param int $author_id Author user ID.
+ * @return string Expert credentials HTML.
+ */
+function tst_author_credentials( $author_id ) {
+    $credentials = get_user_meta( $author_id, 'tst_credentials', true );
+    $expertise   = get_user_meta( $author_id, 'tst_expertise', true );
+    $years_exp   = get_user_meta( $author_id, 'tst_years_experience', true );
+
+    $output = '';
+
+    if ( $credentials || $expertise || $years_exp ) {
+        $output .= '<div class="author-credentials">';
+
+        if ( $years_exp ) {
+            $output .= '<span class="credential-badge experience">';
+            $output .= '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>';
+            /* translators: %s: number of years */
+            $output .= sprintf( esc_html__( '%s+ Years Experience', 'toolshed-tested' ), esc_html( $years_exp ) );
+            $output .= '</span>';
+        }
+
+        if ( $expertise ) {
+            $output .= '<span class="credential-badge expertise">';
+            $output .= '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>';
+            $output .= esc_html( $expertise );
+            $output .= '</span>';
+        }
+
+        if ( $credentials ) {
+            $output .= '<span class="credential-badge verified">';
+            $output .= '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
+            $output .= esc_html( $credentials );
+            $output .= '</span>';
+        }
+
+        $output .= '</div>';
+    }
+
+    return $output;
+}
+
+/**
+ * Display verdict box for reviews
+ *
+ * @param int|null $post_id Post ID (optional).
+ */
+function tst_verdict_box( $post_id = null ) {
+    if ( ! $post_id ) {
+        $post_id = get_the_ID();
+    }
+
+    $rating       = get_post_meta( $post_id, '_tst_rating', true );
+    $verdict      = get_post_meta( $post_id, '_tst_verdict', true );
+    $best_for     = get_post_meta( $post_id, '_tst_best_for', true );
+    $affiliate_url = get_post_meta( $post_id, '_tst_affiliate_url', true );
+    $price        = get_post_meta( $post_id, '_tst_price', true );
+
+    if ( ! $rating ) {
+        return;
+    }
+
+    // Generate verdict label based on rating
+    if ( ! $verdict ) {
+        if ( $rating >= 4.5 ) {
+            $verdict = __( 'Excellent Choice', 'toolshed-tested' );
+        } elseif ( $rating >= 4.0 ) {
+            $verdict = __( 'Highly Recommended', 'toolshed-tested' );
+        } elseif ( $rating >= 3.5 ) {
+            $verdict = __( 'Good Option', 'toolshed-tested' );
+        } elseif ( $rating >= 3.0 ) {
+            $verdict = __( 'Decent Choice', 'toolshed-tested' );
+        } else {
+            $verdict = __( 'Consider Alternatives', 'toolshed-tested' );
+        }
+    }
+
+    // Determine verdict class
+    $verdict_class = 'neutral';
+    if ( $rating >= 4.5 ) {
+        $verdict_class = 'excellent';
+    } elseif ( $rating >= 4.0 ) {
+        $verdict_class = 'great';
+    } elseif ( $rating >= 3.5 ) {
+        $verdict_class = 'good';
+    } elseif ( $rating < 3.0 ) {
+        $verdict_class = 'poor';
+    }
+    ?>
+    <div class="verdict-box verdict-<?php echo esc_attr( $verdict_class ); ?>">
+        <div class="verdict-header">
+            <div class="verdict-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+            <div class="verdict-title">
+                <span class="verdict-label"><?php esc_html_e( 'Our Verdict', 'toolshed-tested' ); ?></span>
+                <strong class="verdict-text"><?php echo esc_html( $verdict ); ?></strong>
+            </div>
+            <div class="verdict-score">
+                <span class="score-number"><?php echo esc_html( $rating ); ?></span>
+                <span class="score-max">/5</span>
+            </div>
+        </div>
+
+        <?php if ( $best_for ) : ?>
+            <div class="verdict-best-for">
+                <strong><?php esc_html_e( 'Best For:', 'toolshed-tested' ); ?></strong>
+                <?php echo esc_html( $best_for ); ?>
+            </div>
+        <?php endif; ?>
+
+        <div class="verdict-rating-bar">
+            <div class="rating-bar-fill" style="width: <?php echo esc_attr( ( floatval( $rating ) / 5 ) * 100 ); ?>%;"></div>
+        </div>
+
+        <?php if ( $affiliate_url ) : ?>
+            <div class="verdict-cta">
+                <a href="<?php echo esc_url( $affiliate_url ); ?>"
+                   class="tst-btn tst-btn-amazon affiliate-link"
+                   target="_blank"
+                   rel="nofollow noopener sponsored"
+                   data-product-id="<?php echo esc_attr( $post_id ); ?>">
+                    <?php esc_html_e( 'Check Price on Amazon', 'toolshed-tested' ); ?>
+                    <?php if ( $price ) : ?>
+                        <span class="btn-price"><?php echo esc_html( $price ); ?></span>
+                    <?php endif; ?>
+                </a>
+            </div>
+        <?php endif; ?>
+    </div>
+    <?php
+}

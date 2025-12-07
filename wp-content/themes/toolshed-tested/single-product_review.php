@@ -43,6 +43,7 @@ get_header();
                     <div class="entry-meta">
                         <?php tst_posted_on(); ?>
                         <?php tst_posted_by(); ?>
+                        <?php echo wp_kses_post( tst_reading_time() ); ?>
                         <?php
                         $categories = get_the_terms( get_the_ID(), 'product_category' );
                         if ( $categories && ! is_wp_error( $categories ) ) :
@@ -165,6 +166,9 @@ get_header();
                         </table>
                     </section>
                 <?php endif; ?>
+
+                <!-- Verdict Box -->
+                <?php tst_verdict_box(); ?>
 
                 <!-- Compare Alternatives -->
                 <?php

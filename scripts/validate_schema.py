@@ -9,6 +9,7 @@ import re
 from datetime import datetime
 
 SITE_URL = "https://toolshedtested.com"
+
 PAGES_TO_CHECK = [
     "/",
     "/about/",
@@ -33,30 +34,38 @@ REQUIRED_SCHEMAS = {
     "/best-": ["BlogPosting", "Review", "Product"],
 }
 
+
 def extract_json_ld(html):
     """Extract JSON-LD schema from HTML"""
     pattern = r'<script type="application/ld\+json">(.*?)</script>'
     matches = re.findall(pattern, html, re.DOTALL)
     schemas = []
+
     for match in matches:
         try:
             schemas.append(json.loads(match))
         except json.JSONDecodeError:
+            # Skip invalid JSON-LD blocks but keep going
             pass
+
     return schemas
+
 
 def get_schema_types(schemas):
     """Extract all @type values from schemas"""
     types = set()
+
     for schema in schemas:
         if isinstance(schema, dict):
+            # Direct @type
             if "@type" in schema:
                 t = schema["@type"]
                 if isinstance(t, list):
                     types.update(t)
                 else:
                     types.add(t)
-            # Check @graph
+
+            # @graph container
             if "@graph" in schema:
                 for item in schema["@graph"]:
                     if isinstance(item, dict) and "@type" in item:
@@ -65,20 +74,36 @@ def get_schema_types(schemas):
                             types.update(t)
                         else:
                             types.add(t)
+
         elif isinstance(schema, list):
             for item in schema:
                 if isinstance(item, dict) and "@type" in item:
-                    types.add(item["@type"])
+                    t = item["@type"]
+                    if isinstance(t, list):
+                        types.update(t)
+                    else:
+                        types.add(t)
+
     return types
+
 
 def validate_page(url):
     """Validate schema on a single page"""
     try:
-        response = requests.get(url, timeout=30, headers={
-            'User-Agent': 'Mozilla/5.0 (compatible; SchemaValidator/1.0)'
-        })
+        response = requests.get(
+            url,
+            timeout=30,
+            headers={
+                "User-Agent": "Mozilla/5.0 (compatible; SchemaValidator/1.0)",
+            },
+        )
+
         if response.status_code != 200:
-            return {"url": url, "status": "error", "message": f"HTTP {response.status_code}"}
+            return {
+                "url": url,
+                "status": "error",
+                "message": f"HTTP {response.status_code}",
+            }
 
         schemas = extract_json_ld(response.text)
         schema_types = get_schema_types(schemas)
@@ -96,19 +121,25 @@ def validate_page(url):
             "status": "success",
             "schema_types": list(schema_types),
             "schema_count": len(schemas),
-            "missing_schemas": missing
+            "missing_schemas": missing,
         }
+
     except Exception as e:
-        return {"url": url, "status": "error", "message": str(e)}
+        return {
+            "url": url,
+            "status": "error",
+            "message": str(e),
+        }
+
 
 def main():
-    print(f"\n{'='*60}")
+    print("\n" + "=" * 60)
     print(f"Schema Validation Report - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
-    print(f"{'='*60}\n")
+    print("=" * 60 + "\n")
 
     results = []
     issues_found = 0
-        network_errors = 0
+    network_errors = 0
 
     for page in PAGES_TO_CHECK:
         url = f"{SITE_URL}{page}"
@@ -119,23 +150,35 @@ def main():
             status_icon = "✓" if not result["missing_schemas"] else "⚠"
             print(f"{status_icon} {page}")
             print(f"  Found: {', '.join(result['schema_types']) or 'None'}")
+
             if result["missing_schemas"]:
                 issues_found += 1
                 print(f"  Missing: {', '.join(result['missing_schemas'])}")
+
         else:
             issues_found += 1
-                        # Track network connectivity errors
-            error_msg = result.get('message', '').lower()
-            if 'network is unreachable' in error_msg or 'failed to establish' in error_msg or 'newconnectionerror' in error_msg:
+
+            # Track network connectivity errors
+            error_msg = result.get("message", "").lower()
+            network_patterns = [
+                "network is unreachable",
+                "failed to establish a new connection",
+                "newconnectionerror",
+                "[errno 101]",
+                "temporary failure in name resolution",
+            ]
+            if any(pat in error_msg for pat in network_patterns):
                 network_errors += 1
+
             print(f"✗ {page}")
             print(f"  Error: {result.get('message', 'Unknown')}")
+
         print()
 
     # Summary
-    print(f"\n{'='*60}")
+    print("\n" + "=" * 60)
     print("SUMMARY")
-    print(f"{'='*60}")
+    print("=" * 60)
     print(f"Pages checked: {len(results)}")
     print(f"Issues found: {issues_found}")
 
@@ -143,16 +186,23 @@ def main():
         print("\nRecommended Actions:")
         for result in results:
             if result.get("missing_schemas"):
-                print(f"  • Add {', '.join(result['missing_schemas'])} to {result['url']}")
+                print(f" • Add {', '.join(result['missing_schemas'])} to {result['url']}")
 
-    # Check if all errors are network connectivity issues
+    # If every page that had an issue was a network error, treat as non-fatal
     if issues_found > 0 and network_errors == len(results):
-        print("\n⚠️  WARNING: All pages are unreachable due to network connectivity issues.")
-        print("This is likely a temporary network problem or firewall blocking GitHub Actions.")
-        print("Skipping validation for this run. The site appears to be working normally otherwise.\n")
-        return 0  # Don't fail the build for network issues
+        print("\nWARNING: All pages are unreachable due to network connectivity issues.")
+        print(
+            "This is likely a temporary network problem or firewall blocking GitHub Actions."
+        )
+        print(
+            "Skipping validation for this run so the workflow does not fail solely "
+            "because of external network issues.\n"
+        )
+        return 0
 
-return issues_found
+    # Non-zero exit code if there are real schema issues
+    return issues_found
+
 
 if __name__ == "__main__":
     exit(main())

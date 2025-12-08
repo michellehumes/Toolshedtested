@@ -1,0 +1,11 @@
+# robots.txt for Toolshed Tested
+# https://www.toolshedtested.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.toolshedtested.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

@@ -11,10 +11,10 @@ Electric pressure washers: quiet, instant start, zero emissions.
 
 Dual detergent tanks, 2,030 PSI, great price.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B00CPGMUXW?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00CPGMUXW?tag=toolshedtested-20)
 
 ## Best Compact: Ryobi RY142300
 
 2,300 PSI brushless motor in compact design.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B08BZJW3YM?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B08BZJW3YM?tag=toolshedtested-20)

@@ -11,10 +11,10 @@ We tested gas, electric, and battery leaf blowers.
 
 650 CFM matches gas blowers with battery convenience.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B08Y51QV51?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B08Y51QV51?tag=toolshedtested-20)
 
 ## Best Gas: Husqvarna 350BT
 
 494 CFM backpack blower for large properties.
 
-[Check Price on Amazon](https://www.amazon.com/dp/B00BEYKLHW?tag=shelzyperkins-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00BEYKLHW?tag=toolshedtested-20)

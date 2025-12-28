@@ -15,11 +15,6 @@
   },
   "queue": [
     {
-      "keyword": "hammer drill vs regular drill",
-      "category": "drills",
-      "priority": "medium"
-    },
-    {
       "keyword": "brushless vs brushed drill",
       "category": "drills",
       "priority": "medium"

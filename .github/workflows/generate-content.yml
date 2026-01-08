@@ -2,7 +2,7 @@ name: Generate and Publish to WordPress
 
 on:
   schedule:
-    - cron: '0 9,21 * * *'
+    - cron: '0 8 * * *'
   workflow_dispatch:
     inputs:
       keyword:

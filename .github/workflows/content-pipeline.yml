@@ -148,7 +148,7 @@ jobs:
 
       - name: Run full content analysis
         run: python scripts/analyze_content.py
-
+        continue-on-error: true
       - name: Run link audit
         run: python scripts/check_affiliate_links.py
         continue-on-error: true

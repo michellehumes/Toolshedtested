@@ -15,11 +15,6 @@
   },
   "queue": [
     {
-      "keyword": "circular saw under 100",
-      "category": "saws",
-      "priority": "high"
-    },
-    {
       "keyword": "miter saw vs table saw",
       "category": "saws",
       "priority": "high"

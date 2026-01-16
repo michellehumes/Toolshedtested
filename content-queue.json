@@ -15,11 +15,6 @@
   },
   "queue": [
     {
-      "keyword": "track saw vs table saw",
-      "category": "saws",
-      "priority": "medium"
-    },
-    {
       "keyword": "generator for power outage",
       "category": "generators",
       "priority": "high"

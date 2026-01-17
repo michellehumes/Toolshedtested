@@ -15,11 +15,6 @@
   },
   "queue": [
     {
-      "keyword": "generator for power outage",
-      "category": "generators",
-      "priority": "high"
-    },
-    {
       "keyword": "quiet generator for camping",
       "category": "generators",
       "priority": "high"

@@ -23,7 +23,7 @@ Reciprocating saws are the go-to tool for demolition, pruning, and rough cuts. T
 
 ### 1) Milwaukee M18 Fuel - Best Overall Cordless
 
-![Milwaukee M18 Fuel Sawzall](https://toolshedtested.com/wp-content/themes/toolshed-tested/assets/images/placeholder-milwaukee-m18-fuel-sawzall.svg)
+![Milwaukee M18 Fuel Sawzall](https://www.milwaukeetool.com/--/web-images/sc/82db66630b1442768a150857a9bec0d1?hash=7ffe5a1b7367034536fae819a9f1956d&lang=en)
 
 
 [Check Price on Amazon](https://www.amazon.com/s?k=Milwaukee+M18+Fuel+reciprocating+saw&tag=toolshedtested-20)

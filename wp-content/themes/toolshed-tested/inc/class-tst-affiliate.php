@@ -15,6 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Handles affiliate link functionality
  */
 class TST_Affiliate {
+    /**
+     * Singleton instance.
+     *
+     * @var TST_Affiliate|null
+     */
+    private static $instance = null;
 
     /**
      * Amazon Associate Tag
@@ -27,10 +33,20 @@ class TST_Affiliate {
      * Constructor
      */
     public function __construct() {
+        self::$instance = $this;
         $this->amazon_tag = get_theme_mod( 'tst_amazon_associate_id', '' );
 
         add_filter( 'the_content', array( $this, 'process_affiliate_links' ) );
         add_action( 'tst_affiliate_click', array( $this, 'log_click' ), 10, 2 );
+    }
+
+    /**
+     * Get class instance.
+     *
+     * @return TST_Affiliate|null
+     */
+    public static function get_instance() {
+        return self::$instance;
     }
 
     /**

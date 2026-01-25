@@ -40,7 +40,7 @@ function tst_product_box_shortcode( $atts ) {
 
     $rating       = get_post_meta( $post_id, '_tst_rating', true );
     $price        = get_post_meta( $post_id, '_tst_price', true );
-    $affiliate_url = get_post_meta( $post_id, '_tst_affiliate_url', true );
+    $affiliate_url = tst_get_affiliate_url( get_post_meta( $post_id, '_tst_affiliate_url', true ) );
     $pros         = get_post_meta( $post_id, '_tst_pros', true );
     $cons         = get_post_meta( $post_id, '_tst_cons', true );
 
@@ -242,7 +242,7 @@ function tst_affiliate_button_shortcode( $atts ) {
 
     return sprintf(
         '<a href="%s" class="%s affiliate-link" target="_blank" rel="nofollow noopener sponsored">%s</a>',
-        esc_url( $atts['url'] ),
+        esc_url( tst_get_affiliate_url( $atts['url'] ) ),
         esc_attr( $class ),
         esc_html( $atts['text'] )
     );

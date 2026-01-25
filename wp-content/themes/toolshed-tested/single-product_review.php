@@ -16,7 +16,7 @@ get_header();
         // Get review meta data
         $rating       = get_post_meta( get_the_ID(), '_tst_rating', true );
         $price        = get_post_meta( get_the_ID(), '_tst_price', true );
-        $affiliate_url = get_post_meta( get_the_ID(), '_tst_affiliate_url', true );
+        $affiliate_url = tst_get_affiliate_url( get_post_meta( get_the_ID(), '_tst_affiliate_url', true ) );
         $pros         = get_post_meta( get_the_ID(), '_tst_pros', true );
         $cons         = get_post_meta( get_the_ID(), '_tst_cons', true );
         $specs        = get_post_meta( get_the_ID(), '_tst_specifications', true );
@@ -27,7 +27,7 @@ get_header();
             <div class="tst-container">
                 <!-- Affiliate Disclosure -->
                 <div class="affiliate-disclosure">
-                    <?php esc_html_e( 'Disclosure: This post may contain affiliate links. When you purchase through links on our site, we may earn a commission at no additional cost to you.', 'toolshed-tested' ); ?>
+                    <?php echo wp_kses_post( tst_get_affiliate_disclosure_text() ); ?>
                 </div>
 
                 <!-- Review Header -->
@@ -242,7 +242,7 @@ get_header();
                                             $alternatives->the_post();
                                             $alt_rating       = get_post_meta( get_the_ID(), '_tst_rating', true );
                                             $alt_price        = get_post_meta( get_the_ID(), '_tst_price', true );
-                                            $alt_affiliate    = get_post_meta( get_the_ID(), '_tst_affiliate_url', true );
+                                            $alt_affiliate    = tst_get_affiliate_url( get_post_meta( get_the_ID(), '_tst_affiliate_url', true ) );
                                             ?>
                                             <tr>
                                                 <td class="product-name">

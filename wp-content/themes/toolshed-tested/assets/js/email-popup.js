@@ -8,8 +8,8 @@
     'use strict';
 
     var POPUP_COOKIE = 'tst_popup_shown';
-    var POPUP_DELAY = 30000; // 30 seconds
-    var SCROLL_TRIGGER = 50; // 50% scroll
+    var POPUP_DELAY_MOBILE = 60000; // 60 seconds
+    var SCROLL_TRIGGER_MOBILE = 70; // 70% scroll
     var scrollTriggered = false;
 
     /**
@@ -83,29 +83,29 @@
                     showPopup();
                 }
             });
+        } else {
+            // Mobile scroll trigger
+            window.addEventListener('scroll', function() {
+                if (scrollTriggered || hasSeenPopup()) {
+                    return;
+                }
+
+                var scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                var scrollPercent = (window.scrollY / scrollHeight) * 100;
+
+                if (scrollPercent > SCROLL_TRIGGER_MOBILE) {
+                    scrollTriggered = true;
+                    setTimeout(showPopup, 1500);
+                }
+            });
+
+            // Mobile time-based fallback
+            setTimeout(function() {
+                if (!hasSeenPopup()) {
+                    showPopup();
+                }
+            }, POPUP_DELAY_MOBILE);
         }
-
-        // Scroll trigger
-        window.addEventListener('scroll', function() {
-            if (scrollTriggered || hasSeenPopup()) {
-                return;
-            }
-
-            var scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-            var scrollPercent = (window.scrollY / scrollHeight) * 100;
-
-            if (scrollPercent > SCROLL_TRIGGER) {
-                scrollTriggered = true;
-                setTimeout(showPopup, 2000);
-            }
-        });
-
-        // Time-based trigger (fallback)
-        setTimeout(function() {
-            if (!hasSeenPopup()) {
-                showPopup();
-            }
-        }, POPUP_DELAY);
 
         // Close button handler
         document.addEventListener('click', function(e) {

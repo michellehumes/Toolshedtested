@@ -12,11 +12,31 @@ get_header();
     <div class="tst-container">
         <?php if ( is_home() && ! is_paged() ) : ?>
             <section class="hero-section">
-                <h1><?php esc_html_e( 'Expert Reviews for Outdoor Power Equipment', 'toolshed-tested' ); ?></h1>
-                <p><?php esc_html_e( 'In-depth, hands-on reviews of lawn mowers, chainsaws, leaf blowers, and more. Find the perfect tools for your yard.', 'toolshed-tested' ); ?></p>
+                <h1><?php esc_html_e( 'Hands-On Power Tool Reviews You Can Trust', 'toolshed-tested' ); ?></h1>
+                <p><?php esc_html_e( 'Independent testing and straight talk on drills, saws, grinders, sanders, and more so you can buy with confidence.', 'toolshed-tested' ); ?></p>
                 <a href="<?php echo esc_url( get_post_type_archive_link( 'product_review' ) ); ?>" class="tst-btn tst-btn-cta">
                     <?php esc_html_e( 'Browse Reviews', 'toolshed-tested' ); ?>
                 </a>
+
+                <?php
+                $hero_terms = get_terms(
+                    array(
+                        'taxonomy'   => 'product_category',
+                        'hide_empty' => true,
+                        'number'     => 6,
+                    )
+                );
+                if ( ! empty( $hero_terms ) && ! is_wp_error( $hero_terms ) ) :
+                    ?>
+                    <div class="hero-categories">
+                        <span class="hero-categories-label"><?php esc_html_e( 'Popular categories:', 'toolshed-tested' ); ?></span>
+                        <div class="hero-categories-list">
+                            <?php foreach ( $hero_terms as $term ) : ?>
+                                <a href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?></a>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </section>
         <?php endif; ?>
 

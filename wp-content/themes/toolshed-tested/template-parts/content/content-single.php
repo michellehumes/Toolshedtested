@@ -18,9 +18,9 @@
     </header>
 
     <!-- Affiliate Disclosure for posts with affiliate links -->
-    <?php if ( has_tag( 'affiliate' ) || has_category( 'reviews' ) ) : ?>
+    <?php if ( tst_should_show_affiliate_disclosure( get_the_ID() ) ) : ?>
         <div class="affiliate-disclosure">
-            <?php esc_html_e( 'Disclosure: This post may contain affiliate links. When you purchase through links on our site, we may earn a commission at no additional cost to you.', 'toolshed-tested' ); ?>
+            <?php echo wp_kses_post( tst_get_affiliate_disclosure_text() ); ?>
         </div>
     <?php endif; ?>
 

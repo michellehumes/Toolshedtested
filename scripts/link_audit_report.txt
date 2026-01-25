@@ -1,0 +1,523 @@
+============================================================
+AFFILIATE LINK AUDIT REPORT
+Generated: 2026-01-24 18:01:14
+============================================================
+
+SUMMARY
+------------------------------
+Total links checked: 127
+Valid links: 0
+Broken links: 0
+Missing affiliate tag: 0
+Redirects: 0
+Errors: 127
+
+ERRORS (Could not check)
+------------------------------
+  File: inverter-generators.md
+  URL: https://www.amazon.com/dp/B07MZBJJX6?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-cordless-hedge-trimmers.md
+  URL: https://www.amazon.com/s?k=Milwaukee+M18+FUEL+2726-21HD+Hedge+Trimmer&tag=toolsh...
+  Error: Connection failed
+
+  File: inverter-generators.md
+  URL: https://www.amazon.com/dp/B07W5XMWVK?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-cordless-hedge-trimmers.md
+  URL: https://www.amazon.com/s?k=DeWalt+DCHT820P1+20V+MAX+XR+Hedge+Trimmer&tag=toolshe...
+  Error: Connection failed
+
+  File: best-cordless-hedge-trimmers.md
+  URL: https://www.amazon.com/s?k=Makita+XHU02Z+18V+LXT+Hedge+Trimmer&tag=toolshedteste...
+  Error: Connection failed
+
+  File: portable-generators.md
+  URL: https://www.amazon.com/dp/B07MZBJJX6?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-cordless-hedge-trimmers.md
+  URL: https://www.amazon.com/s?k=BLACK+DECKER+LHT2436+40V+MAX+Hedge+Trimmer&tag=toolsh...
+  Error: Connection failed
+
+  File: portable-generators.md
+  URL: https://www.amazon.com/dp/B01LXIJHM6?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: battery-chainsaws.md
+  URL: https://www.amazon.com/dp/B07NSCFV13?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-cordless-hedge-trimmers.md
+  URL: https://www.amazon.com/s?k=EGO+Power+HT2400+Hedge+Trimmer&tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: battery-chainsaws.md
+  URL: https://www.amazon.com/dp/B00HHVPF5C?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: cordless-leaf-blowers.md
+  URL: https://www.amazon.com/dp/B0BRZBQ3YD?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: cordless-leaf-blowers.md
+  URL: https://www.amazon.com/dp/B08Y51QV51?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.amazon.com/s?k=Snow+Joe+SJ627E+22-Inch+Electric+Snow+Blower&tag=tool...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.amazon.com/s?k=Snow+Joe+SJ621+18-Inch+Electric+Snow+Blower&tag=tools...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.amazon.com/s?k=Greenworks+2600402+20-Inch+Snow+Blower&tag=toolshedte...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.amazon.com/s?k=EGO+Power+SNT2102+21-Inch+Snow+Blower&tag=toolshedtes...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.amazon.com/s?k=Snow+Joe+SJ618E+Ultra+18-Inch+Electric&tag=toolshedte...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.amazon.com/s?k=Ariens+Path-Pro+SS21EC+Single+Stage&tag=toolshedteste...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.amazon.com/s?k=Toro+38381+Power+Curve+Electric+Snow+Blower&tag=tools...
+  Error: Connection failed
+
+  File: random-orbital-sanders.md
+  URL: https://www.amazon.com/dp/B007NVSSFS?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: random-orbital-sanders.md
+  URL: https://www.amazon.com/dp/B07P9LFQ5P?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: random-orbital-sanders.md
+  URL: https://www.amazon.com/dp/B00MLSS1SW?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: electric-snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: random-orbital-sanders.md
+  URL: https://www.amazon.com/dp/B01LYCHOB8?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: random-orbital-sanders.md
+  URL: https://www.amazon.com/dp/B00BD5HD14?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: electric-pressure-washers.md
+  URL: https://www.amazon.com/dp/B00CPGMUXW?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: electric-pressure-washers.md
+  URL: https://www.amazon.com/dp/B08BZJW3YM?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-battery-powered-lawn-mowers.md
+  URL: https://www.amazon.com/dp/B08XYSYP8F?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-battery-powered-lawn-mowers.md
+  URL: https://www.amazon.com/dp/B09MZ3LXHP?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: impact-drivers.md
+  URL: https://www.amazon.com/dp/B08FWMJDW8?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: impact-drivers.md
+  URL: https://www.amazon.com/dp/B08FWP6Y37?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: impact-drivers.md
+  URL: https://www.amazon.com/dp/B08PSQVX86?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: impact-drivers.md
+  URL: https://www.amazon.com/dp/B079J5LG4K?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: impact-drivers.md
+  URL: https://www.amazon.com/dp/B07W5RL8J4?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: jigsaws.md
+  URL: https://www.amazon.com/dp/B00DQWQQ0S?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: jigsaws.md
+  URL: https://www.amazon.com/dp/B07YD58M6K?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: jigsaws.md
+  URL: https://www.amazon.com/dp/B07PX2DHLS?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: jigsaws.md
+  URL: https://www.amazon.com/dp/B00OJ72LHK?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: oscillating-multi-tools.md
+  URL: https://www.amazon.com/dp/B083GMDBR3?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: oscillating-multi-tools.md
+  URL: https://www.amazon.com/dp/B07VBGT9KH?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: jigsaws.md
+  URL: https://www.amazon.com/dp/B079CKD7SD?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: oscillating-multi-tools.md
+  URL: https://www.amazon.com/dp/B07YD55Y43?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: oscillating-multi-tools.md
+  URL: https://www.amazon.com/dp/B08F6S1QZ8?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: oscillating-multi-tools.md
+  URL: https://www.amazon.com/dp/B00UD7N0AI?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: angle-grinders.md
+  URL: https://www.amazon.com/dp/B07BS8G2TN?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: angle-grinders.md
+  URL: https://www.amazon.com/dp/B07H8J2P8D?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-portable-air-compressors.md
+  URL: https://www.amazon.com/dp/B01M69ALN1?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: angle-grinders.md
+  URL: https://www.amazon.com/dp/B08T9JCMTZ?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: angle-grinders.md
+  URL: https://www.amazon.com/dp/B00FMFLB9S?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: angle-grinders.md
+  URL: https://www.amazon.com/dp/B0073ZZRCY?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-portable-air-compressors.md
+  URL: https://www.amazon.com/dp/B005ASY23I?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: pressure-washers.md
+  URL: https://www.amazon.com/dp/B00CPGMUXW?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-portable-air-compressors.md
+  URL: https://www.amazon.com/dp/B06XFWLXN3?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-portable-air-compressors.md
+  URL: https://www.amazon.com/dp/B07YBDJFZR?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-portable-air-compressors.md
+  URL: https://www.amazon.com/dp/B01LXZQCD5?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: pressure-washers.md
+  URL: https://www.amazon.com/dp/B00HLQXFCO?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.amazon.com/s?k=Ariens+Deluxe+28+SHO+921049&tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.amazon.com/s?k=Troy-Bilt+Vortex+2890+31AH5DP7766&tag=toolshedtested-...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.amazon.com/s?k=Honda+HSS1332AAT&tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.amazon.com/s?k=Snow+Joe+SJ627E+Electric&tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.amazon.com/s?k=Cub+Cadet+3X+30+MAX+31AH7S7G710&tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.amazon.com/s?k=Toro+Power+Max+826+OAE+37802&tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.amazon.com/s?k=EGO+Power+SNT2405+24+Inch&tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.homedepot.com...
+  Error: Connection failed
+
+  File: snow-blowers.md
+  URL: https://www.lowes.com...
+  Error: Connection failed
+
+  File: reciprocating-saws.md
+  URL: https://www.amazon.com/dp/B08FXJCF6Q?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: reciprocating-saws.md
+  URL: https://www.amazon.com/dp/B07YD3L45V?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: reciprocating-saws.md
+  URL: https://www.amazon.com/dp/B00OB3RR5C?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: lawn-mowers.md
+  URL: https://www.amazon.com/dp/B08YD2VFXJ?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: reciprocating-saws.md
+  URL: https://www.amazon.com/dp/B000065CJL?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: reciprocating-saws.md
+  URL: https://www.amazon.com/dp/B01N78DJQ6?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-battery-powered-lawn-mowers-2025.md
+  URL: https://www.amazon.com/dp/B0C3T8GPDH?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: lawn-mowers.md
+  URL: https://www.amazon.com/dp/B084TFPFFR?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-battery-powered-lawn-mowers-2025.md
+  URL: https://www.amazon.com/dp/B00HH6CSN4?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-battery-powered-lawn-mowers-2025.md
+  URL: https://www.amazon.com/dp/B0C3M6S5NG?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: miter-saws.md
+  URL: https://www.amazon.com/dp/B01FX0TQT8?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-battery-powered-lawn-mowers-2025.md
+  URL: https://www.amazon.com/dp/B09MQ4PCKV?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: miter-saws.md
+  URL: https://www.amazon.com/dp/B07JQ8JVDW?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: best-battery-powered-lawn-mowers-2025.md
+  URL: https://www.amazon.com/dp/B09MQ2YJPM?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: miter-saws.md
+  URL: https://www.amazon.com/dp/B07S2RJQJM?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: circular-saws.md
+  URL: https://www.amazon.com/dp/B07J4RMHFJ?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: circular-saws.md
+  URL: https://www.amazon.com/dp/B00POOK9Q8?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: miter-saws.md
+  URL: https://www.amazon.com/dp/B07MWXGMRX?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: miter-saws.md
+  URL: https://www.amazon.com/dp/B003ZXCFXA?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: circular-saws.md
+  URL: https://www.amazon.com/dp/B00DN6QV3Y?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: circular-saws.md
+  URL: https://www.amazon.com/dp/B000N5YKSE?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: circular-saws.md
+  URL: https://www.amazon.com/dp/B01M8LUB5L?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: leaf-blowers.md
+  URL: https://www.amazon.com/dp/B08Y51QV51?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: leaf-blowers.md
+  URL: https://www.amazon.com/dp/B00BEYKLHW?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: chainsaws.md
+  URL: https://www.amazon.com/dp/B004HHISLY?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: chainsaws.md
+  URL: https://www.amazon.com/dp/B07NSCFV13?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: table-saws.md
+  URL: https://www.amazon.com/dp/B07LC2CRPB?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: table-saws.md
+  URL: https://www.amazon.com/dp/B08HK7RZ5J?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: table-saws.md
+  URL: https://www.amazon.com/dp/B00F2CGXGG?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: table-saws.md
+  URL: https://www.amazon.com/dp/B07R6VFHVY?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: cordless-drills.md
+  URL: https://www.amazon.com/s?k=Makita+XPH12Z+18V+Drill&tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: cordless-drills.md
+  URL: https://www.amazon.com/s?k=DeWalt+20V+MAX+XR+DCD771C2&tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: cordless-drills.md
+  URL: https://www.amazon.com/s?k=Bosch+GSR18V-190B22+Drill&tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: table-saws.md
+  URL: https://www.amazon.com/dp/B08C2HB1JQ?tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: cordless-drills.md
+  URL: https://www.amazon.com/s?k=Ryobi+P1813+18V+ONE+Drill&tag=toolshedtested-20...
+  Error: Connection failed
+
+  File: cordless-drills.md
+  URL: https://www.amazon.com/s?k=Milwaukee+M18+Fuel+2804-20&tag=toolshedtested-20...
+  Error: Connection failed

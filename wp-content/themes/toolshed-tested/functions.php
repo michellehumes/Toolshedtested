@@ -496,6 +496,33 @@ function tst_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'tst_excerpt_more' );
 
 /**
+ * Exclude Uncategorized from category widgets.
+ *
+ * @param array $args Widget args.
+ * @return array
+ */
+function tst_exclude_uncategorized_from_widgets( $args ) {
+    $default_category = absint( get_option( 'default_category' ) );
+    if ( ! $default_category ) {
+        return $args;
+    }
+
+    if ( empty( $args['exclude'] ) ) {
+        $args['exclude'] = $default_category;
+    } else {
+        $excluded = array_filter( array_map( 'absint', explode( ',', $args['exclude'] ) ) );
+        if ( ! in_array( $default_category, $excluded, true ) ) {
+            $excluded[] = $default_category;
+        }
+        $args['exclude'] = implode( ',', $excluded );
+    }
+
+    return $args;
+}
+add_filter( 'widget_categories_args', 'tst_exclude_uncategorized_from_widgets' );
+add_filter( 'widget_categories_dropdown_args', 'tst_exclude_uncategorized_from_widgets' );
+
+/**
  * Add custom body classes
  */
 function tst_body_classes( $classes ) {
@@ -593,17 +620,84 @@ add_action( 'wp_enqueue_scripts', 'tst_enqueue_popup_script' );
 /**
  * Get the primary affiliate URL for mobile sticky CTA
  */
+function tst_get_affiliate_url( $url ) {
+    $url = trim( (string) $url );
+    if ( '' === $url ) {
+        return '';
+    }
+
+    if ( class_exists( 'TST_Affiliate' ) ) {
+        $affiliate = TST_Affiliate::get_instance();
+        if ( $affiliate && method_exists( $affiliate, 'append_amazon_tag' ) ) {
+            return $affiliate->append_amazon_tag( $url );
+        }
+    }
+
+    return $url;
+}
+
+/**
+ * Get affiliate disclosure text.
+ *
+ * @return string
+ */
+function tst_get_affiliate_disclosure_text() {
+    return get_theme_mod(
+        'tst_affiliate_disclosure',
+        __( 'As an Amazon Associate, we earn from qualifying purchases. This post may contain affiliate links.', 'toolshed-tested' )
+    );
+}
+
+/**
+ * Determine if affiliate disclosure should be shown for a post.
+ *
+ * @param int $post_id Post ID.
+ * @return bool
+ */
+function tst_should_show_affiliate_disclosure( $post_id ) {
+    $post_id = absint( $post_id );
+    if ( ! $post_id ) {
+        return false;
+    }
+
+    if ( 'product_review' === get_post_type( $post_id ) ) {
+        return true;
+    }
+
+    if ( has_tag( 'affiliate', $post_id ) || has_category( 'reviews', $post_id ) ) {
+        return true;
+    }
+
+    $affiliate_url   = get_post_meta( $post_id, '_tst_affiliate_url', true );
+    $affiliate_url_2 = get_post_meta( $post_id, '_tst_affiliate_url_2', true );
+    if ( $affiliate_url || $affiliate_url_2 ) {
+        return true;
+    }
+
+    $post = get_post( $post_id );
+    if ( $post && preg_match( '/href=["\']([^"\']*amazon\.[^"\']*)["\']/', $post->post_content ) ) {
+        return true;
+    }
+
+    return false;
+}
+
 function tst_get_primary_affiliate_url() {
     if ( is_singular( 'post' ) || is_singular( 'product_review' ) ) {
         $affiliate_url = get_post_meta( get_the_ID(), '_tst_affiliate_url', true );
         if ( $affiliate_url ) {
-            return $affiliate_url;
+            return tst_get_affiliate_url( $affiliate_url );
+        }
+
+        $affiliate_url_2 = get_post_meta( get_the_ID(), '_tst_affiliate_url_2', true );
+        if ( $affiliate_url_2 ) {
+            return tst_get_affiliate_url( $affiliate_url_2 );
         }
 
         // Try to find first Amazon link in content
         global $post;
         if ( $post && preg_match( '/href=["\']([^"\']*amazon\.com[^"\']*)["\']/', $post->post_content, $matches ) ) {
-            return $matches[1];
+            return tst_get_affiliate_url( $matches[1] );
         }
     }
     return '';

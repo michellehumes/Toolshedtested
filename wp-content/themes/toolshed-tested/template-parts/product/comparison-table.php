@@ -33,7 +33,7 @@ if ( empty( $products ) ) {
 
                 $rating       = get_post_meta( $product_id, '_tst_rating', true );
                 $price        = get_post_meta( $product_id, '_tst_price', true );
-                $affiliate_url = get_post_meta( $product_id, '_tst_affiliate_url', true );
+                $affiliate_url = tst_get_affiliate_url( get_post_meta( $product_id, '_tst_affiliate_url', true ) );
                 $best_for     = get_post_meta( $product_id, '_tst_best_for', true );
                 $badge        = get_post_meta( $product_id, '_tst_badge', true );
                 ?>

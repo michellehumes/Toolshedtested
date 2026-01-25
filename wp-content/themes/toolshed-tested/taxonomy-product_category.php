@@ -1,19 +1,28 @@
 <?php
 /**
- * Product Review Archive Template
+ * Product Category Archive Template
  *
  * @package Toolshed_Tested
  */
 
 get_header();
+
+$term = get_queried_object();
+$term_name = $term ? $term->name : esc_html__( 'Category', 'toolshed-tested' );
+$term_description = term_description();
+$default_description = sprintf(
+    /* translators: %s: category name */
+    __( 'Hands-on testing and buyer guides for %s tools to help you choose the right model for your budget and workload.', 'toolshed-tested' ),
+    $term_name
+);
 ?>
 
-<main id="primary" class="site-main archive-reviews">
+<main id="primary" class="site-main archive-reviews category-reviews">
     <div class="tst-container">
         <header class="page-header">
-            <h1 class="page-title"><?php esc_html_e( 'Product Reviews', 'toolshed-tested' ); ?></h1>
+            <h1 class="page-title"><?php echo esc_html( $term_name ); ?> <?php esc_html_e( 'Reviews', 'toolshed-tested' ); ?></h1>
             <p class="page-description">
-                <?php esc_html_e( 'In-depth, hands-on reviews of power tools and equipment. We test so you can buy with confidence.', 'toolshed-tested' ); ?>
+                <?php echo $term_description ? wp_kses_post( $term_description ) : esc_html( $default_description ); ?>
             </p>
         </header>
 
@@ -31,8 +40,7 @@ get_header();
                 ?>
                 <ul class="category-list">
                     <li>
-                        <a href="<?php echo esc_url( get_post_type_archive_link( 'product_review' ) ); ?>" 
-                           class="<?php echo ! is_tax() ? 'active' : ''; ?>">
+                        <a href="<?php echo esc_url( get_post_type_archive_link( 'product_review' ) ); ?>" class="">
                             <?php esc_html_e( 'All Reviews', 'toolshed-tested' ); ?>
                         </a>
                     </li>
@@ -47,6 +55,8 @@ get_header();
                 </ul>
             <?php endif; ?>
         </div>
+
+        <?php get_template_part( 'template-parts/category/top-picks-table' ); ?>
 
         <div class="content-area">
             <?php if ( have_posts() ) : ?>

@@ -3,7 +3,7 @@ Theme Name: Toolshed Tested
 Theme URI: https://toolshedtested.com
 Author: Toolshed Tested Team
 Author URI: https://toolshedtested.com
-Description: A production-ready WordPress theme for affiliate marketing blog focused on outdoor power equipment reviews. Optimized for conversions, SEO, and speed.
+Description: A production-ready WordPress theme for an affiliate marketing blog focused on power tool reviews. Optimized for conversions, SEO, and speed.
 Version: 1.0.0
 Requires at least: 6.0
 Tested up to: 6.4
@@ -422,6 +422,46 @@ p {
     opacity: 0.9;
     max-width: 600px;
     margin: 0 auto var(--tst-spacing-xl);
+}
+
+.hero-categories {
+    margin-top: var(--tst-spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--tst-spacing-sm);
+}
+
+.hero-categories-label {
+    font-size: var(--tst-text-sm);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-categories-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tst-spacing-sm);
+    justify-content: center;
+}
+
+.hero-categories-list a {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: var(--tst-radius-full);
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--tst-white);
+    font-size: var(--tst-text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--tst-transition-fast);
+}
+
+.hero-categories-list a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
 }
 
 /* ==========================================================================
@@ -874,6 +914,42 @@ p {
     margin-bottom: var(--tst-spacing-md);
     padding-bottom: var(--tst-spacing-sm);
     border-bottom: 2px solid var(--tst-primary);
+}
+
+.widget ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.widget li {
+    margin-bottom: var(--tst-spacing-md);
+}
+
+.widget a {
+    display: inline-block;
+    color: var(--tst-gray-800);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.widget a:hover {
+    color: var(--tst-primary);
+}
+
+.widget .post-date,
+.widget .wp-block-latest-posts__post-date {
+    display: block;
+    margin-top: 2px;
+    font-size: var(--tst-text-sm);
+    color: var(--tst-gray-600);
+    font-weight: 500;
+}
+
+.widget .wp-block-latest-posts__post-excerpt {
+    font-size: var(--tst-text-sm);
+    color: var(--tst-gray-700);
+    margin-top: var(--tst-spacing-xs);
 }
 
 /* ==========================================================================

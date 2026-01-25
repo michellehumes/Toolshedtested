@@ -3,33 +3,27 @@
     "file": "angle-grinders.md",
     "title": "Best Angle Grinders (2025) - 5 Models Tested for Grinding & Cutting",
     "category": "grinders",
-    "slug": "best-angle-grinders",
-    "word_count": 174,
+    "slug": "angle-grinders",
+    "word_count": 2577,
     "affiliate_links": 10,
-    "h2_count": 5,
-    "h3_count": 0,
+    "h2_count": 34,
+    "h3_count": 23,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {
-      "angle grinder": 2,
-      "rpm": 2
+      "angle grinder": 25
     },
-    "score": 35,
-    "grade": "F",
-    "issues": [
-      "Word count (174) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
@@ -37,59 +31,49 @@
     "title": "Best Battery Chainsaws (2025) - 5 Cordless Models Tested",
     "category": "chainsaws",
     "slug": "best-battery-chainsaws",
-    "word_count": 40,
-    "affiliate_links": 4,
-    "h2_count": 2,
-    "h3_count": 0,
+    "word_count": 2669,
+    "affiliate_links": 10,
+    "h2_count": 34,
+    "h3_count": 23,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 30,
-    "grade": "F",
-    "issues": [
-      "Word count (40) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section",
-      "Consider adding more H2 sections (2/5)"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "best-battery-powered-lawn-mowers-2025.md",
-    "title": "best-battery-powered-lawn-mowers-2025",
-    "category": "uncategorized",
+    "title": "Best Battery Powered Lawn Mowers (2025) - 7 Top Picks Tested",
+    "category": "lawn-mowers",
     "slug": "best-battery-powered-lawn-mowers-2025",
-    "word_count": 790,
-    "affiliate_links": 10,
-    "h2_count": 7,
-    "h3_count": 8,
+    "word_count": 2601,
+    "affiliate_links": 14,
+    "h2_count": 47,
+    "h3_count": 33,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
       "has_faq": true,
-      "has_conclusion": false,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 45,
-    "grade": "D",
-    "issues": [
-      "Word count (790) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add a clear conclusion/verdict section"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
@@ -97,149 +81,130 @@
     "title": "Best Battery Powered Lawn Mowers (2025) - 7 Top Picks Tested",
     "category": "lawn-mowers",
     "slug": "best-battery-powered-lawn-mowers",
-    "word_count": 321,
-    "affiliate_links": 4,
-    "h2_count": 4,
-    "h3_count": 0,
+    "word_count": 2554,
+    "affiliate_links": 14,
+    "h2_count": 34,
+    "h3_count": 24,
     "structure": {
       "has_comparison_table": true,
-      "has_pros_cons": false,
+      "has_pros_cons": true,
       "has_faq": true,
-      "has_conclusion": false,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 55,
-    "grade": "D",
-    "issues": [
-      "Word count (321) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a clear conclusion/verdict section",
-      "Consider adding more H2 sections (4/5)"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "best-cordless-hedge-trimmers.md",
-    "title": "Best Cordless Hedge Trimmers 2025: Top 5 Picks for Perfect Hedges",
+    "title": "Best Cordless Hedge Trimmers (2025) - 5 Battery Models Tested",
     "category": "outdoor",
     "slug": "best-cordless-hedge-trimmers",
-    "word_count": 1032,
+    "word_count": 2545,
     "affiliate_links": 10,
-    "h2_count": 9,
-    "h3_count": 11,
+    "h2_count": 47,
+    "h3_count": 31,
     "structure": {
       "has_comparison_table": true,
-      "has_pros_cons": false,
+      "has_pros_cons": true,
       "has_faq": true,
       "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {
-      "trimmer": 25
+      "trimmer": 38
     },
-    "score": 65,
-    "grade": "C",
-    "issues": [
-      "Word count (1032) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
-    "suggestions": []
+    "score": 90,
+    "grade": "A",
+    "issues": [],
+    "suggestions": [
+      "Consider expanding content to 3500+ words"
+    ]
   },
   {
     "file": "best-portable-air-compressors.md",
-    "title": "best-portable-air-compressors",
-    "category": "uncategorized",
+    "title": "Best Portable Air Compressors (2025) - 6 Top Picks Tested",
+    "category": "compressors",
     "slug": "best-portable-air-compressors",
-    "word_count": 979,
-    "affiliate_links": 10,
-    "h2_count": 7,
-    "h3_count": 9,
+    "word_count": 2572,
+    "affiliate_links": 12,
+    "h2_count": 47,
+    "h3_count": 32,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
       "has_faq": true,
-      "has_conclusion": false,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 45,
-    "grade": "D",
-    "issues": [
-      "Word count (979) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add a clear conclusion/verdict section"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "chainsaws.md",
     "title": "Best Chainsaws (2025) - 5 Models Tested for Homeowners & Pros",
     "category": "chainsaws",
-    "slug": "best-chainsaws",
-    "word_count": 39,
-    "affiliate_links": 4,
-    "h2_count": 2,
-    "h3_count": 0,
+    "slug": "chainsaws",
+    "word_count": 2761,
+    "affiliate_links": 10,
+    "h2_count": 35,
+    "h3_count": 23,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 30,
-    "grade": "F",
-    "issues": [
-      "Word count (39) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section",
-      "Consider adding more H2 sections (2/5)"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "circular-saws.md",
     "title": "Best Circular Saws (2025) - 5 Top Picks for Clean, Accurate Cuts",
     "category": "saws",
-    "slug": "best-circular-saws",
-    "word_count": 185,
+    "slug": "circular-saws",
+    "word_count": 2522,
     "affiliate_links": 10,
-    "h2_count": 5,
-    "h3_count": 0,
+    "h2_count": 47,
+    "h3_count": 31,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {
-      "circular saw": 5,
-      "blade": 3
+      "circular saw": 32,
+      "blade": 4,
+      "cutting": 2
     },
-    "score": 35,
-    "grade": "F",
-    "issues": [
-      "Word count (185) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
@@ -247,60 +212,53 @@
     "title": "Best Cordless Drills of 2025: Top 5 Picks Tested by Professionals",
     "category": "drills",
     "slug": "cordless-drills",
-    "word_count": 1289,
+    "word_count": 3484,
     "affiliate_links": 10,
-    "h2_count": 10,
-    "h3_count": 11,
+    "h2_count": 39,
+    "h3_count": 25,
     "structure": {
       "has_comparison_table": true,
-      "has_pros_cons": false,
+      "has_pros_cons": true,
       "has_faq": true,
       "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {
-      "cordless drill": 15,
+      "cordless drill": 34,
       "torque": 14,
-      "battery": 25
+      "battery": 33
     },
-    "score": 65,
-    "grade": "C",
-    "issues": [
-      "Word count (1289) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
-    "suggestions": []
+    "score": 90,
+    "grade": "A",
+    "issues": [],
+    "suggestions": [
+      "Consider expanding content to 3500+ words"
+    ]
   },
   {
     "file": "cordless-leaf-blowers.md",
     "title": "Best Cordless Leaf Blowers (2025) - 6 Battery Models Tested",
     "category": "leaf-blowers",
     "slug": "best-cordless-leaf-blowers",
-    "word_count": 40,
-    "affiliate_links": 4,
-    "h2_count": 2,
-    "h3_count": 0,
+    "word_count": 2740,
+    "affiliate_links": 12,
+    "h2_count": 34,
+    "h3_count": 24,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 30,
-    "grade": "F",
-    "issues": [
-      "Word count (40) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section",
-      "Consider adding more H2 sections (2/5)"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
@@ -308,56 +266,47 @@
     "title": "Best Electric Pressure Washers (2025) - 4 Quiet, Powerful Models",
     "category": "pressure-washers",
     "slug": "best-electric-pressure-washers",
-    "word_count": 41,
-    "affiliate_links": 4,
-    "h2_count": 2,
-    "h3_count": 0,
+    "word_count": 2669,
+    "affiliate_links": 8,
+    "h2_count": 35,
+    "h3_count": 22,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 30,
-    "grade": "F",
-    "issues": [
-      "Word count (41) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section",
-      "Consider adding more H2 sections (2/5)"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "electric-snow-blowers.md",
-    "title": "Best Electric Snow Blowers of 2025: Powerful, Quiet, and Eco-Friendly Winter Solutions",
-    "category": "outdoor",
+    "title": "Best Electric Snow Blowers (2025) - 6 Quiet, Capable Picks",
+    "category": "snow-blowers",
     "slug": "electric-snow-blowers",
-    "word_count": 2906,
-    "affiliate_links": 7,
-    "h2_count": 10,
-    "h3_count": 11,
+    "word_count": 2560,
+    "affiliate_links": 12,
+    "h2_count": 47,
+    "h3_count": 32,
     "structure": {
       "has_comparison_table": true,
-      "has_pros_cons": false,
+      "has_pros_cons": true,
       "has_faq": true,
       "has_conclusion": true,
       "has_image_placeholder": false,
-      "has_cta_button": false
+      "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 70,
-    "grade": "C",
-    "issues": [
-      "Missing pros/cons sections",
-      "Missing CTA buttons (Check Price, etc.)"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
       "Consider expanding content to 3500+ words"
     ]
@@ -366,32 +315,28 @@
     "file": "impact-drivers.md",
     "title": "Best Impact Drivers (2025) - 5 Models Tested for Speed & Power",
     "category": "drills",
-    "slug": "best-impact-drivers",
-    "word_count": 188,
+    "slug": "impact-drivers",
+    "word_count": 2501,
     "affiliate_links": 10,
-    "h2_count": 5,
-    "h3_count": 0,
+    "h2_count": 47,
+    "h3_count": 31,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {
-      "torque": 4
+      "torque": 1,
+      "battery": 12
     },
-    "score": 35,
-    "grade": "F",
-    "issues": [
-      "Word count (188) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
@@ -399,341 +344,284 @@
     "title": "Best Inverter Generators (2025) - 5 Quiet Power Solutions Tested",
     "category": "generators",
     "slug": "best-inverter-generators",
-    "word_count": 37,
-    "affiliate_links": 4,
-    "h2_count": 2,
-    "h3_count": 0,
+    "word_count": 2948,
+    "affiliate_links": 10,
+    "h2_count": 35,
+    "h3_count": 24,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 30,
-    "grade": "F",
-    "issues": [
-      "Word count (37) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section",
-      "Consider adding more H2 sections (2/5)"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "jigsaws.md",
     "title": "Best Jigsaws (2025) - 5 Models Tested for Curved & Intricate Cuts",
     "category": "saws",
-    "slug": "best-jigsaws",
-    "word_count": 182,
+    "slug": "jigsaws",
+    "word_count": 2516,
     "affiliate_links": 10,
-    "h2_count": 5,
-    "h3_count": 0,
+    "h2_count": 48,
+    "h3_count": 31,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {
-      "blade": 1
+      "blade": 3
     },
-    "score": 35,
-    "grade": "F",
-    "issues": [
-      "Word count (182) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "lawn-mowers.md",
     "title": "Best Lawn Mowers (2025) - 5 Top Picks Tested",
     "category": "lawn-mowers",
-    "slug": "best-lawn-mowers",
-    "word_count": 38,
-    "affiliate_links": 4,
-    "h2_count": 2,
-    "h3_count": 0,
+    "slug": "lawn-mowers",
+    "word_count": 2839,
+    "affiliate_links": 10,
+    "h2_count": 35,
+    "h3_count": 23,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 30,
-    "grade": "F",
-    "issues": [
-      "Word count (38) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section",
-      "Consider adding more H2 sections (2/5)"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "leaf-blowers.md",
     "title": "Best Leaf Blowers (2025) - 5 Models Tested for Power & Value",
     "category": "leaf-blowers",
-    "slug": "best-leaf-blowers",
-    "word_count": 41,
-    "affiliate_links": 4,
-    "h2_count": 2,
-    "h3_count": 0,
+    "slug": "leaf-blowers",
+    "word_count": 2654,
+    "affiliate_links": 10,
+    "h2_count": 34,
+    "h3_count": 23,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 30,
-    "grade": "F",
-    "issues": [
-      "Word count (41) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section",
-      "Consider adding more H2 sections (2/5)"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "miter-saws.md",
     "title": "Best Miter Saws (2025) - 5 Models Tested for Trim & Framing",
     "category": "saws",
-    "slug": "best-miter-saws",
-    "word_count": 80,
+    "slug": "miter-saws",
+    "word_count": 2620,
     "affiliate_links": 10,
-    "h2_count": 5,
-    "h3_count": 0,
+    "h2_count": 34,
+    "h3_count": 23,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {
-      "miter saw": 5,
-      "bevel": 3
+      "miter saw": 28,
+      "blade": 5,
+      "cutting": 1,
+      "bevel": 1
     },
-    "score": 35,
-    "grade": "F",
-    "issues": [
-      "Word count (80) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "oscillating-multi-tools.md",
     "title": "Best Oscillating Multi-Tools (2025) - 5 Versatile Tools Tested",
     "category": "multi-tools",
-    "slug": "best-oscillating-multi-tools",
-    "word_count": 181,
+    "slug": "oscillating-multi-tools",
+    "word_count": 2529,
     "affiliate_links": 10,
-    "h2_count": 5,
-    "h3_count": 0,
+    "h2_count": 48,
+    "h3_count": 31,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 35,
-    "grade": "F",
-    "issues": [
-      "Word count (181) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "portable-generators.md",
     "title": "Best Portable Generators (2025) - 5 Reliable Models Tested",
     "category": "generators",
-    "slug": "best-portable-generators",
-    "word_count": 41,
-    "affiliate_links": 4,
-    "h2_count": 2,
-    "h3_count": 0,
+    "slug": "portable-generators",
+    "word_count": 2617,
+    "affiliate_links": 10,
+    "h2_count": 34,
+    "h3_count": 23,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 30,
-    "grade": "F",
-    "issues": [
-      "Word count (41) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section",
-      "Consider adding more H2 sections (2/5)"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "pressure-washers.md",
     "title": "Best Pressure Washers (2025) - 5 Top Models Tested & Compared",
     "category": "pressure-washers",
-    "slug": "best-pressure-washers",
-    "word_count": 49,
-    "affiliate_links": 4,
-    "h2_count": 2,
-    "h3_count": 0,
+    "slug": "pressure-washers",
+    "word_count": 2593,
+    "affiliate_links": 10,
+    "h2_count": 34,
+    "h3_count": 23,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 30,
-    "grade": "F",
-    "issues": [
-      "Word count (49) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section",
-      "Consider adding more H2 sections (2/5)"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "random-orbital-sanders.md",
     "title": "Best Random Orbital Sanders (2025) - 5 Top Picks for Smooth Finishes",
     "category": "sanders",
-    "slug": "best-random-orbital-sanders",
-    "word_count": 180,
+    "slug": "random-orbital-sanders",
+    "word_count": 2513,
     "affiliate_links": 10,
-    "h2_count": 5,
-    "h3_count": 0,
+    "h2_count": 47,
+    "h3_count": 31,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {
-      "orbital sander": 2,
-      "dust collection": 1
+      "orbital sander": 31,
+      "dust collection": 2
     },
-    "score": 35,
-    "grade": "F",
-    "issues": [
-      "Word count (180) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "reciprocating-saws.md",
     "title": "Best Reciprocating Saws (2025) - 5 Models Tested for Demolition & Pruning",
     "category": "saws",
-    "slug": "best-reciprocating-saws",
-    "word_count": 179,
+    "slug": "reciprocating-saws",
+    "word_count": 2501,
     "affiliate_links": 10,
-    "h2_count": 5,
-    "h3_count": 0,
+    "h2_count": 46,
+    "h3_count": 31,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {
-      "blade": 2,
-      "cutting": 1
+      "blade": 2
     },
-    "score": 35,
-    "grade": "F",
-    "issues": [
-      "Word count (179) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section"
+      "Consider expanding content to 3500+ words"
     ]
   },
   {
     "file": "snow-blowers.md",
-    "title": "snow-blowers",
-    "category": "uncategorized",
+    "title": "Best Snow Blowers (2025) - 7 Top Picks for Driveways & Storms",
+    "category": "snow-blowers",
     "slug": "snow-blowers",
-    "word_count": 2611,
-    "affiliate_links": 7,
-    "h2_count": 5,
-    "h3_count": 18,
+    "word_count": 2566,
+    "affiliate_links": 14,
+    "h2_count": 46,
+    "h3_count": 33,
     "structure": {
       "has_comparison_table": true,
-      "has_pros_cons": false,
+      "has_pros_cons": true,
       "has_faq": true,
       "has_conclusion": true,
       "has_image_placeholder": false,
-      "has_cta_button": false
+      "has_cta_button": true
     },
     "keywords_found": {},
-    "score": 70,
-    "grade": "C",
-    "issues": [
-      "Missing pros/cons sections",
-      "Missing CTA buttons (Check Price, etc.)"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
       "Consider expanding content to 3500+ words"
     ]
@@ -742,33 +630,29 @@
     "file": "table-saws.md",
     "title": "Best Table Saws (2025) - 5 Top Picks for Workshop & Jobsite",
     "category": "saws",
-    "slug": "best-table-saws",
-    "word_count": 185,
+    "slug": "table-saws",
+    "word_count": 2529,
     "affiliate_links": 10,
-    "h2_count": 5,
-    "h3_count": 0,
+    "h2_count": 47,
+    "h3_count": 31,
     "structure": {
-      "has_comparison_table": false,
-      "has_pros_cons": false,
-      "has_faq": false,
-      "has_conclusion": false,
+      "has_comparison_table": true,
+      "has_pros_cons": true,
+      "has_faq": true,
+      "has_conclusion": true,
       "has_image_placeholder": false,
       "has_cta_button": true
     },
     "keywords_found": {
-      "table saw": 5,
-      "blade": 1
+      "table saw": 32,
+      "blade": 2,
+      "cutting": 2
     },
-    "score": 35,
-    "grade": "F",
-    "issues": [
-      "Word count (185) below minimum (2500)",
-      "Missing pros/cons sections"
-    ],
+    "score": 90,
+    "grade": "A",
+    "issues": [],
     "suggestions": [
-      "Add a comparison table for better user experience",
-      "Add FAQ section for rich snippets potential",
-      "Add a clear conclusion/verdict section"
+      "Consider expanding content to 3500+ words"
     ]
   }
 ]

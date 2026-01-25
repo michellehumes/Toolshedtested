@@ -19,166 +19,56 @@ if ( ! $current_category || ! is_a( $current_category, 'WP_Term' ) ) {
     return;
 }
 
-// Define top picks for each category (can be customized via theme options later)
-$category_top_picks = array(
-    'drills' => array(
-        array(
-            'name'     => 'DeWalt DCD800 20V MAX XR',
-            'badge'    => 'Best Overall',
-            'rating'   => 4.9,
-            'best_for' => 'Professional contractors',
-            'price'    => '$199',
-            'url'      => 'https://www.amazon.com/dp/B09BKRXXXX?tag=toolshedtested-20',
-        ),
-        array(
-            'name'     => 'DeWalt DCD777C2',
-            'badge'    => 'Best Value',
-            'rating'   => 4.7,
-            'best_for' => 'DIY homeowners',
-            'price'    => '$139',
-            'url'      => 'https://www.amazon.com/dp/B07XXXXXX?tag=toolshedtested-20',
-        ),
-        array(
-            'name'     => 'BLACK+DECKER LDX120C',
-            'badge'    => 'Budget Pick',
-            'rating'   => 4.3,
-            'best_for' => 'Light tasks',
-            'price'    => '$49',
-            'url'      => 'https://www.amazon.com/dp/B005XXXXXX?tag=toolshedtested-20',
-        ),
-    ),
-    'saws' => array(
-        array(
-            'name'     => 'DeWalt DWE7491RS',
-            'badge'    => 'Best Overall',
-            'rating'   => 4.8,
-            'best_for' => 'Jobsite work',
-            'price'    => '$649',
-            'url'      => 'https://www.amazon.com/dp/B00F2XXXXXX?tag=toolshedtested-20',
-        ),
-        array(
-            'name'     => 'Bosch 4100XC-10',
-            'badge'    => 'Best Value',
-            'rating'   => 4.7,
-            'best_for' => 'Home workshops',
-            'price'    => '$599',
-            'url'      => 'https://www.amazon.com/dp/B07XXXXXX?tag=toolshedtested-20',
-        ),
-        array(
-            'name'     => 'SKIL TS6307-00',
-            'badge'    => 'Budget Pick',
-            'rating'   => 4.4,
-            'best_for' => 'Beginners',
-            'price'    => '$299',
-            'url'      => 'https://www.amazon.com/dp/B08XXXXXX?tag=toolshedtested-20',
-        ),
-    ),
-    'grinders' => array(
-        array(
-            'name'     => 'DeWalt DCG413B',
-            'badge'    => 'Best Overall',
-            'rating'   => 4.8,
-            'best_for' => 'Heavy-duty grinding',
-            'price'    => '$159',
-            'url'      => 'https://www.amazon.com/dp/B07XXXXXX?tag=toolshedtested-20',
-        ),
-        array(
-            'name'     => 'Makita XAG04Z',
-            'badge'    => 'Best Value',
-            'rating'   => 4.7,
-            'best_for' => 'All-around use',
-            'price'    => '$129',
-            'url'      => 'https://www.amazon.com/dp/B01XXXXXX?tag=toolshedtested-20',
-        ),
-        array(
-            'name'     => 'BLACK+DECKER BDEG400',
-            'badge'    => 'Budget Pick',
-            'rating'   => 4.2,
-            'best_for' => 'Occasional use',
-            'price'    => '$39',
-            'url'      => 'https://www.amazon.com/dp/B00XXXXXX?tag=toolshedtested-20',
-        ),
-    ),
-    'sanders' => array(
-        array(
-            'name'     => 'Festool ETS EC 150/5',
-            'badge'    => 'Best Overall',
-            'rating'   => 4.9,
-            'best_for' => 'Professional finish work',
-            'price'    => '$395',
-            'url'      => 'https://www.amazon.com/dp/B00XXXXXX?tag=toolshedtested-20',
-        ),
-        array(
-            'name'     => 'Bosch ROS20VSC',
-            'badge'    => 'Best Value',
-            'rating'   => 4.6,
-            'best_for' => 'Home projects',
-            'price'    => '$79',
-            'url'      => 'https://www.amazon.com/dp/B00XXXXXX?tag=toolshedtested-20',
-        ),
-        array(
-            'name'     => 'BLACK+DECKER BDERO100',
-            'badge'    => 'Budget Pick',
-            'rating'   => 4.1,
-            'best_for' => 'Light sanding',
-            'price'    => '$29',
-            'url'      => 'https://www.amazon.com/dp/B00XXXXXX?tag=toolshedtested-20',
-        ),
-    ),
-    'outdoor-power' => array(
-        array(
-            'name'     => 'EGO LM2135SP',
-            'badge'    => 'Best Overall',
-            'rating'   => 4.8,
-            'best_for' => 'Large lawns',
-            'price'    => '$649',
-            'url'      => 'https://www.amazon.com/dp/B08XXXXXX?tag=toolshedtested-20',
-        ),
-        array(
-            'name'     => 'Greenworks 40V 21"',
-            'badge'    => 'Best Value',
-            'rating'   => 4.5,
-            'best_for' => 'Medium lawns',
-            'price'    => '$349',
-            'url'      => 'https://www.amazon.com/dp/B07XXXXXX?tag=toolshedtested-20',
-        ),
-        array(
-            'name'     => 'Sun Joe MJ401E',
-            'badge'    => 'Budget Pick',
-            'rating'   => 4.2,
-            'best_for' => 'Small yards',
-            'price'    => '$129',
-            'url'      => 'https://www.amazon.com/dp/B00XXXXXX?tag=toolshedtested-20',
-        ),
-    ),
+// Build top picks dynamically from existing posts.
+$products = array();
+$badges   = array( 'Best Overall', 'Best Value', 'Budget Pick' );
+
+$query_args = array(
+    'posts_per_page' => 3,
+    'orderby'        => 'meta_value_num',
+    'meta_key'       => '_tst_rating',
+    'order'          => 'DESC',
 );
 
-// Get products for current category
-$category_slug = $current_category->slug;
-$products      = isset( $category_top_picks[ $category_slug ] ) ? $category_top_picks[ $category_slug ] : array();
+if ( is_tax( 'product_category' ) ) {
+    $query_args['post_type'] = array( 'product_review' );
+    $query_args['tax_query'] = array(
+        array(
+            'taxonomy' => 'product_category',
+            'field'    => 'term_id',
+            'terms'    => $current_category->term_id,
+        ),
+    );
+} elseif ( is_category() ) {
+    $query_args['post_type'] = array( 'post', 'product_review' );
+    $query_args['cat']       = $current_category->term_id;
+}
 
-// If no predefined products, try to get from actual posts
-if ( empty( $products ) ) {
-    $top_posts = get_posts( array(
-        'post_type'      => array( 'post', 'product_review' ),
-        'posts_per_page' => 3,
-        'cat'            => $current_category->term_id,
-        'meta_key'       => '_tst_rating',
-        'orderby'        => 'meta_value_num',
-        'order'          => 'DESC',
-    ) );
+$top_posts = get_posts( $query_args );
 
-    foreach ( $top_posts as $index => $post ) {
-        $badges = array( 'Best Overall', 'Best Value', 'Budget Pick' );
-        $products[] = array(
-            'name'     => get_the_title( $post ),
-            'badge'    => $badges[ $index ] ?? '',
-            'rating'   => floatval( get_post_meta( $post->ID, '_tst_rating', true ) ) ?: 4.5,
-            'best_for' => get_the_excerpt( $post ) ?: 'General use',
-            'price'    => get_post_meta( $post->ID, '_tst_price', true ) ?: 'Check price',
-            'url'      => get_post_meta( $post->ID, '_tst_affiliate_url', true ) ?: get_permalink( $post ),
-        );
-    }
+if ( empty( $top_posts ) ) {
+    $fallback_args = $query_args;
+    unset( $fallback_args['meta_key'], $fallback_args['orderby'] );
+    $fallback_args['orderby'] = 'date';
+    $top_posts = get_posts( $fallback_args );
+}
+
+foreach ( $top_posts as $index => $post ) {
+    $rating        = floatval( get_post_meta( $post->ID, '_tst_rating', true ) );
+    $price         = get_post_meta( $post->ID, '_tst_price', true );
+    $affiliate_url = get_post_meta( $post->ID, '_tst_affiliate_url', true );
+    $best_for      = get_post_meta( $post->ID, '_tst_best_for', true );
+    $excerpt       = has_excerpt( $post ) ? get_the_excerpt( $post ) : wp_trim_words( $post->post_content, 12 );
+
+    $products[] = array(
+        'name'          => get_the_title( $post ),
+        'badge'         => $badges[ $index ] ?? '',
+        'rating'        => $rating,
+        'best_for'      => $best_for ? $best_for : $excerpt,
+        'price'         => $price ? $price : 'Check price',
+        'url'           => $affiliate_url ? tst_get_affiliate_url( $affiliate_url ) : get_permalink( $post ),
+        'has_affiliate' => ! empty( $affiliate_url ),
+    );
 }
 
 // Don't display if no products
@@ -239,8 +129,12 @@ if ( ! function_exists( 'tst_render_stars' ) ) {
                         <strong><?php echo esc_html( $product['name'] ); ?></strong>
                     </td>
                     <td class="product-rating">
-                        <?php echo tst_render_stars( $product['rating'] ); ?>
-                        <span class="rating-number"><?php echo esc_html( $product['rating'] ); ?>/5</span>
+                        <?php if ( ! empty( $product['rating'] ) ) : ?>
+                            <?php echo tst_render_stars( $product['rating'] ); ?>
+                            <span class="rating-number"><?php echo esc_html( $product['rating'] ); ?>/5</span>
+                        <?php else : ?>
+                            <span class="rating-number">—</span>
+                        <?php endif; ?>
                     </td>
                     <td class="product-best-for hide-mobile">
                         <?php echo esc_html( wp_trim_words( $product['best_for'], 5 ) ); ?>
@@ -249,11 +143,14 @@ if ( ! function_exists( 'tst_render_stars' ) ) {
                         <?php echo esc_html( $product['price'] ); ?>
                     </td>
                     <td class="product-cta">
+                        <?php
+                        $cta_class  = $product['has_affiliate'] ? 'tst-btn-amazon affiliate-link' : 'tst-btn-primary';
+                        $cta_target = $product['has_affiliate'] ? ' target="_blank"' : '';
+                        $cta_rel    = $product['has_affiliate'] ? ' rel="nofollow noopener sponsored"' : '';
+                        ?>
                         <a href="<?php echo esc_url( $product['url'] ); ?>"
-                           class="tst-btn tst-btn-amazon"
-                           target="_blank"
-                           rel="nofollow noopener sponsored">
-                            <?php esc_html_e( 'Check Price', 'toolshed-tested' ); ?>
+                           class="tst-btn <?php echo esc_attr( $cta_class ); ?>"<?php echo $cta_target; ?><?php echo $cta_rel; ?>>
+                            <?php echo $product['has_affiliate'] ? esc_html__( 'Check Price', 'toolshed-tested' ) : esc_html__( 'Read Review', 'toolshed-tested' ); ?>
                         </a>
                     </td>
                 </tr>

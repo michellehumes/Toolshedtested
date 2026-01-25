@@ -17,7 +17,7 @@
             <?php else : ?>
                 <div class="footer-widget-area">
                     <h4 class="footer-widget-title"><?php esc_html_e( 'About Us', 'toolshed-tested' ); ?></h4>
-                    <p><?php esc_html_e( 'Toolshed Tested provides expert, hands-on reviews of outdoor power equipment to help you make informed purchasing decisions.', 'toolshed-tested' ); ?></p>
+                    <p><?php esc_html_e( 'Toolshed Tested provides expert, hands-on reviews of power tools and equipment to help you make informed purchasing decisions.', 'toolshed-tested' ); ?></p>
                 </div>
             <?php endif; ?>
 
@@ -122,7 +122,7 @@ if ( $affiliate_url ) :
     $price = get_post_meta( get_the_ID(), '_tst_price', true );
 ?>
 <div class="mobile-sticky-cta">
-    <a href="<?php echo esc_url( $affiliate_url ); ?>" target="_blank" rel="nofollow noopener sponsored">
+    <a href="<?php echo esc_url( $affiliate_url ); ?>" class="affiliate-link" target="_blank" rel="nofollow noopener sponsored">
         <span class="sticky-cta-text"><?php esc_html_e( 'Check Best Price on Amazon', 'toolshed-tested' ); ?></span>
         <?php if ( $price ) : ?>
             <span class="sticky-cta-price"><?php echo esc_html( $price ); ?></span>

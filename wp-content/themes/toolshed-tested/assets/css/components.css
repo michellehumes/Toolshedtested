@@ -21,6 +21,24 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
+.sidebar .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: var(--tst-spacing-lg);
+}
+
+.sidebar .tst-card-content {
+    padding: var(--tst-spacing-md);
+}
+
+.sidebar .tst-card-title {
+    font-size: var(--tst-text-lg);
+}
+
+.sidebar .review-card .card-actions {
+    flex-direction: column;
+    align-items: stretch;
+}
+
 /* ==========================================================================
    Content Area Layout
    ========================================================================== */

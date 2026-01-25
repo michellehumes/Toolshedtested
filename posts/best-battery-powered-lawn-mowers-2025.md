@@ -27,6 +27,9 @@ If you want the simplest mowing experience, battery is hard to beat. Choose base
 
 ### 1) EGO Power+ 21" - Best Overall
 
+![EGO Power+ 21-inch mower](https://egopowerplus.com/media/catalog/product/cache/5f1d4c0ffcf3c0236d41820a59fb2c82/l/m/lm2100sp__1_4.jpg)
+
+
 [Check Price on Amazon](https://www.amazon.com/s?k=EGO+Power+21+inch+Lawn+Mower&tag=toolshedtested-20)
 
 ### 2) Greenworks 21" - Best Value

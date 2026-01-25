@@ -25,6 +25,9 @@ This guide focuses on reliable, widely available models that cover the most comm
 
 ### 1) EGO Power+ 56V - Best Overall
 
+![EGO Power+ LB6500 leaf blower](https://egopowerplus.com/media/catalog/product/cache/74b89dcd5fc31fcc1dc1b1791eeb3daa/l/b/lb6500_1.jpg)
+
+
 EGO's 56V blower combines strong airflow with easy operation. It is powerful enough for most yard cleanup without the noise and maintenance of gas.
 
 **Best for:** Medium yards and regular use.

@@ -26,6 +26,9 @@ This guide focuses on widely available models that balance power, runtime, and c
 
 ### 1) EGO Power+ 56V - Best Overall
 
+![EGO Power+ LB6500 leaf blower](https://egopowerplus.com/media/catalog/product/cache/74b89dcd5fc31fcc1dc1b1791eeb3daa/l/b/lb6500_1.jpg)
+
+
 EGO blowers are strong performers and can handle heavier leaf piles without bogging down. If you want one cordless blower that can do most jobs, this is the easy pick.
 
 **Best for:** Medium yards and heavier leaf cleanup.

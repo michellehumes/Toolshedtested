@@ -25,6 +25,9 @@ This guide covers reliable, widely available saws that deliver clean cuts withou
 
 ### 1) DeWalt DWE575 - Best Overall Corded
 
+![DeWalt DWE575 circular saw](https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/Ecomm_Large-DWE575_1.jpg)
+
+
 [Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DWE575+circular+saw&tag=toolshedtested-20)
 
 ### 2) Makita 5007F - Best Smooth Cutting

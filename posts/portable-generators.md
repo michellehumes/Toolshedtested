@@ -25,6 +25,9 @@ This guide focuses on dependable, widely available models that make sense for ho
 
 ### 1) Honda EU3000iS - Best Quiet Backup
 
+![Honda EU3000iS inverter generator](https://toolshedtested.com/wp-content/themes/toolshed-tested/assets/images/placeholder-honda-eu3000is-inverter-generator.svg)
+
+
 This is technically an inverter, but it is the quietest way to get real portable power. If you value quiet operation and clean power, it is a strong premium pick.
 
 **Best for:** Quiet home backup and sensitive electronics.

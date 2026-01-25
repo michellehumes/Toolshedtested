@@ -25,6 +25,9 @@ This guide focuses on dependable, widely available grinders that make sense for 
 
 ### 1) DeWalt DWE402 - Best Overall Value
 
+![DeWalt DWE402 angle grinder](https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/Ecomm_Large-DWE402_1.jpg)
+
+
 A reliable, widely used corded grinder that balances power, durability, and price.
 
 **Best for:** General grinding and cutting on a budget.

@@ -24,6 +24,9 @@ The key is matching the washer to your tasks. Light-duty models are great for ca
 
 ### 1) Sun Joe SPX3000 - Best Overall
 
+![Sun Joe SPX3000 pressure washer](https://shopjoe.com/cdn/shop/products/Sun-Joe-SPX3000_1_1000x1000.jpg?v=1631038984)
+
+
 The Sun Joe SPX3000 is one of the most popular electric pressure washers for a reason. It delivers strong cleaning performance without the noise and hassle of gas models.
 
 **Best for:** Patios, decks, driveways, and general home use.

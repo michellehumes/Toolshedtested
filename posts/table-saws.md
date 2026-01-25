@@ -23,6 +23,9 @@ Table saws are essential for clean, repeatable cuts and ripping lumber. The righ
 
 ### 1) DeWalt DWE7491RS - Best Overall Jobsite
 
+![DeWalt DWE7491RS table saw](https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/Ecomm_Large-DWE7491RS_1.jpg)
+
+
 [Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DWE7491RS+table+saw&tag=toolshedtested-20)
 
 ### 2) Bosch 4100XC-10 - Best Smooth Cutting

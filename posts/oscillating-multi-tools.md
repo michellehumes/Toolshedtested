@@ -23,6 +23,9 @@ Oscillating multi-tools are the go-to solution for plunge cuts, scraping, and ti
 
 ### 1) DeWalt DCS356 - Best Overall Cordless
 
+![DeWalt DCS356 oscillating multi-tool](https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/Ecomm_Large-DCS356C1_1.jpg)
+
+
 [Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DCS356+oscillating+tool&tag=toolshedtested-20)
 
 ### 2) Makita XMT03Z - Best for Makita Owners

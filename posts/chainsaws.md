@@ -25,6 +25,9 @@ This guide covers proven, widely available models across both gas and battery. I
 
 ### 1) Stihl MS 250 - Best Overall Gas
 
+![Stihl MS 250 chainsaw](https://toolshedtested.com/wp-content/themes/toolshed-tested/assets/images/placeholder-stihl-ms-250-chainsaw.svg)
+
+
 The Stihl MS 250 is a long-time favorite for homeowners who want real cutting power without jumping to pro-only saws. It balances power and weight well and is supported by a strong dealer network.
 
 **Best for:** Regular firewood cutting and heavier yard work.

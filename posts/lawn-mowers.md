@@ -25,6 +25,9 @@ This guide focuses on reliable, widely available mowers that make sense for most
 
 ### 1) EGO Power+ 21" - Best Overall Battery
 
+![EGO Power+ 21-inch mower](https://egopowerplus.com/media/catalog/product/cache/5f1d4c0ffcf3c0236d41820a59fb2c82/l/m/lm2100sp__1_4.jpg)
+
+
 EGO consistently delivers strong battery mowers with good cut quality and easy maintenance. It is a great pick for homeowners who want a quiet mower that starts instantly and stores easily.
 
 **Best for:** Small to medium yards and buyers who want minimal upkeep.

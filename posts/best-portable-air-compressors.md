@@ -26,6 +26,9 @@ This guide highlights reliable, widely available compressors that balance size, 
 
 ### 1) Makita MAC2400 - Best Overall
 
+![Makita MAC2400 air compressor](https://toolshedtested.com/wp-content/themes/toolshed-tested/assets/images/placeholder-makita-mac2400-air-compressor.svg)
+
+
 [Check Price on Amazon](https://www.amazon.com/s?k=Makita+MAC2400+air+compressor&tag=toolshedtested-20)
 
 ### 2) California Air Tools 8010 - Best Quiet Option

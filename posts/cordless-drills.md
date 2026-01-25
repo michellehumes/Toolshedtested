@@ -284,6 +284,9 @@ Most buyers will be happiest with a reliable mid‑range Cordless Drills of 2025
 
 ### 1) Match the Tool to the Main Job
 
+![DeWalt DCD771C2 cordless drill](https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/Ecomm_Large-DCD771C2_2.jpg)
+
+
 Start with the most common task you will do. For Cordless Drills of 2025: Top 5 Picks Tested by Professionals, that usually falls into one of three buckets: light occasional use, regular homeowner projects, or frequent heavy work. Light use favors comfort and ease. Heavy work favors durability, power, and cooling.
 
 ### 2) Prioritize the Two Features That Matter Most

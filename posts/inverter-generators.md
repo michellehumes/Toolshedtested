@@ -25,6 +25,9 @@ This guide focuses on the models that reliably deliver clean power without the r
 
 ### 1) Honda EU2200i - Best Overall
 
+![Honda EU2200i inverter generator](https://powerequipment.honda.com/-/media/products/Power-Equipment/Generators/Model-Page/Portable/EU2200IT/eu2200it_240.ashx)
+
+
 Honda's EU series is the benchmark for quiet, reliable inverter power. If you want the best all-around experience and don't mind paying for it, this is the one to own. It starts easily, sips fuel at low loads, and tends to hold up for years with basic maintenance.
 
 **Best for:** Frequent campers, RV owners, and buyers who value reliability over price.

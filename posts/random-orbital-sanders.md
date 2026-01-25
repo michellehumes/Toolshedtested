@@ -23,6 +23,9 @@ Random orbital sanders are ideal for smooth finishes without swirl marks. The be
 
 ### 1) Bosch ROS20VSC - Best Overall
 
+![Bosch ROS20VSC random orbital sander](https://media.boschtools.com/us/en/ocsmedia/optimized/full/18433_ROS20VSC_Front.png)
+
+
 [Check Price on Amazon](https://www.amazon.com/s?k=Bosch+ROS20VSC+random+orbital+sander&tag=toolshedtested-20)
 
 ### 2) Makita BO5041K - Best Smooth Control

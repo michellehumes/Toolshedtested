@@ -25,6 +25,9 @@ Snow blowers vary widely in power and size. The right choice depends on how much
 
 ### 1) Snow Joe SJ627E - Best Electric Overall
 
+![Snow Joe SJ627E snow blower](https://shopjoe.com/cdn/shop/files/SJ627E_Image01_700x700.png?v=1707428173)
+
+
 [Check Price on Amazon](https://www.amazon.com/s?k=Snow+Joe+SJ627E&tag=toolshedtested-20)
 
 ### 2) EGO Power+ - Best Cordless

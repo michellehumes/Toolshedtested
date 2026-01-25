@@ -25,6 +25,9 @@ This guide focuses on reliable, widely available models that offer a good balanc
 
 ### 1) EGO Power+ - Best Overall
 
+![EGO Power+ HT2400 hedge trimmer](https://egopowerplus.com/media/catalog/product/cache/5f1d4c0ffcf3c0236d41820a59fb2c82/h/t/ht2400_1_1.jpg)
+
+
 [Check Price on Amazon](https://www.amazon.com/s?k=EGO+Power+Hedge+Trimmer&tag=toolshedtested-20)
 
 ### 2) DeWalt 20V MAX - Best Lightweight

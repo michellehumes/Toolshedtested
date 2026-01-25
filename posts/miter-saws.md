@@ -25,6 +25,9 @@ This guide focuses on reliable, widely available miter saws that offer a solid b
 
 ### 1) DeWalt DWS780 - Best Overall Sliding
 
+![DeWalt DWS780 miter saw](https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/Ecomm_Large-DWS780_1.jpg)
+
+
 The DWS780 is a workhorse known for strong cutting performance and accuracy. It is a common pick for pros who need wide capacity and reliable cuts.
 
 **Best for:** Pros and serious DIYers who want wide cross-cuts.

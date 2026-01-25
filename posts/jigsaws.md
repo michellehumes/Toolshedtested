@@ -23,6 +23,9 @@ Jigsaws are the go-to tool for curved cuts and detailed shapes in wood, metal, a
 
 ### 1) Bosch JS470E - Best Overall Corded
 
+![Bosch JS470E jigsaw](https://media.boschtools.com/us/en/ocsmedia/optimized/full/18469_JS470E_Front.png)
+
+
 [Check Price on Amazon](https://www.amazon.com/s?k=Bosch+JS470E+jigsaw&tag=toolshedtested-20)
 
 ### 2) DeWalt DCS334B - Best Cordless

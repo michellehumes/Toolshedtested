@@ -25,6 +25,9 @@ This guide covers five reliable models across both electric and gas so you can p
 
 ### 1) Sun Joe SPX3000 - Best Overall Electric
 
+![Sun Joe SPX3000 pressure washer](https://shopjoe.com/cdn/shop/products/Sun-Joe-SPX3000_1_1000x1000.jpg?v=1631038984)
+
+
 A popular electric washer that delivers solid cleaning power for patios, cars, and decks. It is easy to store and user-friendly.
 
 **Best for:** Most homeowners who want electric convenience.

@@ -23,6 +23,9 @@ Impact drivers are ideal for driving long screws and lag bolts quickly without w
 
 ### 1) DeWalt DCF887 - Best Overall
 
+![DeWalt DCF887 impact driver](https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/Ecomm_Large-DCF887D2_1.jpg)
+
+
 [Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DCF887+impact+driver&tag=toolshedtested-20)
 
 ### 2) Milwaukee M18 Fuel - Best Power

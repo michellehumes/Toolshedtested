@@ -25,6 +25,9 @@ This guide highlights the cordless saws that balance performance, runtime, and r
 
 ### 1) EGO Power+ 56V - Best Overall
 
+![EGO Power+ CS1600 chainsaw](https://egopowerplus.com/media/catalog/product/cache/74b89dcd5fc31fcc1dc1b1791eeb3daa/c/s/cs1600_1.jpg)
+
+
 EGO's battery chainsaws are known for strong cutting power and solid runtime. If you want one battery saw that can handle a wide range of yard tasks, this is the easiest recommendation.
 
 **Best for:** Homeowners who want a single do-it-all cordless saw.

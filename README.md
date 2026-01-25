@@ -9,15 +9,15 @@ A production-ready WordPress theme for affiliate marketing blogs focused on outd
 ## 🚀 Features
 
 ### Conversion Optimization
-- **Product Review Boxes** - Eye-catching, conversion-optimized review summaries
+- **Review Cards** - Conversion-focused review summaries
 - **Comparison Tables** - Easy-to-scan product comparisons
 - **Pros & Cons Lists** - Clear, visual product evaluation
 - **Prominent CTA Buttons** - Amazon and alternate retailer links
-- **Affiliate Link Tracking** - Built-in click tracking for analytics
+- **Affiliate Link Helpers** - Consistent tagging and disclosures
 - **Trust Badges** - Best Seller, Editor's Choice, Budget Pick labels
 
 ### SEO Optimization
-- **Schema.org Markup** - Rich snippets for reviews, products, and organization
+- **Schema.org Markup** - Rich snippets for articles and reviews
 - **Breadcrumbs** - Structured navigation for better indexing
 - **Meta Tags** - Auto-generated Open Graph and Twitter Cards
 - **Clean URLs** - SEO-friendly permalink structure
@@ -32,9 +32,7 @@ A production-ready WordPress theme for affiliate marketing blogs focused on outd
 - **Clean Code** - No bloated frameworks
 
 ### Content Features
-- **Product Reviews CPT** - Custom post type for reviews
-- **Product Categories** - Organized taxonomies
-- **Brand Taxonomy** - Filter products by manufacturer
+- **Review Sections** - Standardized layouts for top picks
 - **Author Boxes** - Build trust with expert profiles
 - **Related Reviews** - Keep readers engaged
 - **Newsletter Integration** - Grow your email list
@@ -78,19 +76,13 @@ Navigate to `Appearance > Customize` to access:
 - **SEO Settings** - Google Analytics ID
 - **Newsletter** - Form action URL
 
-### Creating Product Reviews
+### Creating Reviews
 
-1. Go to `Product Reviews > Add New`
-2. Enter the product title and review content
-3. Fill in the product details:
-   - **Price** - Current retail price
-   - **Rating** - 0-5 star rating
-   - **Pros/Cons** - One item per line
-   - **Affiliate URLs** - Amazon and alternative links
-   - **Specifications** - Technical specs table
-   - **Badge** - Best Seller, Editor's Choice, etc.
-4. Set featured image and categories
-5. Publish!
+Use standard posts with the review sections already built into the theme:
+1. Create a new post
+2. Add the comparison table, top picks, and buying guide sections
+3. Add product images and affiliate links
+4. Publish
 
 ### Shortcodes
 
@@ -181,6 +173,41 @@ This theme follows:
 - Enable browser caching via `.htaccess`
 - Use a caching plugin for production
 
+## 🧪 Content Workflow
+
+This repo includes a markdown-first content pipeline in `posts/` plus helper scripts in `scripts/`.
+
+### Typical Flow
+1. Write or expand content in `posts/*.md`
+2. Run content analysis and fix gaps
+3. Publish to WordPress via REST API
+
+### Publish (REST API)
+Set environment variables:
+```bash
+export WP_URL="https://toolshedtested.com"
+export WP_USER="you@example.com"
+export WP_APP_PASSWORD="your-app-password"
+export AMAZON_TAG="toolshedtested-20"
+```
+
+Then publish:
+```bash
+python3 scripts/wp_publish.py posts/angle-grinders.md
+```
+
+### Content Analysis
+```bash
+python3 scripts/analyze_content.py
+```
+Output: `scripts/content_analysis_report.txt`
+
+### Image Inserts
+To insert top-pick images into each post:
+```bash
+python3 scripts/add_post_images.py
+```
+
 ## 📊 Analytics & Tracking
 
 ### Built-in Tracking
@@ -208,10 +235,7 @@ Add your GA4 measurement ID in:
 This theme is licensed under [GPL-2.0+](http://www.gnu.org/licenses/gpl-2.0.html).
 
 ## 🙏 Credits
-
-- [Inter Font](https://fonts.google.com/specimen/Inter) - Google Fonts
-- [Montserrat Font](https://fonts.google.com/specimen/Montserrat) - Google Fonts
-- Icons based on [Feather Icons](https://feathericons.com/)
+Font and icon sources are defined in theme assets.
 
 ## 🤝 Support
 

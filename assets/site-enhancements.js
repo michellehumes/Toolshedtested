@@ -48,6 +48,7 @@
     }
 
     setupTableOfContentsHighlight();
+        addBlogPageH1();
 
     log('Site enhancements initialized');
   }
@@ -355,6 +356,39 @@
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+
+      /**
+         * Add H1 heading to blog archive pages that are missing one
+            */
+      function addBlogPageH1() {
+            // Only run on blog/archive pages
+            var isBlogPage = document.body.classList.contains('blog') ||
+                                   document.body.classList.contains('home') && document.body.classList.contains('blog');
+
+            if (!isBlogPage) return;
+
+            // Check if H1 already exists
+            var existingH1 = document.querySelector('h1');
+            if (existingH1) return;
+
+            // Find the main content area
+            var mainContent = document.querySelector('.site-content') ||
+                                    document.querySelector('main') ||
+                                    document.querySelector('#primary');
+
+            if (!mainContent) return;
+
+            // Create and insert H1
+            var h1 = document.createElement('h1');
+            h1.className = 'tst-blog-title';
+            h1.textContent = 'Power Tool Blog';
+            h1.style.cssText = 'font-family: "Barlow Condensed", sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; color: #1a1a1a; text-transform: uppercase; letter-spacing: -0.5px; padding: 30px 20px 10px; max-width: 1200px; margin: 0 auto;';
+
+            // Insert at the beginning of main content
+            mainContent.insertBefore(h1, mainContent.firstChild);
+
+            log('Blog page H1 added');
+      }
   }
 
 })();

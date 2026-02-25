@@ -75,12 +75,16 @@ class TST_Affiliate {
     public function add_affiliate_attributes( $matches ) {
         $link = $matches[0];
 
-        // Add rel attributes if not present
-        if ( strpos( $link, 'rel=' ) === false ) {
-            $link = str_replace( '<a', '<a rel="nofollow noopener sponsored"', $link );
+        // Build the required rel values
+        $required_rel = array( 'nofollow', 'noopener', 'sponsored' );
+
+        if ( preg_match( '/rel=["\']([^"\']*)["\']/', $link, $rel_match ) ) {
+            // Parse existing rel values and merge with required ones
+            $existing = array_filter( array_map( 'trim', explode( ' ', $rel_match[1] ) ) );
+            $merged   = array_unique( array_merge( $existing, $required_rel ) );
+            $link     = str_replace( $rel_match[0], 'rel="' . implode( ' ', $merged ) . '"', $link );
         } else {
-            // Ensure sponsored is in the rel attribute
-            $link = preg_replace( '/rel=["\']([^"\']*)["\']/', 'rel="$1 sponsored nofollow noopener"', $link );
+            $link = str_replace( '<a', '<a rel="' . implode( ' ', $required_rel ) . '"', $link );
         }
 
         // Add target blank if not present

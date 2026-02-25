@@ -301,6 +301,19 @@ get_header();
                     <?php endif; ?>
                 </div>
 
+                <!-- Newsletter Signup -->
+                <div class="newsletter-box">
+                    <h3><?php esc_html_e( 'Get Our Best Tool Reviews in Your Inbox', 'toolshed-tested' ); ?></h3>
+                    <p><?php esc_html_e( 'Subscribe for hands-on reviews, buying guides, and exclusive deals on the best power tools.', 'toolshed-tested' ); ?></p>
+                    <?php
+                    $newsletter_action = get_theme_mod( 'tst_newsletter_action', '' );
+                    ?>
+                    <form class="newsletter-form" action="<?php echo esc_url( $newsletter_action ); ?>" method="post">
+                        <input type="email" name="email" placeholder="<?php esc_attr_e( 'Enter your email', 'toolshed-tested' ); ?>" required>
+                        <button type="submit"><?php esc_html_e( 'Subscribe', 'toolshed-tested' ); ?></button>
+                    </form>
+                </div>
+
                 <!-- Author Box -->
                 <?php tst_author_box(); ?>
 

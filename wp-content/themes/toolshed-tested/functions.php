@@ -375,6 +375,79 @@ function tst_register_taxonomies() {
 add_action( 'init', 'tst_register_taxonomies' );
 
 /**
+ * Register product review meta fields for REST API access
+ */
+function tst_register_product_meta() {
+	$meta_fields = array(
+		'_tst_rating'          => array(
+			'type'    => 'number',
+			'single'  => true,
+			'default' => 0,
+		),
+		'_tst_price'           => array(
+			'type'    => 'string',
+			'single'  => true,
+			'default' => '',
+		),
+		'_tst_best_for'        => array(
+			'type'    => 'string',
+			'single'  => true,
+			'default' => '',
+		),
+		'_tst_badge'           => array(
+			'type'    => 'string',
+			'single'  => true,
+			'default' => '',
+		),
+		'_tst_affiliate_url'   => array(
+			'type'    => 'string',
+			'single'  => true,
+			'default' => '',
+		),
+		'_tst_affiliate_url_2' => array(
+			'type'    => 'string',
+			'single'  => true,
+			'default' => '',
+		),
+		'_tst_affiliate_name_2' => array(
+			'type'    => 'string',
+			'single'  => true,
+			'default' => '',
+		),
+		'_tst_pros'            => array(
+			'type'    => 'string',
+			'single'  => true,
+			'default' => '',
+		),
+		'_tst_cons'            => array(
+			'type'    => 'string',
+			'single'  => true,
+			'default' => '',
+		),
+	);
+
+	foreach ( $meta_fields as $meta_key => $args ) {
+		register_post_meta(
+			'product_review',
+			$meta_key,
+			array(
+				'show_in_rest'      => true,
+				'single'            => $args['single'],
+				'type'              => $args['type'],
+				'default'           => $args['default'],
+				'sanitize_callback' => '_tst_affiliate_url' === $meta_key || '_tst_affiliate_url_2' === $meta_key
+					? 'esc_url_raw'
+					: 'sanitize_text_field',
+				'auth_callback'     => function () {
+					return current_user_can( 'edit_posts' );
+				},
+			)
+		);
+	}
+}
+add_action( 'init', 'tst_register_product_meta' );
+
+/**
  * Add Preload for Critical Resources
  */
 function tst_add_resource_hints( $urls, $relation_type ) {

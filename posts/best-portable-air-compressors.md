@@ -3,6 +3,7 @@ title: "Best Portable Air Compressors (2025) - 6 Top Picks Tested"
 slug: best-portable-air-compressors
 category: compressors
 excerpt: "The best portable air compressors for tires, trim work, and light tools, with picks for value and portability."
+date: "2025-12-01"
 ---
 
 # Best Portable Air Compressors (2025) - 6 Top Picks Tested

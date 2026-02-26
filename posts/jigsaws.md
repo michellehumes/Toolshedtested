@@ -3,6 +3,7 @@ title: "Best Jigsaws (2025) - 5 Models Tested for Curved & Intricate Cuts"
 slug: jigsaws
 category: saws
 excerpt: "The best jigsaws for curved cuts and detailed work, with picks for value and precision."
+date: "2025-12-01"
 ---
 
 # Best Jigsaws (2025) - 5 Models Tested for Curved & Intricate Cuts

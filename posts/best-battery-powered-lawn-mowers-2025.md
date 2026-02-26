@@ -3,6 +3,7 @@ title: "Best Battery Powered Lawn Mowers (2025 Edition) - 7 Top Picks Tested"
 slug: best-battery-powered-lawn-mowers-2025
 category: lawn-mowers
 excerpt: "2025 edition picks for battery powered lawn mowers, with clear recommendations by yard size and budget."
+date: "2025-12-01"
 ---
 
 # Best Battery Powered Lawn Mowers (2025 Edition) - 7 Top Picks Tested

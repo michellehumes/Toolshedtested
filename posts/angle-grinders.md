@@ -3,6 +3,7 @@ title: "Best Angle Grinders (2025) - 5 Models Tested for Grinding & Cutting"
 slug: angle-grinders
 category: grinders
 excerpt: "The best angle grinders for metal work, cutting, and general shop use, with picks for power, value, and control."
+date: "2025-12-01"
 ---
 
 # Best Angle Grinders (2025) - 5 Models Tested for Grinding & Cutting

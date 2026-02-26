@@ -3,6 +3,7 @@ title: "Best Random Orbital Sanders (2025) - 5 Top Picks for Smooth Finishes"
 slug: random-orbital-sanders
 category: sanders
 excerpt: "The best random orbital sanders for smooth finishes, with picks for value, control, and dust collection."
+date: "2025-12-01"
 ---
 
 # Best Random Orbital Sanders (2025) - 5 Top Picks for Smooth Finishes

@@ -3,6 +3,7 @@ title: "Best Pressure Washers (2025) - 5 Top Models Tested & Compared"
 slug: pressure-washers
 category: pressure-washers
 excerpt: "A clear guide to the best pressure washers for patios, driveways, and siding, with picks for electric and gas power."
+date: "2025-12-01"
 ---
 
 # Best Pressure Washers (2025) - 5 Top Models Tested & Compared

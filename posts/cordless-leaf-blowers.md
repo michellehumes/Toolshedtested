@@ -3,6 +3,7 @@ title: "Best Cordless Leaf Blowers (2025) - 6 Battery Models Tested"
 slug: best-cordless-leaf-blowers
 category: leaf-blowers
 excerpt: "A simple, buyer-focused guide to the best cordless leaf blowers for quiet yard cleanup, with picks for power, value, and lightweight handling."
+date: "2025-12-01"
 ---
 
 # Best Cordless Leaf Blowers (2025) - 6 Battery Models Tested

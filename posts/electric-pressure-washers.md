@@ -3,6 +3,7 @@ title: "Best Electric Pressure Washers (2025) - 4 Quiet, Powerful Models"
 slug: best-electric-pressure-washers
 category: pressure-washers
 excerpt: "The best electric pressure washers for patios, cars, and siding, with picks for power, value, and compact storage."
+date: "2025-12-01"
 ---
 
 # Best Electric Pressure Washers (2025) - 4 Quiet, Powerful Models

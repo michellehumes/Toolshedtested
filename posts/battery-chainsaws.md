@@ -3,6 +3,7 @@ title: "Best Battery Chainsaws (2025) - 5 Cordless Models Tested"
 slug: best-battery-chainsaws
 category: chainsaws
 excerpt: "A buyer-focused guide to the best battery chainsaws for quiet, low-maintenance cutting and storm cleanup."
+date: "2025-12-01"
 ---
 
 # Best Battery Chainsaws (2025) - 5 Cordless Models Tested

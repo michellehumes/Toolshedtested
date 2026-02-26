@@ -3,6 +3,7 @@ title: "Best Inverter Generators (2025) - 5 Quiet Power Solutions Tested"
 slug: best-inverter-generators
 category: generators
 excerpt: "A practical guide to the best inverter generators for camping, RVs, and home backup, with clear picks for quiet power, value, and portability."
+date: "2025-12-01"
 ---
 
 # Best Inverter Generators (2025) - 5 Quiet Power Solutions Tested

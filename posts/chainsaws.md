@@ -40,7 +40,7 @@ The 450 Rancher is a solid step up for homeowners who cut frequently. It is smoo
 
 **Best for:** Larger properties and frequent cutting.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Husqvarna+450+Rancher+Chainsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0BRNRXWJB?tag=toolshedtested-20)
 
 ### 3) Echo CS-590 - Best Value Gas Power
 
@@ -48,7 +48,7 @@ If you want strong performance without premium pricing, the Echo CS-590 is a com
 
 **Best for:** Budget-minded buyers who still need real power.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Echo+CS-590+Chainsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00KXM6OT6?tag=toolshedtested-20)
 
 ### 4) EGO Power+ Chainsaw - Best Battery Overall
 
@@ -56,7 +56,7 @@ EGO battery chainsaws are quiet, easy to start, and require minimal maintenance.
 
 **Best for:** Homeowners who prioritize convenience and low maintenance.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=EGO+Power+Chainsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0725K9WQG?tag=toolshedtested-20)
 
 ### 5) DeWalt 20V Max Chainsaw - Best Compact Battery
 
@@ -64,7 +64,7 @@ This is a practical pick for light-duty use. It is compact, easy to store, and p
 
 **Best for:** Light-duty trimming and occasional use.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+20V+Chainsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B073FTGBZY?tag=toolshedtested-20)
 
 ## How to Choose a Chainsaw
 

@@ -32,7 +32,7 @@ The DWS780 is a workhorse known for strong cutting performance and accuracy. It 
 
 **Best for:** Pros and serious DIYers who want wide cross-cuts.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DWS780&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00540JS7C?tag=toolshedtested-20)
 
 ### 2) Bosch GCM12SD - Best Precision Sliding
 
@@ -40,7 +40,7 @@ Bosch's glide system is smooth and space-saving, making this a favorite for work
 
 **Best for:** Precision trim work and smooth operation.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Bosch+GCM12SD&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B004323NNC?tag=toolshedtested-20)
 
 ### 3) Makita LS1019L - Best Dust Control
 
@@ -48,7 +48,7 @@ Makita's LS1019L is known for strong dust collection and accurate cuts. It is a 
 
 **Best for:** Indoor trim and dust-conscious workspaces.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+LS1019L&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B073K99HWJ?tag=toolshedtested-20)
 
 ### 4) DeWalt DWS715 - Best Non-Sliding Value
 
@@ -56,7 +56,7 @@ If you do not need the extra width of a sliding saw, the DWS715 is a strong valu
 
 **Best for:** Trim and light framing without the need for wide cuts.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DWS715&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07P8QTFRC?tag=toolshedtested-20)
 
 ### 5) Metabo HPT C10FCGS - Best Budget Pick
 
@@ -64,7 +64,7 @@ A dependable budget saw for light trim work. It is affordable and simple to set 
 
 **Best for:** Basic trim and occasional use.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Metabo+HPT+C10FCGS&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07PX44JQM?tag=toolshedtested-20)
 
 ## How to Choose a Miter Saw
 

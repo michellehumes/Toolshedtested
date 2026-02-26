@@ -28,31 +28,31 @@ Snow blowers vary widely in power and size. The right choice depends on how much
 ![Snow Joe SJ627E snow blower](https://shopjoe.com/cdn/shop/files/SJ627E_Image01_700x700.png?v=1707428173)
 
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Snow+Joe+SJ627E&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B075NMXLSS?tag=toolshedtested-20)
 
 ### 2) EGO Power+ - Best Cordless
 
-[Check Price on Amazon](https://www.amazon.com/s?k=EGO+Power+snow+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01MYURMK7?tag=toolshedtested-20)
 
 ### 3) Toro Power Max 824 - Best Two-Stage
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Toro+Power+Max+824&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0755P6CR4?tag=toolshedtested-20)
 
 ### 4) Ariens Deluxe 24 - Best Heavy Duty
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ariens+Deluxe+24+snow+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01JJ6UL04?tag=toolshedtested-20)
 
 ### 5) Cub Cadet 3X - Best for Deep Snow
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Cub+Cadet+3X+snow+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B085TC3376?tag=toolshedtested-20)
 
 ### 6) Husqvarna ST224 - Best Value Gas
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Husqvarna+ST224+snow+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B09PF7SF45?tag=toolshedtested-20)
 
 ### 7) Greenworks 20" - Best Budget Electric
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Greenworks+20+inch+electric+snow+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00PBYZ6LS?tag=toolshedtested-20)
 
 ## Bottom Line
 

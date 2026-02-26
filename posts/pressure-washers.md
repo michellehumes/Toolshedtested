@@ -32,7 +32,7 @@ A popular electric washer that delivers solid cleaning power for patios, cars, a
 
 **Best for:** Most homeowners who want electric convenience.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Sun+Joe+SPX3000&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00CPGMUXW?tag=toolshedtested-20)
 
 ### 2) Ryobi 2000 PSI - Best Value Electric
 
@@ -40,7 +40,7 @@ Ryobi offers strong value and enough power for regular driveway and siding clean
 
 **Best for:** Budget-friendly electric cleaning.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ryobi+2000+PSI+pressure+washer&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01I47JVWS?tag=toolshedtested-20)
 
 ### 3) Simpson Cleaning MSH3125 - Best Overall Gas
 
@@ -48,7 +48,7 @@ If you need serious power, Simpson's gas models are reliable and effective. They
 
 **Best for:** Heavier driveway and concrete cleaning.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Simpson+MSH3125+pressure+washer&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B004MXKUCY?tag=toolshedtested-20)
 
 ### 4) Honda GCV-Powered Unit - Best Gas Reliability
 
@@ -56,7 +56,7 @@ Honda engines are known for reliability. If you want a gas washer you can count 
 
 **Best for:** Long-term gas power reliability.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Honda+GCV+pressure+washer&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B074J6R3K1?tag=toolshedtested-20)
 
 ### 5) Karcher K5 - Best Electric Upgrade
 
@@ -64,7 +64,7 @@ The Karcher K5 delivers more cleaning power than entry-level electrics while kee
 
 **Best for:** Larger patios and tougher grime without gas.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Karcher+K5+pressure+washer&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01BMETE40?tag=toolshedtested-20)
 
 ## How to Choose a Pressure Washer
 

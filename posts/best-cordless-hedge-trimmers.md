@@ -28,23 +28,23 @@ This guide focuses on reliable, widely available models that offer a good balanc
 ![EGO Power+ HT2400 hedge trimmer](https://egopowerplus.com/media/catalog/product/cache/5f1d4c0ffcf3c0236d41820a59fb2c82/h/t/ht2400_1_1.jpg)
 
 
-[Check Price on Amazon](https://www.amazon.com/s?k=EGO+Power+Hedge+Trimmer&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00N0A4S1O?tag=toolshedtested-20)
 
 ### 2) DeWalt 20V MAX - Best Lightweight
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+20V+Hedge+Trimmer&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01BSURQXO?tag=toolshedtested-20)
 
 ### 3) Milwaukee M18 - Best for M18 Users
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Milwaukee+M18+Hedge+Trimmer&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B076KYQ8ZQ?tag=toolshedtested-20)
 
 ### 4) Makita LXT - Best for Makita Owners
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+LXT+Hedge+Trimmer&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07PFG5745?tag=toolshedtested-20)
 
 ### 5) Greenworks 40V - Best Value
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Greenworks+40V+Hedge+Trimmer&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00AW72V5S?tag=toolshedtested-20)
 
 ## How to Choose a Cordless Hedge Trimmer
 

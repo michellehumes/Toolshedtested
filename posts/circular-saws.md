@@ -28,23 +28,23 @@ This guide covers reliable, widely available saws that deliver clean cuts withou
 ![DeWalt DWE575 circular saw](https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/Ecomm_Large-DWE575_1.jpg)
 
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DWE575+circular+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B007QUZ106?tag=toolshedtested-20)
 
 ### 2) Makita 5007F - Best Smooth Cutting
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+5007F+circular+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B004YIALZI?tag=toolshedtested-20)
 
 ### 3) Milwaukee M18 Fuel - Best Cordless
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Milwaukee+M18+Fuel+circular+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00PGQ6D2W?tag=toolshedtested-20)
 
 ### 4) Skil 5280-01 - Best Budget Pick
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Skil+5280-01+circular+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01BD81BLO?tag=toolshedtested-20)
 
 ### 5) Bosch CS10 - Best Durable Build
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Bosch+CS10+circular+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0001X21PS?tag=toolshedtested-20)
 
 ## How to Choose a Circular Saw
 

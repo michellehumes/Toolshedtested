@@ -26,23 +26,23 @@ Table saws are essential for clean, repeatable cuts and ripping lumber. The righ
 ![DeWalt DWE7491RS table saw](https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/Ecomm_Large-DWE7491RS_1.jpg)
 
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DWE7491RS+table+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00F2CGXGG?tag=toolshedtested-20)
 
 ### 2) Bosch 4100XC-10 - Best Smooth Cutting
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Bosch+4100XC-10+table+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0851KL858?tag=toolshedtested-20)
 
 ### 3) SawStop CTS - Best Safety Option
 
-[Check Price on Amazon](https://www.amazon.com/s?k=SawStop+CTS+table+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0B2TJFH24?tag=toolshedtested-20)
 
 ### 4) Skil TS6307-00 - Best Value
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Skil+TS6307-00+table+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B08F9RFJ2K?tag=toolshedtested-20)
 
 ### 5) Ridgid R4520 - Best Power per Dollar
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ridgid+R4520+table+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B08PRZZZP1?tag=toolshedtested-20)
 
 ## Bottom Line
 

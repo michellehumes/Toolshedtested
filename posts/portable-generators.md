@@ -32,7 +32,7 @@ This is technically an inverter, but it is the quietest way to get real portable
 
 **Best for:** Quiet home backup and sensitive electronics.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Honda+EU3000iS&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B076BYPN1B?tag=toolshedtested-20)
 
 ### 2) Westinghouse WGen7500 - Best Overall Value
 
@@ -40,7 +40,7 @@ A popular mid-to-high wattage generator that can handle fridges, freezers, sump 
 
 **Best for:** Home backup for essential circuits.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Westinghouse+WGen7500&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01N80F68E?tag=toolshedtested-20)
 
 ### 3) Champion 7500 - Best Budget High Power
 
@@ -48,7 +48,7 @@ Champion offers strong wattage for the price and is a common pick for backup and
 
 **Best for:** Budget buyers who still need real power.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Champion+7500+generator&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01A0TLE5U?tag=toolshedtested-20)
 
 ### 4) DuroMax XP8500E - Best Power per Dollar
 
@@ -56,7 +56,7 @@ If you want more wattage without the premium cost, DuroMax delivers a lot of pow
 
 **Best for:** Larger loads and longer outages.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DuroMax+XP8500E&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B001BMA09W?tag=toolshedtested-20)
 
 ### 5) Briggs & Stratton 5500 - Best Basic Backup
 
@@ -64,7 +64,7 @@ A straightforward generator for keeping essentials running during shorter outage
 
 **Best for:** Basic home backup at a lower price.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Briggs+Stratton+5500+generator&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B085FWK6JT?tag=toolshedtested-20)
 
 ## How to Choose a Portable Generator
 

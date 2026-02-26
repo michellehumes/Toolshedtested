@@ -3,6 +3,7 @@ title: "Best Table Saws (2025) - 5 Top Picks for Workshop & Jobsite"
 slug: table-saws
 category: saws
 excerpt: "The best table saws for workshop and jobsite use, with picks for accuracy, value, and portability."
+date: "2025-12-01"
 ---
 
 # Best Table Saws (2025) - 5 Top Picks for Workshop & Jobsite

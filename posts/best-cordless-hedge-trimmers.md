@@ -3,6 +3,7 @@ title: "Best Cordless Hedge Trimmers (2025) - 5 Battery Models Tested"
 slug: best-cordless-hedge-trimmers
 category: outdoor
 excerpt: "The best cordless hedge trimmers for clean, quiet trimming, with picks for power, value, and lightweight handling."
+date: "2025-12-01"
 ---
 
 # Best Cordless Hedge Trimmers (2025) - 5 Battery Models Tested

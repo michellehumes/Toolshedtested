@@ -3,6 +3,7 @@ title: "Best Lawn Mowers (2025) - 5 Top Picks Tested"
 slug: lawn-mowers
 category: lawn-mowers
 excerpt: "A practical breakdown of the best lawn mowers for small, medium, and large yards, with clear picks for gas and battery buyers."
+date: "2025-12-01"
 ---
 
 # Best Lawn Mowers (2025) - 5 Top Picks Tested

@@ -3,6 +3,7 @@ title: "Best Impact Drivers (2025) - 5 Models Tested for Speed & Power"
 slug: impact-drivers
 category: drills
 excerpt: "The best impact drivers for fast driving and tough fasteners, with picks for power, value, and compact size."
+date: "2025-12-01"
 ---
 
 # Best Impact Drivers (2025) - 5 Models Tested for Speed & Power

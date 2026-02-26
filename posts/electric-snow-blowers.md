@@ -3,6 +3,7 @@ title: "Best Electric Snow Blowers (2025) - 6 Quiet, Capable Picks"
 slug: electric-snow-blowers
 category: snow-blowers
 excerpt: "The best electric snow blowers for driveways and sidewalks, with picks for value and easy handling."
+date: "2025-12-01"
 ---
 
 # Best Electric Snow Blowers (2025) - 6 Quiet, Capable Picks

@@ -3,6 +3,7 @@ title: "Best Reciprocating Saws (2025) - 5 Models Tested for Demolition & Prunin
 slug: reciprocating-saws
 category: saws
 excerpt: "The best reciprocating saws for demolition and pruning, with picks for power, value, and compact size."
+date: "2025-12-01"
 ---
 
 # Best Reciprocating Saws (2025) - 5 Models Tested for Demolition & Pruning

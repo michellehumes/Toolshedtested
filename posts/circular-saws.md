@@ -3,6 +3,7 @@ title: "Best Circular Saws (2025) - 5 Top Picks for Clean, Accurate Cuts"
 slug: circular-saws
 category: saws
 excerpt: "The best circular saws for framing, plywood, and general cutting, with picks for power, value, and precision."
+date: "2025-12-01"
 ---
 
 # Best Circular Saws (2025) - 5 Top Picks for Clean, Accurate Cuts

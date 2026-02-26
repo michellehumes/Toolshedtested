@@ -3,6 +3,7 @@ title: "Best Leaf Blowers (2025) - 5 Models Tested for Power & Value"
 slug: leaf-blowers
 category: leaf-blowers
 excerpt: "A practical comparison of the best leaf blowers across gas and battery, with picks for power, value, and easy handling."
+date: "2025-12-01"
 ---
 
 # Best Leaf Blowers (2025) - 5 Models Tested for Power & Value

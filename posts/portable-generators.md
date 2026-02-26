@@ -3,6 +3,7 @@ title: "Best Portable Generators (2025) - 5 Reliable Models Tested"
 slug: portable-generators
 category: generators
 excerpt: "A practical guide to the best portable generators for home backup and jobsite power, with picks for value and reliability."
+date: "2025-12-01"
 ---
 
 # Best Portable Generators (2025) - 5 Reliable Models Tested

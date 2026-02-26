@@ -3,6 +3,7 @@ title: "Best Chainsaws (2025) - 5 Models Tested for Homeowners & Pros"
 slug: chainsaws
 category: chainsaws
 excerpt: "The best chainsaws for trimming, storm cleanup, and firewood, with practical picks across gas and battery power."
+date: "2025-12-01"
 ---
 
 # Best Chainsaws (2025) - 5 Models Tested for Homeowners & Pros

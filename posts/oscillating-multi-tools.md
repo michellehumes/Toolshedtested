@@ -3,6 +3,7 @@ title: "Best Oscillating Multi-Tools (2025) - 5 Versatile Tools Tested"
 slug: oscillating-multi-tools
 category: multi-tools
 excerpt: "The best oscillating multi-tools for cutting, sanding, and scraping, with picks for value and versatility."
+date: "2025-12-01"
 ---
 
 # Best Oscillating Multi-Tools (2025) - 5 Versatile Tools Tested

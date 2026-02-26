@@ -3,6 +3,7 @@ title: "Best Miter Saws (2025) - 5 Models Tested for Trim & Framing"
 slug: miter-saws
 category: saws
 excerpt: "The best miter saws for trim, framing, and workshop use, with picks for accuracy, value, and jobsite durability."
+date: "2025-12-01"
 ---
 
 # Best Miter Saws (2025) - 5 Models Tested for Trim & Framing

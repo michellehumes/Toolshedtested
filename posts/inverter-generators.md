@@ -32,7 +32,7 @@ Honda's EU series is the benchmark for quiet, reliable inverter power. If you wa
 
 **Best for:** Frequent campers, RV owners, and buyers who value reliability over price.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Honda+EU2200i&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B079YF1HF6?tag=toolshedtested-20)
 
 ### 2) WEN 56235i - Best Value
 
@@ -40,7 +40,7 @@ WEN's 2,000-watt class inverter consistently delivers strong value. It is quiet 
 
 **Best for:** Budget-focused buyers, occasional camping, and light backup power.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=WEN+56235i&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B085828BQ6?tag=toolshedtested-20)
 
 ### 3) Yamaha EF2000iSv2 - Quietest Pick
 
@@ -48,7 +48,7 @@ Yamaha is known for smooth, quiet operation. This model is a favorite among camp
 
 **Best for:** Noise-sensitive environments and overnight use near tents or RVs.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Yamaha+EF2000iSv2&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07MY4G5QJ?tag=toolshedtested-20)
 
 ### 4) Westinghouse iGen2200 - Best All-Around Features
 
@@ -56,7 +56,7 @@ The iGen line offers a strong balance of run time, portability, and creature com
 
 **Best for:** Weekend use, tailgates, and moderate backup needs.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Westinghouse+iGen2200&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01MUP6L1U?tag=toolshedtested-20)
 
 ### 5) Champion 100692 - Best Budget Parallel Option
 
@@ -64,7 +64,7 @@ For buyers who plan to pair two units for more power later, Champion's parallel-
 
 **Best for:** Budget builds and users who might expand with a parallel kit.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Champion+100692+inverter&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0812PNK3X?tag=toolshedtested-20)
 
 ## How to Choose the Right Inverter Generator
 

@@ -50,7 +50,7 @@ The DeWalt 20V MAX XR strikes the perfect balance between power, reliability, an
 - Chuck occasionally requires re-tightening during intensive use
 - Slightly more expensive than budget alternatives
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+20V+MAX+XR+DCD771C2&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00ET5VMTU?tag=toolshedtested-20)
 
 ## 2. Milwaukee M18 Fuel 2804-20
 
@@ -75,7 +75,7 @@ For professionals who demand maximum power and runtime, the Milwaukee M18 Fuel i
 - Requires separate battery and charger purchase
 - Overkill for light DIY tasks
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Milwaukee+M18+Fuel+2804-20&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B079NBC7JN?tag=toolshedtested-20)
 
 ## 3. Makita XPH12Z
 
@@ -100,7 +100,7 @@ Makita's XPH12Z excels in precision applications where control matters most. The
 - Battery and charger sold separately
 - LED light positioning could be improved
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+XPH12Z+18V+Drill&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01M4HGFRS?tag=toolshedtested-20)
 
 ## 4. Ryobi P1813 18V ONE+
 
@@ -125,7 +125,7 @@ The Ryobi P1813 proves that you don't need to spend a fortune to get a capable c
 - Battery life is adequate but not exceptional
 - Less power than higher-end competitors
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ryobi+P1813+18V+ONE+Drill&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01NA0658V?tag=toolshedtested-20)
 
 ## 5. Bosch GSR18V-190B22
 
@@ -150,7 +150,7 @@ When space is limited but power can't be compromised, the Bosch GSR18V-190B22 de
 - Smaller grip may not suit larger hands
 - Battery capacity could be larger
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Bosch+GSR18V-190B22+Drill&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B076SH7F1Q?tag=toolshedtested-20)
 
 ## What to Look for When Buying a Cordless Drill
 

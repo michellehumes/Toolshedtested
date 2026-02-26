@@ -32,7 +32,7 @@ EGO consistently delivers strong battery mowers with good cut quality and easy m
 
 **Best for:** Small to medium yards and buyers who want minimal upkeep.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=EGO+Power+21+inch+Lawn+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B08GPZ1XLJ?tag=toolshedtested-20)
 
 ### 2) Honda HRX - Best Overall Gas
 
@@ -40,7 +40,7 @@ Honda's HRX line remains a top choice for gas performance. It handles thicker gr
 
 **Best for:** Medium to large lawns, thicker grass, and users who prefer gas power.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Honda+HRX+Lawn+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00S6Z2GWQ?tag=toolshedtested-20)
 
 ### 3) Toro Recycler 21" - Best Value Gas
 
@@ -48,7 +48,7 @@ Toro's Recycler models are dependable and widely serviced, with good cutting per
 
 **Best for:** Small to medium yards and value buyers.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Toro+Recycler+21+inch+Lawn+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0CPFY2455?tag=toolshedtested-20)
 
 ### 4) Greenworks 21" - Best Budget Battery
 
@@ -56,7 +56,7 @@ Greenworks offers battery mowers that make a lot of sense for small to medium la
 
 **Best for:** Budget-friendly battery mowing.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Greenworks+21+inch+Battery+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B086PSNGPY?tag=toolshedtested-20)
 
 ### 5) Ryobi 20" - Best Compact Battery
 
@@ -64,7 +64,7 @@ Ryobi is a practical pick if you have a smaller lawn and want easy handling and 
 
 **Best for:** Small lawns and first-time homeowners.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ryobi+20+inch+Battery+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B088BW2TPB?tag=toolshedtested-20)
 
 ## How to Choose the Right Lawn Mower
 

@@ -27,27 +27,27 @@ Electric snow blowers are ideal for light to moderate snowfall and smaller drive
 ![Snow Joe SJ627E snow blower](https://shopjoe.com/cdn/shop/files/SJ627E_Image01_700x700.png?v=1707428173)
 
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Snow+Joe+SJ627E&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B075NMXLSS?tag=toolshedtested-20)
 
 ### 2) Snow Joe SJ618E - Best Compact
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Snow+Joe+SJ618E&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00W8YAVXM?tag=toolshedtested-20)
 
 ### 3) Greenworks 20" - Best Balanced Pick
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Greenworks+20+inch+electric+snow+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00PBYZ6LS?tag=toolshedtested-20)
 
 ### 4) Toro Power Curve 1800 - Best for Storage
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Toro+Power+Curve+1800&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B003FIQKYO?tag=toolshedtested-20)
 
 ### 5) EGO Power+ - Best Cordless
 
-[Check Price on Amazon](https://www.amazon.com/s?k=EGO+Power+snow+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01MYURMK7?tag=toolshedtested-20)
 
 ### 6) Ryobi 40V - Best Battery Value
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ryobi+40V+snow+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07KN3FNWB?tag=toolshedtested-20)
 
 ## How to Choose an Electric Snow Blower
 

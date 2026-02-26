@@ -32,7 +32,7 @@ A reliable, widely used corded grinder that balances power, durability, and pric
 
 **Best for:** General grinding and cutting on a budget.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DWE402+angle+grinder&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00RVZ7DNO?tag=toolshedtested-20)
 
 ### 2) Makita 9557PBX1 - Best Control
 
@@ -40,7 +40,7 @@ Makita grinders are known for smooth handling and solid ergonomics. This one is 
 
 **Best for:** Precision grinding and longer sessions.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+9557PBX1+angle+grinder&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0010DHFTK?tag=toolshedtested-20)
 
 ### 3) Milwaukee 2880-20 - Best Cordless Option
 
@@ -48,7 +48,7 @@ If you already have M18 batteries, this grinder is a strong cordless pick for jo
 
 **Best for:** Cordless flexibility and M18 users.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Milwaukee+2880-20+angle+grinder&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B09RX4R3TR?tag=toolshedtested-20)
 
 ### 4) Bosch GWS13-50 - Best High Power Corded
 
@@ -56,7 +56,7 @@ Bosch delivers strong power with solid build quality, making it a good choice fo
 
 **Best for:** Heavy-duty grinding and cutting.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Bosch+GWS13-50+angle+grinder&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01CEA1A20?tag=toolshedtested-20)
 
 ### 5) Metabo HPT G12VE - Best Pro Durability
 
@@ -64,7 +64,7 @@ Metabo HPT grinders are durable and built for daily use. A good option for pros 
 
 **Best for:** Pro-grade durability and daily use.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Metabo+HPT+G12VE+angle+grinder&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07MY5GJRJ?tag=toolshedtested-20)
 
 ## How to Choose an Angle Grinder
 

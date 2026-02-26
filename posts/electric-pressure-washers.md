@@ -31,7 +31,7 @@ The Sun Joe SPX3000 is one of the most popular electric pressure washers for a r
 
 **Best for:** Patios, decks, driveways, and general home use.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Sun+Joe+SPX3000&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00CPGMUXW?tag=toolshedtested-20)
 
 ### 2) Ryobi 2000 PSI - Best Value
 
@@ -39,7 +39,7 @@ Ryobi offers a solid balance of power and price. This model is great for light t
 
 **Best for:** Value buyers and regular driveway cleaning.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ryobi+2000+PSI+pressure+washer&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01I47JVWS?tag=toolshedtested-20)
 
 ### 3) Greenworks 2000 PSI - Best Mid-Range Pick
 
@@ -47,7 +47,7 @@ Greenworks models are dependable and easy to use. This unit is a safe pick if yo
 
 **Best for:** Homeowners who want a no-fuss electric washer.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Greenworks+2000+PSI+pressure+washer&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0989M4WJ1?tag=toolshedtested-20)
 
 ### 4) Karcher K5 - Best for Tougher Jobs
 
@@ -55,7 +55,7 @@ If you need more power for concrete, fences, or larger surfaces, the Karcher K5 
 
 **Best for:** Tougher grime and larger outdoor areas.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Karcher+K5+pressure+washer&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01BMETE40?tag=toolshedtested-20)
 
 ## How to Choose an Electric Pressure Washer
 

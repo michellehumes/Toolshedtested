@@ -26,23 +26,23 @@ Oscillating multi-tools are the go-to solution for plunge cuts, scraping, and ti
 ![DeWalt DCS356 oscillating multi-tool](https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/Ecomm_Large-DCS356C1_1.jpg)
 
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DCS356+oscillating+tool&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07VBB55X5?tag=toolshedtested-20)
 
 ### 2) Makita XMT03Z - Best for Makita Owners
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+XMT03Z+oscillating+tool&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00LIV11RG?tag=toolshedtested-20)
 
 ### 3) Bosch GOP40‑30C - Best Smooth Operation
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Bosch+GOP40-30C+oscillating+tool&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01ER7J976?tag=toolshedtested-20)
 
 ### 4) Fein MultiMaster - Best Pro Corded
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Fein+MultiMaster+oscillating+tool&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01E73VTX2?tag=toolshedtested-20)
 
 ### 5) Rockwell Sonicrafter - Best Budget Corded
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Rockwell+Sonicrafter+oscillating+tool&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01HD4EQTG?tag=toolshedtested-20)
 
 ## How to Choose an Oscillating Multi‑Tool
 

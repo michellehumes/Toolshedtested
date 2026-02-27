@@ -520,16 +520,7 @@ p {
     box-shadow: var(--tst-shadow-lg);
 }
 
-.tst-btn-amazon {
-    background: #ff9900;
-    color: var(--tst-black);
-}
-
-.tst-btn-amazon:hover {
-    background: #e68a00;
-    transform: translateY(-2px);
-    box-shadow: var(--tst-shadow-md);
-}
+/* .tst-btn-amazon defined in assets/css/components.css */
 
 /* ==========================================================================
    Cards

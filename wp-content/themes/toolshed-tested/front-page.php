@@ -71,6 +71,9 @@ get_header();
 			);
 		}
 
+		// Track top-pick IDs to exclude from subsequent sections
+		$top_pick_ids = ! empty( $top_picks ) ? wp_list_pluck( $top_picks, 'ID' ) : array();
+
 		if ( ! empty( $top_picks ) ) :
 			$badges = array( 'Best Overall', 'Best Value', 'Budget Pick' );
 			?>
@@ -174,13 +177,14 @@ get_header();
 		<?php endif; ?>
 
 		<?php
-		// Latest Reviews Section
+		// Latest Reviews Section — exclude top picks already shown above
 		$latest_reviews = get_posts(
 			array(
 				'post_type'      => 'post',
 				'posts_per_page' => 6,
 				'orderby'        => 'date',
 				'order'          => 'DESC',
+				'post__not_in'   => $top_pick_ids,
 			)
 		);
 
@@ -208,35 +212,14 @@ get_header();
 		<?php endif; ?>
 
 		<?php
-		// Recent Blog Posts
-		$blog_posts = get_posts(
-			array(
-				'post_type'      => 'post',
-				'posts_per_page' => 4,
-				'orderby'        => 'date',
-				'order'          => 'DESC',
-			)
-		);
-
-		if ( ! empty( $blog_posts ) ) :
-			?>
-			<section class="homepage-blog-posts">
-				<div class="section-header">
-					<h2><?php esc_html_e( 'Guides & Tips', 'toolshed-tested' ); ?></h2>
-				</div>
-
-				<div class="posts-grid">
-					<?php
-					foreach ( $blog_posts as $blog_post ) :
-						$GLOBALS['post'] = $blog_post;
-						setup_postdata( $blog_post );
-						get_template_part( 'template-parts/content/content', 'post' );
-					endforeach;
-					wp_reset_postdata();
-					?>
-				</div>
-			</section>
-		<?php endif; ?>
+		// "View All" CTA link at the bottom of the page
+		$blog_url = get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' );
+		?>
+		<div style="text-align:center;padding:2rem 0 3rem;">
+			<a href="<?php echo esc_url( $blog_url ); ?>" class="tst-btn tst-btn-secondary">
+				<?php esc_html_e( 'View All Reviews →', 'toolshed-tested' ); ?>
+			</a>
+		</div>
 	</div>
 </main>
 

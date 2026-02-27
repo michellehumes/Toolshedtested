@@ -32,7 +32,7 @@
                         <?php
                         $footer_categories = get_terms(
                             array(
-                                'taxonomy'   => 'product_category',
+                                'taxonomy'   => 'category',
                                 'hide_empty' => false,
                                 'number'     => 6,
                                 'orderby'    => 'count',
@@ -48,7 +48,7 @@
                         else :
                             // Fallback if no categories exist yet
                             ?>
-                            <li><a href="<?php echo esc_url( get_post_type_archive_link( 'product_review' ) ); ?>"><?php esc_html_e( 'All Reviews', 'toolshed-tested' ); ?></a></li>
+                            <li><a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>"><?php esc_html_e( 'All Reviews', 'toolshed-tested' ); ?></a></li>
                         <?php endif; ?>
                     </ul>
                 </div>

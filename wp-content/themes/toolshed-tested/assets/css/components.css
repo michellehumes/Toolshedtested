@@ -715,13 +715,53 @@
 /* ==========================================================================
    Table of Contents Styles Enhancement
    ========================================================================== */
+.table-of-contents-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--tst-font-heading);
+    font-size: var(--tst-text-lg);
+    font-weight: 700;
+    color: var(--tst-text-dark);
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.toc-toggle-icon {
+    margin-left: auto;
+    transition: transform 0.2s ease;
+}
+
+.table-of-contents-title[aria-expanded="false"] .toc-toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.table-of-contents .toc-list {
+    margin-top: var(--tst-spacing-sm);
+}
+
 .table-of-contents ol ol {
     margin-left: var(--tst-spacing-lg);
     margin-top: var(--tst-spacing-sm);
 }
 
-.toc-h3 {
-    margin-left: var(--tst-spacing-lg);
+/* Card placeholder when no featured image */
+.card-placeholder-image {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    border-radius: var(--tst-radius-md) var(--tst-radius-md) 0 0;
+}
+
+.card-placeholder-image svg {
+    opacity: 0.4;
+    color: var(--tst-primary);
 }
 
 /* ==========================================================================
@@ -732,6 +772,56 @@
     .reading-progress {
         display: none !important;
     }
+}
+
+/* ==========================================================================
+   Sidebar CTA Widget
+   ========================================================================== */
+.sidebar-cta-widget {
+    background: #fff;
+    border: 2px solid var(--tst-secondary);
+    border-radius: var(--tst-radius-lg);
+    padding: var(--tst-spacing-lg);
+    text-align: center;
+    position: sticky;
+    top: 20px;
+}
+
+.sidebar-cta-widget .widget-title {
+    font-size: var(--tst-text-base);
+    margin-bottom: var(--tst-spacing-sm);
+    line-height: 1.4;
+}
+
+.sidebar-cta-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: var(--tst-spacing-sm);
+    font-weight: 600;
+}
+
+.sidebar-cta-price {
+    font-size: var(--tst-text-2xl);
+    font-weight: 800;
+    color: var(--tst-primary);
+    margin-bottom: var(--tst-spacing-md);
+}
+
+.sidebar-cta-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: var(--tst-text-base);
+    padding: var(--tst-spacing-md) var(--tst-spacing-lg);
+    margin-bottom: var(--tst-spacing-sm);
+}
+
+.sidebar-cta-disclosure {
+    font-size: 11px;
+    color: var(--tst-text-muted);
+    margin: 0;
+    line-height: 1.4;
 }
 
 /* ==========================================================================
@@ -759,7 +849,8 @@
 }
 
 .trust-icon {
-    opacity: 0.9;
+    opacity: 1;
+    filter: brightness(0) invert(1);
 }
 
 @media (max-width: 768px) {

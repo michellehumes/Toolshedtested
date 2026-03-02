@@ -3,6 +3,7 @@ title: "Best Jigsaws (2025) - 5 Models Tested for Curved & Intricate Cuts"
 slug: jigsaws
 category: saws
 excerpt: "The best jigsaws for curved cuts and detailed work, with picks for value and precision."
+date: "2025-12-01"
 ---
 
 # Best Jigsaws (2025) - 5 Models Tested for Curved & Intricate Cuts
@@ -26,23 +27,23 @@ Jigsaws are the go-to tool for curved cuts and detailed shapes in wood, metal, a
 ![Bosch JS470E jigsaw](https://media.boschtools.com/us/en/ocsmedia/optimized/full/18469_JS470E_Front.png)
 
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Bosch+JS470E+jigsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B004323NPK?tag=toolshedtested-20)
 
 ### 2) DeWalt DCS334B - Best Cordless
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DCS334B+jigsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07JPFHQKG?tag=toolshedtested-20)
 
 ### 3) Makita 4329K - Best Budget
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+4329K+jigsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B000XULXEO?tag=toolshedtested-20)
 
 ### 4) Milwaukee M18 - Best for M18 Users
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Milwaukee+M18+jigsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07H7DQ3DK?tag=toolshedtested-20)
 
 ### 5) Skil 4495‑02 - Best Entry Level
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Skil+4495-02+jigsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00APL6RR4?tag=toolshedtested-20)
 
 ## How to Choose a Jigsaw
 

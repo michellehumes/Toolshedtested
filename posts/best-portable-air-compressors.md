@@ -3,6 +3,7 @@ title: "Best Portable Air Compressors (2025) - 6 Top Picks Tested"
 slug: best-portable-air-compressors
 category: compressors
 excerpt: "The best portable air compressors for tires, trim work, and light tools, with picks for value and portability."
+date: "2025-12-01"
 ---
 
 # Best Portable Air Compressors (2025) - 6 Top Picks Tested
@@ -29,27 +30,27 @@ This guide highlights reliable, widely available compressors that balance size, 
 ![Makita MAC2400 air compressor](https://cdn.makitatools.com/apps/wms/pressreleases/userfiles/image/original/WoodMag_MAC2400_Clipped_Sept11.jpg)
 
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+MAC2400+air+compressor&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0001Q2VPK?tag=toolshedtested-20)
 
 ### 2) California Air Tools 8010 - Best Quiet Option
 
-[Check Price on Amazon](https://www.amazon.com/s?k=California+Air+Tools+8010&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00WM1VPKE?tag=toolshedtested-20)
 
 ### 3) DeWalt DWFP55126 - Best Value
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DWFP55126+air+compressor&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00K34UZBW?tag=toolshedtested-20)
 
 ### 4) Porter-Cable C2002 - Best Budget Pick
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Porter+Cable+C2002+air+compressor&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B000O5RO1Y?tag=toolshedtested-20)
 
 ### 5) Viair 88P - Best for Tires
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Viair+88P+portable+compressor&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B005ASY23I?tag=toolshedtested-20)
 
 ### 6) Husky 4.5 Gallon - Best Small Tank Option
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Husky+4.5+gallon+air+compressor&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07T87CF27?tag=toolshedtested-20)
 
 ## How to Choose a Portable Air Compressor
 

@@ -3,6 +3,7 @@ title: "Best Leaf Blowers (2025) - 5 Models Tested for Power & Value"
 slug: leaf-blowers
 category: leaf-blowers
 excerpt: "A practical comparison of the best leaf blowers across gas and battery, with picks for power, value, and easy handling."
+date: "2025-12-01"
 ---
 
 # Best Leaf Blowers (2025) - 5 Models Tested for Power & Value
@@ -32,7 +33,7 @@ EGO's 56V blower combines strong airflow with easy operation. It is powerful eno
 
 **Best for:** Medium yards and regular use.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=EGO+Power+56V+leaf+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0BM2Y2DBJ?tag=toolshedtested-20)
 
 ### 2) DeWalt 20V Max - Best Lightweight
 
@@ -40,7 +41,7 @@ This compact blower is easy to handle and perfect for lighter cleanup on patios,
 
 **Best for:** Small yards and quick cleanup.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+20V+leaf+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01C5YWSBW?tag=toolshedtested-20)
 
 ### 3) Stihl BR 600 - Best Heavy-Duty Gas
 
@@ -48,7 +49,7 @@ If you have serious leaf volume or large acreage, a backpack gas blower like the
 
 **Best for:** Large properties and heavy leaf piles.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Stihl+BR+600+backpack+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01CIELOQ4?tag=toolshedtested-20)
 
 ### 4) Husqvarna 125B - Best Value Gas
 
@@ -56,7 +57,7 @@ The Husqvarna 125B offers strong airflow in a reasonably priced handheld unit. A
 
 **Best for:** Homeowners who want gas power at a lower cost.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Husqvarna+125B+leaf+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B002P2ZVQ4?tag=toolshedtested-20)
 
 ### 5) Ryobi 40V - Best Value Battery
 
@@ -64,7 +65,7 @@ Ryobi's 40V blower is a solid performer for small to medium yards and often come
 
 **Best for:** Value-focused battery buyers.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ryobi+40V+leaf+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B099MTQSMR?tag=toolshedtested-20)
 
 ## How to Choose a Leaf Blower
 

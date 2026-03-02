@@ -3,6 +3,7 @@ title: "Best Reciprocating Saws (2025) - 5 Models Tested for Demolition & Prunin
 slug: reciprocating-saws
 category: saws
 excerpt: "The best reciprocating saws for demolition and pruning, with picks for power, value, and compact size."
+date: "2025-12-01"
 ---
 
 # Best Reciprocating Saws (2025) - 5 Models Tested for Demolition & Pruning
@@ -26,23 +27,23 @@ Reciprocating saws are the go-to tool for demolition, pruning, and rough cuts. T
 ![Milwaukee M18 Fuel Sawzall](https://www.milwaukeetool.com/--/web-images/sc/82db66630b1442768a150857a9bec0d1?hash=7ffe5a1b7367034536fae819a9f1956d&lang=en)
 
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Milwaukee+M18+Fuel+reciprocating+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B08WG2HC81?tag=toolshedtested-20)
 
 ### 2) DeWalt DWE305 - Best Corded Value
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DWE305+reciprocating+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00N5FLVM8?tag=toolshedtested-20)
 
 ### 3) Makita XRJ05 - Best for Makita Owners
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+XRJ05+reciprocating+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01IU92IYI?tag=toolshedtested-20)
 
 ### 4) Bosch RS325 - Best Budget Corded
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Bosch+RS325+reciprocating+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B004323NNM?tag=toolshedtested-20)
 
 ### 5) Ryobi P517 - Best Budget Cordless
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ryobi+P517+reciprocating+saw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B077RQSVYN?tag=toolshedtested-20)
 
 ## Bottom Line
 

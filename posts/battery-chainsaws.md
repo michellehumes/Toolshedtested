@@ -3,6 +3,7 @@ title: "Best Battery Chainsaws (2025) - 5 Cordless Models Tested"
 slug: best-battery-chainsaws
 category: chainsaws
 excerpt: "A buyer-focused guide to the best battery chainsaws for quiet, low-maintenance cutting and storm cleanup."
+date: "2025-12-01"
 ---
 
 # Best Battery Chainsaws (2025) - 5 Cordless Models Tested
@@ -32,7 +33,7 @@ EGO's battery chainsaws are known for strong cutting power and solid runtime. If
 
 **Best for:** Homeowners who want a single do-it-all cordless saw.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=EGO+Power+56V+Chainsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0725K9WQG?tag=toolshedtested-20)
 
 ### 2) DeWalt 20V Max - Best Compact Option
 
@@ -40,7 +41,7 @@ DeWalt's 20V chainsaw is compact and easy to handle. It is ideal for trimming li
 
 **Best for:** Light-duty cutting and quick pruning jobs.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+20V+Max+Chainsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B073FTGBZY?tag=toolshedtested-20)
 
 ### 3) Greenworks 40V - Best Budget Battery
 
@@ -48,7 +49,7 @@ Greenworks offers reliable battery chainsaws that perform well for everyday home
 
 **Best for:** Budget buyers and occasional yard work.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Greenworks+40V+Chainsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00DRBBRU6?tag=toolshedtested-20)
 
 ### 4) Milwaukee M18 - Best for Existing M18 Users
 
@@ -56,7 +57,7 @@ If you already own Milwaukee M18 batteries, staying in the platform saves money 
 
 **Best for:** Users invested in the M18 battery system.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Milwaukee+M18+Chainsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07FRRFR47?tag=toolshedtested-20)
 
 ### 5) Makita LXT - Best for Makita Owners
 
@@ -64,7 +65,7 @@ Makita's LXT chainsaws are smooth and easy to handle. If you already own Makita 
 
 **Best for:** Makita battery owners who want a consistent tool experience.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+LXT+Chainsaw&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01MUCQTK4?tag=toolshedtested-20)
 
 ## How to Choose a Battery Chainsaw
 

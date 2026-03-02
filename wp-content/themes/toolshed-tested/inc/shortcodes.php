@@ -34,7 +34,7 @@ function tst_product_box_shortcode( $atts ) {
 
     $post = get_post( $post_id );
 
-    if ( ! $post || 'product_review' !== $post->post_type ) {
+    if ( ! $post || ! in_array( $post->post_type, array( 'post', 'product_review' ), true ) ) {
         return '';
     }
 

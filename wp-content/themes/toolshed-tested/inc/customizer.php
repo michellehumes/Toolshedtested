@@ -429,3 +429,63 @@ function tst_google_analytics() {
     <?php
 }
 add_action( 'wp_head', 'tst_google_analytics', 1 );
+
+/**
+ * Output critical CSS overrides after all other inline styles.
+ *
+ * Runs at priority 200, after the Customizer (100) and Additional CSS (101),
+ * so these values always win regardless of what the Customizer or
+ * Additional CSS sets.
+ */
+function tst_critical_overrides() {
+    ?>
+<style id="tst-critical-overrides">
+:root {
+    --tst-primary: #2d5a27;
+    --tst-primary-dark: #1e3d1a;
+    --tst-secondary: #f4a524;
+    --tst-secondary-dark: #d4911f;
+    --tst-accent: #e63946;
+    --tst-white: #ffffff;
+    --tst-black: #111111;
+}
+.tst-btn-primary,
+.tst-btn-primary:hover,
+.tst-btn-primary:focus,
+.tst-btn-primary:visited {
+    background-color: #2d5a27 !important;
+    color: #ffffff !important;
+}
+.tst-btn-secondary,
+.tst-btn-secondary:hover {
+    background-color: #f4a524 !important;
+    color: #111111 !important;
+}
+.tst-btn-cta,
+.tst-btn-cta:hover,
+.tst-btn-cta:focus,
+.tst-btn-cta:visited {
+    background-color: #e63946 !important;
+    color: #ffffff !important;
+}
+.tst-btn-amazon {
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b) !important;
+    color: #111111 !important;
+    border-color: #a88734 !important;
+}
+.trust-bar {
+    background-color: #2d5a27 !important;
+    color: #ffffff !important;
+}
+.trust-item {
+    color: #ffffff !important;
+}
+.top-pick-actions .tst-btn-secondary,
+.top-pick-actions .tst-btn-secondary:hover {
+    background-color: #f4a524 !important;
+    color: #111111 !important;
+}
+</style>
+    <?php
+}
+add_action( 'wp_head', 'tst_critical_overrides', 200 );

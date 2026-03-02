@@ -3,6 +3,7 @@ title: "Best Battery Powered Lawn Mowers (2025 Edition) - 7 Top Picks Tested"
 slug: best-battery-powered-lawn-mowers-2025
 category: lawn-mowers
 excerpt: "2025 edition picks for battery powered lawn mowers, with clear recommendations by yard size and budget."
+date: "2025-12-01"
 ---
 
 # Best Battery Powered Lawn Mowers (2025 Edition) - 7 Top Picks Tested
@@ -30,31 +31,31 @@ If you want the simplest mowing experience, battery is hard to beat. Choose base
 ![EGO Power+ 21-inch mower](https://egopowerplus.com/media/catalog/product/cache/5f1d4c0ffcf3c0236d41820a59fb2c82/l/m/lm2100sp__1_4.jpg)
 
 
-[Check Price on Amazon](https://www.amazon.com/s?k=EGO+Power+21+inch+Lawn+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B08GPZ1XLJ?tag=toolshedtested-20)
 
 ### 2) Greenworks 21" - Best Value
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Greenworks+21+inch+Battery+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B086PSNGPY?tag=toolshedtested-20)
 
 ### 3) Ryobi 20" - Best for Small Yards
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ryobi+20+inch+Battery+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B088BW2TPB?tag=toolshedtested-20)
 
 ### 4) DeWalt 20V MAX - Best Compact Storage
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+20V+MAX+Lawn+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B09MLL5878?tag=toolshedtested-20)
 
 ### 5) Makita LXT (dual 18V)
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+LXT+Lawn+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07PX481W4?tag=toolshedtested-20)
 
 ### 6) Toro 60V
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Toro+60V+Battery+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0CPH8G8DY?tag=toolshedtested-20)
 
 ### 7) Kobalt 40V
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Kobalt+40V+Lawn+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07DG1NBYB?tag=toolshedtested-20)
 
 ## How to Choose
 

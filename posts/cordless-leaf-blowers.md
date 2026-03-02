@@ -3,6 +3,7 @@ title: "Best Cordless Leaf Blowers (2025) - 6 Battery Models Tested"
 slug: best-cordless-leaf-blowers
 category: leaf-blowers
 excerpt: "A simple, buyer-focused guide to the best cordless leaf blowers for quiet yard cleanup, with picks for power, value, and lightweight handling."
+date: "2025-12-01"
 ---
 
 # Best Cordless Leaf Blowers (2025) - 6 Battery Models Tested
@@ -33,7 +34,7 @@ EGO blowers are strong performers and can handle heavier leaf piles without bogg
 
 **Best for:** Medium yards and heavier leaf cleanup.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=EGO+Power+56V+leaf+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0BM2Y2DBJ?tag=toolshedtested-20)
 
 ### 2) DeWalt 20V Max - Best Lightweight Option
 
@@ -41,7 +42,7 @@ DeWalt's 20V blower is lightweight and simple to use. It is great for patios, de
 
 **Best for:** Small yards and lighter tasks.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+20V+leaf+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B01C5YWSBW?tag=toolshedtested-20)
 
 ### 3) Milwaukee M18 - Best for M18 Users
 
@@ -49,7 +50,7 @@ If you already own M18 batteries, Milwaukee's blower is a practical and capable 
 
 **Best for:** Users invested in the M18 platform.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Milwaukee+M18+leaf+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B078ZQX746?tag=toolshedtested-20)
 
 ### 4) Greenworks 40V - Best Budget Value
 
@@ -57,7 +58,7 @@ Greenworks offers a dependable blower for small to medium yards at a lower price
 
 **Best for:** Budget buyers and casual use.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Greenworks+40V+leaf+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00AW72V4O?tag=toolshedtested-20)
 
 ### 5) Ryobi 18V ONE+ - Best for Small Yards
 
@@ -65,7 +66,7 @@ Ryobi's blower is a great grab-and-go tool. It is light, affordable, and perfect
 
 **Best for:** Small yards and quick cleanup tasks.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ryobi+18V+ONE+leaf+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07TNWF823?tag=toolshedtested-20)
 
 ### 6) Makita LXT - Best for Makita Owners
 
@@ -73,7 +74,7 @@ Makita's LXT blower is balanced and comfortable, especially if you already own t
 
 **Best for:** Makita battery owners who want a solid blower.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+LXT+leaf+blower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07YYFCG5P?tag=toolshedtested-20)
 
 ## How to Choose a Cordless Leaf Blower
 

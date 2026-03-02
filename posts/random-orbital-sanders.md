@@ -3,6 +3,7 @@ title: "Best Random Orbital Sanders (2025) - 5 Top Picks for Smooth Finishes"
 slug: random-orbital-sanders
 category: sanders
 excerpt: "The best random orbital sanders for smooth finishes, with picks for value, control, and dust collection."
+date: "2025-12-01"
 ---
 
 # Best Random Orbital Sanders (2025) - 5 Top Picks for Smooth Finishes
@@ -26,23 +27,23 @@ Random orbital sanders are ideal for smooth finishes without swirl marks. The be
 ![Bosch ROS20VSC random orbital sander](https://media.boschtools.com/us/en/ocsmedia/optimized/full/18433_ROS20VSC_Front.png)
 
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Bosch+ROS20VSC+random+orbital+sander&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B00BD5G9VA?tag=toolshedtested-20)
 
 ### 2) Makita BO5041K - Best Smooth Control
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+BO5041K+random+orbital+sander&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B003M5IWM8?tag=toolshedtested-20)
 
 ### 3) DeWalt DWE6423 - Best Budget
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DWE6423+random+orbital+sander&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0858C7X3M?tag=toolshedtested-20)
 
 ### 4) Milwaukee M18 - Best Cordless
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Milwaukee+M18+random+orbital+sander&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07BM93DK1?tag=toolshedtested-20)
 
 ### 5) Festool ETS 125 - Best Premium
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Festool+ETS+125+random+orbital+sander&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B084DVBHSB?tag=toolshedtested-20)
 
 ## How to Choose a Random Orbital Sander
 

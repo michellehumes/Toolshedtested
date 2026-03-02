@@ -3,6 +3,7 @@ title: "Best Battery Powered Lawn Mowers - 7 Top Picks Tested (2025 Update)"
 slug: best-battery-powered-lawn-mowers
 category: lawn-mowers
 excerpt: "Evergreen guide updated for 2025 with the best battery powered lawn mowers for quiet, low-maintenance cuts."
+date: "2025-12-01"
 ---
 
 # Best Battery Powered Lawn Mowers - 7 Top Picks Tested (2025 Update)
@@ -32,43 +33,43 @@ This guide highlights reliable, widely available battery mowers that deliver sol
 
 A reliable, strong battery mower with good cut quality and runtime.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=EGO+Power+21+inch+Lawn+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B08GPZ1XLJ?tag=toolshedtested-20)
 
 ### 2) Greenworks 21" - Best Value
 
 A strong budget-friendly option for small to medium lawns.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Greenworks+21+inch+Battery+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B086PSNGPY?tag=toolshedtested-20)
 
 ### 3) Ryobi 20" - Best for Small Yards
 
 Lightweight and easy to handle, ideal for quick maintenance.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ryobi+20+inch+Battery+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B088BW2TPB?tag=toolshedtested-20)
 
 ### 4) DeWalt 20V MAX - Best Compact Storage
 
 Compact design and easy storage for tight garages.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+20V+MAX+Lawn+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B09MLL5878?tag=toolshedtested-20)
 
 ### 5) Makita LXT (dual 18V) - Best for Makita Owners
 
 Great option if you already own Makita batteries.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+LXT+Lawn+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07PX481W4?tag=toolshedtested-20)
 
 ### 6) Toro 60V - Best Cut Quality
 
 Toro delivers a strong cut and solid runtime for medium lawns.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Toro+60V+Battery+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0CPH8G8DY?tag=toolshedtested-20)
 
 ### 7) Kobalt 40V - Best Budget Alternative
 
 A dependable budget choice for small to medium lawns.
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Kobalt+40V+Lawn+Mower&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07DG1NBYB?tag=toolshedtested-20)
 
 ## How to Choose a Battery Mower
 

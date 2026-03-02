@@ -146,28 +146,29 @@ function tst_table_of_contents() {
         return;
     }
 
-    // Get content and extract headings
+    // Get content and extract H2 headings only (skip H3s to keep TOC concise)
     $content = $post->post_content;
-    preg_match_all( '/<h([2-3]).*?>(.*?)<\/h\1>/i', $content, $matches, PREG_SET_ORDER );
+    preg_match_all( '/<h2[^>]*>(.*?)<\/h2>/i', $content, $matches, PREG_SET_ORDER );
 
     if ( empty( $matches ) ) {
         return;
     }
 
+    // Cap at 10 items max
+    $matches = array_slice( $matches, 0, 10 );
+
     echo '<div class="table-of-contents">';
-    echo '<h4 class="table-of-contents-title">';
+    echo '<button class="table-of-contents-title" aria-expanded="true" onclick="this.setAttribute(\'aria-expanded\', this.getAttribute(\'aria-expanded\') === \'true\' ? \'false\' : \'true\'); this.nextElementSibling.style.display = this.getAttribute(\'aria-expanded\') === \'true\' ? \'block\' : \'none\';">';
     echo '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>';
     esc_html_e( 'Table of Contents', 'toolshed-tested' );
-    echo '</h4>';
-    echo '<ol>';
+    echo '<svg class="toc-toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>';
+    echo '</button>';
+    echo '<ol class="toc-list">';
 
     foreach ( $matches as $match ) {
-        $level = $match[1];
-        $text  = wp_strip_all_tags( $match[2] );
-        $slug  = sanitize_title( $text );
-
-        $indent = $level === '3' ? ' class="toc-h3"' : '';
-        echo '<li' . esc_attr( $indent ) . '><a href="#' . esc_attr( $slug ) . '">' . esc_html( $text ) . '</a></li>';
+        $text = wp_strip_all_tags( $match[1] );
+        $slug = sanitize_title( $text );
+        echo '<li><a href="#' . esc_attr( $slug ) . '">' . esc_html( $text ) . '</a></li>';
     }
 
     echo '</ol>';
@@ -247,33 +248,42 @@ function tst_author_box() {
  * Display related reviews
  */
 function tst_related_reviews() {
-    if ( ! is_singular( 'product_review' ) ) {
+    if ( ! is_singular( array( 'post', 'product_review' ) ) ) {
         return;
     }
 
+    // Try custom taxonomy first, fall back to standard categories
     $categories = get_the_terms( get_the_ID(), 'product_category' );
-    $category_ids = array();
+    $taxonomy   = 'product_category';
+    if ( ! $categories || is_wp_error( $categories ) ) {
+        $categories = get_the_category();
+        $taxonomy   = 'category';
+    }
 
+    $category_ids = array();
     if ( $categories && ! is_wp_error( $categories ) ) {
         foreach ( $categories as $category ) {
             $category_ids[] = $category->term_id;
         }
     }
 
-    $related = new WP_Query(
-        array(
-            'post_type'      => 'product_review',
-            'posts_per_page' => 3,
-            'post__not_in'   => array( get_the_ID() ),
-            'tax_query'      => array(
-                array(
-                    'taxonomy' => 'product_category',
-                    'field'    => 'term_id',
-                    'terms'    => $category_ids,
-                ),
-            ),
-        )
+    $query_args = array(
+        'post_type'      => 'post',
+        'posts_per_page' => 3,
+        'post__not_in'   => array( get_the_ID() ),
     );
+
+    if ( ! empty( $category_ids ) ) {
+        $query_args['tax_query'] = array(
+            array(
+                'taxonomy' => $taxonomy,
+                'field'    => 'term_id',
+                'terms'    => $category_ids,
+            ),
+        );
+    }
+
+    $related = new WP_Query( $query_args );
 
     if ( ! $related->have_posts() ) {
         return;
@@ -303,11 +313,12 @@ function tst_default_menu() {
 
     // Reviews with category dropdown
     echo '<li class="menu-item-has-children">';
-    echo '<a href="' . esc_url( get_post_type_archive_link( 'product_review' ) ) . '">' . esc_html__( 'Reviews', 'toolshed-tested' ) . '</a>';
+    $blog_url = get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' );
+    echo '<a href="' . esc_url( $blog_url ) . '">' . esc_html__( 'Reviews', 'toolshed-tested' ) . '</a>';
 
     $categories = get_terms(
         array(
-            'taxonomy'   => 'product_category',
+            'taxonomy'   => 'category',
             'hide_empty' => false,
             'number'     => 8,
             'orderby'    => 'name',
@@ -317,7 +328,7 @@ function tst_default_menu() {
 
     if ( $categories && ! is_wp_error( $categories ) ) {
         echo '<ul class="sub-menu">';
-        echo '<li><a href="' . esc_url( get_post_type_archive_link( 'product_review' ) ) . '">' . esc_html__( 'All Reviews', 'toolshed-tested' ) . '</a></li>';
+        echo '<li><a href="' . esc_url( $blog_url ) . '">' . esc_html__( 'All Reviews', 'toolshed-tested' ) . '</a></li>';
         foreach ( $categories as $category ) {
             echo '<li><a href="' . esc_url( get_term_link( $category ) ) . '">' . esc_html( $category->name ) . '</a></li>';
         }

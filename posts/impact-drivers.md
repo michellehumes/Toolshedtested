@@ -3,6 +3,7 @@ title: "Best Impact Drivers (2025) - 5 Models Tested for Speed & Power"
 slug: impact-drivers
 category: drills
 excerpt: "The best impact drivers for fast driving and tough fasteners, with picks for power, value, and compact size."
+date: "2025-12-01"
 ---
 
 # Best Impact Drivers (2025) - 5 Models Tested for Speed & Power
@@ -26,23 +27,23 @@ Impact drivers are ideal for driving long screws and lag bolts quickly without w
 ![DeWalt DCF887 impact driver](https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/Ecomm_Large-DCF887D2_1.jpg)
 
 
-[Check Price on Amazon](https://www.amazon.com/s?k=DeWalt+DCF887+impact+driver&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B0183RLW8A?tag=toolshedtested-20)
 
 ### 2) Milwaukee M18 Fuel - Best Power
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Milwaukee+M18+Fuel+impact+driver&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B08DKK3XK2?tag=toolshedtested-20)
 
 ### 3) Makita XDT16Z - Best Smooth Control
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Makita+XDT16Z+impact+driver&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07N9JBDK5?tag=toolshedtested-20)
 
 ### 4) Bosch GDR18V-1400 - Best Value
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Bosch+GDR18V-1400+impact+driver&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B07SHVK783?tag=toolshedtested-20)
 
 ### 5) Ryobi P238 - Best Budget Pick
 
-[Check Price on Amazon](https://www.amazon.com/s?k=Ryobi+P238+impact+driver&tag=toolshedtested-20)
+[Check Price on Amazon](https://www.amazon.com/dp/B077GNX1KW?tag=toolshedtested-20)
 
 ## How to Choose an Impact Driver
 

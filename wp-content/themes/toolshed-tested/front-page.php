@@ -15,6 +15,7 @@ get_header();
 		<section class="hero-section">
 			<h1><?php esc_html_e( 'Hands-On Power Tool Reviews You Can Trust', 'toolshed-tested' ); ?></h1>
 			<p><?php esc_html_e( 'Independent testing and straight talk on drills, saws, grinders, sanders, and more so you can buy with confidence.', 'toolshed-tested' ); ?></p>
+			<a href="<?php echo esc_url( get_post_type_archive_link( 'product_review' ) ); ?>" class="tst-btn tst-btn-cta">
 			<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>" class="tst-btn tst-btn-cta">
 				<?php esc_html_e( 'Browse Reviews', 'toolshed-tested' ); ?>
 			</a>
@@ -22,6 +23,7 @@ get_header();
 			<?php
 			$hero_terms = get_terms(
 				array(
+					'taxonomy'   => 'product_category',
 					'taxonomy'   => 'category',
 					'hide_empty' => true,
 					'number'     => 6,
@@ -44,6 +46,7 @@ get_header();
 		// Top Picks Section - pulls highest-rated product_review posts with affiliate links
 		$top_picks = get_posts(
 			array(
+				'post_type'      => 'product_review',
 				'post_type'      => 'post',
 				'posts_per_page' => 3,
 				'orderby'        => 'meta_value_num',
@@ -63,6 +66,7 @@ get_header();
 		if ( empty( $top_picks ) ) {
 			$top_picks = get_posts(
 				array(
+					'post_type'      => 'product_review',
 					'post_type'      => 'post',
 					'posts_per_page' => 3,
 					'orderby'        => 'date',
@@ -177,6 +181,13 @@ get_header();
 		<?php endif; ?>
 
 		<?php
+		// Latest Reviews Section
+		$latest_reviews = get_posts(
+			array(
+				'post_type'      => 'product_review',
+				'posts_per_page' => 6,
+				'orderby'        => 'date',
+				'order'          => 'DESC',
 		// Latest Reviews Section — exclude top picks already shown above
 		$latest_reviews = get_posts(
 			array(
@@ -193,6 +204,7 @@ get_header();
 			<section class="homepage-latest-reviews">
 				<div class="section-header">
 					<h2><?php esc_html_e( 'Latest Reviews', 'toolshed-tested' ); ?></h2>
+					<a href="<?php echo esc_url( get_post_type_archive_link( 'product_review' ) ); ?>" class="section-link">
 					<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>" class="section-link">
 						<?php esc_html_e( 'View All Reviews →', 'toolshed-tested' ); ?>
 					</a>
@@ -212,6 +224,35 @@ get_header();
 		<?php endif; ?>
 
 		<?php
+		// Recent Blog Posts
+		$blog_posts = get_posts(
+			array(
+				'post_type'      => 'post',
+				'posts_per_page' => 4,
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+			)
+		);
+
+		if ( ! empty( $blog_posts ) ) :
+			?>
+			<section class="homepage-blog-posts">
+				<div class="section-header">
+					<h2><?php esc_html_e( 'Guides & Tips', 'toolshed-tested' ); ?></h2>
+				</div>
+
+				<div class="posts-grid">
+					<?php
+					foreach ( $blog_posts as $blog_post ) :
+						$GLOBALS['post'] = $blog_post;
+						setup_postdata( $blog_post );
+						get_template_part( 'template-parts/content/content', 'post' );
+					endforeach;
+					wp_reset_postdata();
+					?>
+				</div>
+			</section>
+		<?php endif; ?>
 		// "View All" CTA link at the bottom of the page
 		$blog_url = get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' );
 		?>

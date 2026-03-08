@@ -29,9 +29,12 @@ const config = {
 const filesToDeploy = [
   'inc/class-tst-schema.php',
   'inc/customizer.php',
+  'functions.php',
+  'front-page.php',
   'footer.php',
   'archive.php',
   'assets/css/components.css',
+  'assets/images/favicon.svg',
   'template-parts/category/top-picks-table.php',
 ];
 

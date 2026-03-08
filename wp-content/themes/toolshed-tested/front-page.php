@@ -62,15 +62,31 @@ get_header();
 			)
 		);
 
-		// Fallback: if no rated posts with affiliate URLs, get latest product reviews
+		// Fallback: if no rated posts with affiliate URLs, try posts with just a rating
 		if ( empty( $top_picks ) ) {
 			$top_picks = get_posts(
 				array(
 					'post_type'      => 'product_review',
 					'post_type'      => 'post',
 					'posts_per_page' => 3,
-					'orderby'        => 'date',
+					'orderby'        => 'meta_value_num',
+					'meta_key'       => '_tst_rating',
 					'order'          => 'DESC',
+				)
+			);
+		}
+
+		// Final fallback: get latest posts, excluding guides/editorial categories
+		if ( empty( $top_picks ) ) {
+			$guides_cat = get_term_by( 'slug', 'guides', 'category' );
+			$exclude_cats = $guides_cat ? array( $guides_cat->term_id ) : array();
+			$top_picks = get_posts(
+				array(
+					'post_type'        => 'post',
+					'posts_per_page'   => 3,
+					'orderby'          => 'date',
+					'order'            => 'DESC',
+					'category__not_in' => $exclude_cats,
 				)
 			);
 		}

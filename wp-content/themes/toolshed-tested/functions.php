@@ -505,6 +505,16 @@ function tst_add_lazy_loading_attribute( $content ) {
 add_filter( 'the_content', 'tst_add_lazy_loading_attribute' );
 
 /**
+ * Add fallback favicon if none set via Customizer
+ */
+function tst_add_fallback_favicon() {
+    if ( ! has_site_icon() ) {
+        echo '<link rel="icon" type="image/svg+xml" href="' . esc_url( TST_THEME_URI . '/assets/images/favicon.svg' ) . '">' . "\n";
+    }
+}
+add_action( 'wp_head', 'tst_add_fallback_favicon', 0 );
+
+/**
  * Add SEO meta tags
  */
 function tst_add_meta_tags() {

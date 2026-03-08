@@ -24,6 +24,7 @@ class TST_Schema {
         add_action( 'wp_head', array( $this, 'output_website_schema' ) );
         add_action( 'wp_head', array( $this, 'output_breadcrumb_schema' ) );
         add_action( 'wp_head', array( $this, 'output_faq_schema' ) );
+        add_action( 'wp_head', array( $this, 'output_article_schema' ) );
     }
 
     /**
@@ -245,6 +246,71 @@ class TST_Schema {
             '@type'      => 'FAQPage',
             'mainEntity' => $main_entity,
         );
+
+        echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
+    }
+    /**
+     * Output Article Schema for blog posts
+     */
+    public function output_article_schema() {
+        if ( ! is_singular( 'post' ) ) {
+            return;
+        }
+
+        $post_id   = get_the_ID();
+        $image_url = has_post_thumbnail( $post_id )
+            ? get_the_post_thumbnail_url( $post_id, 'large' )
+            : '';
+
+        $schema = array(
+            '@context'      => 'https://schema.org',
+            '@type'         => 'Article',
+            'headline'      => get_the_title(),
+            'description'   => has_excerpt( $post_id ) ? get_the_excerpt() : wp_trim_words( get_the_content(), 30 ),
+            'url'           => get_permalink(),
+            'datePublished' => get_the_date( 'c' ),
+            'dateModified'  => get_the_modified_date( 'c' ),
+            'author'        => array(
+                '@type' => 'Person',
+                'name'  => get_the_author(),
+            ),
+            'publisher'     => array(
+                '@type' => 'Organization',
+                'name'  => get_bloginfo( 'name' ),
+            ),
+        );
+
+        if ( $image_url ) {
+            $schema['image'] = $image_url;
+        }
+
+        // If this post has a rating, also output Review schema
+        $rating = floatval( get_post_meta( $post_id, '_tst_rating', true ) );
+        if ( $rating > 0 ) {
+            $schema['@type'] = array( 'Article', 'Review' );
+            $schema['reviewRating'] = array(
+                '@type'       => 'Rating',
+                'ratingValue' => $rating,
+                'bestRating'  => 5,
+                'worstRating' => 1,
+            );
+            $schema['itemReviewed'] = array(
+                '@type'       => 'Product',
+                'name'        => get_the_title(),
+            );
+
+            $price = get_post_meta( $post_id, '_tst_price', true );
+            if ( $price ) {
+                $price_value = preg_replace( '/[^0-9.]/', '', $price );
+                if ( $price_value ) {
+                    $schema['itemReviewed']['offers'] = array(
+                        '@type'         => 'Offer',
+                        'price'         => $price_value,
+                        'priceCurrency' => 'USD',
+                    );
+                }
+            }
+        }
 
         echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
     }

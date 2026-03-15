@@ -2,7 +2,8 @@
 /**
  * Front Page Template
  *
- * Displays the homepage with hero, top picks, and latest reviews.
+ * Displays the homepage with hero, trust bar, category showcase,
+ * top picks, and latest reviews.
  *
  * @package Toolshed_Tested
  */
@@ -10,38 +11,130 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
-	<div class="tst-container">
-		<section class="hero-section">
-			<h1><?php esc_html_e( 'Hands-On Power Tool Reviews You Can Trust', 'toolshed-tested' ); ?></h1>
-			<p><?php esc_html_e( 'Independent testing and straight talk on drills, saws, grinders, sanders, and more so you can buy with confidence.', 'toolshed-tested' ); ?></p>
-			<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>" class="tst-btn tst-btn-cta">
-				<?php esc_html_e( 'Browse Reviews', 'toolshed-tested' ); ?>
-			</a>
+<main id="primary" class="site-main homepage">
+	<!-- Hero Section -->
+	<section class="hero-section">
+		<div class="hero-overlay"></div>
+		<div class="tst-container hero-inner">
+			<span class="hero-eyebrow"><?php esc_html_e( 'Independent. Hands-On. No BS.', 'toolshed-tested' ); ?></span>
+			<h1><?php esc_html_e( 'Power Tool Reviews Built on Real Testing', 'toolshed-tested' ); ?></h1>
+			<p><?php esc_html_e( 'We tear down, test, and compare drills, saws, grinders, and more — so you buy the right tool the first time.', 'toolshed-tested' ); ?></p>
+			<div class="hero-ctas">
+				<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>" class="tst-btn tst-btn-cta hero-btn-primary">
+					<?php esc_html_e( 'Browse All Reviews', 'toolshed-tested' ); ?>
+				</a>
+				<a href="#top-picks" class="tst-btn tst-btn-outline hero-btn-secondary">
+					<?php esc_html_e( 'See Top Picks', 'toolshed-tested' ); ?>
+				</a>
+			</div>
+		</div>
+	</section>
 
-			<?php
-			$hero_terms = get_terms(
-				array(
-					'taxonomy'   => 'category',
-					'hide_empty' => true,
-					'number'     => 6,
-				)
-			);
-			if ( ! empty( $hero_terms ) && ! is_wp_error( $hero_terms ) ) :
-				?>
-				<div class="hero-categories">
-					<span class="hero-categories-label"><?php esc_html_e( 'Popular categories:', 'toolshed-tested' ); ?></span>
-					<div class="hero-categories-list">
-						<?php foreach ( $hero_terms as $term ) : ?>
-							<a href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?></a>
-						<?php endforeach; ?>
+	<!-- Trust Bar -->
+	<section class="trust-bar-home">
+		<div class="tst-container">
+			<div class="trust-stats">
+				<div class="trust-stat">
+					<span class="trust-stat-icon">
+						<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+					</span>
+					<div class="trust-stat-text">
+						<strong><?php esc_html_e( '80+', 'toolshed-tested' ); ?></strong>
+						<span><?php esc_html_e( 'Tools Reviewed', 'toolshed-tested' ); ?></span>
 					</div>
 				</div>
-			<?php endif; ?>
-		</section>
+				<div class="trust-stat">
+					<span class="trust-stat-icon">
+						<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+					</span>
+					<div class="trust-stat-text">
+						<strong><?php esc_html_e( '200+', 'toolshed-tested' ); ?></strong>
+						<span><?php esc_html_e( 'Hours Tested', 'toolshed-tested' ); ?></span>
+					</div>
+				</div>
+				<div class="trust-stat">
+					<span class="trust-stat-icon">
+						<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+					</span>
+					<div class="trust-stat-text">
+						<strong><?php esc_html_e( '100%', 'toolshed-tested' ); ?></strong>
+						<span><?php esc_html_e( 'Independent', 'toolshed-tested' ); ?></span>
+					</div>
+				</div>
+				<div class="trust-stat">
+					<span class="trust-stat-icon">
+						<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+					</span>
+					<div class="trust-stat-text">
+						<strong><?php esc_html_e( 'Expert', 'toolshed-tested' ); ?></strong>
+						<span><?php esc_html_e( 'Tested & Rated', 'toolshed-tested' ); ?></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="tst-container">
+		<!-- Category Showcase -->
+		<?php
+		$showcase_categories = get_terms(
+			array(
+				'taxonomy'   => 'category',
+				'hide_empty' => true,
+				'number'     => 8,
+				'orderby'    => 'count',
+				'order'      => 'DESC',
+			)
+		);
+
+		// Tool category icons (SVG paths mapped to common category slugs)
+		$category_icons = array(
+			'drills'        => '<path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>',
+			'saws'          => '<path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>',
+			'grinders'      => '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+			'sanders'       => '<rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/>',
+			'outdoor-tools' => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+			'power-tools'   => '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+			'hand-tools'    => '<path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>',
+			'workshop'      => '<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+			'buying-guides' => '<path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>',
+			'default'       => '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+		);
+
+		if ( ! empty( $showcase_categories ) && ! is_wp_error( $showcase_categories ) ) :
+			?>
+			<section class="category-showcase">
+				<div class="section-header-pro">
+					<h2><?php esc_html_e( 'Shop by Category', 'toolshed-tested' ); ?></h2>
+					<div class="section-header-line"></div>
+				</div>
+				<div class="category-grid">
+					<?php foreach ( $showcase_categories as $cat ) :
+						$slug = $cat->slug;
+						$icon_svg = isset( $category_icons[ $slug ] ) ? $category_icons[ $slug ] : $category_icons['default'];
+						?>
+						<a href="<?php echo esc_url( get_term_link( $cat ) ); ?>" class="category-card">
+							<div class="category-card-icon">
+								<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+									<?php echo wp_kses( $icon_svg, array(
+										'path'     => array( 'd' => array() ),
+										'circle'   => array( 'cx' => array(), 'cy' => array(), 'r' => array() ),
+										'rect'     => array( 'x' => array(), 'y' => array(), 'width' => array(), 'height' => array(), 'rx' => array(), 'ry' => array() ),
+										'polygon'  => array( 'points' => array() ),
+										'polyline' => array( 'points' => array() ),
+									) ); ?>
+								</svg>
+							</div>
+							<span class="category-card-name"><?php echo esc_html( $cat->name ); ?></span>
+							<span class="category-card-count"><?php echo esc_html( $cat->count ); ?> <?php esc_html_e( 'reviews', 'toolshed-tested' ); ?></span>
+						</a>
+					<?php endforeach; ?>
+				</div>
+			</section>
+		<?php endif; ?>
 
 		<?php
-		// Top Picks Section - pulls highest-rated posts with affiliate links
+		// Top Picks Section
 		$top_picks = get_posts(
 			array(
 				'post_type'      => 'post',
@@ -59,7 +152,6 @@ get_header();
 			)
 		);
 
-		// Fallback: if no rated posts with affiliate URLs, try posts with just a rating
 		if ( empty( $top_picks ) ) {
 			$top_picks = get_posts(
 				array(
@@ -72,11 +164,10 @@ get_header();
 			);
 		}
 
-		// Final fallback: get latest posts, excluding guides/editorial categories
 		if ( empty( $top_picks ) ) {
-			$guides_cat = get_term_by( 'slug', 'guides', 'category' );
+			$guides_cat   = get_term_by( 'slug', 'guides', 'category' );
 			$exclude_cats = $guides_cat ? array( $guides_cat->term_id ) : array();
-			$top_picks = get_posts(
+			$top_picks    = get_posts(
 				array(
 					'post_type'        => 'post',
 					'posts_per_page'   => 3,
@@ -87,16 +178,16 @@ get_header();
 			);
 		}
 
-		// Track top-pick IDs to exclude from subsequent sections
 		$top_pick_ids = ! empty( $top_picks ) ? wp_list_pluck( $top_picks, 'ID' ) : array();
 
 		if ( ! empty( $top_picks ) ) :
-			$badges = array( 'Best Overall', 'Best Value', 'Budget Pick' );
+			$rank_labels = array( '1', '2', '3' );
 			?>
-			<section class="homepage-top-picks">
-				<div class="section-header">
-					<h2><?php esc_html_e( '#1 Picks by Category', 'toolshed-tested' ); ?></h2>
-					<p><?php esc_html_e( 'Our top-rated tools, tested and reviewed by our team.', 'toolshed-tested' ); ?></p>
+			<section id="top-picks" class="homepage-top-picks">
+				<div class="section-header-pro">
+					<h2><?php esc_html_e( 'Editor\'s Top Picks', 'toolshed-tested' ); ?></h2>
+					<div class="section-header-line"></div>
+					<p class="section-subtitle"><?php esc_html_e( 'Our highest-rated tools, tested head-to-head in our workshop.', 'toolshed-tested' ); ?></p>
 				</div>
 
 				<div class="top-picks-grid">
@@ -108,17 +199,19 @@ get_header();
 						$badge_text    = get_post_meta( $pick->ID, '_tst_badge', true );
 						$excerpt       = has_excerpt( $pick ) ? get_the_excerpt( $pick ) : wp_trim_words( $pick->post_content, 15 );
 
-						// Use custom badge or fallback to positional badge
-						if ( empty( $badge_text ) && isset( $badges[ $index ] ) ) {
-							$badge_text = $badges[ $index ];
+						if ( empty( $badge_text ) ) {
+							$default_badges = array( 'Best Overall', 'Runner Up', 'Budget Pick' );
+							$badge_text     = isset( $default_badges[ $index ] ) ? $default_badges[ $index ] : '';
 						}
 
 						$has_affiliate = ! empty( $affiliate_url );
 						$product_url   = $has_affiliate ? tst_get_affiliate_url( $affiliate_url ) : get_permalink( $pick );
 						?>
-						<div class="top-pick-card">
+						<div class="top-pick-card<?php echo 0 === $index ? ' top-pick-featured' : ''; ?>">
+							<div class="top-pick-rank"><?php echo esc_html( $rank_labels[ $index ] ); ?></div>
+
 							<?php if ( ! empty( $badge_text ) ) : ?>
-								<span class="badge badge-<?php echo esc_attr( sanitize_title( $badge_text ) ); ?>">
+								<span class="top-pick-badge badge-<?php echo esc_attr( sanitize_title( $badge_text ) ); ?>">
 									<?php echo esc_html( ucwords( str_replace( '-', ' ', $badge_text ) ) ); ?>
 								</span>
 							<?php endif; ?>
@@ -128,6 +221,12 @@ get_header();
 									<a href="<?php echo esc_url( get_permalink( $pick ) ); ?>">
 										<?php echo get_the_post_thumbnail( $pick, 'tst-product-thumb' ); ?>
 									</a>
+								</div>
+							<?php else : ?>
+								<div class="top-pick-image top-pick-placeholder">
+									<svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24" opacity="0.3">
+										<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+									</svg>
 								</div>
 							<?php endif; ?>
 
@@ -140,22 +239,10 @@ get_header();
 
 								<?php if ( $rating > 0 ) : ?>
 									<div class="top-pick-rating">
-										<?php
-										$full_stars  = floor( $rating );
-										$half_star   = ( $rating - $full_stars ) >= 0.5;
-										$empty_stars = 5 - $full_stars - ( $half_star ? 1 : 0 );
-
-										for ( $i = 0; $i < $full_stars; $i++ ) {
-											echo '<span class="star full">&#9733;</span>';
-										}
-										if ( $half_star ) {
-											echo '<span class="star half">&#9733;</span>';
-										}
-										for ( $i = 0; $i < $empty_stars; $i++ ) {
-											echo '<span class="star empty">&#9734;</span>';
-										}
-										?>
-										<span class="rating-number"><?php echo esc_html( $rating ); ?>/5</span>
+										<div class="rating-bar">
+											<div class="rating-bar-fill" style="width: <?php echo esc_attr( ( $rating / 5 ) * 100 ); ?>%"></div>
+										</div>
+										<span class="rating-score"><?php echo esc_html( $rating ); ?>/5</span>
 									</div>
 								<?php endif; ?>
 
@@ -169,7 +256,9 @@ get_header();
 								<?php endif; ?>
 
 								<?php if ( $price ) : ?>
-									<span class="top-pick-price"><?php echo esc_html( $price ); ?></span>
+									<div class="top-pick-price-row">
+										<span class="top-pick-price"><?php echo esc_html( $price ); ?></span>
+									</div>
 								<?php endif; ?>
 
 								<div class="top-pick-actions">
@@ -178,11 +267,11 @@ get_header();
 										   class="tst-btn tst-btn-amazon affiliate-link"
 										   target="_blank"
 										   rel="nofollow noopener sponsored">
-											<?php esc_html_e( 'Check Price', 'toolshed-tested' ); ?>
+											<?php esc_html_e( 'Check Price on Amazon', 'toolshed-tested' ); ?>
 										</a>
 									<?php endif; ?>
 									<a href="<?php echo esc_url( get_permalink( $pick ) ); ?>" class="tst-btn tst-btn-secondary">
-										<?php esc_html_e( 'Read Review', 'toolshed-tested' ); ?>
+										<?php esc_html_e( 'Full Review', 'toolshed-tested' ); ?>
 									</a>
 								</div>
 							</div>
@@ -193,7 +282,7 @@ get_header();
 		<?php endif; ?>
 
 		<?php
-		// Latest Reviews Section — exclude top picks already shown above
+		// Latest Reviews Section
 		$latest_reviews = get_posts(
 			array(
 				'post_type'      => 'post',
@@ -207,10 +296,11 @@ get_header();
 		if ( ! empty( $latest_reviews ) ) :
 			?>
 			<section class="homepage-latest-reviews">
-				<div class="section-header">
+				<div class="section-header-pro">
 					<h2><?php esc_html_e( 'Latest Reviews', 'toolshed-tested' ); ?></h2>
+					<div class="section-header-line"></div>
 					<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>" class="section-link">
-						<?php esc_html_e( 'View All Reviews →', 'toolshed-tested' ); ?>
+						<?php esc_html_e( 'View All', 'toolshed-tested' ); ?> &rarr;
 					</a>
 				</div>
 
@@ -227,15 +317,21 @@ get_header();
 			</section>
 		<?php endif; ?>
 
-		<?php
-		// "View All" CTA link at the bottom of the page
-		$blog_url = get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' );
-		?>
-		<div style="text-align:center;padding:2rem 0 3rem;">
-			<a href="<?php echo esc_url( $blog_url ); ?>" class="tst-btn tst-btn-secondary">
-				<?php esc_html_e( 'View All Reviews →', 'toolshed-tested' ); ?>
-			</a>
-		</div>
+		<!-- Bottom CTA -->
+		<section class="homepage-bottom-cta">
+			<div class="bottom-cta-inner">
+				<div class="bottom-cta-icon">
+					<svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+						<path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+					</svg>
+				</div>
+				<h2><?php esc_html_e( 'Not Sure Which Tool to Buy?', 'toolshed-tested' ); ?></h2>
+				<p><?php esc_html_e( 'Browse our complete library of hands-on reviews, comparison guides, and buyer\'s guides to find the perfect tool for your project.', 'toolshed-tested' ); ?></p>
+				<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>" class="tst-btn tst-btn-cta">
+					<?php esc_html_e( 'Explore All Reviews', 'toolshed-tested' ); ?>
+				</a>
+			</div>
+		</section>
 	</div>
 </main>
 

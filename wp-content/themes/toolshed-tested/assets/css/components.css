@@ -1687,8 +1687,21 @@
     transform: scale(1.03);
 }
 
-.top-pick-placeholder {
-    color: var(--tst-gray-400);
+/* Top pick cards without images */
+.top-pick-card:not(:has(.top-pick-image)) {
+    border-top: 3px solid var(--tst-primary);
+}
+
+.top-pick-card.top-pick-featured:not(:has(.top-pick-image)) {
+    border-top-color: var(--tst-secondary);
+}
+
+.top-pick-card:not(:has(.top-pick-image)) .top-pick-content {
+    padding-top: 2.5rem;
+}
+
+.top-pick-card:not(:has(.top-pick-image)) .top-pick-title {
+    font-size: 1.15rem;
 }
 
 .top-pick-content {

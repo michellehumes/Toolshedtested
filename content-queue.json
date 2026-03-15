@@ -15,11 +15,6 @@
   },
   "queue": [
     {
-      "keyword": "bench grinder wheel types",
-      "category": "grinders",
-      "priority": "medium"
-    },
-    {
       "keyword": "oscillating tool uses",
       "category": "power-tools",
       "priority": "high"

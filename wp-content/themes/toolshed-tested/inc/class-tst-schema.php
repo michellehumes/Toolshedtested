@@ -25,6 +25,7 @@ class TST_Schema {
         add_action( 'wp_head', array( $this, 'output_breadcrumb_schema' ) );
         add_action( 'wp_head', array( $this, 'output_faq_schema' ) );
         add_action( 'wp_head', array( $this, 'output_article_schema' ) );
+        add_action( 'wp_head', array( $this, 'output_itemlist_schema' ) );
     }
 
     /**
@@ -106,7 +107,31 @@ class TST_Schema {
             'item'     => home_url(),
         );
 
-        if ( is_singular( 'product_review' ) ) {
+        if ( is_page() && ! is_front_page() ) {
+            $position++;
+            $items[] = array(
+                '@type'    => 'ListItem',
+                'position' => $position,
+                'name'     => get_the_title(),
+                'item'     => get_permalink(),
+            );
+        } elseif ( is_search() ) {
+            $position++;
+            $items[] = array(
+                '@type'    => 'ListItem',
+                'position' => $position,
+                'name'     => __( 'Search Results', 'toolshed-tested' ),
+                'item'     => get_search_link(),
+            );
+        } elseif ( is_category() ) {
+            $position++;
+            $items[] = array(
+                '@type'    => 'ListItem',
+                'position' => $position,
+                'name'     => single_cat_title( '', false ),
+                'item'     => get_category_link( get_queried_object_id() ),
+            );
+        } elseif ( is_singular( 'product_review' ) ) {
             $position++;
 
             // Reviews archive
@@ -273,12 +298,20 @@ class TST_Schema {
             'author'        => array(
                 '@type' => 'Person',
                 'name'  => get_the_author(),
+                'url'   => get_author_posts_url( get_the_author_meta( 'ID' ) ),
             ),
             'publisher'     => array(
                 '@type' => 'Organization',
                 'name'  => get_bloginfo( 'name' ),
+                'url'   => home_url(),
             ),
         );
+
+        // Add author image if available
+        $author_email = get_the_author_meta( 'user_email' );
+        if ( $author_email ) {
+            $schema['author']['image'] = get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 96 ) );
+        }
 
         if ( $image_url ) {
             $schema['image'] = $image_url;
@@ -294,23 +327,116 @@ class TST_Schema {
                 'bestRating'  => 5,
                 'worstRating' => 1,
             );
-            $schema['itemReviewed'] = array(
-                '@type'       => 'Product',
-                'name'        => get_the_title(),
+
+            // Build proper Product schema for itemReviewed
+            $product_schema = array(
+                '@type' => 'Product',
+                'name'  => get_the_title(),
             );
+
+            if ( $image_url ) {
+                $product_schema['image'] = $image_url;
+            }
+
+            // Add brand if available from content
+            $brands = get_the_terms( $post_id, 'product_brand' );
+            if ( $brands && ! is_wp_error( $brands ) ) {
+                $product_schema['brand'] = array(
+                    '@type' => 'Brand',
+                    'name'  => $brands[0]->name,
+                );
+            }
 
             $price = get_post_meta( $post_id, '_tst_price', true );
             if ( $price ) {
                 $price_value = preg_replace( '/[^0-9.]/', '', $price );
                 if ( $price_value ) {
-                    $schema['itemReviewed']['offers'] = array(
+                    $product_schema['offers'] = array(
                         '@type'         => 'Offer',
                         'price'         => $price_value,
                         'priceCurrency' => 'USD',
+                        'availability'  => 'https://schema.org/InStock',
                     );
                 }
             }
+
+            $schema['itemReviewed'] = $product_schema;
         }
+
+        echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
+    }
+
+    /**
+     * Output ItemList schema for roundup/best-of posts
+     */
+    public function output_itemlist_schema() {
+        if ( ! is_singular( 'post' ) ) {
+            return;
+        }
+
+        $post_id = get_the_ID();
+        $content = get_the_content();
+
+        // Only add ItemList to roundup posts (titles starting with "Best" or containing "Top Picks")
+        $title = get_the_title();
+        if ( stripos( $title, 'best ' ) !== 0 && stripos( $title, 'top ' ) !== 0 ) {
+            return;
+        }
+
+        // Find all Amazon product links in the content to build the list
+        preg_match_all( '/href=["\']([^"\']*amazon\.[^"\']*)["\']/', $content, $matches );
+
+        if ( empty( $matches[1] ) ) {
+            return;
+        }
+
+        // Find H3 headings (individual product names) to pair with links
+        preg_match_all( '/<h[23][^>]*>(.*?)<\/h[23]>/i', $content, $heading_matches );
+
+        $items = array();
+        $position = 1;
+        $seen_urls = array();
+
+        foreach ( $matches[1] as $url ) {
+            // Deduplicate URLs
+            $parsed = wp_parse_url( $url );
+            $path = isset( $parsed['path'] ) ? $parsed['path'] : '';
+            if ( isset( $seen_urls[ $path ] ) ) {
+                continue;
+            }
+            $seen_urls[ $path ] = true;
+
+            $item = array(
+                '@type'    => 'ListItem',
+                'position' => $position,
+                'url'      => get_permalink(),
+            );
+
+            // Try to match a heading for this position
+            if ( isset( $heading_matches[1][ $position - 1 ] ) ) {
+                $item['name'] = wp_strip_all_tags( $heading_matches[1][ $position - 1 ] );
+            }
+
+            $items[] = $item;
+            $position++;
+
+            if ( $position > 15 ) {
+                break; // Cap at 15 items
+            }
+        }
+
+        if ( count( $items ) < 2 ) {
+            return;
+        }
+
+        $schema = array(
+            '@context'        => 'https://schema.org',
+            '@type'           => 'ItemList',
+            'name'            => get_the_title(),
+            'description'     => has_excerpt() ? get_the_excerpt() : wp_trim_words( get_the_content(), 30 ),
+            'numberOfItems'   => count( $items ),
+            'itemListElement' => $items,
+        );
 
         echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
     }

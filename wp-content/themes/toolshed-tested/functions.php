@@ -127,20 +127,12 @@ add_action( 'after_setup_theme', 'tst_theme_setup' );
  * Enqueue Scripts and Styles
  */
 function tst_enqueue_assets() {
-    // Google Fonts - Preconnect
+    // Self-hosted fonts (faster than Google Fonts CDN)
     wp_enqueue_style(
-        'tst-google-fonts-preconnect',
-        'https://fonts.googleapis.com',
+        'tst-fonts',
+        TST_THEME_URI . '/assets/css/fonts.css',
         array(),
-        null
-    );
-
-    // Enqueue Google Fonts
-    wp_enqueue_style(
-        'tst-google-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap',
-        array(),
-        null
+        TST_VERSION
     );
 
     // Main stylesheet
@@ -448,22 +440,13 @@ function tst_register_product_meta() {
 add_action( 'init', 'tst_register_product_meta' );
 
 /**
- * Add Preload for Critical Resources
+ * Preload critical font files for faster rendering
  */
-function tst_add_resource_hints( $urls, $relation_type ) {
-    if ( 'preconnect' === $relation_type ) {
-        $urls[] = array(
-            'href' => 'https://fonts.googleapis.com',
-            'crossorigin',
-        );
-        $urls[] = array(
-            'href' => 'https://fonts.gstatic.com',
-            'crossorigin',
-        );
-    }
-    return $urls;
+function tst_preload_fonts() {
+    echo '<link rel="preload" href="' . esc_url( TST_THEME_URI . '/assets/fonts/inter-400.ttf' ) . '" as="font" type="font/ttf" crossorigin>' . "\n";
+    echo '<link rel="preload" href="' . esc_url( TST_THEME_URI . '/assets/fonts/montserrat-700.ttf' ) . '" as="font" type="font/ttf" crossorigin>' . "\n";
 }
-add_filter( 'wp_resource_hints', 'tst_add_resource_hints', 10, 2 );
+add_action( 'wp_head', 'tst_preload_fonts', 1 );
 
 /**
  * Add async/defer to scripts for performance
@@ -671,18 +654,93 @@ add_action( 'wp_ajax_tst_track_click', 'tst_track_affiliate_click' );
 add_action( 'wp_ajax_nopriv_tst_track_click', 'tst_track_affiliate_click' );
 
 /**
- * Redirect /disclosure/ to /affiliate-disclosure/
+ * Handle 301 redirects for duplicate/consolidated content
+ *
+ * Redirects duplicate posts to canonical versions and /disclosure/ to /affiliate-disclosure/.
  */
-function tst_disclosure_redirect() {
-    if ( is_404() ) {
-        global $wp;
-        if ( $wp->request === 'disclosure' ) {
-            wp_redirect( home_url( '/affiliate-disclosure/' ), 301 );
-            exit;
-        }
+function tst_content_redirects() {
+    if ( is_admin() ) {
+        return;
+    }
+
+    global $wp;
+    $request = trim( $wp->request, '/' );
+
+    // Redirect map: old slug => canonical slug
+    $redirect_map = array(
+        // Duplicate cordless drill posts -> keep best one
+        'cordless-drills-26'                                                              => 'best-cordless-drills-2026-7-top-picks-tested-for-power-precision',
+        'best-cordless-drills-2026-7-top-picks-tested-for-power-speed-and-runtime'       => 'best-cordless-drills-2026-7-top-picks-tested-for-power-precision',
+        'best-cordless-drills-of-2026-hands-on-roundup-and-buyers-guide'                  => 'best-cordless-drills-2026-7-top-picks-tested-for-power-precision',
+
+        // Duplicate impact driver posts
+        'impact-drivers-50'                                                               => 'best-impact-drivers-2026-top-6-picks-for-torque-speed-value',
+
+        // Duplicate lawn mower posts
+        'best-battery-powered-lawn-mowers-50'                                             => 'best-battery-powered-lawn-mowers-2026-49',
+        'lawn-mowers-50'                                                                  => 'best-battery-powered-lawn-mowers-2026-49',
+
+        // Duplicate angle grinder posts
+        'angle-grinders-50'                                                               => 'best-cordless-angle-grinders-2026-5-tested-for-power-safety-runtime',
+        'best-angle-grinders-2026-7-models-tested-for-grinding-cutting-and-polishing'     => 'best-cordless-angle-grinders-2026-5-tested-for-power-safety-runtime',
+
+        // Duplicate chainsaw posts
+        'chainsaws-50'                                                                    => 'best-chainsaws-2026-7-models-tested-for-power-safety-and-reliability',
+        'best-battery-chainsaws-50'                                                       => 'best-chainsaws-2026-7-models-tested-for-power-safety-and-reliability',
+
+        // Duplicate circular saw posts
+        'circular-saws-50'                                                                => 'best-circular-saws-2026-6-models-tested-for-cutting-speed-accuracy',
+
+        // Duplicate impact wrench posts
+        'best-impact-wrenches-2026-7-tested-for-torque-speed-and-reliability'             => 'best-cordless-impact-wrenches-2026',
+
+        // Duplicate combo kit posts
+        'best-cordless-tool-combo-kits-2026-7-kits-tested-for-value-power-and-versatility' => 'best-power-tool-combo-kits-2026',
+
+        // Duplicate reciprocating saw posts
+        'reciprocating-saws-50'                                                           => 'best-reciprocating-saws-2026',
+
+        // Duplicate sander posts
+        'random-orbital-sanders-50'                                                       => 'best-random-orbital-sanders-2026-7-models-tested-for-smooth-swirl-free-results',
+
+        // Other -50 suffix duplicates
+        'miter-saws-50'                                                                   => 'best-miter-saws-2026',
+        'table-saws-50'                                                                   => 'best-table-saws-2026',
+        'oscillating-multi-tools-50'                                                      => 'best-oscillating-multi-tools-2026',
+        'best-cordless-leaf-blowers-50'                                                   => 'best-leaf-vacuum-mulchers-2026',
+        'leaf-blowers-50'                                                                 => 'best-leaf-vacuum-mulchers-2026',
+        'portable-generators-50'                                                          => 'best-inverter-generators-50',
+        'pressure-washers-50'                                                             => 'best-electric-pressure-washers-50',
+
+        // Disclosure redirect
+        'disclosure'                                                                      => 'affiliate-disclosure',
+    );
+
+    if ( isset( $redirect_map[ $request ] ) ) {
+        wp_safe_redirect( home_url( '/' . $redirect_map[ $request ] . '/' ), 301 );
+        exit;
+    }
+
+    // Category redirects (after merging overlapping categories)
+    $category_redirects = array(
+        'category/outdoor'          => 'category/outdoor-tools',
+        'category/lawn-and-garden'  => 'category/outdoor-tools',
+        'category/guides'           => 'category/buying-guides',
+        'category/home-improvement' => 'category/buying-guides',
+        'category/leaf-vacuums'     => 'category/outdoor-tools',
+        'category/wood-chippers'    => 'category/outdoor-tools',
+        'category/log-splitters'    => 'category/outdoor-tools',
+        'category/tillers'          => 'category/outdoor-tools',
+        'category/pole-saws'        => 'category/outdoor-tools',
+        'category/shop-vacs'        => 'category/workshop',
+    );
+
+    if ( isset( $category_redirects[ $request ] ) ) {
+        wp_safe_redirect( home_url( '/' . $category_redirects[ $request ] . '/' ), 301 );
+        exit;
     }
 }
-add_action( 'template_redirect', 'tst_disclosure_redirect' );
+add_action( 'template_redirect', 'tst_content_redirects' );
 
 /**
  * Enqueue email popup script

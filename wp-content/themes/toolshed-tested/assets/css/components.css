@@ -1735,6 +1735,69 @@
 }
 
 /* ==========================================================================
+   Updated Date Badge
+   ========================================================================== */
+.updated-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: var(--tst-primary);
+    color: var(--tst-white);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--tst-radius-full);
+    font-size: var(--tst-text-xs);
+    font-weight: 600;
+}
+
+.updated-date time {
+    color: inherit;
+}
+
+/* ==========================================================================
+   How We Test Link
+   ========================================================================== */
+.entry-meta-links {
+    margin-top: var(--tst-spacing-sm);
+}
+
+.how-we-test-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--tst-primary);
+    font-size: var(--tst-text-sm);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px dashed var(--tst-primary-light);
+    padding-bottom: 1px;
+    transition: color var(--tst-transition-fast);
+}
+
+.how-we-test-link:hover {
+    color: var(--tst-primary-dark);
+    border-bottom-style: solid;
+}
+
+/* ==========================================================================
+   Improved Affiliate Disclosure
+   ========================================================================== */
+.affiliate-disclosure {
+    background: var(--tst-gray-100);
+    border-left: 3px solid var(--tst-secondary);
+    padding: var(--tst-spacing-sm) var(--tst-spacing-md);
+    margin-bottom: var(--tst-spacing-lg);
+    font-size: var(--tst-text-sm);
+    color: var(--tst-gray-700);
+    border-radius: 0 var(--tst-radius-sm) var(--tst-radius-sm) 0;
+}
+
+.affiliate-disclosure a {
+    color: var(--tst-primary);
+    font-weight: 500;
+    margin-left: 0.25rem;
+}
+
+/* ==========================================================================
    Print Styles for New Components
    ========================================================================== */
 @media print {

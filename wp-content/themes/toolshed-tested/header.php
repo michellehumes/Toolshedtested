@@ -104,7 +104,7 @@
     </div>
 </header>
 
-<?php if ( is_singular( 'product_review' ) || is_singular( 'post' ) || is_tax( 'product_category' ) || is_tax( 'product_brand' ) || is_post_type_archive( 'product_review' ) || is_category() || is_archive() ) : ?>
+<?php if ( ! is_front_page() ) : ?>
     <nav class="breadcrumbs" aria-label="<?php esc_attr_e( 'Breadcrumb', 'toolshed-tested' ); ?>">
         <div class="tst-container">
             <?php tst_breadcrumbs(); ?>

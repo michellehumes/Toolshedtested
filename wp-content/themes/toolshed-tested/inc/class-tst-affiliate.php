@@ -56,9 +56,16 @@ class TST_Affiliate {
      * @return string Modified content.
      */
     public function process_affiliate_links( $content ) {
-        // Add nofollow to Amazon links
+        // Add nofollow to Amazon links (amazon.com, amazon.co.uk, amzn.to, etc.)
         $content = preg_replace_callback(
-            '/<a([^>]*href=["\']https?:\/\/(www\.)?amazon\.[^"\']+["\'][^>]*)>/i',
+            '/<a([^>]*href=["\']https?:\/\/(www\.)?(amazon\.[a-z.]+|amzn\.to|amzn\.com)[^"\']*["\'][^>]*)>/i',
+            array( $this, 'add_affiliate_attributes' ),
+            $content
+        );
+
+        // Also process Home Depot and Lowe's affiliate links
+        $content = preg_replace_callback(
+            '/<a([^>]*href=["\']https?:\/\/(www\.)?(homedepot\.com|lowes\.com|acmetools\.com)[^"\']*["\'][^>]*)>/i',
             array( $this, 'add_affiliate_attributes' ),
             $content
         );
